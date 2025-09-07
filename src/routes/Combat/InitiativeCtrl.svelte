@@ -3,12 +3,14 @@
     import { getContext } from "svelte";
 
     let stats = getContext("stats");
+
+    let modifier = $derived(score2modifier(stats.scores.dex))
 </script>
 
 <span
     id=initiative
 >
-    {score2modifier(stats.scores.dex)}
+    {modifier >= 0 ? `+${modifier}` : `${modifier}`}
 </span>
 
 <style>
