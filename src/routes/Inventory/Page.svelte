@@ -34,7 +34,9 @@
 
 <style>
     .page {
-        padding: .5rem;
+        margin: auto;
+        max-width: 20cm;
+        padding: 1rem;
     }
     .items-list {
         display: flex;

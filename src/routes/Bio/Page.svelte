@@ -79,6 +79,8 @@
 
 <style>
     .page {
+        margin: auto;
+        max-width: 20cm;
         padding: 1rem;
     }
     .header {
