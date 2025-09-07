@@ -141,6 +141,7 @@
         flex-direction: column;
         align-items: stretch;
         gap: .25rem;
+        margin: 1rem 0;
     }
     .health-label {
         display: grid;

@@ -586,5 +586,8 @@
                 "equipped": false
             }
         ]
+    },
+    "proficiencies": {
+        "weapons": ["simple"]
     }
 }

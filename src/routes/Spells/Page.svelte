@@ -36,15 +36,11 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        padding-top: 1rem;
-    }
-    .level-header h2 {
-        margin: 0;
     }
 
     .spell-list {
         display: flex;
         flex-direction: column;
-        padding: 1rem 0;
+        margin-bottom: 2rem;
     }
 </style>

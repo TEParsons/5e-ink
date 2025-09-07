@@ -3,7 +3,10 @@
     import HealthCtrl from "./HealthCtrl.svelte";
     import ArmourCtrl from "./ArmourCtrl.svelte";
     import MovementCtrl from "./MovementCtrl.svelte";
-    import InitiativeCtrl from "./InitiativeCtrl.svelte"
+    import InitiativeCtrl from "./InitiativeCtrl.svelte";
+    import ActionsCtrl from "./ActionsCtrl.svelte";
+    import BonusActionsCtrl from "./BonusActionsCtrl.svelte";
+    import ReactionsCtrl from "./ReactionsCtrl.svelte";
 
     let stats = getContext("stats")
 </script>
@@ -31,12 +34,20 @@
     </div>
     
     <HealthCtrl />
+
+    <h3>Actions</h3>
+    <ActionsCtrl />
+
+    <h3>Bonus Actions</h3>
+    <BonusActionsCtrl />
+
+    <h3>Reactions</h3>
+    <ReactionsCtrl />
 </div>
 
 <style>
     .page {
         display: grid;
-        gap: 1rem;
         margin: auto;
         max-width: 20cm;
         padding: 1rem;

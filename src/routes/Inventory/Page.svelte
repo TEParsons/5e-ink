@@ -36,14 +36,10 @@
     .page {
         padding: .5rem;
     }
-    h2 {
-        margin-bottom: .5rem;
-    }
     .items-list {
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        padding: .5rem;
         border: 1px solid transparent;
         border-radius: .5rem;
     }
