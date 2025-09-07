@@ -61,8 +61,9 @@
         background-color: var(--base);
         border-radius: 0;
         min-width: 50vw;
-        
+        max-width: calc(100vw - 2rem);
         padding: 1rem;
+        box-sizing: border-box;
     }
 
     .dialog-content {
