@@ -1,0 +1,500 @@
+{
+    "species": "dwarf",
+    "levels": {
+        "druid": 7
+    },
+    "health": {
+        "total": {
+            "rolls": [
+                2,
+                1,
+                7,
+                2,
+                3,
+                1
+            ],
+            "modifiers": {
+                "hilldwarf": true,
+                "tough": false
+            }
+        },
+        "current": 24 
+    },
+    "scores": {
+        "str": 9,
+        "con": 13,
+        "dex": 16,
+        "int": 15,
+        "wis": 16,
+        "chr": 16
+    },
+    "saves": {
+        "str": 0,
+        "con": 0,
+        "dex": 0,
+        "int": 1,
+        "wis": 1,
+        "chr": 0
+    },
+    "skills": {
+        "athletics": 0,
+        "acrobatics": 0,
+        "sleightOfHand": 0,
+        "stealth": 0,
+        "arcana": 1,
+        "history": 1,
+        "investigation": 0,
+        "nature": 1,
+        "religion": 0,
+        "animalHandling": 0,
+        "insight": 0,
+        "medicine": 0,
+        "perception": 1,
+        "survival": 0,
+        "deception": 0,
+        "intimidation": 0,
+        "performance": 0,
+        "persuasion": 0
+    },
+    "spells": {
+        "cantrips": {
+            "spells": [
+                {
+                    "name": "Gust",
+                    "level": "Cantrip",
+                    "time": "1 Action",
+                    "range": "30 ft.",
+                    "components": [
+                        "V",
+                        "S"
+                    ],
+                    "duration": "Instantaneous",
+                    "school": "Transmutation",
+                    "attack": "STR Save",
+                    "effect": "Control",
+                    "description": "You seize the air and compel it to create one of the following effects at a point you can see within range:\n\\n"
+                },
+                {
+                    "name": "Magic Stone",
+                    "level": "Cantrip",
+                    "time": "1 Bonus Action",
+                    "range": "Touch",
+                    "components": [
+                        "V",
+                        "S"
+                    ],
+                    "duration": "1 Minute",
+                    "school": "Transmutation",
+                    "attack": "Ranged",
+                    "effect": "",
+                    "description": "You touch one to three pebbles and imbue them with magic. You or someone else can make a ranged spell attack with one of the pebbles by throwing it or hurling it with a sling. If thrown, it has a range of 60 feet. If someone else attacks with the pebble, that attacker adds your spellcasting ability modifier, not the attacker\\xe2\\x80\\x99s, to the attack roll. On a hit, the target takes bludgeoning damage equal to 1d6 + your spellcasting ability modifier. Hit or miss, the spell then ends on the stone.\nIf you cast this spell again, the spell ends early on any pebbles still affected by it."
+                },
+                {
+                    "name": "Poison Spray",
+                    "level": "Cantrip",
+                    "time": "1 Action",
+                    "range": "10 ft.",
+                    "components": [
+                        "V",
+                        "S"
+                    ],
+                    "duration": "Instantaneous",
+                    "school": "Conjuration",
+                    "attack": "CON Save",
+                    "effect": "",
+                    "description": "You extend your hand toward a creature you can see within range and project a puff of noxious gas from your palm. The creature must succeed on a Constitution saving throw or take 1d12 poison damage.\nThis spell's damage increases by 1d12 when you reach 5th level (2d12), 11th level (3d12), and 17th level (4d12)."
+                },
+                {
+                    "name": "Shillelagh",
+                    "level": "Cantrip",
+                    "time": "1 Bonus Action",
+                    "range": "Touch",
+                    "components": [
+                        "V",
+                        "S",
+                        "M *"
+                    ],
+                    "duration": "1 Minute",
+                    "school": "Transmutation",
+                    "attack": "Melee",
+                    "effect": "",
+                    "description": "The wood of a club or quarterstaff you are holding is imbued with nature's power. For the duration, you can use your spellcasting ability instead of Strength for the attack and damage rolls of melee attacks using that weapon, and the weapon's damage die becomes a d8. The weapon also becomes magical, if it isn't already. The spell ends if you cast it again or if you let go of the weapon.\n* - (mistletoe, a shamrock leaf, and a club or quarterstaff)"
+                }
+            ]
+        },
+        "first": {
+            "slots": {
+                "current": 3,
+                "total": 4
+            },
+            "spells": [
+                {
+                    "name": "Cure Wounds",
+                    "level": "1st",
+                    "time": "1 Action",
+                    "range": "Touch",
+                    "components": [
+                        "V",
+                        "S"
+                    ],
+                    "duration": "Instantaneous",
+                    "school": "Evocation",
+                    "attack": "None",
+                    "effect": "Healing",
+                    "description": "A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier. This spell has no effect on undead or constructs.\nNone"
+                },
+                {
+                    "name": "Detect Poison and Disease",
+                    "level": "1st",
+                    "time": "1 Action",
+                    "range": "Self",
+                    "components": [
+                        "V",
+                        "S",
+                        "M *"
+                    ],
+                    "duration": "Concentration",
+                    "school": "Divination",
+                    "attack": "None",
+                    "effect": "Detection",
+                    "description": "For the duration, you can sense the presence and location of poisons, poisonous creatures, and diseases within 30 feet of you. You also identify the kind of poison, poisonous creature, or disease in each case.\nThe spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.\n* - (a yew leaf)"
+                },
+                {
+                    "name": "Fog Cloud",
+                    "level": "1st",
+                    "time": "1 Action",
+                    "range": "120 ft.",
+                    "components": [
+                        "V",
+                        "S"
+                    ],
+                    "duration": "Concentration",
+                    "school": "Conjuration",
+                    "attack": "None",
+                    "effect": "Control (...)",
+                    "description": "You create a 20-foot-radius sphere of fog centered on a point within range. The sphere spreads around corners, and its area is heavily obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.\nNone"
+                }
+            ]
+        },
+        "second": {
+            "slots": {
+                "current": 2,
+                "total": 3
+            },
+            "spells": [
+                {
+                    "name": "Heat Metal",
+                    "level": "2nd",
+                    "time": "1 Action",
+                    "range": "60 ft.",
+                    "components": [
+                        "V",
+                        "S",
+                        "M *"
+                    ],
+                    "duration": "Concentration",
+                    "school": "Transmutation",
+                    "attack": "None",
+                    "effect": "",
+                    "description": "Choose a manufactured metal object, such as a metal weapon or a suit of heavy or medium metal armor, that you can see within range. You cause the object to glow red-hot. Any creature in physical contact with the object takes 2d8 fire damage when you cast the spell. Until the spell ends, you can use a bonus action on each of your subsequent turns to cause this damage again.\nIf a creature is holding or wearing the object and takes the damage from it, the creature must succeed on a Constitution saving throw or drop the object if it can. If it doesn\\xe2\\x80\\x99t drop the object, it has disadvantage on attack rolls and ability checks until the start of your next turn.\nNone\n* - (a piece of iron and a flame)"
+                },
+                {
+                    "name": "Pass without Trace",
+                    "level": "2nd",
+                    "time": "1 Action",
+                    "range": "Self",
+                    "components": [
+                        "V",
+                        "S",
+                        "M *"
+                    ],
+                    "duration": "Concentration",
+                    "school": "Abjuration",
+                    "attack": "None",
+                    "effect": "Buff (...)",
+                    "description": "A veil of shadows and silence radiates from you, masking you and your companions from detection. For the duration, each creature you choose within 30 feet of you (including you) has a +10 bonus to Dexterity (\n* - (ashes from a burned leaf of mistletoe and a sprig of spruce)"
+                },
+                {
+                    "name": "Spider Climb",
+                    "level": "2nd",
+                    "time": "1 Action",
+                    "range": "Touch",
+                    "components": [
+                        "V",
+                        "S",
+                        "M *"
+                    ],
+                    "duration": "Concentration",
+                    "school": "Transmutation",
+                    "attack": "None",
+                    "effect": "Buff (...)",
+                    "description": "Until the spell ends, one willing creature you touch gains the ability to move up, down, and across vertical surfaces and upside down along ceilings, while leaving its hands free. The target also gains a climbing speed equal to its walking speed.\n* - (a drop of bitumen and a spider)"
+                },
+                {
+                    "name": "Spike Growth",
+                    "level": "2nd",
+                    "time": "1 Action",
+                    "range": "150 ft.",
+                    "components": [
+                        "V",
+                        "S",
+                        "M *"
+                    ],
+                    "duration": "Concentration",
+                    "school": "Transmutation",
+                    "attack": "None",
+                    "effect": "Control (...)",
+                    "description": "The ground in a 20-foot radius centered on a point within range twists and sprouts hard spikes and thorns. The area becomes \nThe transformation of the ground is camouflaged to look natural. Any creature that can't see the area at the time the spell is cast must make a Wisdom (\n* - (seven sharp thorns or seven small twigs, each sharpened to a point)"
+                },
+                {
+                    "name": "Warding Wind",
+                    "level": "2nd",
+                    "time": "1 Action",
+                    "range": "Self",
+                    "components": [
+                        "V"
+                    ],
+                    "duration": "Concentration",
+                    "school": "Evocation",
+                    "attack": "None",
+                    "effect": "",
+                    "description": "A strong wind (20 miles per hour) blows around you in a 10-foot radius and moves with you, remaining centered on you. The wind lasts for the spell\\xe2\\x80\\x99s duration.\nThe wind has the following effects:\n\\n"
+                }
+            ]
+        },
+        "third": {
+            "slots": {
+                "current": 0,
+                "total": 3
+            },
+            "spells": [
+                {
+                    "name": "Conjure Animals",
+                    "level": "3rd",
+                    "time": "1 Action",
+                    "range": "60 ft.",
+                    "components": [
+                        "V",
+                        "S"
+                    ],
+                    "duration": "Concentration",
+                    "school": "Conjuration",
+                    "attack": "None",
+                    "effect": "Summoning",
+                    "description": "You summon fey spirits that take the form of beasts and appear in unoccupied spaces that you can see within range. Choose one of the following options for what appears:\n\\n\nEach beast is also considered fey, and it disappears when it drops to 0 hit points or when the spell ends.\nThe summoned creatures are friendly to you and your companions. Roll initiative for the summoned creatures as a group, which has its own turns. They obey any verbal commands that you issue to them (no action required by you). If you don't issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions.\nThe GM has the creatures' statistics. Sample creatures can be found below.\nNone\nNone\n\\n"
+                },
+                {
+                    "name": "Erupting Earth",
+                    "level": "3rd",
+                    "time": "1 Action",
+                    "range": "120 ft.",
+                    "components": [
+                        "V",
+                        "S",
+                        "M *"
+                    ],
+                    "duration": "Instantaneous",
+                    "school": "Transmutation",
+                    "attack": "DEX Save",
+                    "effect": "",
+                    "description": "Choose a point you can see on the ground within range. A fountain of churned earth and stone erupts in a 20-foot cube centered on that point. Each creature in that area must make a Dexterity saving throw. A creature takes 3d12 bludgeoning damage on a failed save, or half as much damage on a successful one. Additionally, the ground in that area becomes difficult terrain until cleared. Each 5-foot-square portion of the area requires at least 1 minute to clear by hand.\nNone\n* - (a piece of obsidian)"
+                },
+                {
+                    "name": "Lightning Bolt",
+                    "level": "3rd",
+                    "time": "1 Action",
+                    "range": "Self",
+                    "components": [
+                        "V",
+                        "S",
+                        "M *"
+                    ],
+                    "duration": "Instantaneous",
+                    "school": "Evocation",
+                    "attack": "DEX Save",
+                    "effect": "",
+                    "description": "A stroke of lightning forming a line 100 feet long and 5 feet wide blasts out from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes 8d6 lightning damage on a failed save, or half as much damage on a successful one.\nThe lightning ignites flammable objects in the area that aren't being worn or carried.\nNone\n* - (a bit of fur and a rod of amber, crystal, or glass)"
+                },
+                {
+                    "name": "Meld into Stone",
+                    "level": "3rd",
+                    "time": "1 Action",
+                    "range": "Touch",
+                    "components": [
+                        "V",
+                        "S"
+                    ],
+                    "duration": "8 Hours",
+                    "school": "Transmutation",
+                    "attack": "None",
+                    "effect": "Movement",
+                    "description": "You step into a stone object or surface large enough to fully contain your body, melding yourself and all the equipment you carry with the stone for the duration. Using your movement, you step into the stone at a point you can touch. Nothing of your presence remains visible or otherwise detectable by nonmagical senses.\nWhile merged with the stone, you can't see what occurs outside it, and any Wisdom (\nMinor physical damage to the stone doesn't harm you, but its partial destruction or a change in its shape (to the extent that you no longer fit within it) expels you and deals 6d6 bludgeoning damage to you. The stone's complete destruction (or transmutation into a different substance) expels you and deals 50 bludgeoning damage to you. If expelled, you fall "
+                },
+                {
+                    "name": "Wind Wall",
+                    "level": "3rd",
+                    "time": "1 Action",
+                    "range": "120 ft.",
+                    "components": [
+                        "V",
+                        "S",
+                        "M *"
+                    ],
+                    "duration": "Concentration",
+                    "school": "Evocation",
+                    "attack": "STR Save",
+                    "effect": "",
+                    "description": "A wall of strong wind rises from the ground at a point you choose within range. You can make the wall up to 50 feet long, 15 feet high, and 1 foot thick. You can shape the wall in any way you choose so long as it makes one continuous path along the ground. The wall lasts for the duration.\nWhen the wall appears, each creature within its area must make a Strength saving throw. A creature takes 3d8 bludgeoning damage on a failed save, or half as much damage on a successful one.\nThe strong wind keeps fog, smoke, and other gases at bay. Small or smaller flying creatures or objects can't pass through the wall. Loose, lightweight materials brought into the wall fly upward. Arrows, bolts, and other ordinary projectiles launched at targets behind the wall are deflected upward and automatically miss. (Boulders hurled by giants or siege engines, and similar projectiles, are unaffected.) Creatures in gaseous form can't pass through it.\n* - (a tiny fan and a feather of exotic origin)"
+                }
+            ]
+        },
+        "fourth": {
+            "slots": {
+                "current": 0,
+                "total": 1
+            },
+            "spells": [
+                {
+                    "name": "Stone Shape",
+                    "level": "4th",
+                    "time": "1 Action",
+                    "range": "Touch",
+                    "components": [
+                        "V",
+                        "S",
+                        "M *"
+                    ],
+                    "duration": "Instantaneous",
+                    "school": "Transmutation",
+                    "attack": "None",
+                    "effect": "Control",
+                    "description": "You touch a stone object of Medium size or smaller or a section of stone no more than 5 feet in any dimension and form it into any shape that suits your purpose. So, for example, you could shape a large rock into a weapon, idol, or coffer, or make a small passage through a wall, as long as the wall is less than 5 feet thick. You could also shape a stone door or its frame to seal the door shut. The object you create can have up to two hinges and a latch, but finer mechanical detail isn't possible.\n* - (soft clay, which must be worked into roughly the desired shape of the stone object)"
+                },
+                {
+                    "name": "Stoneskin",
+                    "level": "4th",
+                    "time": "1 Action",
+                    "range": "Touch",
+                    "components": [
+                        "V",
+                        "S",
+                        "M *"
+                    ],
+                    "duration": "Concentration",
+                    "school": "Abjuration",
+                    "attack": "None",
+                    "effect": "Buff",
+                    "description": "This spell turns the flesh of a willing creature you touch as hard as stone. Until the spell ends, the target has resistance to nonmagical bludgeoning, piercing, and slashing damage.\n* - (diamond dust worth 100 gp, which the spell consumes)"
+                }
+            ]
+        }
+    },
+    "inventory": {
+        "currency": {
+            "platinum": 0,
+            "gold": 311,
+            "electrum": 0,
+            "silver": 1,
+            "copper": 6
+        },
+        "items": [
+            {
+                "name": "Elven chain shirt",
+                "type": "armour",
+                "weight": 20,
+                "cost": null,
+                "description": "You gain a +1 bonus to AC while you wear this armor. You are considered proficient with this armor even if you lack proficiency with medium armor.",
+                "equipped": true,
+                "params": {
+                    "armourtype": "chainshirt",
+                    "bonus": 1
+                }
+            },
+            {
+                "name": "Leather armour",
+                "type": "armour",
+                "weight": 10,
+                "cost": null,
+                "description": "The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.",
+                "equipped": false,
+                "params": {
+                    "armourtype": "leather"
+                }
+            },
+            {
+                "name": "Clothes",
+                "type": "clothing",
+                "weight": null,
+                "cost": null,
+                "description": "This set of clothes could consist of a loose shirt and baggy breeches, or a loose shirt and skirt or overdress. Cloth wrappings are used for shoes.",
+                "equipped": true
+            },
+            {
+                "name": "Boots of false tracks",
+                "type": "clothing",
+                "weight": null,
+                "cost": null,
+                "description": "Leaves tracks of any medium humanoid.",
+                "equipped": true
+            },
+            {
+                "name": "Sling",
+                "type": "weapon",
+                "weight": null,
+                "cost": "1sp",
+                "description": "Proficiency with a Sling allows you to add your proficiency bonus to the attack roll for any attack you make with it.",
+                "equipped": true,
+                "params": {
+                    "weapontype": "simple",
+                    "attacktype": "ranged",
+                    "range": {
+                        "reach": null,
+                        "thrown": null,
+                        "range": 30,
+                        "maxrange": 120
+                    },
+                    "damage": "1d4+3 bludgeoning"
+                }
+            },
+            {
+                "name": "Ergonite staff",
+                "type": "weapon",
+                "weight": 4,
+                "cost": null,
+                "description": "The crystal at the end of this staff glows when ergonite is close. Its brightness is proportional to the potency and proximity of the ergonite. As an action, repair up to 1sqft of ergonite, joining fragments into a single naturalistic lump and removing any engravings.",
+                "equipped": true,
+                "params": {
+                    "weapontype": "simple",
+                    "attacktype": "melee",
+                    "range": {
+                        "reach": 5,
+                        "thrown": null,
+                        "range": null,
+                        "maxrange": null
+                    },
+                    "damage": "1d6-1 (1d8-1 double handed) bludgeoning",
+                    "properties": ["versatile", "topple"]
+                }
+            },
+            {
+                "name": "Volatile pebbles",
+                "type": "consumable",
+                "weight": null,
+                "cost": "180g",
+                "description": "Single use, augments Magic Stone to deal 2d6 fire damage in 10ft radius (in addition to normal damage)",
+                "equipped": true,
+                "params": {
+                    "quantity": 9
+                }
+            },
+            {
+                "name": "Incriminating Letters",
+                "type": "misc",
+                "weight": null,
+                "cost": null,
+                "description": "Sales receipts for ergonite, mentions of a mining group, Duke was involved",
+                "equipped": false
+            }
+        ]
+    }
+}

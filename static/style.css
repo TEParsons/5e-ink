@@ -1,0 +1,137 @@
+/** Load fonts from files **/
+/* Lora */
+@font-face {
+    font-family: "Lora";
+    src: url('assets/fonts/Lora/Lora-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Lora";
+    src: url('assets/fonts/Lora/Lora-Italic.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Lora";
+    src: url('assets/fonts/Lora/Lora-Bold.ttf');
+    font-weight: 700;
+}
+@font-face {
+    font-family: "Lora";
+    src: url('assets/fonts/Lora/Lora-BoldItalic.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+/* Roboto Mono (mono) */
+@font-face {
+    font-family: "Roboto Mono";
+    src: url('assets/fonts/RobotoMono/RobotoMono-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Roboto Mono";
+    src: url('assets/fonts/RobotoMono/RobotoMono-Italic.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Roboto Mono";
+    src: url('assets/fonts/RobotoMono/RobotoMono-Bold.ttf');
+    font-weight: 700;
+}
+@font-face {
+    font-family: "Roboto Mono";
+    src: url('assets/fonts/RobotoMono/RobotoMono-BoldItalic.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+/* Noto Emoji (emoji) */
+@font-face {
+    font-family: "Noto Emoji";
+    src: url('assets/fonts/NotoEmoji/NotoEmoji-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Noto Emoji";
+    src: url('assets/fonts/NotoEmoji/NotoEmoji-Bold.ttf');
+    font-weight: 700;
+}
+
+
+
+:root {
+    --head: 'Lora', sans-serif;
+    --body: 'Lora', sans-serif;
+    --mono: 'Roboto Mono', mono;
+    --emoji: 'Noto Emoji';
+
+    --base: #FFFFFF;
+    --mantle: #666666;
+    --crust: #000000;
+    --text-on-base: var(--crust);
+    --text-on-mantle: var(--base);
+    --text-on-crust: var(--base);
+
+    --red: #AD1F1F;
+    --purple: #AD1F7B;
+    --blue: #1F8AAD;
+    --green: #32AD1F;
+    --yellow: #AD8A1F;
+    --orange: #AD581F;
+    --text-on-red: var(--text-on-base);
+    --text-on-purple: var(--text-on-base);
+    --text-on-blue: var(--text-on-base);
+    --text-on-green: var(--text-on-base);
+    --text-on-yellow: var(--text-on-base);
+    --text-on-orange: var(--text-on-base);
+
+    font-size: 12pt;
+    font-family: var(--body);
+    color: var(--text-on-base);
+    transition: background-color .2s, border-color .2s, color .2s, opacity .2s;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--mantle);
+}
+body,
+dialog {
+    background-color: var(--outline);
+    filter: grayscale(100%) sepia(10%) hue-rotate(5deg) contrast(95%);
+}
+
+button, input {
+    font-size: 1rem;
+    font-family: var(--body);
+}
+dialog {
+    background-color: var(--base);
+    border: 2px solid var(--crust);
+    border-radius: .5rem;
+    padding: 1rem;
+}
+input {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--crust);
+    padding: .5rem 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --base: #000000;
+        --mantle: #0c0515;
+        --crust: #202501;
+        --overlay: #391d0a;
+        --outline: #acacb0;
+        --text: #ffffff;
+
+        --text-on-base: var(--text);
+        --text-on-mantle: var(--text);
+        --text-on-crust: var(--text);
+        --text-on-overlay: var(--text);
+        --text-on-outline: var(--base);
+    }
+}
