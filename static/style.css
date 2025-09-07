@@ -99,7 +99,8 @@ body {
 body,
 dialog {
     background-color: var(--outline);
-    filter: grayscale(100%) sepia(10%) hue-rotate(5deg) contrast(95%);
+    /* preview mode */
+    /* filter: grayscale(100%) sepia(10%) hue-rotate(5deg) contrast(95%); */
 }
 
 button, input {

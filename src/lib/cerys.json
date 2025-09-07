@@ -1,4 +1,34 @@
 {
+    "bio": {
+        "name": "Cerys Freshdew",
+        "avatar": "https://www.dndbeyond.com/avatars/20640/581/1581111423-58993821.jpeg",
+        "backstory": "After inheriting an old family heirloom, a magical staff with a crystal from the old dwarven mines, Cerys dedicated herself to using its magic to heal the damage caused by the old mines.",
+        "characteristics": {
+            "alignment": "lawful good",
+            "pronouns": "she/her"
+        },
+        "personality": {
+            "traits": "Manners are very important - I'll like you a lot better if you tuck in your shirt and keep your elbows off the table!",
+            "ideals": "It is my duty to repair the environmental damage done by my people.",
+            "bonds": "The destruction caused by the old mines is a source of shame to my family, I will face any challenge to redeem us.",
+            "flaws": "I can be a bit stuffy and beaurocratic at times."
+        },
+        "organisations": {
+            "Dwarven Depletion Bulwark": "Cerys is employed by the Dwarven Depletion Bulwark (DDB), whose purpose is to regulate ergonite mining to stave off planetary ergonite depletion."
+        },
+        "allies": {
+            "Daemar": "Party member",
+            "Rigby": "Party member",
+            "Naari": "Party member",
+            "Hank": "Party member / Daemar's lover"
+        },
+        "enemies": {
+            "Verdegris": "Main villain",
+            "Saer Stoneguard": "Father",
+            "Gwenfrith Stoneguard": "Mother",
+            "Gareth Earthfriend": "Ex"
+        }
+    },
     "species": "dwarf",
     "levels": {
         "druid": 7
