@@ -18,7 +18,7 @@
                 "tough": false
             }
         },
-        "current": 24 
+        "current": 24
     },
     "scores": {
         "str": 9,
@@ -62,7 +62,10 @@
                 {
                     "name": "Gust",
                     "level": "Cantrip",
-                    "time": "1 Action",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
                     "range": "30 ft.",
                     "components": [
                         "V",
@@ -77,7 +80,10 @@
                 {
                     "name": "Magic Stone",
                     "level": "Cantrip",
-                    "time": "1 Bonus Action",
+                    "time": {
+                        "type": "bonusaction",
+                        "amount": 1
+                    },
                     "range": "Touch",
                     "components": [
                         "V",
@@ -92,7 +98,10 @@
                 {
                     "name": "Poison Spray",
                     "level": "Cantrip",
-                    "time": "1 Action",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
                     "range": "10 ft.",
                     "components": [
                         "V",
@@ -107,7 +116,10 @@
                 {
                     "name": "Shillelagh",
                     "level": "Cantrip",
-                    "time": "1 Bonus Action",
+                    "time": {
+                        "type": "bonusaction",
+                        "amount": 1
+                    },
                     "range": "Touch",
                     "components": [
                         "V",
@@ -131,7 +143,10 @@
                 {
                     "name": "Cure Wounds",
                     "level": "1st",
-                    "time": "1 Action",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
                     "range": "Touch",
                     "components": [
                         "V",
@@ -146,7 +161,10 @@
                 {
                     "name": "Detect Poison and Disease",
                     "level": "1st",
-                    "time": "1 Action",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
                     "range": "Self",
                     "components": [
                         "V",
@@ -162,7 +180,10 @@
                 {
                     "name": "Fog Cloud",
                     "level": "1st",
-                    "time": "1 Action",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
                     "range": "120 ft.",
                     "components": [
                         "V",
@@ -185,7 +206,10 @@
                 {
                     "name": "Heat Metal",
                     "level": "2nd",
-                    "time": "1 Action",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
                     "range": "60 ft.",
                     "components": [
                         "V",
@@ -201,7 +225,10 @@
                 {
                     "name": "Pass without Trace",
                     "level": "2nd",
-                    "time": "1 Action",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
                     "range": "Self",
                     "components": [
                         "V",
@@ -217,7 +244,10 @@
                 {
                     "name": "Spider Climb",
                     "level": "2nd",
-                    "time": "1 Action",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
                     "range": "Touch",
                     "components": [
                         "V",
@@ -233,7 +263,10 @@
                 {
                     "name": "Spike Growth",
                     "level": "2nd",
-                    "time": "1 Action",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
                     "range": "150 ft.",
                     "components": [
                         "V",
@@ -249,7 +282,10 @@
                 {
                     "name": "Warding Wind",
                     "level": "2nd",
-                    "time": "1 Action",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
                     "range": "Self",
                     "components": [
                         "V"
@@ -271,7 +307,10 @@
                 {
                     "name": "Conjure Animals",
                     "level": "3rd",
-                    "time": "1 Action",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
                     "range": "60 ft.",
                     "components": [
                         "V",
@@ -286,7 +325,10 @@
                 {
                     "name": "Erupting Earth",
                     "level": "3rd",
-                    "time": "1 Action",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
                     "range": "120 ft.",
                     "components": [
                         "V",
@@ -302,7 +344,10 @@
                 {
                     "name": "Lightning Bolt",
                     "level": "3rd",
-                    "time": "1 Action",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
                     "range": "Self",
                     "components": [
                         "V",
@@ -318,7 +363,10 @@
                 {
                     "name": "Meld into Stone",
                     "level": "3rd",
-                    "time": "1 Action",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
                     "range": "Touch",
                     "components": [
                         "V",
@@ -333,7 +381,10 @@
                 {
                     "name": "Wind Wall",
                     "level": "3rd",
-                    "time": "1 Action",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
                     "range": "120 ft.",
                     "components": [
                         "V",
@@ -357,7 +408,10 @@
                 {
                     "name": "Stone Shape",
                     "level": "4th",
-                    "time": "1 Action",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
                     "range": "Touch",
                     "components": [
                         "V",
@@ -373,7 +427,10 @@
                 {
                     "name": "Stoneskin",
                     "level": "4th",
-                    "time": "1 Action",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
                     "range": "Touch",
                     "components": [
                         "V",
@@ -473,7 +530,10 @@
                         "maxrange": null
                     },
                     "damage": "1d6-1 (1d8-1 double handed) bludgeoning",
-                    "properties": ["versatile", "topple"]
+                    "properties": [
+                        "versatile",
+                        "topple"
+                    ]
                 }
             },
             {

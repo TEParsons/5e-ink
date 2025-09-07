@@ -5,14 +5,20 @@
         spell
     } = $props()
 
-    let dialog = $state.raw()
+    let dialog = $state.raw();
+
+    let timeLbl = $derived(`${spell.time.amount} ${{
+        action: "Action",
+        bonusaction: "Bonus Action",
+        reaction: "Reaction"
+    }[spell.time.type]}`)
 </script>
 
 <DetailsCtrl>
     {#snippet summary()}
         <div class=spell-summary>
             <span class=name>{spell.name}</span>
-            <span class=time>{spell.time}</span>
+            <span class=time>{timeLbl}</span>
         </div>
     {/snippet}
     
