@@ -68,15 +68,9 @@
     .proficiency-ctrl {
         border: none;
         background: transparent;
-        font-size: 1.5rem;
         padding: 0;
         color: var(--crust);
         line-height: 1em;
-    }
-
-    svg.icon {
-        height: 1rem;
-        width: 1rem;
     }
 
     .option {

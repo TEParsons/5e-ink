@@ -119,6 +119,10 @@ input {
     border-bottom: 1px solid var(--crust);
     padding: .5rem 1rem;
 }
+svg.icon {
+    height: 1em;
+    width: 1em;
+}
 
 @media (prefers-color-scheme: dark) {
     :root {

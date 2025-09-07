@@ -20,8 +20,12 @@
                     value += 1
                 }
             }}
-            aria-label="⚪︎"
-        ></button>
+            aria-label="slot"
+        >
+            <svg class=icon>
+                <use xlink:href="assets/proficiency/{stats.spells[level].slots.total - n < value ? "none" : "full"}.svg" />
+            </svg>
+        </button>
     {/each}
 </div>
 
@@ -32,14 +36,11 @@
         gap: .25rem;
     }
     button {
-        border: 1px solid var(--crust);
-        border-radius: 50%;
-        background-color: var(--crust);
+        border: none;
+        outline: none;
+        background-color: transparent;
         color: var(--overlay);
-        width: 1rem;
-        height: 1rem;
-    }
-    button.available {
-        background-color: var(--base);
+        padding: 0;
+        font-size: 1.5rem;
     }
 </style>
