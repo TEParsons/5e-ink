@@ -1,0 +1,1 @@
+export { default as SpellView } from "./Spell.svelte"

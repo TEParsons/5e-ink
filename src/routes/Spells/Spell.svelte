@@ -1,6 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { DetailsCtrl, SlotsCtrl } from "$lib/ui/ctrls";
+    import { SpellView } from "$lib/views";
 
     let {
         spell,
@@ -36,21 +37,11 @@
         </div>
     {/snippet}
     
-    <h1>
-        {spell.name}
-    </h1>
-    {#each spell.description.split("\n") as line}
-        <p>{line}</p>
-    {/each}
-    {#if level !== "cantrips"}
-        <h4>
-            {`${level[0].toUpperCase()}${level.slice(1)} level`} slots
-        </h4>
-        <SlotsCtrl 
-            bind:value={temp.slots}
-            total={stats.spells[level].slots.total}
-        />
-    {/if}
+    <SpellView 
+        spell={spell}
+        bind:slots={temp.slots}
+        level={level}
+    />
     
     
 </DetailsCtrl>
