@@ -71,10 +71,12 @@
     .input.number {
         color: var(--crust);
         background-color: var(--base);
+        border: none;
+        outline: none;
         border-bottom: 1px solid var(--crust);
         border-radius: 0;
-        padding: .5rem;
         padding: .5rem 1rem;
+        margin: 0.25rem 0;
     }
 
     .dialog-content {

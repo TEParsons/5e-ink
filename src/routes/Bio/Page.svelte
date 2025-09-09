@@ -1,15 +1,17 @@
 <script>
     import { getContext } from "svelte";
-    import { NumberCtrl } from "$lib/ui/ctrls"
+    import { NumberCtrl } from "$lib/ui/ctrls";
+    import SpeciesCtrl from "./Species.svelte";
+    import AlignmentCtrl from "./Alignment.svelte";
+    import PronounsCtrl from "./Pronouns.svelte";
 
     let stats = getContext("stats")
 </script>
 
 <div class=page>
     <div class=header>
-        <img class=avatar src={stats.bio.avatar} alt={stats.bio.name} />
-        <h1>{stats.bio.name}</h1>
-        <i class=tagline>{stats.species.name} ({stats.species.subtype}) | {stats.bio.characteristics.alignment} | {stats.bio.characteristics.pronouns}</i>
+        <img class=avatar src={stats.details.avatar} alt={stats.details.name} />
+        <h1>{stats.details.name}</h1>
         <div class=levels>
             {#each Object.keys(stats.levels) as cls}
                 <div class=level-ctrl>
@@ -24,32 +26,41 @@
         </div>
     </div>
     <div>
+        <h3>Demographics</h3>
+        <div class=demographics>
+            <span class=label>Species</span>
+            <SpeciesCtrl />
+            <span class=label>Alignment</span>
+            <AlignmentCtrl />
+            <span class=label>Pronouns</span>
+            <PronounsCtrl />
+        </div>
         <h3>Backstory</h3>
-        {#each stats.bio.backstory.split("\n") as line}
+        {#each stats.details.backstory.split("\n") as line}
         <p>{line}</p>
         {/each}
         <h3>Personality</h3>
         <dl>
             <div>
                 <dt>Traits</dt>
-                <dd>{stats.bio.personality.traits}</dd>
+                <dd>{stats.details.personality.traits}</dd>
             </div>
             <div>
                 <dt>Ideals</dt>
-                <dd>{stats.bio.personality.ideals}</dd>
+                <dd>{stats.details.personality.ideals}</dd>
             </div>
             <div>
                 <dt>Bonds</dt>
-                <dd>{stats.bio.personality.bonds}</dd>
+                <dd>{stats.details.personality.bonds}</dd>
             </div>
             <div>
                 <dt>Flaws</dt>
-                <dd>{stats.bio.personality.flaws}</dd>
+                <dd>{stats.details.personality.flaws}</dd>
             </div>
         </dl>
         <h3>Organisations</h3>
         <dl>
-            {#each Object.entries(stats.bio.organisations) as [name, relation]}
+            {#each Object.entries(stats.details.organisations) as [name, relation]}
                 <div>
                     <dt>{name}</dt> 
                     <dd>{relation}</dd>
@@ -58,7 +69,7 @@
         </dl>
         <h3>Allies</h3>
         <dl>
-            {#each Object.entries(stats.bio.allies) as [name, relation]}
+            {#each Object.entries(stats.details.allies) as [name, relation]}
                 <div>
                     <dt>{name}</dt> 
                     <dd>{relation}</dd>
@@ -67,7 +78,7 @@
         </dl>
         <h3>Enemies</h3>
         <dl>
-            {#each Object.entries(stats.bio.enemies) as [name, relation]}
+            {#each Object.entries(stats.details.enemies) as [name, relation]}
                 <div>
                     <dt>{name}</dt> 
                     <dd>{relation}</dd>
@@ -95,11 +106,17 @@
     .header h1 {
         margin: 0;
     }
-    .tagline {
-        color: var(--mantle);
-        font-size: 1rem;
+    .demographics {
+        display: grid;
+        grid-template-columns: [labels] min-content [ctrls] 1fr;
+        align-items: center;
+        justify-items: start;
+        gap: 0 1rem;
+    }
+    .demographics .label {
         font-style: italic;
-        line-height: 1rem;
+        grid-column-start: labels;
+        justify-self: end;
     }
 
     .header .levels {

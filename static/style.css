@@ -106,18 +106,14 @@ dialog {
 button, input {
     font-size: 1rem;
     font-family: var(--body);
+    outline: none;
+    border: none;
 }
 dialog {
     background-color: var(--base);
     border: 2px solid var(--crust);
     border-radius: .5rem;
     padding: 1rem;
-}
-input {
-    outline: none;
-    border: none;
-    border-bottom: 1px solid var(--crust);
-    padding: .5rem 1rem;
 }
 svg.icon {
     height: 1em;

@@ -43,7 +43,7 @@
     <span 
         id=movement
     >
-        {stats.species.movement}ft.
+        {stats.species.movement.walk}ft.
     </span>
     {#if swim !== undefined}
         <span 

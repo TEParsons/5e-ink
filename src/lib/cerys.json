@@ -1,12 +1,10 @@
 {
-    "bio": {
+    "details": {
         "name": "Cerys Freshdew",
+        "pronouns": "she/her",
+        "alignment": "lawful good",
         "avatar": "https://www.dndbeyond.com/avatars/20640/581/1581111423-58993821.jpeg",
         "backstory": "After inheriting an old family heirloom, a magical staff with a crystal from the old dwarven mines, Cerys dedicated herself to using its magic to heal the damage caused by the old mines.",
-        "characteristics": {
-            "alignment": "lawful good",
-            "pronouns": "she/her"
-        },
         "personality": {
             "traits": "Manners are very important - I'll like you a lot better if you tuck in your shirt and keep your elbows off the table!",
             "ideals": "It is my duty to repair the environmental damage done by my people.",
@@ -29,7 +27,14 @@
             "Gareth Earthfriend": "Ex"
         }
     },
-    "species": "dwarf",
+    "species": {
+        "name": "dwarf",
+        "subtype": "hill",
+        "movement": {
+            "walk": 25
+        },
+        "size": "small"
+    },
     "levels": {
         "druid": 7
     },
@@ -44,7 +49,6 @@
                 1
             ],
             "modifiers": {
-                "hilldwarf": true,
                 "tough": false
             }
         },
