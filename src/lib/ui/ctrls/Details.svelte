@@ -3,6 +3,9 @@
 
     let {
         summary,
+        buttons={
+            OK: evt => {}
+        },
         children
     } = $props();
 
@@ -20,9 +23,7 @@
 
 <Dialog
     bind:shown={dialog.shown}
-    buttons={{
-        OK: () => {}
-    }}
+    buttons={buttons}
 >
     {@render children()}
 </Dialog>

@@ -1,10 +1,13 @@
 <script>
     import Dialog from "../Dialog.svelte";
-    import { untrack } from "svelte";
+    import { getContext, untrack } from "svelte";
 
+    let prefs = getContext("prefs");
+    
     let {
         label=undefined,
-        value=$bindable()
+        value=$bindable(),
+        edit=prefs.edit
     } = $props()
 
     let options = {
@@ -32,7 +35,7 @@
 
 <button
     class=proficiency-ctrl
-    onclick={evt => dialog.shown = true}
+    onclick={evt => dialog.shown = edit && true}
     aria-label={options[value || 0].icon}
 >
     <svg class=icon>

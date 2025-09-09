@@ -1,13 +1,18 @@
 <script>
+    import { getContext } from "svelte";
+
+    let prefs = getContext("prefs");
+
     let {
         value=$bindable(),
-        multiline=false
+        multiline=false,
+        edit=prefs.edit
     } = $props()
 
     let ctrl = $state.raw();
 
     $effect(() => {
-        if (value) {
+        if (ctrl && value) {
             ctrl.style.height = "";
             ctrl.style.height = `calc(${ctrl.scrollHeight}px + .5rem)`;
         }
@@ -15,13 +20,17 @@
 
 </script>
 
-
-<textarea 
-    class="input text"
-    bind:value={value}
-    bind:this={ctrl}
-></textarea>
-
+{#if edit}
+    <textarea 
+        class="input text"
+        bind:value={value}
+        bind:this={ctrl}
+    ></textarea>
+{:else}
+    {#each String(value).split("\n") as line}
+        <p>{line}</p>
+    {/each}
+{/if}
 
 <style>
     .input.text {
@@ -38,5 +47,10 @@
         box-sizing: border-box;
         resize: none;
         overflow: hidden;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: .5rem;
     }
 </style>

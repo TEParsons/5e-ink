@@ -1,14 +1,17 @@
 <script>
-    import { untrack } from "svelte";
+    import { getContext, untrack } from "svelte";
     import Dialog from "../Dialog.svelte";
+
+    let prefs = getContext("prefs");
 
     let {
         value=$bindable(),
         label=undefined,
         min=0,
         max=undefined,
-        interval=1
-    } = $props()
+        interval=1,
+        edit=prefs.edit
+    } = $props()    
 
     let dialog = $state({
         restore: undefined,
@@ -21,13 +24,16 @@
         }
     })
 </script>
-
-<button
-    class="input number"
-    onclick={evt => dialog.shown=true}
->
-    {value}
-</button>
+{#if edit}
+    <button
+        class="input number"
+        onclick={evt => dialog.shown=true}
+    >
+        {value}
+    </button>
+{:else}
+    <span>{value}</span>
+{/if}
 
 <Dialog
     bind:shown={dialog.shown}

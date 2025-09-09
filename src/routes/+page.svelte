@@ -6,13 +6,20 @@
     import CombatPage from "./Combat/Page.svelte";
     import InventoryPage from "./Inventory/Page.svelte";
     import BioPage from "./Bio/Page.svelte";
+    import SettingsPage from "./Settings/Page.svelte";
 
     import Cerys from "$lib/cerys.json";
     import { Notebook, NotebookPage } from "$lib/ui/notebook";
 
-    let stats = $state(Cerys)
-
+    let stats = $state(Cerys);
     setContext("stats", stats)
+
+    let prefs = $state({
+        edit: false
+    })
+    setContext("prefs", prefs)
+
+    
 </script>
 
 <Notebook>
@@ -40,6 +47,11 @@
         label="👤"
     >
         <BioPage />
+    </NotebookPage>
+    <NotebookPage
+        label="≡"
+    >
+        <SettingsPage />
     </NotebookPage>
 </Notebook>
 

@@ -3,6 +3,7 @@
     import { NumberCtrl } from "$lib/ui/ctrls";
 
     let stats = getContext("stats");
+    let prefs = getContext("prefs");
 
     let dialog = $state.raw();
 
@@ -47,6 +48,7 @@
                 bind:value={stats.inventory.currency[unit]}
                 min=0
                 interval=1
+                edit
             />
             <img 
                 class=coin

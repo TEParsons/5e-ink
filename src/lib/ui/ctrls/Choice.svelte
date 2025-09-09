@@ -1,11 +1,14 @@
 <script>
-    import { setContext, untrack } from "svelte";
+    import { setContext, getContext, untrack } from "svelte";
     import Dialog from "../Dialog.svelte";
+
+    let prefs = getContext("prefs");
 
     let {
         label="",
         value=$bindable(),
         onselect = (evt, index, data) => {},
+        edit=prefs.edit,
         children=undefined
     } = $props()
 
@@ -33,12 +36,16 @@
     
 </script>
 
-<button
-    class="input choice"
-    onclick={evt => dialog.show = true}
->
+{#if edit}
+    <button
+        class="input choice"
+        onclick={evt => dialog.show = true}
+    >
+        {@render options.selected.children?.()}
+    </button>
+{:else}
     {@render options.selected.children?.()}
-</button>
+{/if}
 
 <Dialog 
     bind:shown={dialog.show}
