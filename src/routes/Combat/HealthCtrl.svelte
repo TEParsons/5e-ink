@@ -34,7 +34,7 @@
             }
         }
         // add 1hp per level if hill dwarf
-        if (stats.health.total.modifiers.hilldwarf) {
+        if (stats.species.name === "dwarf" && stats.species.subtype === "hill") {
             hp += totalLevels(stats.levels)
         }
         // add 2hp per level if tough feat

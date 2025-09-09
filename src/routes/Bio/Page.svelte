@@ -9,7 +9,7 @@
     <div class=header>
         <img class=avatar src={stats.bio.avatar} alt={stats.bio.name} />
         <h1>{stats.bio.name}</h1>
-        <i class=tagline>{stats.species} | {stats.bio.characteristics.alignment} | {stats.bio.characteristics.pronouns}</i>
+        <i class=tagline>{stats.species.name} ({stats.species.subtype}) | {stats.bio.characteristics.alignment} | {stats.bio.characteristics.pronouns}</i>
         <div class=levels>
             {#each Object.keys(stats.levels) as cls}
                 <div class=level-ctrl>

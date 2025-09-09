@@ -3,18 +3,6 @@
     
     let stats = getContext("stats");
 
-    let speeds = {
-        "dwarf": 25,
-        "halfling": 25,
-        "gnome": 25,
-        "aarakocra": 25,
-        "half-elf": 35,
-        "leonin": 35,
-        "satyr": 35,
-        "dhampir": 35,
-        "centaur": 40
-    }
-
     let swim = $derived.by(() => {
         // assume no swim for now
         let output = undefined;
@@ -25,7 +13,7 @@
         // assume no fly
         let output = undefined;
         // aarakocra get 50ft flying (unless in >= medium armour)
-        if (stats.species === "aarakocra") {
+        if (stats.species.name === "aarakocra") {
             if (["medium", "heavy"].includes(types[armour.params.armourtype].categ)) {
                 output = 25
             } else {
@@ -55,7 +43,7 @@
     <span 
         id=movement
     >
-        {speeds[stats.species] || 30}ft.
+        {stats.species.movement}ft.
     </span>
     {#if swim !== undefined}
         <span 
