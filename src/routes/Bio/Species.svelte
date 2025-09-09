@@ -6,6 +6,55 @@
     let stats = getContext("stats");
 
     let species = {
+        dragonborn: {
+            name: "dragonborn",
+            movement: {
+                "walk": 30
+            },
+            size: "medium"
+        },
+        dwarf: {
+            name: "dwarf",
+            movement: {
+                walk: 25
+            },
+            size: "medium"
+        },
+        elf: {
+            name: "elf",
+            movement: {
+                walk: 30
+            },
+            size: "medium"
+        },
+        gnome: {
+            name: "gnome",
+            movement: {
+                walk: 25
+            },
+            size: "small"
+        },
+        goliath: {
+            name: "goliath",
+            movement: {
+                walk: 35
+            },
+            size: "medium"
+        },
+        halfling: {
+            name: "halfling",
+            movement: {
+                walk: 30
+            },
+            size: "small"
+        },
+        orc: {
+            name: "orc",
+            movement: {
+                walk: 30
+            },
+            size: "medium"
+        },
         human: {
             name: "human",
             movement: {
@@ -13,17 +62,54 @@
             },
             size: "medium",
         },
-        dwarf: {
-            name: "dwarf",
+        tiefling: {
+            name: "tiefling",
             movement: {
-                walk: 25
+                walk: 30
             },
-            size: "small"
+            size: "medium"
         }
     }
+
     let subtypes = {
-        human: undefined,
-        dwarf: ["hill"]
+        dragonborn: [
+            "black",
+            "blue",
+            "brass",
+            "bronze",
+            "copper",
+            "gold",
+            "green",
+            "red",
+            "silver",
+            "white"
+        ],
+        dwarf: [
+            "hill",
+            "mountain"
+        ],
+        elf: [
+            "drow",
+            "high",
+            "wood"
+        ],
+        goliath: [
+            "cloud",
+            "fire",
+            "frost",
+            "hill",
+            "stone",
+            "storm"
+        ],
+        human: [
+            "standard",
+            "variant"
+        ],
+        tiefling: [
+            "abyssal",
+            "cthonic",
+            "infernal"
+        ]      
     }
 </script>
 
@@ -44,6 +130,7 @@
         </Option>
     {/each}
 </Choice>
+
 
 {#if subtypes[stats.species.name]}
     <span>(</span>
