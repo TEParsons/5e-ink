@@ -4,6 +4,7 @@
             OK: evt => {},
             CANCEL: evt => {},
         },
+        onopen=evt => {},
         shown=$bindable(),
         children=undefined,
     } = $props()
@@ -12,6 +13,7 @@
 
     $effect(() => {
         if (handle && shown) {
+            onopen();
             handle.showModal();
         } else if (handle) {
             handle.close();

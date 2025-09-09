@@ -6,6 +6,7 @@
         buttons={
             OK: evt => {}
         },
+        onopen=evt => {},
         children
     } = $props();
 
@@ -24,6 +25,7 @@
 <Dialog
     bind:shown={dialog.shown}
     buttons={buttons}
+    onopen={onopen}
 >
     {@render children()}
 </Dialog>

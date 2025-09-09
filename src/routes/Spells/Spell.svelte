@@ -1,7 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { DetailsCtrl } from "$lib/ui/ctrls";
-    import SlotsCtrl from "./SlotsCtrl.svelte";
+    import { DetailsCtrl, SlotsCtrl } from "$lib/ui/ctrls";
 
     let {
         spell,
@@ -28,6 +27,7 @@
         OK: evt => stats.spells[level].slots.current = $state.snapshot(temp.slots),
         CANCEL: evt => temp.slots = $state.snapshot(stats.spells[level].slots?.current)
     }}
+    onopen={evt => temp.slots = $state.snapshot(stats.spells[level].slots?.current)}
 >
     {#snippet summary()}
         <div class=spell-summary>
@@ -47,8 +47,8 @@
             {`${level[0].toUpperCase()}${level.slice(1)} level`} slots
         </h4>
         <SlotsCtrl 
-            level={level} 
             bind:value={temp.slots}
+            total={stats.spells[level].slots.total}
         />
     {/if}
     

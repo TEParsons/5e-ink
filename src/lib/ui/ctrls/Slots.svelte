@@ -1,20 +1,21 @@
 <script>
     import { getContext } from "svelte";
 
-    let {
-        level,
-        value=$bindable()
-    } = $props()
+    let prefs = getContext("prefs");
 
-    let stats = getContext("stats")
+    let {
+        value=$bindable(),
+        total,
+        edit=prefs.edit
+    } = $props()
 </script>
 
 <div class=slots>
-    {#each Array(stats.spells[level].slots.total).keys() as n}
+    {#each Array(total).keys() as n}
         <button
-            class:available={stats.spells[level].slots.total - n < value}
+            class:available={total - n < value}
             onclick={(evt) => {
-                if (stats.spells[level].slots.total - n < value) {
+                if (total - n < value) {
                     value -= 1
                 } else {
                     value += 1
@@ -23,7 +24,7 @@
             aria-label="slot"
         >
             <svg class=icon>
-                <use xlink:href="assets/proficiency/{stats.spells[level].slots.total - n < value ? "none" : "full"}.svg" />
+                <use xlink:href="assets/proficiency/{total - n < value ? "none" : "full"}.svg" />
             </svg>
         </button>
     {/each}
