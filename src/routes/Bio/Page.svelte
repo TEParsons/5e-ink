@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { NumberCtrl } from "$lib/ui/ctrls";
+    import { NumberCtrl, TextCtrl } from "$lib/ui/ctrls";
     import SpeciesCtrl from "./Species.svelte";
     import AlignmentCtrl from "./Alignment.svelte";
     import PronounsCtrl from "./Pronouns.svelte";
@@ -11,7 +11,11 @@
 <div class=page>
     <div class=header>
         <img class=avatar src={stats.details.avatar} alt={stats.details.name} />
-        <h1>{stats.details.name}</h1>
+        <h1>
+            <TextCtrl
+                bind:value={stats.details.name}
+            />
+        </h1>
         <div class=levels>
             {#each Object.keys(stats.levels) as cls}
                 <div class=level-ctrl>
@@ -35,29 +39,20 @@
             <span class=label>Pronouns</span>
             <PronounsCtrl />
         </div>
+
         <h3>Backstory</h3>
-        {#each stats.details.backstory.split("\n") as line}
-        <p>{line}</p>
-        {/each}
+        <TextCtrl bind:value={stats.details.backstory} />
+        
         <h3>Personality</h3>
-        <dl>
-            <div>
-                <dt>Traits</dt>
-                <dd>{stats.details.personality.traits}</dd>
-            </div>
-            <div>
-                <dt>Ideals</dt>
-                <dd>{stats.details.personality.ideals}</dd>
-            </div>
-            <div>
-                <dt>Bonds</dt>
-                <dd>{stats.details.personality.bonds}</dd>
-            </div>
-            <div>
-                <dt>Flaws</dt>
-                <dd>{stats.details.personality.flaws}</dd>
-            </div>
-        </dl>
+        <h4>Traits</h4>
+        <TextCtrl bind:value={stats.details.personality.traits} />
+        <h4>Ideals</h4>
+        <TextCtrl bind:value={stats.details.personality.ideals} />
+        <h4>Bonds</h4>
+        <TextCtrl bind:value={stats.details.personality.bonds} />
+        <h4>Flaws</h4>
+        <TextCtrl bind:value={stats.details.personality.flaws} />
+
         <h3>Organisations</h3>
         <dl>
             {#each Object.entries(stats.details.organisations) as [name, relation]}
