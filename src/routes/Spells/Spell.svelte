@@ -1,9 +1,14 @@
 <script>
+    import { getContext } from "svelte";
     import { DetailsCtrl } from "$lib/ui/ctrls";
+    import SlotsCtrl from "./SlotsCtrl.svelte";
 
     let {
-        spell
+        spell,
+        level="cantrips"
     } = $props()
+
+    let stats = getContext("stats");
 
     let dialog = $state.raw();
 
@@ -12,9 +17,18 @@
         bonusaction: "Bonus Action",
         reaction: "Reaction"
     }[spell.time.type]}`)
+
+    let temp = $state({
+        slots: $state.snapshot(stats.spells[level].slots?.current)
+    })
 </script>
 
-<DetailsCtrl>
+<DetailsCtrl
+    buttons={{
+        OK: evt => stats.spells[level].slots.current = $state.snapshot(temp.slots),
+        CANCEL: evt => temp.slots = $state.snapshot(stats.spells[level].slots?.current)
+    }}
+>
     {#snippet summary()}
         <div class=spell-summary>
             <span class=name>{spell.name}</span>
@@ -28,6 +42,17 @@
     {#each spell.description.split("\n") as line}
         <p>{line}</p>
     {/each}
+    {#if level !== "cantrips"}
+        <h4>
+            {`${level[0].toUpperCase()}${level.slice(1)} level`} slots
+        </h4>
+        <SlotsCtrl 
+            level={level} 
+            bind:value={temp.slots}
+        />
+    {/if}
+    
+    
 </DetailsCtrl>
 
 

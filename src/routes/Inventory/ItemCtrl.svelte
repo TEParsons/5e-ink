@@ -15,7 +15,7 @@
 <DetailsCtrl
     buttons={{
         OK: evt => item.equipped = $state.snapshot(temp.equipped),
-        CANCEL: evt => {}
+        CANCEL: evt => temp.equipped = $state.snapshot(item.equipped)
     }}
 >
     {#snippet summary()}

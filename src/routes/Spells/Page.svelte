@@ -21,7 +21,7 @@
         </div>
         <div class=spell-list>
             {#each stats.spells[level].spells as spell}
-                <Spell spell={spell} />
+                <Spell spell={spell} level={level}/>
             {/each}
         </div>
     {/each}
