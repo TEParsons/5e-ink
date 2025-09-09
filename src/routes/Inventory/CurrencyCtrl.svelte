@@ -34,8 +34,11 @@
     <button 
         class=sort-btn
         onclick={sort}
+        aria-label="->"
     >
-        ⇥
+        <svg class=icon>
+            <use xlink:href="assets/ui/sortcoins.svg" />
+        </svg>
     </button>
     {#each order as unit}
         <div class=unit>
@@ -52,6 +55,7 @@
             />
         </div>
     {/each}
+
 </div>
 
 <style>
@@ -78,13 +82,19 @@
         width: 1rem;
     }
 
+    .sort-btn svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
     .sort-btn {
-        background-color: var(--base);
-        color: var(--text-on-base);
-        border: 1px solid var(--crust);
+        background-color: transparent;
+        color: var(--crust);
+        border: none;
         outline: none;
         border-radius: .5rem;
-        padding: .25rem .75rem;
+        padding: 0;
+        line-height: 1rem;
         font-family: var(--emoji);
         margin-right: 1rem;
     }
