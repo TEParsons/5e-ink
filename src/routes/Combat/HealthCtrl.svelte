@@ -1,6 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { totalLevels, classLevels } from "$lib/utils.js";
+    import { NumberCtrl } from "$lib/ui/ctrls";
 
     let stats = getContext("stats")
 
@@ -44,98 +45,25 @@
 
         return hp
     })
-
-    let dialogs = $state({
-        damage: undefined,
-        heal: undefined
-    })
-
-    let amounts = $state({
-        damage: 1,
-        heal: 1,
-    })
 </script>
 
 <div class=health-ctrl>
     <div class=health-label>
-        <span>Health</span>
-        <span>{stats.health.current} / {total}</span>
+        <span style:flex-grow=1>Health</span>
+        <NumberCtrl 
+            bind:value={stats.health.current}
+            edit
+        /> 
+        <span>/ {total}</span>
     </div>
     <div class=health-bar>
         <div class=current-health
             style:right="{(total - stats.health.current) * 100 / total}%"
         ></div>
     </div>
-    <div class=health-ctrls>
-        <button 
-            class=damage-btn
-            onclick={(evt) => dialogs.damage.showModal()}
-        >-</button>
-        <button 
-            class=heal-btn
-            onclick={(evt) => dialogs.heal.showModal()}
-        >+</button>
-    </div>
-
-    <dialog
-        bind:this={dialogs.damage}
-    >
-        <div class=dialog-content>
-            <input 
-                type=number
-                bind:value={amounts.damage}
-            />
-            <button 
-                class=damage-btn
-                onclick={(evt) => {
-                    stats.health.current -= amounts.damage;
-                    dialogs.damage.close()
-                }}
-            >Damage</button>
-        </div>
-    </dialog>
-
-    <dialog
-        bind:this={dialogs.heal}
-    >
-        <div class=dialog-content>
-            <input 
-                type=number
-                bind:value={amounts.heal}
-            />
-            <button 
-                class=heal-btn
-                onclick={(evt) => {
-                    stats.health.current += amounts.heal;
-                    dialogs.heal.close()
-                }}
-            >Heal</button>
-        </div>
-    </dialog>
 </div>
 
 <style>
-    .health-ctrls {
-        display: flex;
-        flex-direction: row;
-        gap: .25rem;
-        justify-content: end;
-    }
-    .heal-btn,
-    .damage-btn {
-        border: none;
-        padding: .25rem 1rem;
-        border-radius: .5rem;
-        background-color: var(--crust);
-        color: var(--text-on-crust);
-    }
-
-    .dialog-content {
-        display: flex;
-        flex-direction: row;
-        gap: .5rem;
-    }
-
     .health-ctrl {
         display: flex;
         flex-direction: column;
@@ -144,8 +72,9 @@
         margin: 1rem 0;
     }
     .health-label {
-        display: grid;
-        grid-template-columns: 1fr max-content;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         gap: .5rem;
     }
     .health-bar {
