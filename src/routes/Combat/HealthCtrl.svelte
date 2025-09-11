@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { totalLevels, classLevels } from "$lib/utils.js";
     import { NumberCtrl } from "$lib/ui/ctrls";
+    import DeathSavesCtrl from "./DeathSavesCtrl.svelte";
 
     let stats = getContext("stats")
 
@@ -45,11 +46,13 @@
 
         return hp
     })
+
+    let deathSaves = $state(4)
 </script>
 
 <div class=health-ctrl>
     <div class=health-label>
-        <span style:flex-grow=1>Health</span>
+        <h3 style:flex-grow=1>Health</h3>
         <NumberCtrl 
             label="Health"
             bind:value={stats.health.current}
@@ -62,6 +65,9 @@
             style:right="{(total - stats.health.current) * 100 / total}%"
         ></div>
     </div>
+    {#if stats.health.current <= 0}
+        <DeathSavesCtrl />
+    {/if}
 </div>
 
 <style>
