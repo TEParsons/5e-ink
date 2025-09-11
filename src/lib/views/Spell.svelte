@@ -24,6 +24,6 @@
     </h4>
     <SlotsCtrl 
         bind:value={slots}
-        total={stats.spells[level].slots.total}
+        bind:total={stats.spells[level].slots.total}
     />
 {/if}

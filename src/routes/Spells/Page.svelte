@@ -3,7 +3,8 @@
     import { SlotsCtrl } from "$lib/ui/ctrls";
     import Spell from "./Spell.svelte"
 
-    let stats = getContext("stats")
+    let stats = getContext("stats");
+    let prefs = getContext("prefs");
 </script>
 
 <div class=page>
@@ -15,7 +16,7 @@
             {#if "slots" in stats.spells[level]}
                 <SlotsCtrl 
                     bind:value={stats.spells[level].slots.current}
-                    total={stats.spells[level].slots.total}
+                    bind:total={stats.spells[level].slots.total}
                 />
             {/if}
         </div>
