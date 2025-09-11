@@ -79,7 +79,10 @@
 
 
 <div class=page>
-    <svg class=logo>
+    <svg 
+        class=logo
+        style:color="var(--text-on-base)"
+    >
         <use xlink:href="assets/logo.svg" />
     </svg>
     <SwitchCtrl 

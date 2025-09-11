@@ -50,11 +50,11 @@
                 interval=1
                 edit
             />
-            <img 
+            <svg
                 class=coin
-                src="assets/coins/{unit}.png" 
-                alt={unit} 
-            />
+            >
+                <use xlink:href="assets/coins/{unit}.svg" />
+            </svg> 
         </div>
     {/each}
 

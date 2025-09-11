@@ -104,6 +104,7 @@ dialog {
 }
 
 button, input {
+    color: var(--text-on-base);
     font-size: 1rem;
     font-family: var(--body);
     outline: none;
@@ -127,16 +128,12 @@ h1, h2, h3, h4, h5, h6 {
 @media (prefers-color-scheme: dark) {
     :root {
         --base: #000000;
-        --mantle: #0c0515;
-        --crust: #202501;
-        --overlay: #391d0a;
-        --outline: #acacb0;
-        --text: #ffffff;
+        --mantle: #aaaaaa;
+        --crust: #ffffff;
+        --text-on-base: var(--crust);
+        --text-on-mantle: var(--base);
+        --text-on-crust: var(--base);
 
-        --text-on-base: var(--text);
-        --text-on-mantle: var(--text);
-        --text-on-crust: var(--text);
-        --text-on-overlay: var(--text);
-        --text-on-outline: var(--base);
+        color: var(--text-on-base);
     }
 }
