@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { NumberCtrl, TextCtrl } from "$lib/ui/ctrls";
+    import { NumberCtrl, TextCtrl, DictionaryCtrl } from "$lib/ui/ctrls";
     import SpeciesCtrl from "./Species.svelte";
     import AlignmentCtrl from "./Alignment.svelte";
     import PronounsCtrl from "./Pronouns.svelte";
@@ -54,32 +54,18 @@
         <TextCtrl bind:value={stats.details.personality.flaws} />
 
         <h3>Organisations</h3>
-        <dl>
-            {#each Object.entries(stats.details.organisations) as [name, relation]}
-                <div>
-                    <dt>{name}</dt> 
-                    <dd>{relation}</dd>
-                </div>
-            {/each}
-        </dl>
+        <DictionaryCtrl 
+            bind:value={stats.details.organisations}
+        />
         <h3>Allies</h3>
-        <dl>
-            {#each Object.entries(stats.details.allies) as [name, relation]}
-                <div>
-                    <dt>{name}</dt> 
-                    <dd>{relation}</dd>
-                </div>
-            {/each}
-        </dl>
+        <DictionaryCtrl 
+            bind:value={stats.details.allies}
+        />
+        
         <h3>Enemies</h3>
-        <dl>
-            {#each Object.entries(stats.details.enemies) as [name, relation]}
-                <div>
-                    <dt>{name}</dt> 
-                    <dd>{relation}</dd>
-                </div>
-            {/each}
-        </dl>
+        <DictionaryCtrl 
+            bind:value={stats.details.enemies}
+        />
     </div>
 </div>
 
@@ -129,20 +115,5 @@
     h3, h4 {
         margin-top: 1rem;
         margin-bottom: 0.5rem;
-    }
-
-    p {
-        margin-top: 0;
-    }
-
-    dt {
-        font-weight: bold;
-        font-style: italic;
-        display: inline;
-    }
-
-    dd {
-        margin-left: .5rem;
-        display: inline;
     }
 </style>
