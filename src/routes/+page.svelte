@@ -50,6 +50,7 @@
     </NotebookPage>
     <NotebookPage
         label="≡"
+        initial
     >
         <SettingsPage />
     </NotebookPage>

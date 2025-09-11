@@ -79,6 +79,9 @@
 
 
 <div class=page>
+    <svg class=logo>
+        <use xlink:href="assets/logo.svg" />
+    </svg>
     <SwitchCtrl 
         bind:value={prefs.edit}
         labels={{
@@ -87,9 +90,11 @@
         }}
         edit
     />
-    <button onclick={newCharacter}>New Character</button>
-    <button onclick={loadCharacter}>Load Character</button>
-    <button onclick={saveCharacter}>Save Character</button>
+    <div class=file-ctrls>
+        <button onclick={newCharacter}>New Character</button>
+        <button onclick={loadCharacter}>Load Character</button>
+        <button onclick={saveCharacter}>Save Character</button>
+    </div>
 </div>
 
 <style>
@@ -98,6 +103,12 @@
         max-width: 20cm;
         padding: 1rem;
 
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .file-ctrls {
         display: flex;
         flex-direction: column;
         gap: .5rem;

@@ -7,6 +7,8 @@
         label,
         /** @prop @type {String|undefined} Path to an icon for this page's tab */
         icon=undefined,
+        /** @prop @type {boolean} Should this page start off with focus? */
+        initial=false,
         /** @interface @type {Array<HTMLElement>} Contents of this page */
         children=undefined
     } = $props()
@@ -26,9 +28,8 @@
     })
     // show self if no page is shown
     $effect(() => {
-        if (siblings.current === undefined) {
+        if (siblings.current === undefined && initial) {
             siblings.current = index;
-            selected = true;
         }
     })
     // unregister on destroy
