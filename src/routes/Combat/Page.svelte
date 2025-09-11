@@ -5,7 +5,6 @@
     import MovementCtrl from "./MovementCtrl.svelte";
     import InitiativeCtrl from "./InitiativeCtrl.svelte";
     import ActionsCtrl from "./ActionsCtrl.svelte";
-    import BonusActionsCtrl from "./BonusActionsCtrl.svelte";
     import ReactionsCtrl from "./ReactionsCtrl.svelte";
 
     let stats = getContext("stats")
@@ -36,13 +35,19 @@
     <HealthCtrl />
 
     <h3>Actions</h3>
-    <ActionsCtrl />
+    <ActionsCtrl
+        time="action"
+    />
 
     <h3>Bonus Actions</h3>
-    <BonusActionsCtrl />
+    <ActionsCtrl
+        time="bonusaction"
+    />
 
     <h3>Reactions</h3>
-    <ReactionsCtrl />
+    <ActionsCtrl
+        time="reaction"
+    />
 </div>
 
 <style>
