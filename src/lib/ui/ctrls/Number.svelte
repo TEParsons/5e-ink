@@ -7,8 +7,8 @@
     let {
         value=$bindable(),
         label=undefined,
-        min=0,
-        max=undefined,
+        min=-Infinity,
+        max=Infinity,
         interval=1,
         edit=prefs.edit
     } = $props()    
@@ -50,7 +50,7 @@
     >
         <button
             class="ctrl"
-            onclick={evt => value = Math.min(value + interval, max || Infinity)}
+            onclick={evt => value = Math.min(value + interval, max)}
         >
             +
         </button>
