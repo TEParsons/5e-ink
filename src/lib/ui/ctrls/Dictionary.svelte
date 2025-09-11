@@ -2,7 +2,6 @@
     import { setContext, getContext, untrack } from "svelte";
     import Dialog from "../Dialog.svelte";
     import TextCtrl from "./Text.svelte";
-    import { keyword$DataError } from "ajv/dist/compile/errors";
 
     let prefs = getContext("prefs");
 
