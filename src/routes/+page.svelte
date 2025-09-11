@@ -22,37 +22,47 @@
     
 </script>
 
-<Notebook>
-    <NotebookPage
-        label="📋"
-    >
-        <AbilitiesPage />
-    </NotebookPage>
-    <NotebookPage
-        label="⚔︎"
-    >
-        <CombatPage />
-    </NotebookPage>
-    <NotebookPage
-        label="✨"
-    >
-        <SpellsPage />
-    </NotebookPage>
-    <NotebookPage
-        label="🪎"
-    >
-        <InventoryPage />
-    </NotebookPage>
-    <NotebookPage
-        label="👤"
-    >
-        <BioPage />
-    </NotebookPage>
-    <NotebookPage
-        label="≡"
-        initial
-    >
-        <SettingsPage />
-    </NotebookPage>
-</Notebook>
+<div class=content>
+    <Notebook>
+        <NotebookPage
+            label="📋"
+        >
+            <AbilitiesPage />
+        </NotebookPage>
+        <NotebookPage
+            label="⚔︎"
+        >
+            <CombatPage />
+        </NotebookPage>
+        <NotebookPage
+            label="✨"
+        >
+            <SpellsPage />
+        </NotebookPage>
+        <NotebookPage
+            label="🪎"
+        >
+            <InventoryPage />
+        </NotebookPage>
+        <NotebookPage
+            label="👤"
+        >
+            <BioPage />
+        </NotebookPage>
+        <NotebookPage
+            label="≡"
+            initial
+        >
+            <SettingsPage />
+        </NotebookPage>
+    </Notebook>
+</div>
 
+<style>
+    .content {
+        position: relative;
+        min-height: 100vh;
+        background-color: var(--base);
+        color: var(--text-on-base);
+    }
+</style>
