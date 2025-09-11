@@ -51,6 +51,7 @@
     <div class=health-label>
         <span style:flex-grow=1>Health</span>
         <NumberCtrl 
+            label="Health"
             bind:value={stats.health.current}
             edit
         /> 
