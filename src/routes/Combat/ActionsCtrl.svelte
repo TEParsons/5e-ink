@@ -12,18 +12,27 @@
     // get relevant actions
     let actions = $derived.by(() => {
         let output = [];
+        
 
-        // get weapon attacks if we're doing actions
-        if (time === "action") {
-            for (let item of stats.inventory.items) {
-                if (item.equipped && item.type === "weapon") {
-                    output.push({
-                        type: "weapon",
-                        label: item.name,
-                        icon: "⚔︎",
-                        action: item
-                    })
-                }
+        
+        for (let item of stats.inventory.items) {
+            // get weapon attacks if we're doing actions
+            if (item.type === "weapon" && time === "action" && item.equipped) {
+                output.push({
+                    type: "weapon",
+                    label: item.name,
+                    icon: "⚔︎",
+                    action: item
+                })
+            }
+            // get consumables
+            if (item.type === "consumable" && item.params.time.type === time && item.equipped) {
+                output.push({
+                    type: "consumable",
+                    label: `${item.name} (x${item.params.quantity})`,
+                    icon: "✷",
+                    action: item
+                })
             }
         }
 
@@ -70,6 +79,10 @@
                 <WeaponView 
                     weapon={action.action}
                 />
+            {/if}
+            {#if action.type === "consumable"}
+                <h2>{action.action.name}</h2>
+                <p>{action.action.description}</p>
             {/if}
         </DetailsCtrl>
     {/each}

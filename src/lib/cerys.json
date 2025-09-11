@@ -578,7 +578,11 @@
                 "description": "Single use, augments Magic Stone to deal 2d6 fire damage in 10ft radius (in addition to normal damage)",
                 "equipped": true,
                 "params": {
-                    "quantity": 9
+                    "quantity": 9,
+                    "time": {
+                        "type": "bonusaction",
+                        "amount": 1
+                    }
                 }
             },
             {
