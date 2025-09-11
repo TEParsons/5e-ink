@@ -112,6 +112,7 @@ button, input {
 }
 dialog {
     background-color: var(--base);
+    color: var(--text-on-base);
     border: 2px solid var(--crust);
     border-radius: .5rem;
     padding: 1rem;
@@ -128,10 +129,10 @@ h1, h2, h3, h4, h5, h6 {
 @media (prefers-color-scheme: dark) {
     :root {
         --base: #000000;
-        --mantle: #aaaaaa;
+        --mantle: #444444;
         --crust: #ffffff;
         --text-on-base: var(--crust);
-        --text-on-mantle: var(--base);
+        --text-on-mantle: var(--crust);
         --text-on-crust: var(--base);
 
         color: var(--text-on-base);
