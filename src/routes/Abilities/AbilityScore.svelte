@@ -23,7 +23,6 @@
             totalLevels(stats.class)
         )
     )
-    $inspect(proficiency)
 
     let modifier = $derived(
         score2modifier(stats.scores[id])

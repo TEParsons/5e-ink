@@ -2,12 +2,15 @@
     import { getContext } from "svelte";
     import { SlotsCtrl } from "$lib/ui/ctrls";
     import Spell from "./Spell.svelte"
+    import SpellStatsCtrl from "./SpellStatsCtrl.svelte";
 
     let stats = getContext("stats");
     let prefs = getContext("prefs");
 </script>
 
 <div class=page>
+    <SpellStatsCtrl />
+
     {#each Object.keys(stats.spells) as level}
         <div class=level-header>
             <h2>
