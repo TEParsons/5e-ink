@@ -6,6 +6,7 @@
     import InitiativeCtrl from "./InitiativeCtrl.svelte";
     import ActionsCtrl from "./ActionsCtrl.svelte";
     import ReactionsCtrl from "./ReactionsCtrl.svelte";
+    import TraitsCtrl from "./TraitsCtrl.svelte";
 
     let stats = getContext("stats")
 </script>
@@ -33,6 +34,9 @@
     </div>
     
     <HealthCtrl />
+
+    <h3>Traits</h3>
+    <TraitsCtrl />
 
     <h3>Actions</h3>
     <ActionsCtrl
