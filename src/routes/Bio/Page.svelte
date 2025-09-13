@@ -19,12 +19,17 @@
         <div class=levels>
             {#each Object.keys(stats.class) as cls}
                 <div class=level-ctrl>
-                    Level <NumberCtrl 
+                    <span>Level</span>
+                    <NumberCtrl 
                         bind:value={stats.class[cls].levels}
                         min=1
                         max=30
                         interval=1
-                    /> {cls}
+                    /> 
+                    <span>{cls}</span>
+                    {#if stats.class[cls].subtype}
+                    <span>({stats.class[cls].subtype})</span>
+                    {/if}
                 </div>
             {/each}
         </div>
