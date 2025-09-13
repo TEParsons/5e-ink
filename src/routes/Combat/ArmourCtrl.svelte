@@ -1,4 +1,5 @@
 <script>
+    import { getProficiencies } from "$lib/utils";
     import { getContext } from "svelte";
 
     let stats = getContext("stats");
@@ -70,10 +71,10 @@
             // get base ac
             output += types[armour.params.armourtype].base
             // add modifier according to category
-            if (types[armour.params.armourtype].categ === "light") {
+            if (types[armour.params.armourtype].categ === "light" && getProficiencies(stats, "armour").includes("light")) {
                 output += stats.scores.dex
             }
-            if (types[armour.params.armourtype].categ === "medium") {
+            if (types[armour.params.armourtype].categ === "medium" && getProficiencies(stats, "armour").includes("medium")) {
                 output += Math.min(stats.scores.dex, 2)
             }
             // do we have any bonus?
