@@ -12,17 +12,17 @@
     let ctrl = $state.raw();
 
     function resize(evt) {
-        ctrl.style.height = "";
-        ctrl.style.height = `calc(${ctrl.scrollHeight}px + .5rem)`;
+        if (ctrl) {
+            ctrl.style.height = "";
+            ctrl.style.height = `calc(${ctrl.scrollHeight}px + .5rem)`;
+        }
     }
 
     $effect(() => {
-        if (ctrl && value) {
+        if (value) {
             resize()
         }
     })
-
-    onMount(resize)
 
 </script>
 
