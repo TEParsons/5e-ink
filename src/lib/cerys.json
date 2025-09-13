@@ -180,7 +180,7 @@
                     "school": "Transmutation",
                     "attack": "STR Save",
                     "effect": "Control",
-                    "description": "You seize the air and compel it to create one of the following effects at a point you can see within range:\n\\n"
+                    "description": "You seize the air and compel it to create one of the following effects at a point you can see within range:\n\n"
                 },
                 {
                     "name": "Magic Stone",
@@ -399,7 +399,7 @@
                     "school": "Evocation",
                     "attack": "None",
                     "effect": "",
-                    "description": "A strong wind (20 miles per hour) blows around you in a 10-foot radius and moves with you, remaining centered on you. The wind lasts for the spell\\xe2\\x80\\x99s duration.\nThe wind has the following effects:\n\\n"
+                    "description": "A strong wind (20 miles per hour) blows around you in a 10-foot radius and moves with you, remaining centered on you. The wind lasts for the spell\\xe2\\x80\\x99s duration.\nThe wind has the following effects:\n\n"
                 }
             ]
         },
@@ -425,7 +425,7 @@
                     "school": "Conjuration",
                     "attack": "None",
                     "effect": "Summoning",
-                    "description": "You summon fey spirits that take the form of beasts and appear in unoccupied spaces that you can see within range. Choose one of the following options for what appears:\n\\n\nEach beast is also considered fey, and it disappears when it drops to 0 hit points or when the spell ends.\nThe summoned creatures are friendly to you and your companions. Roll initiative for the summoned creatures as a group, which has its own turns. They obey any verbal commands that you issue to them (no action required by you). If you don't issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions.\nThe GM has the creatures' statistics. Sample creatures can be found below.\nNone\nNone\n\\n"
+                    "description": "You summon fey spirits that take the form of beasts and appear in unoccupied spaces that you can see within range. Choose one of the following options for what appears:\n\n\nEach beast is also considered fey, and it disappears when it drops to 0 hit points or when the spell ends.\nThe summoned creatures are friendly to you and your companions. Roll initiative for the summoned creatures as a group, which has its own turns. They obey any verbal commands that you issue to them (no action required by you). If you don't issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions.\nThe GM has the creatures' statistics. Sample creatures can be found below.\nNone\nNone\n\n"
                 },
                 {
                     "name": "Erupting Earth",
