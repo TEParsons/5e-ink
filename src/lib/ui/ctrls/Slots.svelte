@@ -23,7 +23,7 @@
             aria-label="slot"
         >
             <svg class=icon>
-                <use xlink:href="assets/proficiency/{n < value ? "none" : "full"}.svg" />
+                <use xlink:href="assets/proficiency/{n < value ? "full" : "none"}.svg" />
             </svg>
         </button>
     {/each}

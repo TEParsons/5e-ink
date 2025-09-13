@@ -37,17 +37,18 @@
         )
     }
 </script>
-
+<div class=weapon-view>
 <h1>{weapon.name}</h1>
-{#if weapon.weight}
-    <i>{weapon.weight}lbs.</i>
-{/if}
+    {#if weapon.weight}
+        <i>{weapon.weight}lbs.</i>
+    {/if}
 
-<MarkdownCtrl 
-    value={weaponDesc(weapon)}
-    edit={false}
-/>
+    <MarkdownCtrl 
+        value={weaponDesc(weapon)}
+        edit={false}
+    />
 
-<MarkdownCtrl 
-    bind:value={weapon.description}
-/>
+    <MarkdownCtrl 
+        bind:value={weapon.description}
+    />
+</div>

@@ -10,19 +10,21 @@
     let stats = getContext("stats");
 
 </script>
-    
-<h1>
-    {action.name}
-</h1>
-<MarkdownCtrl 
-    value={action.description}
-/>
-<h4>
-    Slots
-</h4>
-{#if action.slots}
-    <SlotsCtrl 
-        bind:value={slots.current}
-        bind:total={slots.total}
+
+<div class=class-action-view>
+    <h1>
+        {action.name}
+    </h1>
+    <MarkdownCtrl 
+        value={action.description}
     />
-{/if}
+    <h4>
+        Slots
+    </h4>
+    {#if action.slots}
+        <SlotsCtrl 
+            bind:value={slots.current}
+            bind:total={slots.total}
+        />
+    {/if}
+</div>
