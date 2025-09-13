@@ -8,3 +8,4 @@ export { default as ProficiencyCtrl } from "./Proficiency.svelte";
 export { default as SlotsCtrl } from "./Slots.svelte";
 export { default as DictionaryCtrl } from "./Dictionary.svelte";
 export { default as MarkdownCtrl } from "./Markdown.svelte";
+export { default as ListCtrl } from "./List.svelte";

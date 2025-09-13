@@ -4,6 +4,7 @@
     import AbilityScore from "./AbilityScore.svelte";
     import SkillScore from "./SkillScore.svelte";
     import { TraitsView } from "$lib/views";
+    import ProficienciesCtrl from "./ProficienciesCtrl.svelte";
 
     let stats = getContext("stats")
 </script>
@@ -28,6 +29,9 @@
     <TraitsView
         tag="narrative"
     />
+
+    <ProficienciesCtrl />
+    
 </div>
 
 <style>
