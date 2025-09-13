@@ -1,6 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { DetailsCtrl } from "$lib/ui/ctrls"
+    import { traitsByTag } from "$lib/utils.js"
 
     let {
         tag
@@ -11,10 +12,9 @@
     let traits = $derived.by(() => {
         let output = []
 
-        // get class traits
-        for (let [name, cls] of Object.entries(stats.class)) {
-            for (let trait of cls.traits) {
-                if (trait.tags.includes("combat")) {
+        for (let [source, traits] of Object.entries(traitsByTag(stats, tag))) {
+            for (let trait of traits) {
+                if (source === "class") {
                     output.push({
                         type: "class",
                         label: `${trait.name} (${name})`,
@@ -22,18 +22,14 @@
                         trait: trait
                     })
                 }
-            }      
-        }
-
-        // get species traits
-        for (let trait of stats.species.traits) {
-            if (trait.tags.includes("combat")) {
-                output.push({
-                    type: "species",
-                    label: `${trait.name} (${stats.species.name})`,
-                    icon: "🧬",
-                    trait: trait
-                })
+                if (source === "species") {
+                    output.push({
+                        type: "species",
+                        label: `${trait.name} (${stats.species.name})`,
+                        icon: "🧬",
+                        trait: trait
+                    })
+                }
             }
         }
 

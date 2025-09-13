@@ -24,6 +24,31 @@ export function classLevels(classes) {
     return output
 }
 
+export function traitsByTag(stats, tag) {
+    let output = {
+        class: [],
+        species: []
+    };
+
+    // get class traits
+    for (let [name, cls] of Object.entries(stats.class)) {
+        for (let trait of cls.traits) {
+            if (trait.tags.includes(tag)) {
+                output.class.push(trait)
+            }
+        }      
+    }
+
+    // get species traits
+    for (let trait of stats.species.traits) {
+        if (trait.tags.includes(tag)) {
+            output.species.push(trait)
+        }
+    }
+
+    return output
+}
+
 export function score2modifier(score) {
     return Math.floor(score / 2) - 5
 }

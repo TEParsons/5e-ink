@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { totalLevels, classLevels } from "$lib/utils.js";
+    import { totalLevels, classLevels, traitsByTag } from "$lib/utils.js";
     import { NumberCtrl } from "$lib/ui/ctrls";
     import DeathSavesCtrl from "./DeathSavesCtrl.svelte";
 
@@ -35,13 +35,18 @@
                 hp += Math.floor(hitdice[cls] / 2)
             }
         }
-        // add 1hp per level if hill dwarf
-        if (stats.species.name === "dwarf" && stats.species.subtype === "hill") {
-            hp += totalLevels(stats.class)
-        }
-        // add 2hp per level if tough feat
-        if (stats.health.total.modifiers.tough) {
-            hp += totalLevels(stats.class) * 2
+        // apply traits which affect maxhealth
+        for (let traits of Object.values(traitsByTag(stats, "buff"))) {
+            console.log(traits)
+            for (let trait of traits) {
+                if (trait.effect?.maxhp) {
+                    console.log(trait)
+                    // add flat change
+                    hp += trait.effect.maxhp.flat || 0
+                    // add per level change
+                    hp += (trait.effect.maxhp.perlevel * totalLevels(stats.class) - 1) || 0
+                }
+            }
         }
 
         return hp

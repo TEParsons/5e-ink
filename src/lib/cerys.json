@@ -57,11 +57,13 @@
             },
             {
                 "name": "Dwarven Toughness",
-                "tags": ["health"],
+                "tags": ["buff"],
                 "description": "Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.",
                 "effect": {
-                    "flat": 1,
-                    "perlevel": 1
+                    "maxhp": {
+                        "flat": 1,
+                        "perlevel": 1
+                    }
                 }
             }
         ],
@@ -127,10 +129,7 @@
                 2,
                 3,
                 1
-            ],
-            "modifiers": {
-                "tough": false
-            }
+            ]
         },
         "current": 24
     },
