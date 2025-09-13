@@ -7,15 +7,14 @@
         value=$bindable(),
         total=$bindable(),
         edit=prefs.edit
-    } = $props()
+    } = $props()   
 </script>
 
 <div class=slots>
     {#each Array(total).keys() as n}
         <button
-            class:available={total - n < value}
             onclick={(evt) => {
-                if (total - n < value) {
+                if (n < value) {
                     value -= 1
                 } else {
                     value += 1
@@ -24,7 +23,7 @@
             aria-label="slot"
         >
             <svg class=icon>
-                <use xlink:href="assets/proficiency/{total - n < value ? "none" : "full"}.svg" />
+                <use xlink:href="assets/proficiency/{n < value ? "none" : "full"}.svg" />
             </svg>
         </button>
     {/each}

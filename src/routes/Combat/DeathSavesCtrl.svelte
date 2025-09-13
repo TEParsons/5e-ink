@@ -4,13 +4,13 @@
 
     let stats = getContext("stats")
 
-    let deathSaves = $state.raw(4);
+    let deathSaves = $state.raw(3);
     // reset saves on load
-    onMount(() => deathSaves = 4);
+    onMount(() => deathSaves = 3);
 
     // on stablisation, reset health
     $effect(() => {
-        if (deathSaves === 1) {
+        if (deathSaves === 6) {
             untrack(() => stats.health.current = 1)
         }
     })
@@ -20,7 +20,7 @@
 <div class=death-saves-ctrl>
     <span 
         class=death-save-label
-        style:opacity={(deathSaves-1)/3}
+        style:opacity={(6-deathSaves)/3}
     >Dead</span>
     <SlotsCtrl
         bind:value={deathSaves}
@@ -29,7 +29,7 @@
     />
     <span 
         class=death-save-label
-        style:opacity={(7-deathSaves)/3}
+        style:opacity={deathSaves/3}
     >Stable</span>
 </div>
 
