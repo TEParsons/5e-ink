@@ -59,16 +59,14 @@
         }
 
         // get spells
-        for (let level of Object.values(stats.spells)) {
-            for (let spell of level.spells) {
-                if (spell.time.type === time) {
-                    output.push({
-                        type: "spell",
-                        label: `${spell.name} (${spell.level})`,
-                        icon: "✨",
-                        action: spell
-                    })
-                }
+        for (let spell of Object.values(stats.casting.spells)) {
+            if (spell.time.type === time) {
+                output.push({
+                    type: "spell",
+                    label: `${spell.name} (${spell.level})`,
+                    icon: "✨",
+                    action: spell
+                })
             }
         }
 

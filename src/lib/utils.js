@@ -56,3 +56,16 @@ export function score2modifier(score) {
 export function level2proficiency(level) {
     return Math.floor(level / 4) + 2
 }
+
+export function getProficiencies(stats, tag) {
+    let output = [];
+
+    // get from class
+    for (let cls of Object.keys(stats.class)) {
+        output.push(...stats.class[cls].proficiencies[tag])
+    }
+    // get from species
+    output.push(...stats.species.proficiencies[tag])
+
+    return output
+}

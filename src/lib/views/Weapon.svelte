@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { totalLevels, score2modifier, level2proficiency } from "$lib/utils";
+    import { totalLevels, score2modifier, level2proficiency, getProficiencies } from "$lib/utils";
     import { MarkdownCtrl } from "$lib/ui/ctrls";
 
     let {
@@ -27,7 +27,7 @@
         ) + Math.floor(
             level2proficiency(
                 totalLevels(stats.class)
-            ) * stats.proficiencies.weapons.includes(weapon.params.weapontype)
+            ) * getProficiencies(stats, "weapons").includes(weapon.params.weapontype)
         )
 
         return (

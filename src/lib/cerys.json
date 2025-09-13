@@ -37,7 +37,8 @@
         "proficiencies": {
             "weapons": ["battleaxe", "handaxe", "lighthammer", "warhammer"],
             "tools": ["brewer"],
-            "languages": ["common", "dwarvish"]
+            "languages": ["common", "dwarvish"],
+            "armour": []
         },
         "traits": [
             {
@@ -581,7 +582,7 @@
                 "description": "Proficiency with a Sling allows you to add your proficiency bonus to the attack roll for any attack you make with it.",
                 "equipped": true,
                 "params": {
-                    "weapontype": "simple",
+                    "weapontype": "sling",
                     "attacktype": "ranged",
                     "range": {
                         "reach": null,
@@ -600,7 +601,7 @@
                 "description": "The crystal at the end of this staff glows when ergonite is close. Its brightness is proportional to the potency and proximity of the ergonite. As an action, repair up to 1sqft of ergonite, joining fragments into a single naturalistic lump and removing any engravings.",
                 "equipped": true,
                 "params": {
-                    "weapontype": "simple",
+                    "weapontype": "quarterstaff",
                     "attacktype": "melee",
                     "range": {
                         "reach": 5,

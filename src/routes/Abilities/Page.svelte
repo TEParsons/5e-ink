@@ -4,7 +4,7 @@
     import AbilityScore from "./AbilityScore.svelte";
     import SkillScore from "./SkillScore.svelte";
     import { TraitsView } from "$lib/views";
-    import ProficienciesCtrl from "./ProficienciesCtrl.svelte";
+    import ProficiencyGroup from "./ProficiencyGroup.svelte";
 
     let stats = getContext("stats")
 </script>
@@ -30,7 +30,21 @@
         tag="narrative"
     />
 
-    <ProficienciesCtrl />
+    <div class=proficiencies>
+        <h3>Proficiencies</h3>
+        <ProficiencyGroup 
+            tag="languages"
+        />
+        <ProficiencyGroup 
+            tag="tools"
+        />
+        <ProficiencyGroup 
+            tag="weapons"
+        />
+        <ProficiencyGroup 
+            tag="armour"
+        />
+    </div>
     
 </div>
 
@@ -57,5 +71,10 @@
         box-sizing: border-box;
         border: 1px solid var(--overlay);
         border-radius: .5rem;
+    }
+    .proficiencies {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
     }
 </style>
