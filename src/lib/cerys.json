@@ -33,7 +33,39 @@
         "movement": {
             "walk": 25
         },
-        "size": "small"
+        "size": "small",
+        "proficiencies": {
+            "weapons": ["battleaxe", "handaxe", "lighthammer", "warhammer"],
+            "tools": ["brewer"],
+            "languages": ["common", "dwarvish"]
+        },
+        "traits": [
+            {
+                "name": "Darkvision",
+                "tags": ["combat", "narrative"],
+                "description": "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray."
+            },
+            {
+                "name": "Dwarven Resilience",
+                "tags": ["combat", "narrative"],
+                "description": "You have advantage on saving throws against poison, and you have resistance against poison damage."
+            },
+            {
+                "name": "Stonecunning",
+                "tags": ["narrative"],
+                "description": "Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus."
+            },
+            {
+                "name": "Dwarven Toughness",
+                "tags": ["health"],
+                "description": "Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.",
+                "effect": {
+                    "flat": 1,
+                    "perlevel": 1
+                }
+            }
+        ],
+        "actions": []
     },
     "class": {
         "druid": {
@@ -61,10 +93,12 @@
             "traits": [
                 {
                     "name": "Ritual Casting",
+                    "tags": ["combat", "narrative"],
                     "description": "You can cast a druid spell as a ritual if that spell has the ritual tag and you have the spell prepared."
                 },
                 {
                     "name": "Wild Companion",
+                    "tags": ["combat", "narrative"],
                     "description": "At 2nd level, you gain the ability to summon a spirit that assumes an animal form: as an action, you can expend a use of your Wild Shape feature to cast the Find Familiar spell, without material components.\n\nWhen you cast the spell in this way, the familiar is a fey instead of a beast, and the familiar disappears after a number of hours equal to half your druid level."
                 }
             ],

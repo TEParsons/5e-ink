@@ -6,7 +6,7 @@
     import InitiativeCtrl from "./InitiativeCtrl.svelte";
     import ActionsCtrl from "./ActionsCtrl.svelte";
     import ReactionsCtrl from "./ReactionsCtrl.svelte";
-    import TraitsCtrl from "./TraitsCtrl.svelte";
+    import { TraitsView } from "$lib/views";
 
     let stats = getContext("stats")
 </script>
@@ -35,8 +35,9 @@
     
     <HealthCtrl />
 
-    <h3>Traits</h3>
-    <TraitsCtrl />
+    <TraitsView 
+        tag="combat"
+    />
 
     <h3>Actions</h3>
     <ActionsCtrl

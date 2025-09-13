@@ -2,18 +2,36 @@
     import { getContext } from "svelte";
     import { DetailsCtrl } from "$lib/ui/ctrls"
 
+    let {
+        tag
+    } = $props()
+
     let stats = getContext("stats");
 
     let traits = $derived.by(() => {
         let output = []
 
-        // get class actions
+        // get class traits
         for (let [name, cls] of Object.entries(stats.class)) {
             for (let trait of cls.traits) {
+                if (trait.tags.includes("combat")) {
+                    output.push({
+                        type: "class",
+                        label: `${trait.name} (${name})`,
+                        icon: "💼",
+                        trait: trait
+                    })
+                }
+            }      
+        }
+
+        // get species traits
+        for (let trait of stats.species.traits) {
+            if (trait.tags.includes("combat")) {
                 output.push({
-                    type: "class",
-                    label: `${trait.name} (${name})`,
-                    icon: "💼",
+                    type: "species",
+                    label: `${trait.name} (${stats.species.name})`,
+                    icon: "🧬",
                     trait: trait
                 })
             }
@@ -23,6 +41,7 @@
     })
 </script>
 
+<h3>Traits</h3>
 <div class=traits-ctrl>
     {#each traits as trait}
     <DetailsCtrl>

@@ -48,6 +48,16 @@
             }
         }
 
+        // get species actions
+        for (let action of stats.species.actions) {
+            output.push({
+                type: "species",
+                label: `${action.name} (${stats.species.name})`,
+                icon: "🧬",
+                action: action
+            })
+        }
+
         // get spells
         for (let level of Object.values(stats.spells)) {
             for (let spell of level.spells) {
@@ -92,7 +102,7 @@
                     weapon={action.action}
                 />
             {/if}
-            {#if action.type === "consumable"}
+            {#if action.type === "consumable" || action.type === "species" }
                 <h2>{action.action.name}</h2>
                 <p>{action.action.description}</p>
             {/if}
