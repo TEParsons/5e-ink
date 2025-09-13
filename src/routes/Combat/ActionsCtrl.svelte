@@ -94,12 +94,12 @@
 
             {#if action.type === "spell"}
                 <SpellView 
-                    spell={action.action}
+                    bind:spell={action.action}
                 />
             {/if}
             {#if action.type === "weapon"}
                 <WeaponView 
-                    weapon={action.action}
+                    bind:weapon={action.action}
                 />
             {/if}
             {#if action.type === "consumable" || action.type === "species" }
@@ -108,7 +108,7 @@
             {/if}
             {#if action.type === "class"}
                 <ClassActionView 
-                    action={action.action}
+                    bind:action={action.action}
                     bind:slots={action.action.slots}
                 />
             {/if}

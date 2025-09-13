@@ -1,8 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { totalLevels, score2modifier, level2proficiency } from "$lib/utils";
-    import { DetailsCtrl } from "$lib/ui/ctrls"
-    import Markdown from "$lib/ui/Markdown.svelte";
+    import { DetailsCtrl, MarkdownCtrl } from "$lib/ui/ctrls"
 
     let stats = getContext("stats");
 
@@ -47,7 +46,7 @@
             {/snippet}
 
             {#if action.effect}
-                <Markdown 
+                <MarkdownCtrl 
                     value={action.effect}
                 />
             {/if}

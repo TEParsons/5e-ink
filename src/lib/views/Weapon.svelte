@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { totalLevels, score2modifier, level2proficiency } from "$lib/utils";
-    import Markdown from "$lib/ui/Markdown.svelte";
+    import { MarkdownCtrl } from "$lib/ui/ctrls";
 
     let {
         weapon
@@ -43,10 +43,11 @@
     <i>{weapon.weight}lbs.</i>
 {/if}
 
-<Markdown 
+<MarkdownCtrl 
     value={weaponDesc(weapon)}
+    edit={false}
 />
 
-{#each String(weapon.description).split("\n") as line}
-    <p>{line}</p>
-{/each}
+<MarkdownCtrl 
+    bind:value={weapon.description}
+/>

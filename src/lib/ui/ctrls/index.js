@@ -7,3 +7,4 @@ export { default as SwitchCtrl } from "./Switch.svelte";
 export { default as ProficiencyCtrl } from "./Proficiency.svelte";
 export { default as SlotsCtrl } from "./Slots.svelte";
 export { default as DictionaryCtrl } from "./Dictionary.svelte";
+export { default as MarkdownCtrl } from "./Markdown.svelte";

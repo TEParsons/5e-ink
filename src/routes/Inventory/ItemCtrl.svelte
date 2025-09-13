@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { DetailsCtrl, SwitchCtrl } from "$lib/ui/ctrls";
+    import { DetailsCtrl, SwitchCtrl, MarkdownCtrl } from "$lib/ui/ctrls";
     import { WeaponView } from "$lib/views"
 
     let {
@@ -27,14 +27,14 @@
 
     {#if item.type === "weapon"}
         <WeaponView 
-            weapon={item}
+            bind:weapon={item}
         />
     {:else}
         <h2>{item.name}</h2>
         <i>{item.type}, {item.weight}lbs.</i>
-        {#each item.description.split("\n") as line}
-            <p>{line}</p>
-        {/each}
+        <MarkdownCtrl
+            bind:value={item.description}
+        />
     {/if}
 
     

@@ -37,10 +37,8 @@
         }
         // apply traits which affect maxhealth
         for (let traits of Object.values(traitsByTag(stats, "buff"))) {
-            console.log(traits)
             for (let trait of traits) {
                 if (trait.effect?.maxhp) {
-                    console.log(trait)
                     // add flat change
                     hp += trait.effect.maxhp.flat || 0
                     // add per level change

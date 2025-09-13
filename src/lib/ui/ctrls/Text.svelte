@@ -1,5 +1,5 @@
 <script>
-    import { getContext } from "svelte";
+    import { getContext, onMount } from "svelte";
 
     let prefs = getContext("prefs");
 
@@ -11,20 +11,27 @@
 
     let ctrl = $state.raw();
 
+    function resize(evt) {
+        ctrl.style.height = "";
+        ctrl.style.height = `calc(${ctrl.scrollHeight}px + .5rem)`;
+    }
+
     $effect(() => {
         if (ctrl && value) {
-            ctrl.style.height = "";
-            ctrl.style.height = `calc(${ctrl.scrollHeight}px + .5rem)`;
+            resize()
         }
     })
+
+    onMount(resize)
 
 </script>
 
 {#if edit}
     <textarea 
         class="input text"
-        bind:value={value}
+        onfocus={resize}
         bind:this={ctrl}
+        bind:value={value}
     ></textarea>
 {:else}
     {#each String(value).split("\n") as line}
@@ -47,6 +54,7 @@
         box-sizing: border-box;
         resize: none;
         overflow: hidden;
+        min-height: 1rem;
     }
 
     p {

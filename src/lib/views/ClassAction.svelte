@@ -1,10 +1,9 @@
 <script>
     import { getContext } from "svelte";
-    import { DetailsCtrl, SlotsCtrl } from "$lib/ui/ctrls";
-    import Markdown from "$lib/ui/Markdown.svelte";
+    import { DetailsCtrl, SlotsCtrl, MarkdownCtrl } from "$lib/ui/ctrls";
 
     let {
-        action,
+        action=$bindable(),
         slots=$bindable()
     } = $props()
 
@@ -15,7 +14,7 @@
 <h1>
     {action.name}
 </h1>
-<Markdown 
+<MarkdownCtrl 
     value={action.description}
 />
 <h4>

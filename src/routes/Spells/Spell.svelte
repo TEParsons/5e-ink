@@ -38,7 +38,7 @@
     {/snippet}
     
     <SpellView 
-        spell={spell}
+        bind:spell={spell}
         bind:slots={temp.slots}
         level={level}
     />
