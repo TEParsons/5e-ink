@@ -24,15 +24,17 @@
 
     let total = $derived.by(() => {
         // calculate starting hp
-        let hp = hitdice[classLevels(stats.class)[0]] + stats.scores.con
+        let hp = Object.values(stats.class)[0].hitdice.die + stats.scores.con
         // add hp rolls
-        for (let [i, cls] of classLevels(stats.class).slice(1).entries()) {
-            if (i in stats.health.total.rolls.keys()) {
-                // if roll is recorded, use it
-                hp += stats.health.total.rolls[i]
-            } else {
-                // otherwise use average
-                hp += Math.floor(hitdice[cls] / 2)
+        for (let cls of Object.keys(stats.class)) {
+            for (let lvl of Array(stats.class[cls].levels).keys()) {
+                if (lvl in stats.class[cls].hitdice.rolls.keys()) {
+                    // if roll is recorded, use it
+                    hp += stats.class[cls].hitdice.rolls[lvl]
+                } else {
+                    // use the average
+                    hp += Math.floor(stats.class[cls].hitdice.die / 2)
+                }
             }
         }
         // apply traits which affect maxhealth

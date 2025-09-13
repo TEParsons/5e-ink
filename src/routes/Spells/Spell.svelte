@@ -4,8 +4,7 @@
     import { SpellView } from "$lib/views";
 
     let {
-        spell,
-        level="cantrips"
+        spell
     } = $props()
 
     let stats = getContext("stats");
@@ -19,16 +18,20 @@
     }[spell.time.type]}`)
 
     let temp = $state({
-        slots: $state.snapshot(stats.spells[level].slots?.current)
+        slots: $state.snapshot(stats.casting.slots[spell.level]?.current)
     })
 </script>
 
 <DetailsCtrl
     buttons={{
-        OK: evt => stats.spells[level].slots.current = $state.snapshot(temp.slots),
-        CANCEL: evt => temp.slots = $state.snapshot(stats.spells[level].slots?.current)
+        OK: evt => {
+            if (spell.level in stats.casting.slots) {
+                stats.casting.slots[spell.level].current = $state.snapshot(temp.slots)
+            }
+        },
+        CANCEL: evt => temp.slots = $state.snapshot(stats.casting.slots[spell.level]?.current)
     }}
-    onopen={evt => temp.slots = $state.snapshot(stats.spells[level].slots?.current)}
+    onopen={evt => temp.slots = $state.snapshot(stats.casting.slots[spell.level]?.current)}
 >
     {#snippet summary()}
         <div class=spell-summary>
@@ -40,7 +43,6 @@
     <SpellView 
         bind:spell={spell}
         bind:slots={temp.slots}
-        level={level}
     />
     
     

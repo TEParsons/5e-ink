@@ -5,7 +5,6 @@
     let {
         spell=$bindable(),
         slots=$bindable(),
-        level="cantrips"
     } = $props()
 
     let stats = getContext("stats");
@@ -20,13 +19,13 @@
         bind:value={spell.description}
     />
 
-    {#if level !== "cantrips"}
+    {#if spell.level in stats.casting.slots}
         <h4>
-            {`${level[0].toUpperCase()}${level.slice(1)} level`} slots
+            {`${spell.level[0].toUpperCase()}${spell.level.slice(1)} level`} slots
         </h4>
         <SlotsCtrl 
             bind:value={slots}
-            bind:total={stats.spells[level].slots.total}
+            bind:total={stats.casting.slots[spell.level].total}
         />
     {/if}
 </div>

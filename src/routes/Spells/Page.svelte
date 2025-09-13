@@ -10,22 +10,25 @@
 
 <div class=page>
     <SpellStatsCtrl />
-
-    {#each Object.keys(stats.spells) as level}
+    {#each ["cantrip"].concat(Object.keys(stats.casting.slots)) as level}
         <div class=level-header>
             <h2>
-                {level === "cantrips" ? "Cantrips" : `${level[0].toUpperCase()}${level.slice(1)} level`}
+                {`${level[0].toUpperCase()}${level.slice(1)} level`}
             </h2>
-            {#if "slots" in stats.spells[level]}
+            {#if level in stats.casting.slots}
                 <SlotsCtrl 
-                    bind:value={stats.spells[level].slots.current}
-                    bind:total={stats.spells[level].slots.total}
+                    bind:value={stats.casting.slots[level].current}
+                    bind:total={stats.casting.slots[level].total}
                 />
             {/if}
         </div>
         <div class=spell-list>
-            {#each stats.spells[level].spells as spell}
-                <Spell spell={spell} level={level}/>
+            {#each Object.entries(stats.casting.spells) as [i, spell]}
+                {#if spell.level === level}
+                    <Spell 
+                        bind:spell={stats.casting.spells[i]} 
+                    />
+                {/if}
             {/each}
         </div>
     {/each}
