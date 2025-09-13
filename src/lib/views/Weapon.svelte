@@ -26,7 +26,7 @@
             weapon.params.range.range ? stats.scores.dex : stats.scores.str
         ) + Math.floor(
             level2proficiency(
-                totalLevels(stats.levels)
+                totalLevels(stats.class)
             ) * stats.proficiencies.weapons.includes(weapon.params.weapontype)
         )
 

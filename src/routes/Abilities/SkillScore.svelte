@@ -53,7 +53,7 @@
 
     let proficiency = $derived(
         level2proficiency(
-            totalLevels(stats.levels)
+            totalLevels(stats.class)
         )
     )
 

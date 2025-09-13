@@ -17,10 +17,10 @@
             />
         </h1>
         <div class=levels>
-            {#each Object.keys(stats.levels) as cls}
+            {#each Object.keys(stats.class) as cls}
                 <div class=level-ctrl>
                     Level <NumberCtrl 
-                        bind:value={stats.levels[cls]}
+                        bind:value={stats.class[cls].levels}
                         min=1
                         max=30
                         interval=1

@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { DetailsCtrl } from "$lib/ui/ctrls"
-    import { WeaponView, SpellView } from "$lib/views";
+    import { WeaponView, SpellView, ClassActionView } from "$lib/views";
 
     let {
         time
@@ -12,8 +12,6 @@
     // get relevant actions
     let actions = $derived.by(() => {
         let output = [];
-        
-
         
         for (let item of stats.inventory.items) {
             // get weapon attacks if we're doing actions
@@ -33,6 +31,20 @@
                     icon: "✷",
                     action: item
                 })
+            }
+        }
+
+        // get class actions
+        for (let [name, cls] of Object.entries(stats.class)) {
+            for (let action of cls.actions) {
+                if (action.time.type === time) {
+                    output.push({
+                        type: "class",
+                        label: `${action.name} (${name})`,
+                        icon: "💼",
+                        action: action
+                    })
+                }
             }
         }
 
@@ -83,6 +95,12 @@
             {#if action.type === "consumable"}
                 <h2>{action.action.name}</h2>
                 <p>{action.action.description}</p>
+            {/if}
+            {#if action.type === "class"}
+                <ClassActionView 
+                    action={action.action}
+                    bind:slots={action.action.slots}
+                />
             {/if}
         </DetailsCtrl>
     {/each}

@@ -84,10 +84,10 @@
             // unarmoured
             output += 10
             // add modifier according to class
-            if ("barbarian" in stats.levels) {
+            if ("barbarian" in stats.class) {
                 output += stats.scores.con
             }
-            if ("monk" in stats.levels) {
+            if ("monk" in stats.class) {
                 output += stats.scores.wis
             }
         }

@@ -1,15 +1,23 @@
-export function totalLevels(levels) {
-    return Object.values(levels).reduce(
-        (partial, val) => partial + val
+export function totalLevels(classes) {
+    return Object.values(classes).reduce(
+        (partial, val) => partial + val.levels,
+        0
     )
 }
 
-export function classLevels(levels) {
+export function saveProficiencies(classes) {
+    return Object.values(classes).reduce(
+        (partial, val) => partial.concat(...val.proficiencies.saves),
+        []
+    )
+}
+
+export function classLevels(classes) {
     let output = [];
 
-    for (let [cls, lvl] of Object.entries(levels)) {
-        for (let i of Array(lvl).keys()) {
-            output.push(cls)
+    for (let [key, cls] of Object.entries(classes)) {
+        for (let i of Array(cls.levels).keys()) {
+            output.push(key)
         }
     }
 

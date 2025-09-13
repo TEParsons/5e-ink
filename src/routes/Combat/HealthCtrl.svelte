@@ -24,9 +24,9 @@
 
     let total = $derived.by(() => {
         // calculate starting hp
-        let hp = hitdice[classLevels(stats.levels)[0]] + stats.scores.con
+        let hp = hitdice[classLevels(stats.class)[0]] + stats.scores.con
         // add hp rolls
-        for (let [i, cls] of classLevels(stats.levels).slice(1).entries()) {
+        for (let [i, cls] of classLevels(stats.class).slice(1).entries()) {
             if (i in stats.health.total.rolls.keys()) {
                 // if roll is recorded, use it
                 hp += stats.health.total.rolls[i]
@@ -37,11 +37,11 @@
         }
         // add 1hp per level if hill dwarf
         if (stats.species.name === "dwarf" && stats.species.subtype === "hill") {
-            hp += totalLevels(stats.levels)
+            hp += totalLevels(stats.class)
         }
         // add 2hp per level if tough feat
         if (stats.health.total.modifiers.tough) {
-            hp += totalLevels(stats.levels) * 2
+            hp += totalLevels(stats.class) * 2
         }
 
         return hp
