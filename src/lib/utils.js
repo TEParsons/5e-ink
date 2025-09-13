@@ -26,15 +26,15 @@ export function classLevels(classes) {
 
 export function traitsByTag(stats, tag) {
     let output = {
-        class: [],
         species: []
     };
 
     // get class traits
     for (let [name, cls] of Object.entries(stats.class)) {
+        output[name] = []
         for (let trait of cls.traits) {
             if (trait.tags.includes(tag)) {
-                output.class.push(trait)
+                output[name].push(trait)
             }
         }      
     }

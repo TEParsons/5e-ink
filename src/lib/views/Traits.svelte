@@ -14,10 +14,10 @@
 
         for (let [source, traits] of Object.entries(traitsByTag(stats, tag))) {
             for (let trait of traits) {
-                if (source === "class") {
+                if (source in stats.class) {
                     output.push({
                         type: "class",
-                        label: `${trait.name} (${name})`,
+                        label: `${trait.name} (${source})`,
                         icon: "💼",
                         trait: trait
                     })
