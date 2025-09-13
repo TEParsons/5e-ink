@@ -1,0 +1,790 @@
+{
+    "title": "5e Character Sheet",
+    "description": "A 5e character sheet represented as a JSON file",
+    "type": "object",
+    "required": ["details", "species", "levels", "health", "scores"],
+    "properties": {
+        "details": {
+            "title": "Details",
+            "description": "Information about your character",
+            "type": "object",
+            "required": ["name", "pronouns", "alignment", "avatar", "backstory", "personality", "organisations", "allies", "enemies"],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "default": ""
+                },
+                "pronouns": {
+                    "type": "string",
+                    "default": "they/them"
+                },
+                "alignment": {
+                    "type": "string",
+                    "enum": [
+                        "lawful good",
+                        "lawful neutral",
+                        "lawful evil",
+                        "neutral good",
+                        "true neutral",
+                        "neutral evil",
+                        "chaotic good",
+                        "chaotic neutral",
+                        "chaotic evil"
+                    ],
+                    "default": "true neutral"
+                },
+                "avatar": {
+                    "type": "string",
+                    "default": "https://www.dndbeyond.com/avatars/35970/482/638265031649189109.jpeg"
+                },
+                "backstory": {
+                    "type": "string",
+                    "default": ""
+                },
+                "personality": {
+                    "type": "object",
+                    "required": ["traits", "ideals", "bonds", "flaws"],
+                    "properties": {
+                        "traits": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "ideals": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "bonds": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "flaws": {
+                            "type": "string",
+                            "default": ""
+                        }
+                    }
+                },
+                "organisations": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "default": {
+                        "organisation": ""
+                    }
+                },
+                "allies": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "default": {
+                        "name": ""
+                    }
+                },
+                "enemies": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string",
+                        "default": ""
+                    },
+                    "default": {
+                        "name": ""
+                    }
+                }
+            }
+        },
+        "species": {
+            "title": "Species",
+            "description": "What species (formerly race) is your character?",
+            "type": "object",
+            "required": ["name", "movement", "size", "proficiencies", "traits", "actions"],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "default": "human"
+                },
+                "subtype": {
+                    "type": "string"
+                },
+                "movement": {
+                    "type": "object",
+                    "required": ["walk"],
+                    "properties": {
+                        "walk": {
+                            "type": "integer",
+                            "default": 30
+                        },
+                        "burrow": {
+                            "type": "integer",
+                            "default": 0
+                        },
+                        "climb": {
+                            "type": "integer",
+                            "default": 0
+                        },
+                        "fly": {
+                            "type": "integer",
+                            "default": 0
+                        },
+                        "hover": {
+                            "type": "integer",
+                            "default": 0
+                        },
+                        "swim": {
+                            "type": "integer",
+                            "default": 0
+                        }
+                    }
+                },
+                "size": {
+                    "title": "Size",
+                    "description": "How large is your character?",
+                    "type": "string",
+                    "enum": [
+                        "tiny",
+                        "small",
+                        "medium",
+                        "large",
+                        "huge",
+                        "gargantuan"
+                    ],
+                    "default": "medium"
+                },
+                "proficiencies": {
+                    "type": "object",
+                    "required": ["weapons", "tools", "languages", "armour"],
+                    "properties": {
+                        "weapons": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "tools": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "languages": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "armour": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        }
+                    }
+                },
+                "traits": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": ["name", "tags", "description"],
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "default": ""
+                            },
+                            "tags": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "combat",
+                                        "narrative",
+                                        "buff"
+                                    ]
+                                },
+                                "default": []
+                            },
+                            "description": {
+                                "type": "string",
+                                "default": ""
+                            },
+                            "effect": {
+                                "type": "object",
+                                "properties": {
+                                    "maxhp": {
+                                        "type": "object",
+                                        "required": ["flat", "perlevel"],
+                                        "properties": {
+                                            "flat": {
+                                                "type": "integer",
+                                                "default": 0
+                                            },
+                                            "perlevel": {
+                                                "type": "integer",
+                                                "default": 0
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": []
+                },
+                "actions": {
+                    "type": "array",
+                    "default": [],
+                    "items": {
+                        "type": "object",
+                        "required": ["name", "time", "description"],
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "default": ""
+                            },
+                            "time": {
+                                "type": "object",
+                                "required": ["type", "amount"],
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "action",
+                                            "bonusaction",
+                                            "reaction"
+                                        ],
+                                        "default": "action"
+                                    },
+                                    "amount": {
+                                        "type": "integer",
+                                        "default": 1
+                                    }
+                                }
+                            },
+                            "slots": {
+                                "type": "object",
+                                "required": ["total", "current"],
+                                "properties": {
+                                    "total": {
+                                        "type": "integer",
+                                        "default": 1
+                                    },
+                                    "current": {
+                                        "type": "integer",
+                                        "default": 1
+                                    }
+                                }
+                            },
+                            "description": {
+                                "type": "string",
+                                "default": ""
+                            }
+                        }
+                    }
+                }
+            } 
+        },
+        "class": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "object",
+                "required": ["levels", "subtype", "hitdice", "spellcasting", "proficiencies", "traits", "actions"],
+                "properties": {
+                    "levels": {
+                        "type": "integer",
+                        "default": 1
+                    },
+                    "hitdice": {
+                        "type": "object",
+                        "required": ["die", "rolls"],
+                        "properties": {
+                            "die": {
+                                "type": "integer",
+                                "enum": [
+                                    4, 6, 8, 10, 12, 20
+                                ],
+                                "default": 8
+                            },
+                            "rolls": {
+                                "type": "array",
+                                "items": {
+                                    "type": "integer",
+                                    "default": 4
+                                }
+                            }
+                        }
+                    },
+                    "spellcasting": {
+                        "type": "string",
+                        "enum": [
+                            "",
+                            "str",
+                            "con",
+                            "dex",
+                            "int",
+                            "wis",
+                            "chr"
+                        ],
+                        "default": ""
+                    },
+                    "proficiencies": {
+                        "type": "object",
+                        "required": ["weapons", "tools", "languages", "armour"],
+                        "properties": {
+                            "weapons": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "default": []
+                            },
+                            "tools": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "default": []
+                            },
+                            "languages": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "default": []
+                            },
+                            "armour": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "default": []
+                            }
+                        }
+                    },
+                    "traits": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "required": ["name", "tags", "description"],
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "default": ""
+                                },
+                                "tags": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "combat",
+                                            "narrative",
+                                            "buff"
+                                        ]
+                                    },
+                                    "default": []
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "default": ""
+                                },
+                                "effect": {
+                                    "type": "object",
+                                    "properties": {
+                                        "maxhp": {
+                                            "type": "object",
+                                            "required": ["flat", "perlevel"],
+                                            "properties": {
+                                                "flat": {
+                                                    "type": "integer",
+                                                    "default": 0
+                                                },
+                                                "perlevel": {
+                                                    "type": "integer",
+                                                    "default": 0
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "default": []
+                    },
+                    "actions": {
+                        "type": "array",
+                        "default": [],
+                        "items": {
+                            "type": "object",
+                            "required": ["name", "time", "description"],
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "default": ""
+                                },
+                                "time": {
+                                    "type": "object",
+                                    "required": ["type", "amount"],
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "action",
+                                                "bonusaction",
+                                                "reaction"
+                                            ],
+                                            "default": "action"
+                                        },
+                                        "amount": {
+                                            "type": "integer",
+                                            "default": 1
+                                        }
+                                    }
+                                },
+                                "slots": {
+                                    "type": "object",
+                                    "required": ["total", "current"],
+                                    "properties": {
+                                        "total": {
+                                            "type": "integer",
+                                            "default": 1
+                                        },
+                                        "current": {
+                                            "type": "integer",
+                                            "default": 1
+                                        }
+                                    }
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "default": ""
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "health": {
+            "type": "object",
+            "required": ["current"],
+            "properties": {
+                "current": {
+                    "type": "integer",
+                    "default": 1
+                }
+            }
+        },
+        "scores": {
+            "type": "object",
+            "required": ["str", "con", "dex", "int", "wis", "chr"],
+            "properties": {
+                "str": {
+                    "type": "integer",
+                    "default": 10
+                },
+                "con": {
+                    "type": "integer",
+                    "default": 10
+                },
+                "dex": {
+                    "type": "integer",
+                    "default": 10
+                },
+                "int": {
+                    "type": "integer",
+                    "default": 10
+                },
+                "wis": {
+                    "type": "integer",
+                    "default": 10
+                },
+                "chr": {
+                    "type": "integer",
+                    "default": 10
+                }
+            }
+        },
+        "skills": {
+            "type": "object",
+            "required": ["athletics", "acrobatics", "sleightOfHand", "stealth", "arcana", "history", "investigation", "nature", "religion", "animalHandling", "insight", "medicine", "perception", "survival", "deception", "intimidation", "performance", "persuasion"],
+            "properties": {
+                "athletics": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "acrobatics": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "sleightOfHand": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "stealth": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "arcana": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "history": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "investigation": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "nature": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "religion": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "animalHandling": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "insight": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "medicine": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "perception": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "survival": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "deception": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "intimidation": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "performance": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "persuasion": {
+                    "type": "integer",
+                    "default": 0
+                }
+            }
+        },
+        "casting": {
+            "type": "object",
+            "required": ["slots", "spells"],
+            "properties": {
+                "slots": {
+                    "type": "object",
+                    "default": {},
+                    "properties": {
+                        "cantrip": {
+                            "type": "object",
+                            "required": ["current", "total"],
+                            "properties": {
+                                "current": {
+                                    "type": "integer",
+                                    "default": 0
+                                },
+                                "total": {
+                                    "type": "integer",
+                                    "default": 1
+                                }
+                            }
+                        },
+                        "first": {
+                            "type": "object",
+                            "required": ["current", "total"],
+                            "properties": {
+                                "current": {
+                                    "type": "integer",
+                                    "default": 0
+                                },
+                                "total": {
+                                    "type": "integer",
+                                    "default": 1
+                                }
+                            }
+                        },
+                        "second": {
+                            "type": "object",
+                            "required": ["current", "total"],
+                            "properties": {
+                                "current": {
+                                    "type": "integer",
+                                    "default": 0
+                                },
+                                "total": {
+                                    "type": "integer",
+                                    "default": 1
+                                }
+                            }
+                        },
+                        "third": {
+                            "type": "object",
+                            "required": ["current", "total"],
+                            "properties": {
+                                "current": {
+                                    "type": "integer",
+                                    "default": 0
+                                },
+                                "total": {
+                                    "type": "integer",
+                                    "default": 1
+                                }
+                            }
+                        },
+                        "fourth": {
+                            "type": "object",
+                            "required": ["current", "total"],
+                            "properties": {
+                                "current": {
+                                    "type": "integer",
+                                    "default": 0
+                                },
+                                "total": {
+                                    "type": "integer",
+                                    "default": 1
+                                }
+                            }
+                        },
+                        "fifth": {
+                            "type": "object",
+                            "required": ["current", "total"],
+                            "properties": {
+                                "current": {
+                                    "type": "integer",
+                                    "default": 0
+                                },
+                                "total": {
+                                    "type": "integer",
+                                    "default": 1
+                                }
+                            }
+                        },
+                        "sixth": {
+                            "type": "object",
+                            "required": ["current", "total"],
+                            "properties": {
+                                "current": {
+                                    "type": "integer",
+                                    "default": 0
+                                },
+                                "total": {
+                                    "type": "integer",
+                                    "default": 1
+                                }
+                            }
+                        },
+                        "seventh": {
+                            "type": "object",
+                            "required": ["current", "total"],
+                            "properties": {
+                                "current": {
+                                    "type": "integer",
+                                    "default": 0
+                                },
+                                "total": {
+                                    "type": "integer",
+                                    "default": 1
+                                }
+                            }
+                        },
+                        "eighth": {
+                            "type": "object",
+                            "required": ["current", "total"],
+                            "properties": {
+                                "current": {
+                                    "type": "integer",
+                                    "default": 0
+                                },
+                                "total": {
+                                    "type": "integer",
+                                    "default": 1
+                                }
+                            }
+                        },
+                        "ninth": {
+                            "type": "object",
+                            "required": ["current", "total"],
+                            "properties": {
+                                "current": {
+                                    "type": "integer",
+                                    "default": 0
+                                },
+                                "total": {
+                                    "type": "integer",
+                                    "default": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "spells": {
+                    "type": "array",
+                    "default": [],
+                    "items": {
+                        "type": "object",
+                        "note": "PLACEHOLDER"
+                    }
+                }
+            }
+        },
+        "inventory": {
+            "type": "object",
+            "required": ["currency", "items"],
+            "properties": {
+                "currency": {
+                    "type": "object",
+                    "required": ["platinum", "gold", "electrum", "silver", "copper"],
+                    "properties": {
+                        "platinum": {
+                            "type": "integer",
+                            "default": 0
+                        },
+                        "gold": {
+                            "type": "integer",
+                            "default": 0
+                        },
+                        "electrum": {
+                            "type": "integer",
+                            "default": 0
+                        },
+                        "silver": {
+                            "type": "integer",
+                            "default": 0
+                        },
+                        "copper": {
+                            "type": "integer",
+                            "default": 0
+                        }
+                    }
+                },
+                "items": {
+                    "type": "array",
+                    "default": [],
+                    "items": {
+                        "type": "object",
+                        "note": "PLACEHOLDER"
+                    }
+                }
+            }
+        }
+    }
+}
