@@ -53,7 +53,7 @@
         flex-direction: column;
         flex-wrap: wrap;
         gap: .5rem;
-        padding: 1rem;
+        padding: .5rem;
         box-sizing: border-box;
         border: 1px solid var(--overlay);
         border-radius: .5rem;

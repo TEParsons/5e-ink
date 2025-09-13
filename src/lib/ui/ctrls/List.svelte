@@ -7,6 +7,7 @@
 
     let {
         value=$bindable(),
+        label,
         valType="text",
         edit=prefs.edit
     } = $props();
@@ -16,6 +17,7 @@
     style:display={edit ? "flex" : "inline"}
 >
     {#if edit}
+        <h4>{label}</h4>
         {#each Object.keys(value) as i}
             <div class=list-item>
                 {#if valType === "text"}
@@ -41,7 +43,7 @@
             onclick={evt => value.push("")}
         >+</button>
     {:else}
-        {value.join(", ")}
+        <b>{label}:</b> {value.join(", ")}
     {/if}
 </div>
 

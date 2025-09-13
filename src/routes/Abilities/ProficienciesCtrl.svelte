@@ -1,8 +1,10 @@
 <script>
     import { getContext } from "svelte";
     import { ListCtrl } from "$lib/ui/ctrls";
+    import { prefersReducedMotion } from "svelte/motion";
 
     let stats = getContext("stats")
+    let prefs = getContext("prefs")
 
     let languages = $derived.by(() => {
         let output = [];
@@ -36,18 +38,44 @@
 <div class=proficiencies>
     <h3>Proficiencies</h3>
     <div>
-        <b>Languages:</b>
-        <ListCtrl 
-            value={languages}
-            edit={false}
-        />
+        {#if prefs.edit}
+            {#each Object.keys(stats.class) as cls}
+                <ListCtrl 
+                    label="Languages from class ({cls}):"
+                    bind:value={stats.class[cls].proficiencies.languages}
+                />
+            {/each}
+            <ListCtrl 
+                label="Languages from species ({stats.species.name})"
+                bind:value={stats.species.proficiencies.languages}
+            />
+        {:else}
+            <ListCtrl 
+                value={languages}
+                label="Languages"
+                edit={false}
+            />
+        {/if}
     </div>
     <div>
-        <b>Tools:</b>
-        <ListCtrl 
-            value={tools}
-            edit={false}
-        />
+        {#if prefs.edit}
+            {#each Object.keys(stats.class) as cls}
+                <ListCtrl 
+                    label="Tools from class ({cls})"
+                    bind:value={stats.class[cls].proficiencies.tools}
+                />
+            {/each}
+            <ListCtrl 
+                label="Tools from species ({stats.species.name}):"
+                bind:value={stats.species.proficiencies.tools}
+            />
+        {:else}
+            <ListCtrl 
+                label="Tools"
+                value={tools}
+                edit={false}
+            />
+        {/if}
     </div>
 </div>
 
