@@ -1,32 +1,57 @@
 <script>
     import { getContext } from "svelte";
     import { SwitchCtrl } from "$lib/ui/ctrls";
-
+    import { Ajv } from "ajv";
+    import schema from "$lib/character.schema.json";
 
     let stats = getContext("stats");
     let prefs = getContext("prefs");
 
-    // // todo: setup validator instance
-    // let ajv = new Ajv({
-    //     useDefaults: true
-    // })
-    // ajv.addKeyword("input")
-    // ajv.addKeyword("emum")
-    // ajv.addFormat("uri", /.*/)
-    // for (let [key, schema] of Object.entries(schemas)) {
-    //     ajv.addSchema(schema, key)
-    // }
-    // compile character validator
-    // let defaults = ajv.compile(schemas.Character)
+    let ajv = new Ajv({
+        removeAdditional: true,
+        useDefaults: true,
+        coerceTypes: true
+    });
+    ajv.addKeyword("note");
+    let validate = ajv.compile(schema);
 
-    function clearStats() {
-        for (var key in stats) delete stats[key];
+    /**
+     * Does what ajv.validate({}) should do (insane that it doesn't)
+     * 
+     * @param schema
+     */
+    function recursiveDefaults(schema) {
+        let output
+        // if schema describes an object and defines properties, generate a default from them
+        if (schema.type === "object") {
+            // start off blank
+            output = {}
+            
+            if (schema.properties) {
+                // iterate through properties if we have them
+                for (let [key, subschema] of Object.entries(schema.properties)) {
+                    // recur
+                    output[key] = recursiveDefaults(subschema) 
+                }
+            } else if (schema.additionalProperties) {
+                // add one example of additional properties
+                output["default"] = recursiveDefaults(schema.additionalProperties)
+            }
+        } else {
+            // otherwise, use given default
+            output = schema.default
+        }
+
+        return output
     }
 
     function newCharacter(evt) {
         // wipe stats array
-        clearStats()
-        // todo: assign defaults from schema
+        for (var key in stats) delete stats[key];
+        // assign defaults from schema
+        Object.assign(
+            stats, recursiveDefaults(schema)
+        )
     }
 
     async function loadCharacter(evt) {
@@ -47,8 +72,10 @@
         let content = await file.text();
         // parse JSON
         let data = JSON.parse(content);
+        // validate and sanitize
+        data = validate(data)
         // clear stats
-        clearStats()
+        newCharacter()
         // apply data
         Object.assign(stats, data)
     }

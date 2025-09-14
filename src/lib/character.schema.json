@@ -311,6 +311,7 @@
                             },
                             "rolls": {
                                 "type": "array",
+                                "default": [],
                                 "items": {
                                     "type": "integer",
                                     "default": 4
@@ -594,20 +595,6 @@
                     "type": "object",
                     "default": {},
                     "properties": {
-                        "cantrip": {
-                            "type": "object",
-                            "required": ["current", "total"],
-                            "properties": {
-                                "current": {
-                                    "type": "integer",
-                                    "default": 0
-                                },
-                                "total": {
-                                    "type": "integer",
-                                    "default": 1
-                                }
-                            }
-                        },
                         "first": {
                             "type": "object",
                             "required": ["current", "total"],
