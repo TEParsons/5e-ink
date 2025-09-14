@@ -19,6 +19,11 @@
     })
     setContext("prefs", prefs)
 
+    // if no class has a spellcasting ability, we don't need a spells page
+    let caster = $derived(
+        Object.values(stats.class).every(val => val.spellcasting)
+    )
+
     
 </script>
 
@@ -34,11 +39,13 @@
         >
             <CombatPage />
         </NotebookPage>
-        <NotebookPage
-            label="✨"
-        >
-            <SpellsPage />
-        </NotebookPage>
+        {#if caster}
+            <NotebookPage
+                label="✨"
+            >
+                <SpellsPage />
+            </NotebookPage>
+        {/if}
         <NotebookPage
             label="🪎"
         >
