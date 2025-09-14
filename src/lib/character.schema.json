@@ -741,7 +741,138 @@
                     "default": [],
                     "items": {
                         "type": "object",
-                        "note": "PLACEHOLDER"
+                        "required": ["name", "level", "time", "duration", "range", "components", "school", "description"],
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "default": ""
+                            }, 
+                            "level": {
+                                "type": "string",
+                                "default": "cantrip",
+                                "enum": [
+                                    "cantrip",
+                                    "first",
+                                    "second",
+                                    "third",
+                                    "fourth",
+                                    "fifth",
+                                    "sixth",
+                                    "seventh",
+                                    "eighth",
+                                    "ninth"
+                                ]
+                            }, 
+                            "time": {
+                                "type": "object",
+                                "required": ["type", "amount"],
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "action",
+                                            "bonusaction",
+                                            "reaction"
+                                        ],
+                                        "default": "action"
+                                    },
+                                    "amount": {
+                                        "type": "integer",
+                                        "default": 1
+                                    }
+                                }
+                            }, 
+                            "duration": {
+                                "type": "object",
+                                "required": ["type"],
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "default": "instantaneous",
+                                        "enum": [
+                                            "instantaneous",
+                                            "concentration",
+                                            "passive"
+                                        ]
+                                    },
+                                    "maximum": {
+                                        "type": "object",
+                                        "required": ["type", "amount"],
+                                        "properties": {
+                                            "type": {
+                                                "type": "string",
+                                                "default": "round",
+                                                "enum": [
+                                                    "round",
+                                                    "minute",
+                                                    "hour"
+                                                ]
+                                            },
+                                            "amount": {
+                                                "type": "integer",
+                                                "default": 1
+                                            }
+                                        }
+                                    }
+                                }
+                            }, 
+                            "range": {
+                                "type": "object",
+                                "required": ["reach", "range"],
+                                "properties": {
+                                    "reach": {
+                                        "type": "integer",
+                                        "default": 5
+                                    },
+                                    "range": {
+                                        "type": "object",
+                                        "required": ["base"],
+                                        "properties": {
+                                            "base": {
+                                                "type": "integer",
+                                                "default": 0
+                                            },
+                                            "max": {
+                                                "type": "integer",
+                                                "default": 0
+                                            }
+                                        }
+                                    }
+                                }
+                            }, 
+                            "components": {
+                                "type": "object",
+                                "properties": {
+                                    "material": {
+                                        "type": "string"
+                                    },
+                                    "verbal": {
+                                        "type": "string"
+                                    },
+                                    "somatic": {
+                                        "type": "string"
+                                    }
+                                }
+                            }, 
+                            "school": {
+                                "type": "string",
+                                "default": "abjuration",
+                                "enum": [
+                                    "abjuration",
+                                    "conjuration",
+                                    "divination",
+                                    "enchantment",
+                                    "evocation",
+                                    "illusion",
+                                    "necromancy",
+                                    "transmutation"
+                                ]
+                            }, 
+                            "description": {
+                                "type": "string",
+                                "default": ""
+                            }
+                        }
                     }
                 }
             }
