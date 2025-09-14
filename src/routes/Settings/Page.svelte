@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { SwitchCtrl } from "$lib/ui/ctrls";
     import { Ajv } from "ajv";
-    import schema from "$lib/character.schema.json";
+    import schema from "$lib/schemas/character.schema.json";
 
     let stats = getContext("stats");
     let prefs = getContext("prefs");
