@@ -336,6 +336,21 @@
                         "type": "object",
                         "required": ["weapons", "tools", "languages", "armour"],
                         "properties": {
+                            "saves": {
+                                "type": "array",
+                                "default": [],
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "str",
+                                        "con",
+                                        "dex",
+                                        "int",
+                                        "wis",
+                                        "chr"
+                                    ]
+                                }
+                            },
                             "weapons": {
                                 "type": "array",
                                 "items": {
