@@ -31,20 +31,34 @@
         },
         "size": "medium",
         "proficiencies": {
-            "weapons": ["battleaxe", "handaxe", "lighthammer", "warhammer"],
-            "tools": ["brewer"],
-            "languages": ["orcish"],
+            "weapons": [
+                "battleaxe",
+                "handaxe",
+                "lighthammer",
+                "warhammer"
+            ],
+            "tools": [
+                "brewer"
+            ],
+            "languages": [
+                "orcish"
+            ],
             "armour": []
         },
         "traits": [
             {
                 "name": "Darkvision",
-                "tags": ["combat", "narrative"],
-                "description": "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray."
+                "tags": [
+                    "combat",
+                    "narrative"
+                ],
+                "description": "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\u00e2\u20ac\u2122t discern color in darkness, only shades of gray."
             },
             {
                 "name": "Relentless Endurance",
-                "tags": ["combat"],
+                "tags": [
+                    "combat"
+                ],
                 "description": "When you are reduced to 0 Hit Points but not killed outright, you can drop to 1 Hit Point instead. Once you use this trait, you can't do so again until you finish a Long Rest"
             }
         ],
@@ -80,21 +94,50 @@
             },
             "spellcasting": "chr",
             "proficiencies": {
-                "armour": ["light", "medium", "shields"],
-                "weapons": ["club", "dagger", "darts", "javelin", "mace", "quarterstaff", "scimitar", "sling", "spear"],
-                "saves": ["dex", "chr"],
-                "tools": ["lute", "mandolin", "drum"],
-                "languages": ["common"]
+                "armour": [
+                    "light",
+                    "medium",
+                    "shields"
+                ],
+                "weapons": [
+                    "club",
+                    "dagger",
+                    "darts",
+                    "javelin",
+                    "mace",
+                    "quarterstaff",
+                    "scimitar",
+                    "sling",
+                    "spear"
+                ],
+                "saves": [
+                    "dex",
+                    "chr"
+                ],
+                "tools": [
+                    "lute",
+                    "mandolin",
+                    "drum"
+                ],
+                "languages": [
+                    "common"
+                ]
             },
             "traits": [
                 {
                     "name": "Mantle of Inspiration",
-                    "tags": ["combat", "narrative"],
+                    "tags": [
+                        "combat",
+                        "narrative"
+                    ],
                     "description": "As a Bonus Action, you can expend a use of Bardic Inspiration, rolling a Bardic Inspiration die. When you do so, choose a number of other creatures within 60 feet of yourself, up to a number equal to your Charisma modifier (minimum of one creature). Each of those creatures gains a number of Temporary Hit Points equal to two times the number rolled on the Bardic Inspiration die, and then each can use its Reaction to move up to its Speed without provoking Opportunity Attacks."
                 },
                 {
                     "name": "Wild Companion",
-                    "tags": ["combat", "narrative"],
+                    "tags": [
+                        "combat",
+                        "narrative"
+                    ],
                     "description": "At second level, you gain the ability to summon a spirit that assumes an animal form: as an action, you can expend a use of your Wild Shape feature to cast the Find Familiar spell, without material components.\n\nWhen you cast the spell in this way, the familiar is a fey instead of a beast, and the familiar disappears after a number of hours equal to half your druid level."
                 }
             ],
@@ -278,5 +321,172 @@
                 "equipped": true
             }
         ]
-    }
+    },
+    "spells": [
+        {
+            "name": null,
+            "level": "first",
+            "time": {
+                "type": null,
+                "amount": 1
+            },
+            "range": null,
+            "components": null,
+            "duration": null,
+            "school": null,
+            "attack": null,
+            "effect": null,
+            "description": "A dazzling array of flashing, colored light springs from your hand. Roll 6d10; the total is how many hit points of creatures this spell can affect. Creatures in a 15-foot cone originating from you are affected in ascending order of their current hit points (ignoring \nStarting with the creature that has the lowest current hit points, each creature affected by this spell is \nNone\n* - (a pinch of powder or sand that is colored red, yellow, and blue)"
+        },
+        {
+            "name": null,
+            "level": "first",
+            "time": {
+                "type": null,
+                "amount": 1
+            },
+            "range": null,
+            "components": null,
+            "duration": null,
+            "school": null,
+            "attack": null,
+            "effect": null,
+            "description": "Choose up to five falling creatures within range. A falling creature's rate of descent slows to 60 feet per round until the spell ends. If the creature lands before the spell ends, it takes no falling damage and can land on its feet, and the spell ends for that creature.\n* - which you take when you or a creature within 60 feet of you falls\n** - (a small feather or piece of down)"
+        },
+        {
+            "name": null,
+            "level": "first",
+            "time": {
+                "type": null,
+                "amount": 1
+            },
+            "range": null,
+            "components": null,
+            "duration": null,
+            "school": null,
+            "attack": null,
+            "effect": null,
+            "description": "A wave of thunderous force sweeps out from you. Each creature in a 15-foot cube originating from you must make a Constitution saving throw. On a failed save, a creature takes 2d8 thunder damage and is pushed 10 feet away from you. On a successful save, the creature takes half as much damage and isn't pushed.\nIn addition, unsecured objects that are completely within the area of effect are automatically pushed 10 feet away from you by the spell's effect, and the spell emits a thunderous boom audible out to 300 feet.\nNone"
+        },
+        {
+            "name": null,
+            "level": "first",
+            "time": {
+                "type": null,
+                "amount": 1
+            },
+            "range": null,
+            "components": null,
+            "duration": null,
+            "school": null,
+            "attack": null,
+            "effect": null,
+            "description": "You attempt to charm a humanoid you can see within range. It must make a Wisdom saving throw, and does so with advantage if you or your companions are fighting it. If it fails the saving throw, it is \nNone"
+        },
+        {
+            "name": null,
+            "level": "first",
+            "time": {
+                "type": null,
+                "amount": 1
+            },
+            "range": null,
+            "components": null,
+            "duration": null,
+            "school": null,
+            "attack": null,
+            "effect": null,
+            "description": "You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. The spell has no effect if the target is undead, if it doesn't understand your language, or if your command is directly harmful to it.\nSome typical commands and their effects follow. You might issue a command other than one described here. If you do so, the DM determines how the target behaves. If the target can't follow your command, the spell ends.\nNone\nNone\nNone\nNone\nNone\nNone"
+        },
+        {
+            "name": null,
+            "level": "second",
+            "time": {
+                "type": null,
+                "amount": 1
+            },
+            "range": null,
+            "components": null,
+            "duration": null,
+            "school": null,
+            "attack": null,
+            "effect": null,
+            "description": "You attempt to suppress strong emotions in a group of people. Each humanoid in a 20-foot-radius sphere centered on a point you choose within range must make a Charisma saving throw; a creature can choose to fail this saving throw if it wishes. If a creature fails its saving throw, choose one of the following two effects.\nYou can suppress any effect causing a target to be \nAlternatively, you can make a target indifferent about creatures of your choice that it is hostile toward. This indifference ends if the target is attacked or harmed by a spell or if it witnesses any of its friends being harmed. When the spell ends, the creature becomes hostile again, unless the DM rules otherwise."
+        },
+        {
+            "name": null,
+            "level": "second",
+            "time": {
+                "type": null,
+                "amount": 1
+            },
+            "range": null,
+            "components": null,
+            "duration": null,
+            "school": null,
+            "attack": null,
+            "effect": null,
+            "description": "You implant a message within an object in range, a message that is uttered when a trigger condition is met. Choose an object that you can see and that isn't being worn or carried by another creature. Then speak the message, which must be 25 words or less, though it can be delivered over as long as 10 minutes. Finally, determine the circumstance that will trigger the spell to deliver your message.\nWhen that circumstance occurs, a magical mouth appears on the object and recites the message in your voice and at the same volume you spoke. If the object you chose has a mouth or something that looks like a mouth (for example, the mouth of a statue), the magical mouth appears there so that the words appear to come from the object's mouth. When you cast this spell, you can have the spell end after it delivers its message, or it can remain and repeat its message whenever the trigger occurs.\nThe triggering circumstance can be as general or as detailed as you like, though it must be based on visual or audible conditions that occur within 30 feet of the object. For example, you could instruct the mouth to speak when any creature moves within 30 feet of the object or when a silver bell rings within 30 feet of it.\n* - (a small bit of honeycomb and jade dust worth at least 10 gp, which the spell consumes)"
+        },
+        {
+            "name": null,
+            "level": "second",
+            "time": {
+                "type": null,
+                "amount": 1
+            },
+            "range": null,
+            "components": null,
+            "duration": null,
+            "school": null,
+            "attack": null,
+            "effect": null,
+            "description": "Three illusory duplicates of yourself appear in your space. Until the spell ends, the duplicates move with you and mimic your actions, shifting position so it's impossible to track which image is real. You can use your action to dismiss the illusory duplicates.\nEach time a creature targets you with an attack during the spell's duration, roll a d20 to determine whether the attack instead targets one of your duplicates.\nIf you have three duplicates, you must roll a 6 or higher to change the attack's target to a duplicate. With two duplicates, you must roll an 8 or higher. With one duplicate, you must roll an 11 or higher.\nA duplicate's AC equals 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.\nA creature is unaffected by this spell if it can't see, if it relies on senses other than sight, such as "
+        },
+        {
+            "name": null,
+            "level": "second",
+            "time": {
+                "type": null,
+                "amount": 1
+            },
+            "range": null,
+            "components": null,
+            "duration": null,
+            "school": null,
+            "attack": null,
+            "effect": null,
+            "description": "You weave a distracting string of words, causing creatures of your choice that you can see within range and that can hear you to make a Wisdom saving throw. Any creature that can't be "
+        },
+        {
+            "name": null,
+            "level": "third",
+            "time": {
+                "type": null,
+                "amount": 1
+            },
+            "range": null,
+            "components": null,
+            "duration": null,
+            "school": null,
+            "attack": null,
+            "effect": null,
+            "description": "You project a phantasmal image of a creature\\xe2\\x80\\x99s worst fears. Each creature in a 30-foot cone must succeed on a Wisdom saving throw or drop whatever it is holding and become \nWhile \n* - (a white feather or the heart of a hen)"
+        },
+        {
+            "name": null,
+            "level": "fourth",
+            "time": {
+                "type": null,
+                "amount": 1
+            },
+            "range": null,
+            "components": null,
+            "duration": null,
+            "school": null,
+            "attack": null,
+            "effect": null,
+            "description": "You make natural terrain in a 150-foot cube in range look, sound, and smell like some other sort of natural terrain. Thus, open fields or a road can be made to resemble a swamp, hill, crevasse, or some other difficult or impassable terrain. A pond can be made to seem like a grassy meadow, a precipice like a gentle slope, or a rock-strewn gully like a wide and smooth road. Manufactured structures, equipment, and creatures within the area aren't changed in appearance.\nThe tactile characteristics of the terrain are unchanged, so creatures entering the area are likely to see through the illusion. If the difference isn't obvious by touch, a creature carefully examining the illusion can attempt an Intelligence (\n* - (a stone, a twig, and a bit of green plant)"
+        }
+    ]
 }
