@@ -9,9 +9,10 @@
     import SettingsPage from "./Settings/Page.svelte";
 
     import Cerys from "$lib/cerys.json";
+    import Yiig from "$lib/yiig.json";
     import { Notebook, NotebookPage } from "$lib/ui/notebook";
 
-    let stats = $state(Cerys);
+    let stats = $state(Yiig);
     setContext("stats", stats)
 
     let prefs = $state({

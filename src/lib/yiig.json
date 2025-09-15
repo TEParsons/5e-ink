@@ -1,0 +1,214 @@
+{
+    "details": {
+        "name": "Yi'ig son of Yi'igroth",
+        "pronouns": "he/him",
+        "alignment": "chaotic good",
+        "avatar": "https://s3.amazonaws.com/files.d20.io/images/443165997/UebRQ7RljMY2vdmwUcRJAg/max.png",
+        "backstory": "Just here to party.",
+        "personality": {
+            "traits": "That's just, like, your opinion, man...",
+            "ideals": "Be excellent to each other... and party on, dude!",
+            "bonds": "I would do anything for love, but I won't do that.",
+            "flaws": "Sorry for party rocking."
+        },
+        "organisations": {
+            "Unnamed band": "Yi'ig was kicked out of his old band (into Zarovia) for rocking too hard."
+        },
+        "allies": {
+            "Kevin": "Party member",
+            "Dorina": "Party member",
+            "Esmerelda": "Temporary party member"
+        },
+        "enemies": {
+            "Strahd": "Main villain"
+        }
+    },
+    "species": {
+        "name": "orc",
+        "subtype": "",
+        "movement": {
+            "walk": 30
+        },
+        "size": "medium",
+        "proficiencies": {
+            "weapons": ["battleaxe", "handaxe", "lighthammer", "warhammer"],
+            "tools": ["brewer"],
+            "languages": ["orcish"],
+            "armour": []
+        },
+        "traits": [
+            {
+                "name": "Darkvision",
+                "tags": ["combat", "narrative"],
+                "description": "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray."
+            },
+            {
+                "name": "Relentless Endurance",
+                "tags": ["combat"],
+                "description": "When you are reduced to 0 Hit Points but not killed outright, you can drop to 1 Hit Point instead. Once you use this trait, you can't do so again until you finish a Long Rest"
+            }
+        ],
+        "actions": [
+            {
+                "name": "Adrenaline Rush",
+                "time": {
+                    "type": "bonusaction",
+                    "amount": 1
+                },
+                "slots": {
+                    "total": 3,
+                    "current": 3
+                },
+                "description": "You can take the Dash action as a Bonus Action. When you do so, you gain a number of Temporary Hit Points equal to your Proficiency Bonus."
+            }
+        ]
+    },
+    "class": {
+        "bard": {
+            "levels": 8,
+            "subtype": "glamour",
+            "hitdice": {
+                "die": 8,
+                "rolls": [
+                    2,
+                    1,
+                    7,
+                    2,
+                    3,
+                    1
+                ]
+            },
+            "spellcasting": "chr",
+            "proficiencies": {
+                "armour": ["light", "medium", "shields"],
+                "weapons": ["club", "dagger", "darts", "javelin", "mace", "quarterstaff", "scimitar", "sling", "spear"],
+                "saves": ["dex", "chr"],
+                "tools": ["lute", "mandolin", "drum"],
+                "languages": ["common"]
+            },
+            "traits": [
+                {
+                    "name": "Mantle of Inspiration",
+                    "tags": ["combat", "narrative"],
+                    "description": "As a Bonus Action, you can expend a use of Bardic Inspiration, rolling a Bardic Inspiration die. When you do so, choose a number of other creatures within 60 feet of yourself, up to a number equal to your Charisma modifier (minimum of one creature). Each of those creatures gains a number of Temporary Hit Points equal to two times the number rolled on the Bardic Inspiration die, and then each can use its Reaction to move up to its Speed without provoking Opportunity Attacks."
+                },
+                {
+                    "name": "Wild Companion",
+                    "tags": ["combat", "narrative"],
+                    "description": "At second level, you gain the ability to summon a spirit that assumes an animal form: as an action, you can expend a use of your Wild Shape feature to cast the Find Familiar spell, without material components.\n\nWhen you cast the spell in this way, the familiar is a fey instead of a beast, and the familiar disappears after a number of hours equal to half your druid level."
+                }
+            ],
+            "actions": [
+                {
+                    "name": "Bardic Inspiration",
+                    "time": {
+                        "type": "bonusaction",
+                        "amount": 1
+                    },
+                    "slots": {
+                        "total": 3,
+                        "current": 3
+                    },
+                    "description": "As a Bonus Action, you can inspire another creature within 60 feet of yourself who can see or hear you. That creature gains one of your Bardic Inspiration dice. A creature can have only one Bardic Inspiration die at a time.\n\nOnce within the next hour when the creature fails a D20 Test, the creature can roll the Bardic Inspiration die and add the number rolled to the d20, potentially turning the failure into a success. A Bardic Inspiration die is expended when it's rolled."
+                },
+                {
+                    "name": "Mantle of Majesty",
+                    "time": {
+                        "type": "bonusaction",
+                        "amount": 1
+                    },
+                    "slots": {
+                        "total": 1,
+                        "current": 1
+                    },
+                    "description": "As a Bonus Action, you cast Command without expending a spell slot, and you take on an unearthly appearance for 1 minute or until your Concentration ends. During this time, you can cast Command as a Bonus Action without expending a spell slot.\n\nAny creature Charmed by you automatically fails its saving throw against the Command you cast with this feature.\n\nOnce you use this feature, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending a level 3+ spell slot (no action required)."
+                },
+                {
+                    "name": "Beguiling Magic",
+                    "time": {
+                        "type": "reaction",
+                        "amount": 1
+                    },
+                    "description": "Immediately after you cast an Enchantment or Illusion spell using a spell slot, you can cause a creature you can see within 60 feet of yourself to make a Wisdom saving throw against your spell save DC. On a failed save, the target has the Charmed or Frightened condition (your choice) for 1 minute. The target repeats the save at the end of each of its turns, ending the effect on itself on a success.\nOnce you use this benefit, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending one use of your Bardic Inspiration (no action required)."
+                }
+            ]
+        }
+    },
+    "health": {
+        "current": 59
+    },
+    "scores": {
+        "str": 12,
+        "con": 14,
+        "dex": 16,
+        "int": 9,
+        "wis": 10,
+        "chr": 16
+    },
+    "skills": {
+        "athletics": 0.5,
+        "acrobatics": 2,
+        "sleightOfHand": 1,
+        "stealth": 1,
+        "arcana": 0.5,
+        "history": 0.5,
+        "investigation": 0.5,
+        "nature": 0.5,
+        "religion": 0.5,
+        "animalHandling": 0.5,
+        "insight": 0.5,
+        "medicine": 0.5,
+        "perception": 1,
+        "survival": 0.5,
+        "deception": 1,
+        "intimidation": 0.5,
+        "performance": 2,
+        "persuasion": 1
+    },
+    "casting": {
+        "slots": {
+            "first": {
+                "current": 4,
+                "total": 4
+            },
+            "second": {
+                "current": 3,
+                "total": 3
+            },
+            "third": {
+                "current": 3,
+                "total": 3
+            },
+            "fourth": {
+                "current": 2,
+                "total": 2
+            }
+        },
+        "spells": [
+            {
+                "name": "Starry Wisp",
+                "level": "cantrip",
+                "time": {
+                    "type": "action",
+                    "amount": 1
+                },
+                "range": "60 ft.",
+                "components": [
+                    "V",
+                    "S"
+                ],
+                "duration": "Instantaneous",
+                "school": "Evocation",
+                "description": "You launch a mote of light at one creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 Radiant damage, and until the end of your next turn, it emits Dim Light in a 10-foot radius and can't benefit from the Invisible condition."
+            }
+        ]
+    },
+    "inventory": {
+        "currency": {
+            
+        },
+        "items": [
+            
+        ]
+    }
+}
