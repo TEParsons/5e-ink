@@ -33,33 +33,39 @@
     <Notebook>
         <NotebookPage
             label="📋"
+            emoji
         >
             <AbilitiesPage />
         </NotebookPage>
         <NotebookPage
             label="⚔︎"
+            emoji
         >
             <CombatPage />
         </NotebookPage>
         {#if caster}
             <NotebookPage
                 label="✨"
+                emoji
             >
                 <SpellsPage />
             </NotebookPage>
         {/if}
         <NotebookPage
             label="🪎"
+            emoji
         >
             <InventoryPage />
         </NotebookPage>
         <NotebookPage
             label="👤"
+            emoji
         >
             <BioPage />
         </NotebookPage>
         <NotebookPage
             label="≡"
+            emoji
             initial
         >
             <SettingsPage />

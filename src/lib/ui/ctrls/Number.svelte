@@ -50,13 +50,13 @@
     >
         <button
             class="ctrl"
-            onclick={evt => value = Math.min(parseInt(value) + parseInt(interval), parseInt(max))}
+            onclick={evt => value = Math.min(parseInt(value || 0) + parseInt(interval), parseInt(max))}
         >
             +
         </button>
         <button
             class="ctrl"
-            onclick={evt => value = Math.max(parseInt(value) - parseInt(interval), parseInt(min))}
+            onclick={evt => value = Math.max(parseInt(value || 0) - parseInt(interval), parseInt(min))}
         >
             -
         </button>
@@ -76,6 +76,8 @@
 
     .input.number {
         color: var(--crust);
+        font-size: inherit;
+        font-weight: inherit;
         background-color: var(--base);
         border: none;
         outline: none;

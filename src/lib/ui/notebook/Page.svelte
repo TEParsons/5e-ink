@@ -5,6 +5,10 @@
     let {
         /** @prop @type {String} Label for this page's tab */
         label,
+        /** @prop @type {boolean} Use an emoji for the page label? */
+        emoji=false,
+        /** @prop @type {function} Function to call when close button clicked (leave undefined for no close button) */
+        close=undefined,
         /** @prop @type {String|undefined} Path to an icon for this page's tab */
         icon=undefined,
         /** @prop @type {boolean} Should this page start off with focus? */
@@ -58,9 +62,18 @@
             <use xlink:href={icon}></use>
         </svg>
     {/if}
-    <span class=label>
+    <span 
+        class=label 
+        style:font-family={emoji ? "var(--emoji)" : "var(--body"}>
         {label}
     </span>
+    {#if close}
+        <a
+            class=close-btn
+            href
+            onclick={close}
+        >⨉</a>
+    {/if}
 </button>
 {#if selected}
     <div 
@@ -73,9 +86,12 @@
 {/if}
 
 <style>
+    .close-btn {
+        text-decoration: none;
+        color: var(--mantle);
+    }
     .notebook-tab {
         display: grid;
-        font-family: var(--emoji);
         grid-template-columns: [icon] min-content [label] 1fr [close] min-content;
         gap: .5rem;
         border: none;

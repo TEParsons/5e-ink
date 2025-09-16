@@ -4,6 +4,7 @@
     import SpeciesCtrl from "./Species.svelte";
     import AlignmentCtrl from "./Alignment.svelte";
     import PronounsCtrl from "./Pronouns.svelte";
+    import LevelsCtrl from "../Levels/LevelsCtrl.svelte";
 
     let stats = getContext("stats")
 </script>
@@ -16,23 +17,7 @@
                 bind:value={stats.details.name}
             />
         </h1>
-        <div class=levels>
-            {#each Object.keys(stats.class) as cls}
-                <div class=level-ctrl>
-                    <span>Level</span>
-                    <NumberCtrl 
-                        bind:value={stats.class[cls].levels}
-                        min=1
-                        max=30
-                        interval=1
-                    /> 
-                    <span>{cls}</span>
-                    {#if stats.class[cls].subtype}
-                    <span>({stats.class[cls].subtype})</span>
-                    {/if}
-                </div>
-            {/each}
-        </div>
+        <LevelsCtrl />
     </div>
     <div>
         <h3>Demographics</h3>
@@ -105,11 +90,7 @@
         justify-self: end;
     }
 
-    .header .levels {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-    }
+    
 
     .avatar {
         width: 100%;

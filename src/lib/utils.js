@@ -1,3 +1,8 @@
+
+export function titleCase(value) {
+    return String(value)[0].toUpperCase() + String(value).slice(1)
+}
+
 export function totalLevels(classes) {
     return Object.values(classes).reduce(
         (partial, val) => partial + val.levels,
