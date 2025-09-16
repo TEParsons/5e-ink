@@ -27,8 +27,8 @@
         let hp = Object.values(stats.class)[0].hitdice.die + score2modifier(stats.scores.con)
         // add hp rolls
         for (let cls of Object.keys(stats.class)) {
-            for (let lvl of Array(stats.class[cls].levels).keys()) {
-                if (lvl in stats.class[cls].hitdice.rolls.keys()) {
+            for (let lvl of Array(stats.class[cls].levels-1).keys()) {
+                if (stats.class[cls].hitdice.rolls[lvl] !== undefined) {
                     // if roll is recorded, use it
                     hp += stats.class[cls].hitdice.rolls[lvl] + score2modifier(stats.scores.con)
                 } else {
