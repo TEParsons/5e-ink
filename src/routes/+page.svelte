@@ -10,9 +10,10 @@
 
     import Cerys from "$lib/cerys.json";
     import Yiig from "$lib/yiig.json";
+    import Paran from "$lib/paran.json";
     import { Notebook, NotebookPage } from "$lib/ui/notebook";
 
-    let stats = $state(Yiig);
+    let stats = $state(Paran);
     setContext("stats", stats)
 
     let prefs = $state({
