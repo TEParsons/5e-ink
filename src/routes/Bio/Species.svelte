@@ -129,6 +129,14 @@
             {label[0].toUpperCase() + label.slice(1)}
         </Option>
     {/each}
+    {#if !(stats.species.name in species)}
+        <Option
+            index={stats.species.name}
+            data={stats.species.name}
+        >
+            {stats.species.name[0].toUpperCase() + stats.species.name.slice(1)}
+        </Option>
+    {/if}
 </Choice>
 
 
