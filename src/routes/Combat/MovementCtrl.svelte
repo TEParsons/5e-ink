@@ -12,9 +12,16 @@
     let fly = $derived.by(() => {
         // assume no fly
         let output = undefined;
+        // get armour
+        let armour;
+        for (let item of stats.inventory.items) {
+            if (item.type === "armour" && item.equipped) {
+                armour = item
+            }
+        }
         // aarakocra get 50ft flying (unless in >= medium armour)
         if (stats.species.name === "aarakocra") {
-            if (["medium", "heavy"].includes(types[armour.params.armourtype].categ)) {
+            if (["hide", "chainshirt", "scalemail", "spiked", "breastplate", "halfplate", "ringmail", "chainmail", "splint", "plate"].includes(armour?.params?.armourtype)) {
                 output = 25
             } else {
                 output= 50
@@ -49,14 +56,14 @@
         <span 
             id=movement-swim
         >
-            🐟 {swim}ft.
+            <span class=icon>🐟</span> {swim}ft.
         </span>
     {/if}
     {#if fly !== undefined}
         <span 
             id=movement-fly
         >
-            🕊️ {fly}ft.
+            <span class=icon>🕊️</span> {fly}ft.
         </span>
     {/if}
 </div>
@@ -68,5 +75,8 @@
     }
     #movement {
         font-size: 1.5rem;
+    }
+    .icon {
+        font-family: var(--emoji);
     }
 </style>
