@@ -89,8 +89,8 @@
     .notebook-tab {
         grid-row-start: tabs;
         text-align: center;
-        background-color: var(--mantle);
-        color: var(--text-on-mantle);
+        background-color: var(--crust);
+        color: var(--text-on-crust);
     }
     .notebook-tab.current {
         background-color: var(--base);
