@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
-    import { DetailsCtrl, SwitchCtrl, MarkdownCtrl } from "$lib/ui/ctrls";
-    import { WeaponView } from "$lib/views"
+    import { DetailsCtrl, SwitchCtrl } from "$lib/ui/ctrls";
+    import { WeaponView, ItemView } from "$lib/views"
 
     let {
         item=$bindable()
@@ -30,10 +30,8 @@
             bind:weapon={item}
         />
     {:else}
-        <h2>{item.name}</h2>
-        <i>{item.type}, {item.weight}lbs.</i>
-        <MarkdownCtrl
-            bind:value={item.description}
+        <ItemView 
+            bind:item={item}
         />
     {/if}
 

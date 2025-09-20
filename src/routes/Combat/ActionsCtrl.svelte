@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { DetailsCtrl } from "$lib/ui/ctrls"
-    import { WeaponView, SpellView, ClassActionView } from "$lib/views";
+    import { WeaponView, SpellView, ClassActionView, ItemView } from "$lib/views";
 
     let {
         time
@@ -100,7 +100,12 @@
                     bind:weapon={action.action}
                 />
             {/if}
-            {#if action.type === "consumable" || action.type === "species" }
+            {#if action.type === "consumable" }
+                <ItemView 
+                    bind:item={action.action}
+                />
+            {/if}
+            {#if action.type === "species" }
                 <h2>{action.action.name}</h2>
                 <p>{action.action.description}</p>
             {/if}
