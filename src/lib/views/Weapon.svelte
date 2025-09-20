@@ -20,11 +20,13 @@
                 range += ` (throw range ${weapon.params.range.thrown})`
             }
         }
-
+        // figure out what stat to use
+        let stat = stats.scores.str
+        if (["ranged", "finesse"].includes(weapon.params.attacktype)) {
+            stat = stats.scores.dex
+        }
         // calculate modifier
-        let modifier = score2modifier(
-            weapon.params.range.range ? stats.scores.dex : stats.scores.str
-        ) + Math.floor(
+        let modifier = score2modifier(stat) + Math.floor(
             level2proficiency(
                 totalLevels(stats.class)
             ) * getProficiencies(stats, "weapons").includes(weapon.params.weapontype)
