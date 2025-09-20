@@ -24,7 +24,7 @@
                 })
             }
             // get consumables
-            if (item.type === "consumable" && item.params.time.type === time && item.equipped) {
+            if (item.type === "consumable" && item.params?.time?.type === time && item.equipped) {
                 output.push({
                     type: "consumable",
                     label: `${item.name} (x${item.params.quantity})`,
