@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { totalLevels, classLevels, traitsByTag } from "$lib/utils.js";
+    import { totalLevels, classLevels, traitsByTag, score2modifier } from "$lib/utils.js";
     import { NumberCtrl } from "$lib/ui/ctrls";
     import DeathSavesCtrl from "./DeathSavesCtrl.svelte";
 
@@ -24,16 +24,16 @@
 
     let total = $derived.by(() => {
         // calculate starting hp
-        let hp = Object.values(stats.class)[0].hitdice.die + stats.scores.con
+        let hp = Object.values(stats.class)[0].hitdice.die + score2modifier(stats.scores.con)
         // add hp rolls
         for (let cls of Object.keys(stats.class)) {
             for (let lvl of Array(stats.class[cls].levels).keys()) {
                 if (lvl in stats.class[cls].hitdice.rolls.keys()) {
                     // if roll is recorded, use it
-                    hp += stats.class[cls].hitdice.rolls[lvl]
+                    hp += stats.class[cls].hitdice.rolls[lvl] + score2modifier(stats.scores.con)
                 } else {
                     // use the average
-                    hp += Math.floor(stats.class[cls].hitdice.die / 2)
+                    hp += Math.floor(stats.class[cls].hitdice.die / 2) + score2modifier(stats.scores.con)
                 }
             }
         }
