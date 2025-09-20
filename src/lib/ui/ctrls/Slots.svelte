@@ -47,6 +47,7 @@
     .slots {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         gap: .25rem;
     }
     button {
