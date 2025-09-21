@@ -50,13 +50,13 @@
     >
         <button
             class="ctrl"
-            onclick={evt => value = Math.min(value + interval, max)}
+            onclick={evt => value = Math.min(parseInt(value) + parseInt(interval), parseInt(max))}
         >
             +
         </button>
         <button
             class="ctrl"
-            onclick={evt => value = Math.max(value - interval, min)}
+            onclick={evt => value = Math.max(parseInt(value) - parseInt(interval), parseInt(min))}
         >
             -
         </button>
