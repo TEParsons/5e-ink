@@ -18,7 +18,7 @@
     }[spell.time.type]}`)
 
     let temp = $state({
-        slots: $state.snapshot(stats.casting.slots[spell.level]?.current)
+        slots: $state.snapshot(stats.current.slots[spell.level])
     })
 </script>
 

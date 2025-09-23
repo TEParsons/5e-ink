@@ -1,6 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { ListCtrl } from "$lib/ui/ctrls";
+    import { getProficiencies } from "$lib/utils";
 
     let prefs = getContext("prefs");
     let stats = getContext("stats");
@@ -9,23 +10,7 @@
         tag
     } = $props();
 
-    let proficiencies = $derived.by(() => {
-        let output = [];
-
-        // class
-        for (let cls of Object.values(stats.class)) {
-            if (cls.proficiencies[tag]) {
-                output.push(...cls.proficiencies[tag])
-            }
-        }
-
-        // species
-        if (stats.species.proficiencies[tag]) {
-            output.push(...stats.species.proficiencies[tag])
-        }
-
-        return output
-    })
+    let proficiencies = $derived(getProficiencies(stats, tag))
 
     let label = tag[0].toUpperCase() + tag.slice(1)
 </script>

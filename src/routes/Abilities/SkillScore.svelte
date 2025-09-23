@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { totalLevels, score2modifier, level2proficiency } from "$lib/utils"
+    import { totalLevels, score2modifier, level2proficiency, getSkillMultiplier } from "$lib/utils"
     import { ProficiencyCtrl } from "$lib/ui/ctrls"
 
     let {
@@ -58,7 +58,7 @@
     )
 
     let modifier = $derived(
-        score2modifier(stats.scores[base]) + Math.floor(proficiency * stats.skills[id])
+        score2modifier(stats.scores[base]) + Math.floor(proficiency * getSkillMultiplier(stats, id))
     )
 </script>
 
@@ -67,7 +67,7 @@
 >
     <ProficiencyCtrl
         label={label}
-        bind:value={stats.skills[id]}
+        value={getSkillMultiplier(stats, id)}
     />
 
     <output
@@ -79,8 +79,9 @@
     <label
         for={id}
     >
-        {label}
+        {label} ({base})
     </label>
+    
     
     
 </div>
@@ -89,7 +90,7 @@
     .skill-score {
         display: grid;
         gap: .5rem;
-        grid-template-columns: min-content min-content max-content;
+        grid-template-columns: min-content min-content max-content min-content;
         align-items: center;
         line-height: 1em;
     }

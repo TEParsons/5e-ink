@@ -18,7 +18,8 @@
         let output = {};
 
         for (let key of Object.keys(stats.class)) {
-            output[key] = modifiers[key] + level2proficiency(stats.class[key].levels)
+            output[key] = modifiers[key] + level2proficiency(Object.keys(stats.class[key].levels).length)
+            console.log(modifiers[key], Object.keys(stats.class[key].levels).length)
         }
 
         return output
@@ -28,7 +29,7 @@
         let output = {};
 
         for (let key of Object.keys(stats.class)) {
-            output[key] = 8 + modifiers[key] + attacks[key]
+            output[key] = 8 + attacks[key]
         }
 
         return output

@@ -67,13 +67,13 @@
     >
         <button
             class="ctrl"
-            onclick={evt => value = Math.min(value || 0 + interval, max)}
+            onclick={evt => value = Math.min((value || 0) + interval, max)}
         >
             +
         </button>
         <button
             class="ctrl"
-            onclick={evt => value = Math.max(value || 0 - interval, min)}
+            onclick={evt => value = Math.max((value || 0) - interval, min)}
         >
             -
         </button>

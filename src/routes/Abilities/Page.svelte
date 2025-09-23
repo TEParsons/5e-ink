@@ -7,6 +7,10 @@
     import ProficiencyGroup from "./ProficiencyGroup.svelte";
 
     let stats = getContext("stats")
+
+    let proficiency = $derived(
+        level2proficiency(totalLevels(stats.class))
+    )
 </script>
 
 <div class=page>

@@ -23,29 +23,27 @@
     }
 
     let total = $derived.by(() => {
-        // calculate starting hp
-        let hp = Object.values(stats.class)[0].hitdice.die + score2modifier(stats.scores.con)
+        // start at 0
+        let hp = 0
         // add hp rolls
         for (let cls of Object.keys(stats.class)) {
-            for (let lvl of Array(stats.class[cls].levels-1).keys()) {
-                if (stats.class[cls].hitdice.rolls[lvl] !== undefined) {
+            for (let lvl of Object.values(stats.class[cls].levels)) {
+                if (lvl.hitdie !== undefined) {
                     // if roll is recorded, use it
-                    hp += stats.class[cls].hitdice.rolls[lvl] + score2modifier(stats.scores.con)
+                    hp += lvl.hitdie + score2modifier(stats.scores.con)
                 } else {
-                    // use the average
-                    hp += Math.floor(stats.class[cls].hitdice.die / 2) + score2modifier(stats.scores.con)
+                    // if no roll for this level, use the average
+                    hp += Math.floor(stats.class[cls].hitdie / 2) + score2modifier(stats.scores.con)
                 }
             }
         }
         // apply traits which affect maxhealth
-        for (let traits of Object.values(traitsByTag(stats, "buff"))) {
-            for (let trait of traits) {
-                if (trait.effect?.maxhp) {
-                    // add flat change
-                    hp += trait.effect.maxhp.flat || 0
-                    // add per level change
-                    hp += (trait.effect.maxhp.perlevel * totalLevels(stats.class) - 1) || 0
-                }
+        for (let trait of traitsByTag(stats, "buff")) {
+            if (trait.effect?.maxhp) {
+                // add flat change
+                hp += trait.effect.maxhp.flat || 0
+                // add per level change
+                hp += (trait.effect.maxhp.perlevel * totalLevels(stats.class) - 1) || 0
             }
         }
 
@@ -60,17 +58,17 @@
         <h3 style:flex-grow=1>Health</h3>
         <NumberCtrl 
             label="Health"
-            bind:value={stats.health.current}
+            bind:value={stats.current.health}
             edit
         /> 
         <span>/ {total}</span>
     </div>
     <div class=health-bar>
         <div class=current-health
-            style:right="{(total - stats.health.current) * 100 / total}%"
+            style:right="{(total - stats.current.health) * 100 / total}%"
         ></div>
     </div>
-    {#if stats.health.current <= 0}
+    {#if stats.current.health <= 0}
         <DeathSavesCtrl />
     {/if}
 </div>

@@ -1,60 +1,53 @@
 <script>
     import { getContext } from "svelte";
     import { DetailsCtrl } from "$lib/ui/ctrls"
-    import { traitsByTag } from "$lib/utils.js"
 
     let {
         tag
     } = $props()
 
     let stats = getContext("stats");
-
-    let traits = $derived.by(() => {
-        let output = []
-
-        for (let [source, traits] of Object.entries(traitsByTag(stats, tag))) {
-            for (let trait of traits) {
-                if (source in stats.class) {
-                    output.push({
-                        type: "class",
-                        label: `${trait.name} (${source})`,
-                        icon: "💼",
-                        trait: trait
-                    })
-                }
-                if (source === "species") {
-                    output.push({
-                        type: "species",
-                        label: `${trait.name} (${stats.species.name})`,
-                        icon: "🧬",
-                        trait: trait
-                    })
-                }
-            }
-        }
-
-        return output
-    })
 </script>
 
 <h3>Traits</h3>
 <div class=traits-ctrl>
-    {#each traits as trait}
-    <DetailsCtrl>
-        {#snippet summary()}
-            <div class=trait-summary>
-                <div class=icon>
-                    {trait.icon}
-                </div>
-                <div class=action-label>
-                    {trait.label}
-                </div>
-            </div>
-        {/snippet}
 
-        <h2>{trait.trait.name}</h2>
-        <p>{trait.trait.description}</p>
-    </DetailsCtrl>
+    <!-- from species -->
+    {#each stats.species.traits as trait}
+        {#if trait.tags.includes(tag)}
+            <DetailsCtrl>
+                {#snippet summary()}
+                    <div class=trait-summary>
+                        <div class=icon>🧬</div>
+                        <div class=trait-label>{trait.name} ({stats.species.name})</div>
+                    </div>
+                {/snippet}
+
+                <h2>{trait.name}</h2>
+                <p>{trait.description}</p>
+            </DetailsCtrl>
+        {/if}
+    {/each}
+
+    <!-- from class -->
+    {#each Object.keys(stats.class) as cls}
+        {#each Object.entries(stats.class[cls].levels) as [lvl, advancements]}
+            {#each Object.entries(advancements.traits || []) as [i, trait]}
+                {#if trait.tags.includes(tag)}
+                    <DetailsCtrl>
+                        {#snippet summary()}
+                            <div class=trait-summary>
+                                <div class=icon>💼</div>
+                                <div class=trait-label>{trait.name} ({cls})</div>
+                            </div>
+                        {/snippet}
+
+                        <h2>{trait.name}</h2>
+                        <p>{trait.description}</p>
+                    </DetailsCtrl>
+                {/if}
+            {/each}
+        {/each}
     {/each}
 </div>
 

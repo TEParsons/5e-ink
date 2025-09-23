@@ -23,6 +23,15 @@
             "Strahd": "Main villain"
         }
     },
+    "current": {
+        "health": 54,
+        "slots": {
+            "first": 4,
+            "second": 3,
+            "third": 3,
+            "fourth": 2
+        }
+    },
     "species": {
         "name": "orc",
         "subtype": "",
@@ -52,7 +61,7 @@
                     "combat",
                     "narrative"
                 ],
-                "description": "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\u00e2\u20ac\u2122t discern color in darkness, only shades of gray."
+                "description": "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
             },
             {
                 "name": "Relentless Endurance",
@@ -79,107 +88,492 @@
     },
     "class": {
         "bard": {
-            "levels": 8,
+            "name": "bard",
             "subtype": "glamour",
-            "hitdice": {
-                "die": 8,
-                "rolls": [
-                    7, 
-                    4, 
-                    2, 
-                    4, 
-                    3, 
-                    7, 
-                    8
-                ]
-            },
+            "hitdie": 8,
             "spellcasting": "chr",
-            "proficiencies": {
-                "armour": [
-                    "light",
-                    "medium",
-                    "shields"
-                ],
-                "weapons": [
-                    "club",
-                    "dagger",
-                    "darts",
-                    "javelin",
-                    "mace",
-                    "quarterstaff",
-                    "scimitar",
-                    "sling",
-                    "spear"
-                ],
-                "saves": [
-                    "dex",
-                    "chr"
-                ],
-                "tools": [
-                    "lute",
-                    "mandolin",
-                    "drum"
-                ],
-                "languages": [
-                    "common"
-                ]
-            },
-            "traits": [
-                {
-                    "name": "Mantle of Inspiration",
-                    "tags": [
-                        "combat",
-                        "narrative"
+            "levels": {
+                "1": {
+                    "hitdie": 8,
+                    "proficiencies": {
+                        "armour": [
+                            "light"
+                        ],
+                        "weapons": [
+                            "club",
+                            "dagger",
+                            "darts",
+                            "javelin",
+                            "mace",
+                            "quarterstaff",
+                            "scimitar",
+                            "sling",
+                            "spear"
+                        ],
+                        "saves": [
+                            "dex",
+                            "chr"
+                        ],
+                        "tools": [
+                            "lyre",
+                            "lute",
+                            "drum"
+                        ],
+                        "skills": {
+                            "add": [
+                                "performance",
+                                "acrobatics",
+                                "perception"
+                            ]
+                        },
+                        "languages": [
+                            "common"
+                        ]
+                    },
+                    "traits": [],
+                    "actions": [
+                        {
+                            "name": "Bardic Inspiration",
+                            "time": {
+                                "type": "bonusaction",
+                                "amount": 1
+                            },
+                            "slots": {
+                                "total": 3,
+                                "current": 3
+                            },
+                            "description": "As a Bonus Action, you can inspire another creature within 60 feet of yourself who can see or hear you. That creature gains one of your Bardic Inspiration dice. A creature can have only one Bardic Inspiration die at a time.\n\nOnce within the next hour when the creature fails a D20 Test, the creature can roll the Bardic Inspiration die and add the number rolled to the d20, potentially turning the failure into a success. A Bardic Inspiration die is expended when it's rolled."
+                        }
                     ],
-                    "description": "As a Bonus Action, you can expend a use of Bardic Inspiration, rolling a Bardic Inspiration die. When you do so, choose a number of other creatures within 60 feet of yourself, up to a number equal to your Charisma modifier (minimum of one creature). Each of those creatures gains a number of Temporary Hit Points equal to two times the number rolled on the Bardic Inspiration die, and then each can use its Reaction to move up to its Speed without provoking Opportunity Attacks."
+                    "casting": {
+                        "slots": {
+                            "first": 2
+                        },
+                        "cantrips": [
+                            {
+                                "name": "Starry Wisp",
+                                "level": "cantrip",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": "60 ft.",
+                                "components": [
+                                    "V",
+                                    "S"
+                                ],
+                                "duration": "Instantaneous",
+                                "school": "Evocation",
+                                "description": "You launch a mote of light at one creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 Radiant damage, and until the end of your next turn, it emits Dim Light in a 10-foot radius and can't benefit from the Invisible condition."
+                            },
+                            {
+                                "name": "Prestidigitation",
+                                "level": "cantrip",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": "10 ft.",
+                                "components": [
+                                    "V",
+                                    "S"
+                                ],
+                                "duration": "Up to 1hr",
+                                "school": "Transmutation",
+                                "description": "You create a magical effect within range. Choose the effect from the options below. If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time.\nSensory Effect. You create an instantaneous, harmless sensory effect, such as a shower of sparks, a puff of wind, faint musical notes, or an odd odor.\nFire Play. You instantaneously light or snuff out a candle, a torch, or a small campfire.\nClean or Soil. You instantaneously clean or soil an object no larger than 1 cubic foot.\nMinor Sensation. You chill, warm, or flavor up to 1 cubic foot of nonliving material for 1 hour.\nMagic Mark. You make a color, a small mark, or a symbol appear on an object or a surface for 1 hour.\nMinor Creation. You create a nonmagical trinket or an illusory image that can fit in your hand. It lasts until the end of your next turn. A trinket can deal no damage and has no monetary worth."
+                            }
+                        ],
+                        "spells": [
+                            {
+                                "name": "Color Spray",
+                                "level": "first",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": null,
+                                "components": null,
+                                "duration": null,
+                                "school": null,
+                                "attack": null,
+                                "effect": null,
+                                "description": "A dazzling array of flashing, colored light springs from your hand. Roll 6d10; the total is how many hit points of creatures this spell can affect. Creatures in a 15-foot cone originating from you are affected in ascending order of their current hit points (ignoring \nStarting with the creature that has the lowest current hit points, each creature affected by this spell is \nNone\n* - (a pinch of powder or sand that is colored red, yellow, and blue)"
+                            },
+                            {
+                                "name": "Feather Fall",
+                                "level": "first",
+                                "time": {
+                                    "type": "reaction",
+                                    "amount": 1
+                                },
+                                "range": null,
+                                "components": null,
+                                "duration": null,
+                                "school": null,
+                                "attack": null,
+                                "effect": null,
+                                "description": "Choose up to five falling creatures within range. A falling creature's rate of descent slows to 60 feet per round until the spell ends. If the creature lands before the spell ends, it takes no falling damage and can land on its feet, and the spell ends for that creature.\n* - which you take when you or a creature within 60 feet of you falls\n** - (a small feather or piece of down)"
+                            },
+                            {
+                                "name": "Thunderwave",
+                                "level": "first",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": null,
+                                "components": null,
+                                "duration": null,
+                                "school": null,
+                                "attack": null,
+                                "effect": null,
+                                "description": "A wave of thunderous force sweeps out from you. Each creature in a 15-foot cube originating from you must make a Constitution saving throw. On a failed save, a creature takes 2d8 thunder damage and is pushed 10 feet away from you. On a successful save, the creature takes half as much damage and isn't pushed.\nIn addition, unsecured objects that are completely within the area of effect are automatically pushed 10 feet away from you by the spell's effect, and the spell emits a thunderous boom audible out to 300 feet.\nNone"
+                            },
+                            {
+                                "name": "Faerie Fire",
+                                "level": "first",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": null,
+                                "components": null,
+                                "duration": null,
+                                "school": null,
+                                "attack": null,
+                                "effect": null,
+                                "description": "Objects in a 20-foot Cube within range are outlined in blue, green, or violet light (your choice). Each creature in the Cube is also outlined if it fails a Dexterity saving throw. For the duration, objects and affected creatures shed Dim Light in a 10-foot radius and can't benefit from the Invisible condition.\nAttack rolls against an affected creature or object have Advantage if the attacker can see it."
+                            }
+                        ]
+                    }
                 },
-                {
-                    "name": "Wild Companion",
-                    "tags": [
-                        "combat",
-                        "narrative"
+                "2": {
+                    "hitdie": 7,
+                    "proficiencies": {
+                        "skills": {
+                            "set": {
+                                "athletics": 0.5,
+                                "acrobatics": 0.5,
+                                "sleightOfHand": 0.5,
+                                "stealth": 0.5,
+                                "arcana": 0.5,
+                                "history": 0.5,
+                                "investigation": 0.5,
+                                "nature": 0.5,
+                                "religion": 0.5,
+                                "animalHandling": 0.5,
+                                "insight": 0.5,
+                                "medicine": 0.5,
+                                "perception": 0.5,
+                                "survival": 0.5,
+                                "deception": 0.5,
+                                "intimidation": 0.5,
+                                "performance": 0.5,
+                                "persuasion": 0.5
+                            }
+                        }
+                    },
+                    "traits": [
+                        {
+                            "name": "Song of Rest",
+                            "tags": [
+                                "combat",
+                                "narrative"
+                            ],
+                            "description": "Beginning at 2nd level, you can use soothing music or oration to help revitalize your wounded allies during a short rest. If you or any friendly creatures who can hear your performance regain hit points at the end of the short rest by spending one or more Hit Dice, each of those creatures regains an extra 1d6 hit points.\n\nThe extra hit points increase when you reach certain levels in this class: to 1d8 at 9th level, to 1d10 at 13th level, and to 1d12 at 17th level."
+                        }
                     ],
-                    "description": "At second level, you gain the ability to summon a spirit that assumes an animal form: as an action, you can expend a use of your Wild Shape feature to cast the Find Familiar spell, without material components.\n\nWhen you cast the spell in this way, the familiar is a fey instead of a beast, and the familiar disappears after a number of hours equal to half your druid level."
-                }
-            ],
-            "actions": [
-                {
-                    "name": "Bardic Inspiration",
-                    "time": {
-                        "type": "bonusaction",
-                        "amount": 1
-                    },
-                    "slots": {
-                        "total": 3,
-                        "current": 3
-                    },
-                    "description": "As a Bonus Action, you can inspire another creature within 60 feet of yourself who can see or hear you. That creature gains one of your Bardic Inspiration dice. A creature can have only one Bardic Inspiration die at a time.\n\nOnce within the next hour when the creature fails a D20 Test, the creature can roll the Bardic Inspiration die and add the number rolled to the d20, potentially turning the failure into a success. A Bardic Inspiration die is expended when it's rolled."
+                    "casting": {
+                        "slots": {
+                            "first": 1
+                        },
+                        "spells": [
+                            {
+                                "name": "Dissonant Whispers",
+                                "level": "first",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": 60,
+                                "components": ["V"],
+                                "duration": "instantaneous",
+                                "school": "enchantment",
+                                "description": "One creature of your choice that you can see within range hears a discordant melody in its mind. The target makes a Wisdom saving throw. On a failed save, it takes 3d6 Psychic damage and must immediately use its Reaction, if available, to move as far away from you as it can, using the safest route. On a successful save, the target takes half as much damage only.\n\nUsing a Higher-Level Spell Slot. The damage increases by 1d6 for each spell slot level above 1."
+                            }
+                        ]
+                    }
                 },
-                {
-                    "name": "Mantle of Majesty",
-                    "time": {
-                        "type": "bonusaction",
-                        "amount": 1
+                "3": {
+                    "hitdie": 6,
+                    "proficiencies": {
+                        "skills": {
+                            "set": {
+                                "performance": 2,
+                                "acrobatics": 2
+                            }
+                        }
                     },
-                    "slots": {
-                        "total": 1,
-                        "current": 1
-                    },
-                    "description": "As a Bonus Action, you cast Command without expending a spell slot, and you take on an unearthly appearance for 1 minute or until your Concentration ends. During this time, you can cast Command as a Bonus Action without expending a spell slot.\n\nAny creature Charmed by you automatically fails its saving throw against the Command you cast with this feature.\n\nOnce you use this feature, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending a level 3+ spell slot (no action required)."
+                    "actions": [
+                        {
+                            "name": "Beguiling Magic",
+                            "time": {
+                                "type": "reaction",
+                                "amount": 1
+                            },
+                            "description": "Immediately after you cast an Enchantment or Illusion spell using a spell slot, you can cause a creature you can see within 60 feet of yourself to make a Wisdom saving throw against your spell save DC. On a failed save, the target has the Charmed or Frightened condition (your choice) for 1 minute. The target repeats the save at the end of each of its turns, ending the effect on itself on a success.\nOnce you use this benefit, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending one use of your Bardic Inspiration (no action required)."
+                        },
+                        {
+                            "name": "Mantle of Inspiration",
+                            "time": {
+                                "type": "bonusaction",
+                                "amount": 1
+                            },
+                            "description": "As a Bonus Action, you can expend a use of Bardic Inspiration, rolling a Bardic Inspiration die. When you do so, choose a number of other creatures within 60 feet of yourself, up to a number equal to your Charisma modifier (minimum of one creature). Each of those creatures gains a number of Temporary Hit Points equal to two times the number rolled on the Bardic Inspiration die, and then each can use its Reaction to move up to its Speed without provoking Opportunity Attacks."
+                        }
+                    ],
+                    "casting": {
+                        "slots": {
+                            "first": 1,
+                            "second": 2
+                        },
+                        "spells": [
+                            {
+                                "name": "Magic Mouth",
+                                "level": "second",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": 30,
+                                "components": ["V", "S", "M"],
+                                "duration": "dispell",
+                                "school": "illusion",
+                                "description": "You implant a message within an object in range—a message that is uttered when a trigger condition is met. Choose an object that you can see and that isn't being worn or carried by another creature. Then speak the message, which must be 25 words or fewer, though it can be delivered over as long as 10 minutes. Finally, determine the circumstance that will trigger the spell to deliver your message.\nWhen that trigger occurs, a magical mouth appears on the object and recites the message in your voice and at the same volume you spoke. If the object you chose has a mouth or something that looks like a mouth (for example, the mouth of a statue), the magical mouth appears there, so the words appear to come from the object's mouth. When you cast this spell, you can have the spell end after it delivers its message, or it can remain and repeat its message whenever the trigger occurs.\nThe trigger can be as general or as detailed as you like, though it must be based on visual or audible conditions that occur within 30 feet of the object. For example, you could instruct the mouth to speak when any creature moves within 30 feet of the object or when a silver bell rings within 30 feet of it."
+                            },
+                            {
+                                "name": "Charm Person",
+                                "level": "first",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": "30ft.",
+                                "components": ["V", "S"],
+                                "duration": "1 hour",
+                                "school": "enchantment",
+                                "description": "One Humanoid you can see within range makes a Wisdom saving throw. It does so with Advantage if you or your allies are fighting it. On a failed save, the target has the Charmed condition until the spell ends or until you or your allies damage it. The Charmed creature is Friendly to you. When the spell ends, the target knows it was Charmed by you.\nUsing a Higher-Level Spell Slot. You can target one additional creature for each spell slot level above 1.\n\n(from College of Glamour 'Beguiling Magic' feat)"
+                            },
+                            {
+                                "name": "Mirror Image",
+                                "level": "second",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": "self",
+                                "components": ["V", "S"],
+                                "duration": "1 minute",
+                                "school": "illusion",
+                                "description": "Three illusory duplicates of yourself appear in your space. Until the spell ends, the duplicates move with you and mimic your actions, shifting position so it’s impossible to track which image is real.\nEach time a creature hits you with an attack roll during the spell’s duration, roll a d6 for each of your remaining duplicates. If any of the d6s rolls a 3 or higher, one of the duplicates is hit instead of you, and the duplicate is destroyed. The duplicates otherwise ignore all other damage and effects. The spell ends when all three duplicates are destroyed.\nA creature is unaffected by this spell if it has the Blinded condition, Blindsight, or Truesight.\n\n(from College of Glamour 'Beguiling Magic' feat)"
+                            }
+                        ]
+                    }
                 },
-                {
-                    "name": "Beguiling Magic",
-                    "time": {
-                        "type": "reaction",
-                        "amount": 1
+                "4": {
+                    "hitdie": 5,
+                    "proficiencies": {
+                        "skills": {
+                            "add": [
+                                "deception",
+                                "persuasion"
+                            ]
+                        },
+                        "tools": [
+                            "dice"
+                        ]
                     },
-                    "description": "Immediately after you cast an Enchantment or Illusion spell using a spell slot, you can cause a creature you can see within 60 feet of yourself to make a Wisdom saving throw against your spell save DC. On a failed save, the target has the Charmed or Frightened condition (your choice) for 1 minute. The target repeats the save at the end of each of its turns, ending the effect on itself on a success.\nOnce you use this benefit, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending one use of your Bardic Inspiration (no action required)."
+                    "casting": {
+                        "slots": {
+                            "second": 1
+                        },
+                        "cantrips": [
+                            {
+                                "name": "Dancing Lights",
+                                "level": "cantrip",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": 120,
+                                "components": ["V", "S", "M"],
+                                "duration": "Concentration, up to 1 minute",
+                                "school": "Illusion",
+                                "description": "You create up to four torch-size lights within range, making them appear as torches, lanterns, or glowing orbs that hover for the duration. Alternatively, you combine the four lights into one glowing Medium form that is vaguely humanlike. Whichever form you choose, each light sheds Dim Light in a 10-foot radius.\nAs a Bonus Action, you can move the lights up to 60 feet to a space within range. A light must be within 20 feet of another light created by this spell, and a light vanishes if it exceeds the spell's range."
+                            }
+                        ],
+                        "spells": [
+                            {
+                                "name": "Calm Emotions",
+                                "level": "second",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": 60,
+                                "components": ["V", "S"],
+                                "duration": "concentration",
+                                "school": "enchantment",
+                                "description": "Each Humanoid in a 20-foot-radius Sphere centered on a point you choose within range must succeed on a Charisma saving throw or be affected by one of the following effects (choose for each creature):\n- The creature has Immunity to the Charmed and Frightened conditions until the spell ends. If the creature was already Charmed or Frightened, those conditions are suppressed for the duration.\n- The creature becomes Indifferent about creatures of your choice that it's Hostile toward. This indifference ends if the target takes damage or witnesses its allies taking damage. When the spell ends, the creature's attitude returns to normal."
+                            }
+                        ]
+                    }
+                },
+                "5": {
+                    "hitdie": 7,
+                    "traits": [
+                        {
+                            "name": "Font of Inspiration",
+                            "tags": [
+                                "combat",
+                                "narrative"
+                            ],
+                            "description": "You regain all of your expended uses of Bardic Inspiration when you finish a short or long rest."
+                        }
+                    ],
+                    "casting": {
+                        "slots": {
+                            "third": 2
+                        },
+                        "spells": [
+                            {
+                                "name": "Major Image",
+                                "level": "third",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": 120,
+                                "components": ["V", "S", "M"],
+                                "duration": "concentration",
+                                "school": "illusion",
+                                "description": "You create the image of an object, a creature, or some other visible phenomenon that is no larger than a 20-foot Cube. The image appears at a spot that you can see within range and lasts for the duration. It seems real, including sounds, smells, and temperature appropriate to the thing depicted, but it can't deal damage or cause conditions.\nIf you are within range of the illusion, you can take a Magic action to cause the image to move to any other spot within range. As the image changes location, you can alter its appearance so that its movements appear natural for the image. For example, if you create an image of a creature and move it, you can alter the image so that it appears to be walking. Similarly, you can cause the illusion to make different sounds at different times, even making it carry on a conversation, for example.\nPhysical interaction with the image reveals it to be an illusion, for things can pass through it. A creature that takes a Study action to examine the image can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the creature can see through the image, and its other sensory qualities become faint to the creature.\nUsing a Higher-Level Spell Slot. The spell lasts until dispelled, without requiring Concentration, if cast with a level 4+ spell slot."
+                            }
+                        ]
+                    }
+                },
+                "6": {
+                    "hitdie": 5,
+                    "actions": [
+                        {
+                            "name": "Countercharm",
+                            "time": {
+                                "type": "action",
+                                "amount": 1
+                            },
+                            "description": "As an action, you can start a performance that lasts until the end of your next turn. During that time, you and any friendly creatures within 30 feet of you have advantage on saving throws against being frightened or charmed. A creature must be able to hear you to gain this benefit. The performance ends early if you are incapacitated or silenced or if you voluntarily end it (no action required)."
+                        },
+                        {
+                            "name": "Mantle of Majesty",
+                            "time": {
+                                "type": "bonusaction",
+                                "amount": 1
+                            },
+                            "slots": {
+                                "total": 1,
+                                "current": 1
+                            },
+                            "description": "As a Bonus Action, you cast Command without expending a spell slot, and you take on an unearthly appearance for 1 minute or until your Concentration ends. During this time, you can cast Command as a Bonus Action without expending a spell slot.\n\nAny creature Charmed by you automatically fails its saving throw against the Command you cast with this feature.\n\nOnce you use this feature, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending a level 3+ spell slot (no action required)."
+                        }
+                    ],
+                    "casting": {
+                        "slots": {
+                            "third": 1
+                        },
+                        "spells": [
+                            {
+                                "name": "Fear",
+                                "level": "third",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": 0,
+                                "components": ["V", "S", "M"],
+                                "duration": "concentration",
+                                "school": "illusion",
+                                "description": "Each creature in a 30-foot Cone must succeed on a Wisdom saving throw or drop whatever it is holding and have the Frightened condition for the duration.\nA Frightened creature takes the Dash action and moves away from you by the safest route on each of its turns unless there is nowhere to move. If the creature ends its turn in a space where it doesn't have line of sight to you, the creature makes a Wisdom saving throw. On a successful save, the spell ends on that creature."
+                            },
+                            {
+                                "name": "Command",
+                                "level": "first",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": 60,
+                                "components": ["V"],
+                                "duration": "instantaneous",
+                                "school": "enchantment",
+                                "description": "You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. The spell has no effect if the target is undead, if it doesn't understand your language, or if your command is directly harmful to it.\nSome typical commands and their effects follow. You might issue a command other than one described here. If you do so, the DM determines how the target behaves. If the target can't follow your command, the spell ends.\n\n(from College of Glamour 'Mantle of Majesty' feat)"
+                            }
+                        ]
+                    }
+                },
+                "7": {
+                    "hitdie": 1,
+                    "casting": {
+                        "slots": {
+                            "fourth": 1
+                        },
+                        "spells": [
+                            {
+                                "name": "Hallucinatory Terrain",
+                                "level": "fourth",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": 300,
+                                "components": ["V", "S", "M"],
+                                "duration": 10,
+                                "school": "illusion",
+                                "description": "You make natural terrain in a 150-foot Cube in range look, sound, and smell like another sort of natural terrain. Thus, open fields or a road can be made to resemble a swamp, hill, crevasse, or some other difficult or impassable terrain. A pond can be made to seem like a grassy meadow, a precipice like a gentle slope, or a rock-strewn gully like a wide and smooth road. Manufactured structures, equipment, and creatures within the area aren't changed.\nThe tactile characteristics of the terrain are unchanged, so creatures entering the area are likely to notice the illusion. If the difference isn't obvious by touch, a creature examining the illusion can take the Study action to make an Intelligence (Investigation) check against your spell save DC to disbelieve it. If a creature discerns that the terrain is illusory, the creature sees a vague image superimposed on the real terrain."
+                            }
+                        ]
+                    }
+                },
+                "8": {
+                    "hitdie": 4,
+                    "proficiencies": {},
+                    "scores": {
+                        "cha": 2
+                    },
+                    "traits": [],
+                    "actions": [],
+                    "casting": {
+                        "slots": {
+                            "fourth": 1
+                        },
+                        "spells": [
+                            {
+                                "name": "Enthrall",
+                                "level": "second",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": 60,
+                                "components": ["V", "S"],
+                                "duration": "concentration",
+                                "school": "enchantment",
+                                "description": "You weave a distracting string of words, causing creatures of your choice that you can see within range to make a Wisdom saving throw. Any creature you or your companions are fighting automatically succeeds on this save. On a failed save, a target has a -10 penalty to Wisdom (Perception) checks and Passive Perception until the spell ends."
+                            }
+                        ]
+                    }
                 }
-            ]
+            }
         }
-    },
-    "health": {
-        "current": 59
     },
     "scores": {
         "str": 12,
@@ -188,307 +582,6 @@
         "int": 9,
         "wis": 10,
         "chr": 16
-    },
-    "skills": {
-        "athletics": 0.5,
-        "acrobatics": 2,
-        "sleightOfHand": 1,
-        "stealth": 1,
-        "arcana": 0.5,
-        "history": 0.5,
-        "investigation": 0.5,
-        "nature": 0.5,
-        "religion": 0.5,
-        "animalHandling": 0.5,
-        "insight": 0.5,
-        "medicine": 0.5,
-        "perception": 1,
-        "survival": 0.5,
-        "deception": 1,
-        "intimidation": 0.5,
-        "performance": 2,
-        "persuasion": 1
-    },
-    "casting": {
-        "slots": {
-            "first": {
-                "current": 4,
-                "total": 4
-            },
-            "second": {
-                "current": 3,
-                "total": 3
-            },
-            "third": {
-                "current": 3,
-                "total": 3
-            },
-            "fourth": {
-                "current": 2,
-                "total": 2
-            }
-        },
-        "spells": [
-            {
-                "name": "Starry Wisp",
-                "level": "cantrip",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": "60 ft.",
-                "components": [
-                    "V",
-                    "S"
-                ],
-                "duration": "Instantaneous",
-                "school": "Evocation",
-                "description": "You launch a mote of light at one creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 Radiant damage, and until the end of your next turn, it emits Dim Light in a 10-foot radius and can't benefit from the Invisible condition."
-            },
-            {
-                "name": "Prestidigitation",
-                "level": "cantrip",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": "10 ft.",
-                "components": [
-                    "V",
-                    "S"
-                ],
-                "duration": "Up to 1hr",
-                "school": "Transmutation",
-                "description": "You create a magical effect within range. Choose the effect from the options below. If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time.\nSensory Effect. You create an instantaneous, harmless sensory effect, such as a shower of sparks, a puff of wind, faint musical notes, or an odd odor.\nFire Play. You instantaneously light or snuff out a candle, a torch, or a small campfire.\nClean or Soil. You instantaneously clean or soil an object no larger than 1 cubic foot.\nMinor Sensation. You chill, warm, or flavor up to 1 cubic foot of nonliving material for 1 hour.\nMagic Mark. You make a color, a small mark, or a symbol appear on an object or a surface for 1 hour.\nMinor Creation. You create a nonmagical trinket or an illusory image that can fit in your hand. It lasts until the end of your next turn. A trinket can deal no damage and has no monetary worth."
-            },
-            {
-                "name": "Dancing Lights",
-                "level": "cantrip",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": "10 ft.",
-                "components": [
-                    "V",
-                    "S",
-                    "M"
-                ],
-                "duration": "Concentration, up to 1 minute",
-                "school": "Illusion",
-                "description": "You create up to four torch-size lights within range, making them appear as torches, lanterns, or glowing orbs that hover for the duration. Alternatively, you combine the four lights into one glowing Medium form that is vaguely humanlike. Whichever form you choose, each light sheds Dim Light in a 10-foot radius.\nAs a Bonus Action, you can move the lights up to 60 feet to a space within range. A light must be within 20 feet of another light created by this spell, and a light vanishes if it exceeds the spell's range."
-            },
-            {
-                "name": "Color Spray",
-                "level": "first",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": null,
-                "components": null,
-                "duration": null,
-                "school": null,
-                "attack": null,
-                "effect": null,
-                "description": "A dazzling array of flashing, colored light springs from your hand. Roll 6d10; the total is how many hit points of creatures this spell can affect. Creatures in a 15-foot cone originating from you are affected in ascending order of their current hit points (ignoring \nStarting with the creature that has the lowest current hit points, each creature affected by this spell is \nNone\n* - (a pinch of powder or sand that is colored red, yellow, and blue)"
-            },
-            {
-                "name": "Feather Fall",
-                "level": "first",
-                "time": {
-                    "type": "reaction",
-                    "amount": 1
-                },
-                "range": null,
-                "components": null,
-                "duration": null,
-                "school": null,
-                "attack": null,
-                "effect": null,
-                "description": "Choose up to five falling creatures within range. A falling creature's rate of descent slows to 60 feet per round until the spell ends. If the creature lands before the spell ends, it takes no falling damage and can land on its feet, and the spell ends for that creature.\n* - which you take when you or a creature within 60 feet of you falls\n** - (a small feather or piece of down)"
-            },
-            {
-                "name": "Thunderwave",
-                "level": "first",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": null,
-                "components": null,
-                "duration": null,
-                "school": null,
-                "attack": null,
-                "effect": null,
-                "description": "A wave of thunderous force sweeps out from you. Each creature in a 15-foot cube originating from you must make a Constitution saving throw. On a failed save, a creature takes 2d8 thunder damage and is pushed 10 feet away from you. On a successful save, the creature takes half as much damage and isn't pushed.\nIn addition, unsecured objects that are completely within the area of effect are automatically pushed 10 feet away from you by the spell's effect, and the spell emits a thunderous boom audible out to 300 feet.\nNone"
-            },
-            {
-                "name": "Dissonant Whispers",
-                "level": "first",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": null,
-                "components": null,
-                "duration": null,
-                "school": null,
-                "attack": null,
-                "effect": null,
-                "description": "One creature of your choice that you can see within range hears a discordant melody in its mind. The target makes a Wisdom saving throw. On a failed save, it takes 3d6 Psychic damage and must immediately use its Reaction, if available, to move as far away from you as it can, using the safest route. On a successful save, the target takes half as much damage only.\nUsing a Higher-Level Spell Slot. The damage increases by 1d6 for each spell slot level above 1."
-            },
-            {
-                "name": "Charm Person",
-                "level": "first",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": null,
-                "components": null,
-                "duration": null,
-                "school": null,
-                "attack": null,
-                "effect": null,
-                "description": "You attempt to charm a humanoid you can see within range. It must make a Wisdom saving throw, and does so with advantage if you or your companions are fighting it. If it fails the saving throw, it is \nNone"
-            },
-            {
-                "name": "Faerie Fire",
-                "level": "first",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": null,
-                "components": null,
-                "duration": null,
-                "school": null,
-                "attack": null,
-                "effect": null,
-                "description": "Objects in a 20-foot Cube within range are outlined in blue, green, or violet light (your choice). Each creature in the Cube is also outlined if it fails a Dexterity saving throw. For the duration, objects and affected creatures shed Dim Light in a 10-foot radius and can't benefit from the Invisible condition.\nAttack rolls against an affected creature or object have Advantage if the attacker can see it."
-            },
-            {
-                "name": "Command",
-                "level": "first",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": null,
-                "components": null,
-                "duration": null,
-                "school": null,
-                "attack": null,
-                "effect": null,
-                "description": "You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. The spell has no effect if the target is undead, if it doesn't understand your language, or if your command is directly harmful to it.\nSome typical commands and their effects follow. You might issue a command other than one described here. If you do so, the DM determines how the target behaves. If the target can't follow your command, the spell ends.\nNone\nNone\nNone\nNone\nNone\nNone"
-            },
-            {
-                "name": "Calm Emotions",
-                "level": "second",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": null,
-                "components": null,
-                "duration": null,
-                "school": null,
-                "attack": null,
-                "effect": null,
-                "description": "You attempt to suppress strong emotions in a group of people. Each humanoid in a 20-foot-radius sphere centered on a point you choose within range must make a Charisma saving throw; a creature can choose to fail this saving throw if it wishes. If a creature fails its saving throw, choose one of the following two effects.\nYou can suppress any effect causing a target to be \nAlternatively, you can make a target indifferent about creatures of your choice that it is hostile toward. This indifference ends if the target is attacked or harmed by a spell or if it witnesses any of its friends being harmed. When the spell ends, the creature becomes hostile again, unless the DM rules otherwise."
-            },
-            {
-                "name": "Magic Mouth",
-                "level": "second",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": null,
-                "components": null,
-                "duration": null,
-                "school": null,
-                "attack": null,
-                "effect": null,
-                "description": "You implant a message within an object in range, a message that is uttered when a trigger condition is met. Choose an object that you can see and that isn't being worn or carried by another creature. Then speak the message, which must be 25 words or less, though it can be delivered over as long as 10 minutes. Finally, determine the circumstance that will trigger the spell to deliver your message.\nWhen that circumstance occurs, a magical mouth appears on the object and recites the message in your voice and at the same volume you spoke. If the object you chose has a mouth or something that looks like a mouth (for example, the mouth of a statue), the magical mouth appears there so that the words appear to come from the object's mouth. When you cast this spell, you can have the spell end after it delivers its message, or it can remain and repeat its message whenever the trigger occurs.\nThe triggering circumstance can be as general or as detailed as you like, though it must be based on visual or audible conditions that occur within 30 feet of the object. For example, you could instruct the mouth to speak when any creature moves within 30 feet of the object or when a silver bell rings within 30 feet of it.\n* - (a small bit of honeycomb and jade dust worth at least 10 gp, which the spell consumes)"
-            },
-            {
-                "name": "Mirror Image",
-                "level": "second",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": null,
-                "components": null,
-                "duration": null,
-                "school": null,
-                "attack": null,
-                "effect": null,
-                "description": "Three illusory duplicates of yourself appear in your space. Until the spell ends, the duplicates move with you and mimic your actions, shifting position so it's impossible to track which image is real. You can use your action to dismiss the illusory duplicates.\nEach time a creature targets you with an attack during the spell's duration, roll a d20 to determine whether the attack instead targets one of your duplicates.\nIf you have three duplicates, you must roll a 6 or higher to change the attack's target to a duplicate. With two duplicates, you must roll an 8 or higher. With one duplicate, you must roll an 11 or higher.\nA duplicate's AC equals 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.\nA creature is unaffected by this spell if it can't see, if it relies on senses other than sight, such as "
-            },
-            {
-                "name": "Enthrall",
-                "level": "second",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": null,
-                "components": null,
-                "duration": null,
-                "school": null,
-                "attack": null,
-                "effect": null,
-                "description": "You weave a distracting string of words, causing creatures of your choice that you can see within range and that can hear you to make a Wisdom saving throw. Any creature that can't be "
-            },
-            {
-                "name": "Major Image",
-                "level": "third",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": null,
-                "components": null,
-                "duration": null,
-                "school": null,
-                "attack": null,
-                "effect": null,
-                "description": "Using a Higher-Level Spell Slot. The spell lasts until dispelled, without requiring Concentration, if cast with a level 4+ spell slot."
-            },
-            {
-                "name": "Fear",
-                "level": "third",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": null,
-                "components": null,
-                "duration": null,
-                "school": null,
-                "attack": null,
-                "effect": null,
-                "description": "You project a phantasmal image of a creature\\xe2\\x80\\x99s worst fears. Each creature in a 30-foot cone must succeed on a Wisdom saving throw or drop whatever it is holding and become \nWhile \n* - (a white feather or the heart of a hen)"
-            },
-            {
-                "name": "Hallucinatory Terrain",
-                "level": "fourth",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": null,
-                "components": null,
-                "duration": null,
-                "school": null,
-                "attack": null,
-                "effect": null,
-                "description": "You make natural terrain in a 150-foot cube in range look, sound, and smell like some other sort of natural terrain. Thus, open fields or a road can be made to resemble a swamp, hill, crevasse, or some other difficult or impassable terrain. A pond can be made to seem like a grassy meadow, a precipice like a gentle slope, or a rock-strewn gully like a wide and smooth road. Manufactured structures, equipment, and creatures within the area aren't changed in appearance.\nThe tactile characteristics of the terrain are unchanged, so creatures entering the area are likely to see through the illusion. If the difference isn't obvious by touch, a creature carefully examining the illusion can attempt an Intelligence (\n* - (a stone, a twig, and a bit of green plant)"
-            }
-        ]
     },
     "inventory": {
         "currency": {
@@ -543,7 +636,7 @@
                 "weight": 10,
                 "cost": null,
                 "description": "The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.",
-                "equipped": false,
+                "equipped": true,
                 "params": {
                     "armourtype": "leather"
                 }

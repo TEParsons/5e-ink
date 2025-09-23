@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { totalLevels, score2modifier, level2proficiency, saveProficiencies } from "$lib/utils";
+    import { totalLevels, score2modifier, level2proficiency, getProficiencies } from "$lib/utils";
     import { NumberCtrl, ProficiencyCtrl } from "$lib/ui/ctrls";
 
     let {
@@ -29,7 +29,7 @@
     )
 
     let save = $derived(
-        modifier + (saveProficiencies(stats.class).includes(id) ? proficiency : 0)
+        modifier + (getProficiencies(stats, "saves").includes(id) ? proficiency : 0)
     )
 </script>
 
@@ -51,7 +51,7 @@
     <div class=save-ctrl>
         <ProficiencyCtrl
             label="{label} Saves"
-            value={saveProficiencies(stats.class).includes(id) ? 1 : 0}
+            value={getProficiencies(stats, "saves").includes(id) ? 1 : 0}
             edit={false}
         />
         <output
