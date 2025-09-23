@@ -16,8 +16,8 @@
     {#each Object.keys(stats.class) as cls}
         <div class=level-ctrl>
             <span>Level {Object.keys(stats.class[cls].levels).length} {cls} </span>
-            {#if stats.class[cls].subtype}
-                <span>({stats.class[cls].subtype})</span>
+            {#if stats.class[cls].subtype?.name}
+                <span>({stats.class[cls].subtype?.name})</span>
             {/if}
         </div>
     {/each}

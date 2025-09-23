@@ -118,7 +118,6 @@
     "class": {
         "bard": {
             "name": "bard",
-            "subtype": "glamour",
             "hitdie": 8,
             "spellcasting": "chr",
             "levels": {
@@ -343,24 +342,6 @@
                             }
                         }
                     },
-                    "actions": [
-                        {
-                            "name": "Beguiling Magic",
-                            "time": {
-                                "type": "reaction",
-                                "amount": 1
-                            },
-                            "description": "Immediately after you cast an Enchantment or Illusion spell using a spell slot, you can cause a creature you can see within 60 feet of yourself to make a Wisdom saving throw against your spell save DC. On a failed save, the target has the Charmed or Frightened condition (your choice) for 1 minute. The target repeats the save at the end of each of its turns, ending the effect on itself on a success.\nOnce you use this benefit, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending one use of your Bardic Inspiration (no action required)."
-                        },
-                        {
-                            "name": "Mantle of Inspiration",
-                            "time": {
-                                "type": "bonusaction",
-                                "amount": 1
-                            },
-                            "description": "As a Bonus Action, you can expend a use of Bardic Inspiration, rolling a Bardic Inspiration die. When you do so, choose a number of other creatures within 60 feet of yourself, up to a number equal to your Charisma modifier (minimum of one creature). Each of those creatures gains a number of Temporary Hit Points equal to two times the number rolled on the Bardic Inspiration die, and then each can use its Reaction to move up to its Speed without provoking Opportunity Attacks."
-                        }
-                    ],
                     "casting": {
                         "slots": {
                             "first": 1,
@@ -379,32 +360,6 @@
                                 "duration": "dispell",
                                 "school": "illusion",
                                 "description": "You implant a message within an object in range—a message that is uttered when a trigger condition is met. Choose an object that you can see and that isn't being worn or carried by another creature. Then speak the message, which must be 25 words or fewer, though it can be delivered over as long as 10 minutes. Finally, determine the circumstance that will trigger the spell to deliver your message.\nWhen that trigger occurs, a magical mouth appears on the object and recites the message in your voice and at the same volume you spoke. If the object you chose has a mouth or something that looks like a mouth (for example, the mouth of a statue), the magical mouth appears there, so the words appear to come from the object's mouth. When you cast this spell, you can have the spell end after it delivers its message, or it can remain and repeat its message whenever the trigger occurs.\nThe trigger can be as general or as detailed as you like, though it must be based on visual or audible conditions that occur within 30 feet of the object. For example, you could instruct the mouth to speak when any creature moves within 30 feet of the object or when a silver bell rings within 30 feet of it."
-                            },
-                            {
-                                "name": "Charm Person",
-                                "level": "first",
-                                "time": {
-                                    "type": "action",
-                                    "amount": 1
-                                },
-                                "range": "30ft.",
-                                "components": ["V", "S"],
-                                "duration": "1 hour",
-                                "school": "enchantment",
-                                "description": "One Humanoid you can see within range makes a Wisdom saving throw. It does so with Advantage if you or your allies are fighting it. On a failed save, the target has the Charmed condition until the spell ends or until you or your allies damage it. The Charmed creature is Friendly to you. When the spell ends, the target knows it was Charmed by you.\nUsing a Higher-Level Spell Slot. You can target one additional creature for each spell slot level above 1.\n\n(from College of Glamour 'Beguiling Magic' feat)"
-                            },
-                            {
-                                "name": "Mirror Image",
-                                "level": "second",
-                                "time": {
-                                    "type": "action",
-                                    "amount": 1
-                                },
-                                "range": "self",
-                                "components": ["V", "S"],
-                                "duration": "1 minute",
-                                "school": "illusion",
-                                "description": "Three illusory duplicates of yourself appear in your space. Until the spell ends, the duplicates move with you and mimic your actions, shifting position so it’s impossible to track which image is real.\nEach time a creature hits you with an attack roll during the spell’s duration, roll a d6 for each of your remaining duplicates. If any of the d6s rolls a 3 or higher, one of the duplicates is hit instead of you, and the duplicate is destroyed. The duplicates otherwise ignore all other damage and effects. The spell ends when all three duplicates are destroyed.\nA creature is unaffected by this spell if it has the Blinded condition, Blindsight, or Truesight.\n\n(from College of Glamour 'Beguiling Magic' feat)"
                             }
                         ]
                     }
@@ -501,18 +456,6 @@
                                 "amount": 1
                             },
                             "description": "As an action, you can start a performance that lasts until the end of your next turn. During that time, you and any friendly creatures within 30 feet of you have advantage on saving throws against being frightened or charmed. A creature must be able to hear you to gain this benefit. The performance ends early if you are incapacitated or silenced or if you voluntarily end it (no action required)."
-                        },
-                        {
-                            "name": "Mantle of Majesty",
-                            "time": {
-                                "type": "bonusaction",
-                                "amount": 1
-                            },
-                            "slots": {
-                                "total": 1,
-                                "current": 1
-                            },
-                            "description": "As a Bonus Action, you cast Command without expending a spell slot, and you take on an unearthly appearance for 1 minute or until your Concentration ends. During this time, you can cast Command as a Bonus Action without expending a spell slot.\n\nAny creature Charmed by you automatically fails its saving throw against the Command you cast with this feature.\n\nOnce you use this feature, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending a level 3+ spell slot (no action required)."
                         }
                     ],
                     "casting": {
@@ -532,19 +475,6 @@
                                 "duration": "concentration",
                                 "school": "illusion",
                                 "description": "Each creature in a 30-foot Cone must succeed on a Wisdom saving throw or drop whatever it is holding and have the Frightened condition for the duration.\nA Frightened creature takes the Dash action and moves away from you by the safest route on each of its turns unless there is nowhere to move. If the creature ends its turn in a space where it doesn't have line of sight to you, the creature makes a Wisdom saving throw. On a successful save, the spell ends on that creature."
-                            },
-                            {
-                                "name": "Command",
-                                "level": "first",
-                                "time": {
-                                    "type": "action",
-                                    "amount": 1
-                                },
-                                "range": 60,
-                                "components": ["V"],
-                                "duration": "instantaneous",
-                                "school": "enchantment",
-                                "description": "You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. The spell has no effect if the target is undead, if it doesn't understand your language, or if your command is directly harmful to it.\nSome typical commands and their effects follow. You might issue a command other than one described here. If you do so, the DM determines how the target behaves. If the target can't follow your command, the spell ends.\n\n(from College of Glamour 'Mantle of Majesty' feat)"
                             }
                         ]
                     }
@@ -601,6 +531,101 @@
                         ]
                     }
                 }
+            },
+            "subtype": {
+                "name": "College of Glamour",
+                "advancements": [
+                    {
+                        "name": "Beguiling Magic",
+                        "actions": [
+                            {
+                                "name": "Beguiling Magic",
+                                "time": {
+                                    "type": "reaction",
+                                    "amount": 1
+                                },
+                                "description": "Immediately after you cast an Enchantment or Illusion spell using a spell slot, you can cause a creature you can see within 60 feet of yourself to make a Wisdom saving throw against your spell save DC. On a failed save, the target has the Charmed or Frightened condition (your choice) for 1 minute. The target repeats the save at the end of each of its turns, ending the effect on itself on a success.\nOnce you use this benefit, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending one use of your Bardic Inspiration (no action required)."
+                            }
+                        ],
+                        "casting": {
+                            "spells": [
+                                {
+                                    "name": "Charm Person",
+                                    "level": "first",
+                                    "time": {
+                                        "type": "action",
+                                        "amount": 1
+                                    },
+                                    "range": "30ft.",
+                                    "components": ["V", "S"],
+                                    "duration": "1 hour",
+                                    "school": "enchantment",
+                                    "description": "One Humanoid you can see within range makes a Wisdom saving throw. It does so with Advantage if you or your allies are fighting it. On a failed save, the target has the Charmed condition until the spell ends or until you or your allies damage it. The Charmed creature is Friendly to you. When the spell ends, the target knows it was Charmed by you.\nUsing a Higher-Level Spell Slot. You can target one additional creature for each spell slot level above 1."
+                                },
+                                {
+                                    "name": "Mirror Image",
+                                    "level": "second",
+                                    "time": {
+                                        "type": "action",
+                                        "amount": 1
+                                    },
+                                    "range": "self",
+                                    "components": ["V", "S"],
+                                    "duration": "1 minute",
+                                    "school": "illusion",
+                                    "description": "Three illusory duplicates of yourself appear in your space. Until the spell ends, the duplicates move with you and mimic your actions, shifting position so it’s impossible to track which image is real.\nEach time a creature hits you with an attack roll during the spell’s duration, roll a d6 for each of your remaining duplicates. If any of the d6s rolls a 3 or higher, one of the duplicates is hit instead of you, and the duplicate is destroyed. The duplicates otherwise ignore all other damage and effects. The spell ends when all three duplicates are destroyed.\nA creature is unaffected by this spell if it has the Blinded condition, Blindsight, or Truesight."
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Mantle of Inspiration",
+                        "actions": [
+                            {
+                                "name": "Mantle of Inspiration",
+                                "time": {
+                                    "type": "bonusaction",
+                                    "amount": 1
+                                },
+                                "description": "As a Bonus Action, you can expend a use of Bardic Inspiration, rolling a Bardic Inspiration die. When you do so, choose a number of other creatures within 60 feet of yourself, up to a number equal to your Charisma modifier (minimum of one creature). Each of those creatures gains a number of Temporary Hit Points equal to two times the number rolled on the Bardic Inspiration die, and then each can use its Reaction to move up to its Speed without provoking Opportunity Attacks."
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Mantle of Majesty",
+                        "actions": [
+                            {
+                                "name": "Mantle of Majesty",
+                                "time": {
+                                    "type": "bonusaction",
+                                    "amount": 1
+                                },
+                                "slots": {
+                                    "total": 1,
+                                    "current": 1
+                                },
+                                "description": "As a Bonus Action, you cast Command without expending a spell slot, and you take on an unearthly appearance for 1 minute or until your Concentration ends. During this time, you can cast Command as a Bonus Action without expending a spell slot.\n\nAny creature Charmed by you automatically fails its saving throw against the Command you cast with this feature.\n\nOnce you use this feature, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending a level 3+ spell slot (no action required)."
+                            }
+                        ],
+                        "casting": {
+                            "spells": [
+                                {
+                                    "name": "Command",
+                                    "level": "first",
+                                    "time": {
+                                        "type": "action",
+                                        "amount": 1
+                                    },
+                                    "range": 60,
+                                    "components": ["V"],
+                                    "duration": "instantaneous",
+                                    "school": "enchantment",
+                                    "description": "You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. The spell has no effect if the target is undead, if it doesn't understand your language, or if your command is directly harmful to it.\nSome typical commands and their effects follow. You might issue a command other than one described here. If you do so, the DM determines how the target behaves. If the target can't follow your command, the spell ends."
+                                }
+                            ]
+                        }
+                    }
+                ]
             }
         }
     },

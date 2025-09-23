@@ -39,8 +39,9 @@
         </div>
         <div class=spell-list>
             {#each Object.keys(stats.class) as cls}
-                {#each Object.entries(stats.class[cls].levels) as [lvl, advancements]}
-                    {#each Object.entries(advancements.casting.spells || []) as [i, spell]}
+                <!-- from levelling -->
+                {#each Object.entries(stats.class[cls].levels) as [lvl, advancement]}
+                    {#each Object.entries(advancement.casting.spells || []) as [i, spell]}
                         {#if spell.level === level}
                             <Spell 
                                 bind:spell={stats.class[cls].levels[lvl].casting.spells[i]}
@@ -48,6 +49,25 @@
                         {/if}
                     {/each}
                 {/each}
+                <!-- from subtype (bard college, paladin oath, etc.) -->
+                {#if stats.class[cls].subtype?.advancements && stats.class[cls].subtype?.advancements.some(
+                    val => val.casting?.spells?.some(
+                        spell => spell.level === level
+                    )
+                )}
+                    <div class=subclass-header>
+                        {stats.class[cls].subtype.name}:
+                    </div>
+                    {#each Object.entries(stats.class[cls].subtype.advancements || []) as [adv, advancement]}
+                        {#each Object.entries(advancement.casting?.spells || []) as [i, spell]}
+                            {#if spell.level === level}
+                                <Spell 
+                                    bind:spell={stats.class[cls].subtype.advancements[adv].casting.spells[i]}
+                                />
+                            {/if}
+                        {/each}
+                    {/each}
+                {/if}
             {/each}
         </div>
     {/each}
@@ -65,7 +85,12 @@
         align-items: center;
         justify-content: space-between;
     }
-
+    .subclass-header {
+        font-style: italic;
+        padding: .5rem;
+        margin-top: 1rem;
+        border-bottom: 1px solid var(--mantle);
+    }
     .spell-list {
         display: flex;
         flex-direction: column;

@@ -8,10 +8,13 @@ function getAdvancements(stats) {
     sources.push(stats.custom || {})
     // from classes
     for (let cls in stats.class) {
-        for (let advancement of Object.values(stats.class[cls].levels)) {
-            sources.push(advancement)
-        }
+        sources.push(...Object.values(stats.class[cls].levels))
+        // from class subtype
+        sources.push(...stats.class[cls].subtype?.advancements || [])
     }
+    
+
+
 
     return sources
 }

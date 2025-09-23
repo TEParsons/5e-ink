@@ -105,7 +105,6 @@
     <!-- from class -->
     {#each Object.keys(stats.class) as cls}
         {#each Object.entries(stats.class[cls].levels) as [lvl, advancements]}
-            
             <!-- class actions -->
             {#each Object.entries(advancements.actions || []) as [i, action]}
                 {#if action.time.type === time}
@@ -131,8 +130,8 @@
                     <DetailsCtrl>
                         {#snippet summary()}
                             <div class=action-summary>
-                                <div class=icon>✦</div>
-                                <div class=action-label>{cantrip.name} (cantrip)</div>
+                                <div class=icon>✨</div>
+                                <div class=action-label>{cantrip.name} ({cls})</div>
                             </div>
                         {/snippet}
 
@@ -149,8 +148,18 @@
                     <DetailsCtrl>
                         {#snippet summary()}
                             <div class=action-summary>
-                                <div class=icon>✨</div>
-                                <div class=action-label>{spell.name} ({spell.level} level)</div>
+                                <div class=icon>✨{{
+                                    "first": "❶", 
+                                    "second": "❷", 
+                                    "third": "❸", 
+                                    "fourth": "❹", 
+                                    "fifth": "❺", 
+                                    "sixth": "❻", 
+                                    "seventh": "❼",
+                                    "eighth": "❽",
+                                    "ninth": "❾"
+                                }[spell.level]}</div>
+                                <div class=action-label>{spell.name} ({cls})</div>
                             </div>
                         {/snippet}
 
@@ -161,7 +170,78 @@
                 {/if}
             {/each}
         {/each}
+
+        <!-- from class subtype -->
+        {#each Object.entries(stats.class[cls].subtype?.advancements || []) as [adv, advancement]}
+            <!-- class actions -->
+            {#each Object.entries(advancement.actions || []) as [i, action]}
+                {#if action.time.type === time}
+                    <DetailsCtrl>
+                        {#snippet summary()}
+                            <div class=action-summary>
+                                <div class=icon>💼</div>
+                                <div class=action-label>{action.name} ({stats.class[cls].subtype.name})</div>
+                            </div>
+                        {/snippet}
+
+                        <ClassActionView 
+                            bind:action={stats.class[cls].subtype.advancements[adv].actions[i]}
+                            bind:slots={stats.class[cls].subtype.advancements[adv].actions[i].slots}
+                        />
+                    </DetailsCtrl>
+                {/if}
+            {/each}
+
+            <!-- cantrips -->
+            {#each Object.entries(advancement.casting?.cantrips || []) as [i, cantrip]}
+                {#if cantrip.time.type === time}
+                    <DetailsCtrl>
+                        {#snippet summary()}
+                            <div class=action-summary>
+                                <div class=icon>✨</div>
+                                <div class=action-label>{cantrip.name} ({stats.class[cls].subtype.name})</div>
+                            </div>
+                        {/snippet}
+
+                        <SpellView 
+                            bind:spell={stats.class[cls].subtype.advancements[adv].casting.cantrips[i]}
+                        />
+                    </DetailsCtrl>
+                {/if}
+            {/each}
+
+            <!-- spells -->
+            {#each Object.entries(advancement.casting?.spells || []) as [i, spell]}
+                {#if spell.time.type === time}
+                    <DetailsCtrl>
+                        {#snippet summary()}
+                            <div class=action-summary>
+                                <div class=icon>✨{{
+                                    "first": "❶", 
+                                    "second": "❷", 
+                                    "third": "❸", 
+                                    "fourth": "❹", 
+                                    "fifth": "❺", 
+                                    "sixth": "❻", 
+                                    "seventh": "❼",
+                                    "eighth": "❽",
+                                    "ninth": "❾"
+                                }[spell.level]}</div>
+                                <div class=action-label>{spell.name} ({stats.class[cls].subtype.name})</div>
+                            </div>
+                        {/snippet}
+
+                        <SpellView 
+                            bind:spell={stats.class[cls].subtype.advancements[adv].casting.spells[i]}
+                        />
+                    </DetailsCtrl>
+                {/if}
+            {/each}
+        {/each}
     {/each}
+
+    
+
 </div>
 
 <style>
@@ -178,8 +258,15 @@
         gap: .5rem;
     }
 
+    .action-label {
+        text-align: left;
+    }
+
     .icon {
         font-family: var(--emoji);
-        width: 1.5rem;
+        width: 1rem;
+        direction: rtl;
+        text-align: right;
+        padding: 0 .5rem;
     }
 </style>

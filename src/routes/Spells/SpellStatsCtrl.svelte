@@ -19,7 +19,6 @@
 
         for (let key of Object.keys(stats.class)) {
             output[key] = modifiers[key] + level2proficiency(Object.keys(stats.class[key].levels).length)
-            console.log(modifiers[key], Object.keys(stats.class[key].levels).length)
         }
 
         return output
