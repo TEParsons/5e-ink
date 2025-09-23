@@ -13,7 +13,7 @@
     import Paran from "$lib/paran.json";
     import { Notebook, NotebookPage } from "$lib/ui/notebook";
 
-    let stats = $state(Paran);
+    let stats = $state(Yiig);
     setContext("stats", stats)
 
     let prefs = $state({
