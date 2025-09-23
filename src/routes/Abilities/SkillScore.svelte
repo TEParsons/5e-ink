@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { totalLevels, score2modifier, level2proficiency, getSkillMultiplier, getAllSkills, sentenceCase } from "$lib/utils"
+    import { totalLevels, score2modifier, level2proficiency, getSkillMultiplier, getAllSkills, sentenceCase, getScore } from "$lib/utils"
     import { ProficiencyCtrl } from "$lib/ui/ctrls"
 
     let {
@@ -39,7 +39,7 @@
     )
 
     let modifier = $derived(
-        score2modifier(stats.scores[base]) + Math.floor(proficiency * getSkillMultiplier(stats, id))
+        score2modifier(getScore(stats, base)) + Math.floor(proficiency * getSkillMultiplier(stats, id))
     )
 </script>
 

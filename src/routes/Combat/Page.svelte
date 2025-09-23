@@ -5,7 +5,6 @@
     import MovementCtrl from "./MovementCtrl.svelte";
     import InitiativeCtrl from "./InitiativeCtrl.svelte";
     import ActionsCtrl from "./ActionsCtrl.svelte";
-    import ReactionsCtrl from "./ReactionsCtrl.svelte";
     import { TraitsView } from "$lib/views";
 
     let stats = getContext("stats")

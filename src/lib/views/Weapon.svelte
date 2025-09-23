@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { totalLevels, score2modifier, level2proficiency, getProficiencies } from "$lib/utils";
+    import { totalLevels, score2modifier, level2proficiency, getProficiencies, getScore } from "$lib/utils";
     import { MarkdownCtrl } from "$lib/ui/ctrls";
 
     let {
@@ -21,9 +21,9 @@
             }
         }
         // figure out what stat to use
-        let stat = stats.scores.str
+        let stat = getScore(stats, "str")
         if (["ranged", "finesse"].includes(weapon.params.attacktype)) {
-            stat = stats.scores.dex
+            stat = getScore(stats, "dex")
         }
         // calculate modifier
         let modifier = score2modifier(stat) + Math.floor(

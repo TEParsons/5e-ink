@@ -1,5 +1,5 @@
 <script>
-    import { getProficiencies, score2modifier } from "$lib/utils";
+    import { getProficiencies, score2modifier, getScore } from "$lib/utils";
     import { getContext } from "svelte";
 
     let stats = getContext("stats");
@@ -72,10 +72,10 @@
             output += types[armour.params.armourtype].base
             // add modifier according to category
             if (types[armour.params.armourtype].categ === "light" && getProficiencies(stats, "armour").includes("light")) {
-                output += score2modifier(stats.scores.dex)
+                output += score2modifier(getScore(stats, "dex"))
             }
             if (types[armour.params.armourtype].categ === "medium" && getProficiencies(stats, "armour").includes("medium")) {
-                output += Math.min(score2modifier(stats.scores.dex), 2)
+                output += Math.min(score2modifier(getScore(stats, "dex")), 2)
             }
             // do we have any bonus?
             if (armour.params.bonus) {
@@ -86,10 +86,10 @@
             output += 10
             // add modifier according to class
             if ("barbarian" in stats.class) {
-                output += stats.scores.con
+                output += getScore(stats, "con")
             }
             if ("monk" in stats.class) {
-                output += stats.scores.wis
+                output += getScore(stats, "wis")
             }
         }
         // do we have a shield?

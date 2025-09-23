@@ -1,10 +1,10 @@
 <script>
-    import { score2modifier } from "$lib/utils.js";
+    import { score2modifier, getScore } from "$lib/utils.js";
     import { getContext } from "svelte";
 
     let stats = getContext("stats");
 
-    let modifier = $derived(score2modifier(stats.scores.dex))
+    let modifier = $derived(score2modifier(getScore(stats, "dex")))
 </script>
 
 <span

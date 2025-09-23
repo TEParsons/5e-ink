@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { totalLevels, classLevels, traitsByTag, score2modifier } from "$lib/utils.js";
+    import { totalLevels, classLevels, traitsByTag, score2modifier, getScore } from "$lib/utils.js";
     import { NumberCtrl } from "$lib/ui/ctrls";
     import DeathSavesCtrl from "./DeathSavesCtrl.svelte";
 
@@ -30,10 +30,10 @@
             for (let lvl of Object.values(stats.class[cls].levels)) {
                 if (lvl.hitdie !== undefined) {
                     // if roll is recorded, use it
-                    hp += lvl.hitdie + score2modifier(stats.scores.con)
+                    hp += lvl.hitdie + score2modifier(getScore(stats, "con"))
                 } else {
                     // if no roll for this level, use the average
-                    hp += Math.floor(stats.class[cls].hitdie / 2) + score2modifier(stats.scores.con)
+                    hp += Math.floor(stats.class[cls].hitdie / 2) + score2modifier(getScore(stats, "con"))
                 }
             }
         }

@@ -52,7 +52,41 @@
     {/each}
 
     <!-- from species -->
-    {#each stats.species.actions as action}
+    {#each Object.entries(stats.species.actions || []) as [i, action]}
+        {#if action.time.type === time}
+            <DetailsCtrl>
+                {#snippet summary()}
+                    <div class=action-summary>
+                        <div class=icon>🧬</div>
+                        <div class=action-label>{action.name} ({stats.species.name})</div>
+                    </div>
+                {/snippet}
+
+                <h2>{action.name}</h2>
+                <p>{action.description}</p>
+            </DetailsCtrl>
+        {/if}
+    {/each}
+
+    <!-- from background -->
+     {#each Object.entries(stats.background.actions || []) as [i, action]}
+        {#if action.time.type === time}
+            <DetailsCtrl>
+                {#snippet summary()}
+                    <div class=action-summary>
+                        <div class=icon>🧬</div>
+                        <div class=action-label>{action.name} ({stats.species.name})</div>
+                    </div>
+                {/snippet}
+
+                <h2>{action.name}</h2>
+                <p>{action.description}</p>
+            </DetailsCtrl>
+        {/if}
+    {/each}
+
+    <!-- from custom -->
+     {#each Object.entries(stats.custom.actions || []) as [i, action]}
         {#if action.time.type === time}
             <DetailsCtrl>
                 {#snippet summary()}

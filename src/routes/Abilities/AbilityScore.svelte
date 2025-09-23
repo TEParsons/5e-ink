@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { totalLevels, score2modifier, level2proficiency, getProficiencies } from "$lib/utils";
+    import { totalLevels, score2modifier, level2proficiency, getProficiencies, getScore } from "$lib/utils";
     import { NumberCtrl, ProficiencyCtrl } from "$lib/ui/ctrls";
 
     let {
@@ -25,7 +25,7 @@
     )
 
     let modifier = $derived(
-        score2modifier(stats.scores[id])
+        score2modifier(getScore(stats, id))
     )
 
     let save = $derived(
@@ -65,7 +65,7 @@
         label={label}
         min=1
         max=30
-        bind:value={stats.scores[id]}
+        value={getScore(stats, id)}
     />
 </div>
 

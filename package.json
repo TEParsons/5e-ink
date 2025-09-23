@@ -18,7 +18,10 @@
 		"vite": "^7.0.4"
 	},
 	"dependencies": {
-		"marked": "^16.2.1",
-		"ajv": "^8.17.1"
+		"ajv": "^8.17.1",
+		"dnd5e_json_schema": "github:BrianWendt/dnd5e_json_schema",
+		"json-schema": "^0.4.0",
+		"json-schema-defaults": "^0.4.0",
+		"marked": "^16.2.1"
 	}
 }

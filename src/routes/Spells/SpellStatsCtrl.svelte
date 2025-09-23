@@ -1,5 +1,5 @@
 <script>
-    import { level2proficiency, totalLevels, score2modifier } from "$lib/utils.js"
+    import { level2proficiency, totalLevels, score2modifier, getScore } from "$lib/utils.js"
     import { getContext } from "svelte";
     
     let stats = getContext("stats");
@@ -8,7 +8,7 @@
         let output = {};
         
         for (let key of Object.keys(stats.class)) {
-            output[key] = score2modifier(stats.scores[stats.class[key].spellcasting])
+            output[key] = score2modifier(getScore(stats, stats.class[key].spellcasting))
         }
 
         return output

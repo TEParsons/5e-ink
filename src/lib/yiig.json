@@ -32,6 +32,14 @@
             "fourth": 2
         }
     },
+    "scores": {
+        "str": 12,
+        "con": 13,
+        "dex": 14,
+        "int": 8,
+        "wis": 10,
+        "chr": 15
+    },
     "species": {
         "name": "orc",
         "subtype": "",
@@ -85,6 +93,27 @@
                 "description": "You can take the Dash action as a Bonus Action. When you do so, you gain a number of Temporary Hit Points equal to your Proficiency Bonus."
             }
         ]
+    },
+    "background": {
+        "name": "Charlatan",
+        "proficiencies": {
+            "skills": {
+                "set": {
+                    "deception": 1,
+                    "sleightOfHand": 1
+                }
+            },
+            "tools": [
+                "forgery"
+            ]
+        },
+        "scores": {
+            "dex": 1,
+            "con": 1,
+            "cha": 1
+        }
+    },
+    "custom": {
     },
     "class": {
         "bard": {
@@ -385,7 +414,7 @@
                     "proficiencies": {
                         "skills": {
                             "add": [
-                                "deception",
+                                "intimidation",
                                 "persuasion"
                             ]
                         },
@@ -575,14 +604,6 @@
             }
         }
     },
-    "scores": {
-        "str": 12,
-        "con": 14,
-        "dex": 16,
-        "int": 9,
-        "wis": 10,
-        "chr": 16
-    },
     "inventory": {
         "currency": {
             "platinum": 0,
@@ -635,7 +656,7 @@
                 "type": "armour",
                 "weight": 10,
                 "cost": null,
-                "description": "The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.",
+                "description": "A cool leather duster which, despite being fully open at the front, gives pretty decent protection.",
                 "equipped": true,
                 "params": {
                     "armourtype": "leather"
@@ -646,8 +667,16 @@
                 "type": "clothing",
                 "weight": null,
                 "cost": null,
-                "description": "This set of clothes could consist of a loose shirt and baggy breeches, or a loose shirt and skirt or overdress. Cloth wrappings are used for shoes.",
+                "description": "Tight trousers, chunky boots, no underwear. Classic.",
                 "equipped": true
+            },
+            {
+                "name": "Forgery kit",
+                "type": "tools",
+                "weight": null,
+                "cost": null,
+                "description": "This small box contains a variety of papers and parchments, pens and inks, seals and sealing wax, gold and silver leaf, and other supplies necessary to create convincing forgeries of physical documents. Proficiency with this kit lets you add your proficiency bonus to any Ability Checks you make to create a physical forgery of a document.",
+                "equipped": false
             },
             {
                 "name": "Sisterino's Bones",
@@ -655,7 +684,7 @@
                 "weight": null,
                 "cost": null,
                 "description": "Bones of a dead nun (hottie) whose ghost asked me to take her remains to the abbey so she can pass on.",
-                "equipped": true
+                "equipped": false
             }
         ]
     }

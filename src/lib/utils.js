@@ -1,3 +1,22 @@
+function getAdvancements(stats) {
+    let sources = []
+    // from species
+    sources.push(stats.species)
+    // from background
+    sources.push(stats.background || {})
+    // from custom
+    sources.push(stats.custom || {})
+    // from classes
+    for (let cls in stats.class) {
+        for (let advancement of Object.values(stats.class[cls].levels)) {
+            sources.push(advancement)
+        }
+    }
+
+    return sources
+}
+
+
 export function sentenceCase(value) {
     // convert camelCase
     value = String(value).replaceAll(
@@ -43,29 +62,14 @@ export function classLevels(classes) {
 export function traitsByTag(stats, tag) {
     let output = [];
 
-    // from species
-    for (let trait of stats.species.traits) {
-        if (trait.tags.includes(tag)) {
-            output.push(trait)
-        }
-    }
-    // from class
-    for (let cls in stats.class) {
-        for (let [lvl, advancement] of Object.entries(stats.class[cls])) {
-            for (let trait of advancement.traits || []) {
-                if (trait.tags.includes(tag)) {
-                    output.push(trait)
-                }
+    for (let source of getAdvancements(stats)) {
+        for (let trait of source.traits || []) {
+            if (trait.tags.includes(tag)) {
+                output.push(trait)
             }
-        }    
+        }
     }
 
-    // get species traits
-    for (let trait of stats.species.traits) {
-        if (trait.tags.includes(tag)) {
-            output.species.push(trait)
-        }
-    }
 
     return output
 }
@@ -79,22 +83,14 @@ export function level2proficiency(level) {
 }
 
 export function getProficiencies(stats, tag) {
-    let sources = [];
     let output = [];
-
-    // get from species
-    sources.push(stats.species.proficiencies)
-    // todo: get from background
-    // get from class levels
-    for (let cls in stats.class) {
-        for (let advancement of Object.values(stats.class[cls].levels)) {
-            sources.push(advancement.proficiencies || {})
-        }
-    }
     
     // combine into a single array
-    for (let source of sources) {
-        output.push(...(source[tag] || []))
+    for (let source of getAdvancements(stats)) {
+        if (source.proficiencies) {
+            output.push(...(source.proficiencies[tag] || []))
+        }
+        
     }
     // remove duplicates
     output = output.filter((value, index, array) => array.indexOf(value) === index)
@@ -104,11 +100,10 @@ export function getProficiencies(stats, tag) {
 
 export function getTotalSlots(stats, level) {
     let slots = 0;
-
-    // iterate through class levels
-    for (let cls in stats.class) {
-        for (let advancement of Object.values(stats.class[cls].levels)) {
-            slots += advancement.casting?.slots[level] || 0
+    
+    for (let source of getAdvancements(stats)) {
+        if (source.casting?.slots) {
+            slots += source.casting?.slots[level] || 0
         }
     }
 
@@ -117,7 +112,6 @@ export function getTotalSlots(stats, level) {
 
 
 export function getAllSkills(stats) {
-    let sources = [];
     // start off with core skills
     let skills = {
         athletics: "str",
@@ -139,20 +133,9 @@ export function getAllSkills(stats) {
         performance: "chr",
         persuasion: "chr",
     }
-    // from species
-    sources.push(stats.species)
-    // todo: from background
-    // todo: from custom
-    sources.push(stats.custom)
-    // from class
-    for (let cls in stats.class) {
-        for (let advancement of Object.values(stats.class[cls].levels)) {
-            sources.push(advancement)
-        }
-    }
 
     // add skills created by all sources
-    for (let source of sources) {
+    for (let source of getAdvancements(stats)) {
         for (let [skill, base] of Object.entries(source.proficiencies?.skills?.create || {})) {
             skills[skill] = base
         }
@@ -163,20 +146,11 @@ export function getAllSkills(stats) {
 
 
 export function getSkillMultiplier(stats, skill) {
-    let sources = [];
+    let sources = getAdvancements(stats);
     let multiplier = 0;
-    // from species
-    sources.push(stats.species)
-    // todo: from background
-    // from classes
-    for (let cls in stats.class) {
-        for (let advancement of Object.values(stats.class[cls].levels)) {
-            sources.push(advancement)
-        }
-    }
 
     // calculate
-    for (let source of sources) {
+    for (let source of getAdvancements(stats)) {
         // set minimum
         if (source.proficiencies?.skills?.set) {
             multiplier = Math.max(multiplier, source.proficiencies.skills.set[skill] || 0)
@@ -190,4 +164,17 @@ export function getSkillMultiplier(stats, skill) {
     }
 
     return multiplier
+}
+
+
+export function getScore(stats, key) {
+    let base = stats.scores[key];
+
+    for (let source of getAdvancements(stats)) {
+        if (source.scores) {
+            base += source.scores[key] || 0
+        }
+    }
+
+    return base
 }
