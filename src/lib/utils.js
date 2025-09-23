@@ -12,9 +12,6 @@ function getAdvancements(stats) {
         // from class subtype
         sources.push(...stats.class[cls].subtype?.advancements || [])
     }
-    
-
-
 
     return sources
 }
