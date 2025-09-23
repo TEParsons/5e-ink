@@ -4,7 +4,7 @@
     import { SpellView } from "$lib/views";
 
     let {
-        spell
+        spell=$bindable()
     } = $props()
 
     let stats = getContext("stats");
@@ -17,21 +17,17 @@
         reaction: "Reaction"
     }[spell.time.type]}`)
 
-    let temp = $state({
-        slots: $state.snapshot(stats.current.slots[spell.level])
-    })
+    let restore = {
+        slots: undefined
+    }
 </script>
 
 <DetailsCtrl
     buttons={{
-        OK: evt => {
-            if (spell.level in stats.casting.slots) {
-                stats.casting.slots[spell.level].current = $state.snapshot(temp.slots)
-            }
-        },
-        CANCEL: evt => temp.slots = $state.snapshot(stats.casting.slots[spell.level]?.current)
+        OK: evt => {},
+        CANCEL: evt => stats.current.slots[spell.level] = restore.slots
     }}
-    onopen={evt => temp.slots = $state.snapshot(stats.casting.slots[spell.level]?.current)}
+    onopen={evt => restore.slots = $state.snapshot(stats.current.slots[spell.level])}
 >
     {#snippet summary()}
         <div class=spell-summary>
@@ -42,10 +38,7 @@
     
     <SpellView 
         bind:spell={spell}
-        bind:slots={temp.slots}
     />
-    
-    
 </DetailsCtrl>
 
 

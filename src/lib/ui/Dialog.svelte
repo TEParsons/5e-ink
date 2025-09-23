@@ -1,4 +1,5 @@
 <script>
+    import { untrack } from "svelte"
     let {
         buttons={
             OK: evt => {},
@@ -13,7 +14,7 @@
 
     $effect(() => {
         if (handle && shown) {
-            onopen();
+            untrack(onopen);
             handle.showModal();
         } else if (handle) {
             handle.close();

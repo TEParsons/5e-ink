@@ -4,8 +4,7 @@
     import { getTotalSlots } from "$lib/utils"
 
     let {
-        spell=$bindable(),
-        slots=$bindable(),
+        spell=$bindable()
     } = $props()
 
     let stats = getContext("stats");
