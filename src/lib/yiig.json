@@ -710,6 +710,30 @@
                 "cost": null,
                 "description": "Bones of a dead nun (hottie) whose ghost asked me to take her remains to the abbey so she can pass on.",
                 "equipped": false
+            },
+            {
+                "name": "Disguise Kit",
+                "type": "tools",
+                "weight": null,
+                "cost": null,
+                "description": "This pouch of cosmetics, hair dye, and small props lets you create disguises that change your physical appearance. Proficiency with this kit lets you add your proficiency bonus to any Ability Checks you make to create a visual disguise.",
+                "equipped": false
+            },
+            {
+                "name": "Bedroll",
+                "type": "misc",
+                "weight": null,
+                "cost": null,
+                "description": "Can be slept in",
+                "equipped": false
+            },
+            {
+                "name": "Waterskin",
+                "type": "misc",
+                "weight": null,
+                "cost": null,
+                "description": "A waterskin can hold up to 4 pints of liquid.",
+                "equipped": false
             }
         ]
     }
