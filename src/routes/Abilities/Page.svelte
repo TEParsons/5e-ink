@@ -5,6 +5,7 @@
     import SkillScore from "./SkillScore.svelte";
     import { TraitsView } from "$lib/views";
     import ProficiencyGroup from "./ProficiencyGroup.svelte";
+    import { getAllSkills } from "$lib/utils";
 
     let stats = getContext("stats")
 
@@ -23,7 +24,7 @@
     </div>
 
     <div id=skill-scores>
-        {#each Object.keys(stats.skills) as key}
+        {#each Object.keys(getAllSkills(stats)) as key}
             <SkillScore
                 id={key}
             />

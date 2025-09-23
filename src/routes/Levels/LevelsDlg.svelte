@@ -1,7 +1,7 @@
 <script>
     import Dialog from "$lib/ui/Dialog.svelte"
     import ClassMgr from "./ClassMgr.svelte";
-    import { titleCase } from "$lib/utils";
+    import { sentenceCase } from "$lib/utils";
     import { Notebook, NotebookPage, ButtonTab } from "$lib/ui/notebook";
     import { getContext } from "svelte";
 
@@ -27,7 +27,7 @@
         <Notebook>
             {#each Object.keys(stats.class) as cls}
                 <NotebookPage
-                    label={titleCase(cls)}
+                    label={sentenceCase(cls)}
                     close={evt => delete stats.class[cls]}
                     initial
                 >

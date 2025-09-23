@@ -1,6 +1,17 @@
+export function sentenceCase(value) {
+    // convert camelCase
+    value = String(value).replaceAll(
+        /([a-z])([A-Z])/g,
+        matches => `${matches[0]} ${matches[1].toLowerCase()}`
+    )
+    // capitalise first letter
+    value = value.replace(
+        /^(\w)/,
+        matches => matches[0].toUpperCase()
+    )
+    // value = value[0].toUpperCase() + value.slice(1)
 
-export function titleCase(value) {
-    return String(value)[0].toUpperCase() + String(value).slice(1)
+    return value
 }
 
 export function totalLevels(classes) {
@@ -104,6 +115,53 @@ export function getTotalSlots(stats, level) {
     return slots
 }
 
+
+export function getAllSkills(stats) {
+    let sources = [];
+    // start off with core skills
+    let skills = {
+        athletics: "str",
+        acrobatics: "dex",
+        sleightOfHand: "dex",
+        stealth: "dex",
+        arcana: "int",
+        history: "int",
+        investigation: "int",
+        nature: "int",
+        religion: "int",
+        animalHandling: "wis",
+        insight: "wis",
+        medicine: "wis",
+        perception: "wis",
+        survival: "wis",
+        deception: "chr",
+        intimidation: "chr",
+        performance: "chr",
+        persuasion: "chr",
+    }
+    // from species
+    sources.push(stats.species)
+    // todo: from background
+    // todo: from custom
+    sources.push(stats.custom)
+    // from class
+    for (let cls in stats.class) {
+        for (let advancement of Object.values(stats.class[cls].levels)) {
+            sources.push(advancement)
+        }
+    }
+
+    // add skills created by all sources
+    for (let source of sources) {
+        for (let [skill, base] of Object.entries(source.proficiencies?.skills?.create || {})) {
+            skills[skill] = base
+        }
+    }
+
+    return skills
+}
+
+
 export function getSkillMultiplier(stats, skill) {
     let sources = [];
     let multiplier = 0;
@@ -130,8 +188,6 @@ export function getSkillMultiplier(stats, skill) {
             ]
         }
     }
-
-    console.log(skill, multiplier)
 
     return multiplier
 }

@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { totalLevels, score2modifier, level2proficiency, getSkillMultiplier } from "$lib/utils"
+    import { totalLevels, score2modifier, level2proficiency, getSkillMultiplier, getAllSkills, sentenceCase } from "$lib/utils"
     import { ProficiencyCtrl } from "$lib/ui/ctrls"
 
     let {
@@ -9,26 +9,7 @@
 
     let stats = getContext("stats")
 
-    let base = {
-        athletics: "str",
-        acrobatics: "dex",
-        sleightOfHand: "dex",
-        stealth: "dex",
-        arcana: "int",
-        history: "int",
-        investigation: "int",
-        nature: "int",
-        religion: "int",
-        animalHandling: "wis",
-        insight: "wis",
-        medicine: "wis",
-        perception: "wis",
-        survival: "wis",
-        deception: "chr",
-        intimidation: "chr",
-        performance: "chr",
-        persuasion: "chr",
-    }[id]
+    let base = getAllSkills(stats)[id]
 
     let label = {
         athletics: "Athletics",
@@ -66,7 +47,7 @@
     class=skill-score
 >
     <ProficiencyCtrl
-        label={label}
+        label={sentenceCase(id)}
         value={getSkillMultiplier(stats, id)}
     />
 
@@ -79,7 +60,7 @@
     <label
         for={id}
     >
-        {label} ({base})
+        {sentenceCase(id)} ({base})
     </label>
     
     
