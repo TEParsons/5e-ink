@@ -18,11 +18,28 @@
         shown: false
     })
 
-    $effect((evt) => {
+    $effect(evt => {
         if (dialog.shown) {
             dialog.restore = untrack(() => $state.snapshot(value));
         }
     })
+
+    $effect(evt => {
+        // make sure verything is numeric
+        if (typeof value === "string") {
+            value = parseFloat(value)
+        }
+        if (typeof interval === "string") {
+            interval = parseFloat(interval)
+        }
+        if (typeof max === "string") {
+            max = parseFloat(max)
+        }
+        if (typeof min === "string") {
+            min = parseFloat(min)
+        }
+    })
+
 </script>
 {#if edit}
     <button
@@ -50,13 +67,13 @@
     >
         <button
             class="ctrl"
-            onclick={evt => value = Math.min(parseInt(value || 0) + parseInt(interval), parseInt(max))}
+            onclick={evt => value = Math.min(value || 0 + interval, max)}
         >
             +
         </button>
         <button
             class="ctrl"
-            onclick={evt => value = Math.max(parseInt(value || 0) - parseInt(interval), parseInt(min))}
+            onclick={evt => value = Math.max(value || 0 - interval, min)}
         >
             -
         </button>
