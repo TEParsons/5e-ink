@@ -74,8 +74,6 @@
         let data = JSON.parse(content);
         // validate and sanitize
         data = validate(data)
-        // clear stats
-        newCharacter()
         // apply data
         Object.assign(stats, data)
     }
@@ -112,16 +110,16 @@
     >
         <use xlink:href="assets/logo.svg" />
     </svg>
-    <SwitchCtrl 
+    <!-- <SwitchCtrl 
         bind:value={prefs.edit}
         labels={{
             NO: "Play",
             YES: "Edit"
         }}
         edit
-    />
+    /> -->
     <div class=file-ctrls>
-        <button onclick={newCharacter}>New Character</button>
+        <!-- <button onclick={newCharacter}>New Character</button> -->
         <button onclick={loadCharacter}>Load Character</button>
         <button onclick={saveCharacter}>Save Character</button>
     </div>
