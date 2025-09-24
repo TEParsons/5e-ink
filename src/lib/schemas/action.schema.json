@@ -1,0 +1,50 @@
+{
+    "$id": "action",
+    "title": "Action",
+    "description": "Template defining an action (including bonus actions and reactions)",
+    "type": "object",
+    "required": ["name", "time", "description"],
+    "properties": {
+        "name": {
+            "type": "string",
+            "default": ""
+        },
+        "time": {
+            "type": "object",
+            "required": ["type", "amount"],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "action",
+                        "bonusaction",
+                        "reaction"
+                    ],
+                    "default": "action"
+                },
+                "amount": {
+                    "type": "integer",
+                    "default": 1
+                }
+            }
+        },
+        "slots": {
+            "type": "object",
+            "required": ["total", "current"],
+            "properties": {
+                "total": {
+                    "type": "integer",
+                    "default": 1
+                },
+                "current": {
+                    "type": "integer",
+                    "default": 1
+                }
+            }
+        },
+        "description": {
+            "type": "string",
+            "default": ""
+        }
+    }
+}

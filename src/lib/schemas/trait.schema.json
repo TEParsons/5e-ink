@@ -1,0 +1,48 @@
+{
+    "$id": "trait",
+    "title": "Trait",
+    "description": "Template describing a trait",
+    "type": "object",
+    "required": ["name", "tags", "description"],
+    "properties": {
+        "name": {
+            "type": "string",
+            "default": ""
+        },
+        "tags": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "combat",
+                    "narrative",
+                    "buff"
+                ]
+            },
+            "default": []
+        },
+        "description": {
+            "type": "string",
+            "default": ""
+        },
+        "effect": {
+            "type": "object",
+            "properties": {
+                "maxhp": {
+                    "type": "object",
+                    "required": ["flat", "perlevel"],
+                    "properties": {
+                        "flat": {
+                            "type": "integer",
+                            "default": 0
+                        },
+                        "perlevel": {
+                            "type": "integer",
+                            "default": 0
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

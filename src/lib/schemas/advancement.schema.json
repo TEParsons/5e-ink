@@ -1,0 +1,248 @@
+{
+    "title": "Advancement",
+    "description": "Template for something which gives boons; this could be a level of a class, a species, a background or something fully custom.",
+    "type": "object",
+    "required": [
+    ],
+    "properties": {
+        "hitdie": {
+            "type": "integer",
+            "minimum": 1
+        },
+        "proficiencies": {
+            "type": "object",
+            "properties": {
+                "armour": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "light",
+                            "medium",
+                            "heavy"
+                        ]
+                    }
+                }, 
+                "weapons": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }, 
+                "saves": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "str",
+                            "con",
+                            "dex",
+                            "int",
+                            "wis",
+                            "chr"
+                        ]
+                    }
+                }, 
+                "tools": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }, 
+                "skills": {
+                    "type": "object",
+                    "properties": {
+                        "add": {
+                            "type": "array",
+                            "items": {
+                                "enum": [
+                                    "athletics", 
+                                    "acrobatics", 
+                                    "sleightOfHand", 
+                                    "stealth", 
+                                    "arcana", 
+                                    "history", 
+                                    "investigation", 
+                                    "nature", 
+                                    "religion", 
+                                    "animalHandling", 
+                                    "insight", 
+                                    "medicine", 
+                                    "perception", 
+                                    "survival", 
+                                    "deception", 
+                                    "intimidation", 
+                                    "performance", 
+                                    "persuasion"
+                                ]
+                            }
+                        },
+                        "create": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string",
+                                "enum": [
+                                    "str",
+                                    "con",
+                                    "dex",
+                                    "int",
+                                    "wis",
+                                    "chr"
+                                ]
+                            }
+                        },
+                        "set": {
+                            "type": "object",
+                            "properties": {
+                                "athletics": {
+                                    "enum": [0, 0.5, 1, 2]
+                                }, 
+                                "acrobatics": {
+                                    "enum": [0, 0.5, 1, 2]
+                                }, 
+                                "sleightOfHand": {
+                                    "enum": [0, 0.5, 1, 2]
+                                }, 
+                                "stealth": {
+                                    "enum": [0, 0.5, 1, 2]
+                                }, 
+                                "arcana": {
+                                    "enum": [0, 0.5, 1, 2]
+                                }, 
+                                "history": {
+                                    "enum": [0, 0.5, 1, 2]
+                                }, 
+                                "investigation": {
+                                    "enum": [0, 0.5, 1, 2]
+                                }, 
+                                "nature": {
+                                    "enum": [0, 0.5, 1, 2]
+                                }, 
+                                "religion": {
+                                    "enum": [0, 0.5, 1, 2]
+                                }, 
+                                "animalHandling": {
+                                    "enum": [0, 0.5, 1, 2]
+                                }, 
+                                "insight": {
+                                    "enum": [0, 0.5, 1, 2]
+                                }, 
+                                "medicine": {
+                                    "enum": [0, 0.5, 1, 2]
+                                }, 
+                                "perception": {
+                                    "enum": [0, 0.5, 1, 2]
+                                }, 
+                                "survival": {
+                                    "enum": [0, 0.5, 1, 2]
+                                }, 
+                                "deception": {
+                                    "enum": [0, 0.5, 1, 2]
+                                }, 
+                                "intimidation": {
+                                    "enum": [0, 0.5, 1, 2]
+                                }, 
+                                "performance": {
+                                    "enum": [0, 0.5, 1, 2]
+                                }, 
+                                "persuasion": {
+                                    "enum": [0, 0.5, 1, 2]
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "languages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "scores": {
+            "type": "object",
+            "properties": {
+                "str": {
+                    "type": "number"
+                },
+                "con": {
+                    "type": "number"
+                },
+                "dex": {
+                    "type": "number"
+                },
+                "int": {
+                    "type": "number"
+                },
+                "wis": {
+                    "type": "number"
+                },
+                "chr": {
+                    "type": "number"
+                }
+            }
+        },
+        "traits": {
+            "type": "array",
+            "items": {
+                "$ref": "trait"
+            }
+        },
+        "actions": {
+            "type": "array",
+            "items": {
+                "$ref": "action"
+            }
+        },
+        "casting": {
+            "type": "object",
+            "properties": {
+                "slots": {
+                    "type": "object",
+                    "properties": {
+                        "first": {
+                            "type": "number"
+                        },
+                        "second": {
+                            "type": "number"
+                        },
+                        "third": {
+                            "type": "number"
+                        },
+                        "fourth": {
+                            "type": "number"
+                        },
+                        "fifth": {
+                            "type": "number"
+                        },
+                        "sixth": {
+                            "type": "number"
+                        },
+                        "seventh": {
+                            "type": "number"
+                        },
+                        "eighth": {
+                            "type": "number"
+                        },
+                        "ninth": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "cantrips": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "spell"
+                    }
+                },
+                "spells": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "spell"
+                    }
+                }
+            }
+        }
+    }
+}

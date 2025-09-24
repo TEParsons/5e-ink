@@ -1,0 +1,111 @@
+{
+    "$id": "spell",
+    "title": "Spell",
+    "description": "Template defining a spell",
+    "type": "object",
+    "required": ["name", "level", "time", "duration", "components", "school", "description"],
+    "properties": {
+        "name": {
+            "type": "string",
+            "default": ""
+        }, 
+        "level": {
+            "type": "string",
+            "default": "cantrip",
+            "enum": [
+                "cantrip",
+                "first",
+                "second",
+                "third",
+                "fourth",
+                "fifth",
+                "sixth",
+                "seventh",
+                "eighth",
+                "ninth"
+            ]
+        }, 
+        "time": {
+            "type": "object",
+            "required": ["type", "amount"],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "action",
+                        "bonusaction",
+                        "reaction"
+                    ],
+                    "default": "action"
+                },
+                "amount": {
+                    "type": "integer",
+                    "default": 1
+                }
+            }
+        }, 
+        "duration": {
+            "type": "object",
+            "required": ["type"],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "default": "instantaneous",
+                    "enum": [
+                        "instantaneous",
+                        "concentration",
+                        "dispell"
+                    ]
+                },
+                "maximum": {
+                    "type": "object",
+                    "required": ["unit", "amount"],
+                    "properties": {
+                        "unit": {
+                            "type": "string",
+                            "default": "round",
+                            "enum": [
+                                "round",
+                                "minute",
+                                "hour"
+                            ]
+                        },
+                        "amount": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    }
+                }
+            }
+        }, 
+        "components": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "V",
+                    "S",
+                    "M"
+                ]
+            }
+        }, 
+        "school": {
+            "type": "string",
+            "default": "abjuration",
+            "enum": [
+                "abjuration",
+                "conjuration",
+                "divination",
+                "enchantment",
+                "evocation",
+                "illusion",
+                "necromancy",
+                "transmutation"
+            ]
+        }, 
+        "description": {
+            "type": "string",
+            "default": ""
+        }
+    }
+}
