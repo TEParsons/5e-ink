@@ -787,6 +787,13 @@
                 "cost": null,
                 "description": "A waterskin can hold up to 4 pints of liquid.",
                 "equipped": false
+            },
+            {
+                "name": "Praises of the Morning Lord",
+                "type": "book",
+                "weight": null,
+                "cost": null,
+                "description": "A book of hymns dedicated to the Morning Lord, stolen from the Castle Ravenloft library."
             }
         ]
     }
