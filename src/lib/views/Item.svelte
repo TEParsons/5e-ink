@@ -40,6 +40,7 @@
                         <NumberCtrl 
                             bind:value={item.params.contents[i].params.quantity}
                             label="Quantity of {item.params.contents[i].name}"
+                            max={item.params.capacity.weight.lb / item.params.contents[i].weight.lb || Infinity}
                             min={0}
                             edit
                         />

@@ -832,10 +832,10 @@
                             "type": "consumable",
                             "description": "Wet and drinkable",
                             "weight": {
-                                "oz": 1
+                                "lb": 1
                             },
                             "params": {
-                                "quantity": 32
+                                "quantity": 3
                             }
                         }
                     ]
