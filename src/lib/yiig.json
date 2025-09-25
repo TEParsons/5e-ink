@@ -830,6 +830,7 @@
                         {
                             "name": "Water",
                             "type": "consumable",
+                            "description": "Wet and drinkable",
                             "weight": {
                                 "oz": 1
                             },

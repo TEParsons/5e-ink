@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { totalLevels, score2modifier, level2proficiency, getProficiencies, getScore, sentenceCase } from "$lib/utils";
     import { MarkdownCtrl } from "$lib/ui/ctrls";
+    import ItemView from "./Item.svelte"
 
     let {
         weapon
@@ -64,28 +65,14 @@
         )
     }
 </script>
-<div class=weapon-view>
-<h1>{weapon.name}</h1>
-    <i>
-        {weapon.type}
-        {#if weapon.weight}
-            {#each Object.entries(weapon.weight) as [unit, weight]}
-                | {weight}{unit}.
-            {/each}
-        {/if}
-        {#if weapon.cost}
-            {#each Object.entries(weapon.cost) as [unit, price]}
-                | {price} {unit}
-            {/each}
-        {/if}
-    </i>
 
+<div class=weapon-view>
+    <ItemView 
+        bind:item={weapon}
+    />
+    <h3>Attack</h3>
     <MarkdownCtrl 
         value={weaponDesc(weapon)}
         edit={false}
-    />
-
-    <MarkdownCtrl 
-        bind:value={weapon.description}
     />
 </div>
