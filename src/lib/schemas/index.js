@@ -3,16 +3,25 @@ import AdvancementSchema from "./advancement.schema.json";
 import SpellSchema from "./spell.schema.json";
 import ActionSchema from "./action.schema.json";
 import TraitSchema from "./trait.schema.json";
+import ItemSchema from "./item.schema.json";
+import WeaponItemSchema from "./items/weapon.schema.json";
+import ArmourItemSchema from "./items/armour.schema.json";
+import ToolItemSchema from "./items/tool.schema.json";
+import ConsumableItemSchema from "./items/consumable.schema.json";
 
 let ajv = new Ajv({
-    removeAdditional: true,
     useDefaults: true,
     coerceTypes: true,
     schemas: [
         SpellSchema,
         ActionSchema,
         TraitSchema,
-        AdvancementSchema
+        AdvancementSchema,
+        ItemSchema,
+        WeaponItemSchema,
+        ArmourItemSchema,
+        ToolItemSchema,
+        ConsumableItemSchema
     ]
 });
 // extra keyword to let me add notes
@@ -22,7 +31,8 @@ export var schemas = {
     spell: ajv.compile(SpellSchema),
     action: ajv.compile(ActionSchema),
     trait: ajv.compile(TraitSchema),
-    advancement: ajv.compile(AdvancementSchema)
+    advancement: ajv.compile(AdvancementSchema),
+    item: ajv.compile(ItemSchema),
 }
 
 /**

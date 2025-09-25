@@ -128,15 +128,7 @@
                             "light"
                         ],
                         "weapons": [
-                            "club",
-                            "dagger",
-                            "darts",
-                            "javelin",
-                            "mace",
-                            "quarterstaff",
-                            "scimitar",
-                            "sling",
-                            "spear"
+                            "simple"
                         ],
                         "saves": [
                             "dex",
@@ -683,105 +675,181 @@
             {
                 "name": "Dagger",
                 "type": "weapon",
-                "weight": null,
-                "cost": "2gp",
+                "weight": {
+                    "lb": 1
+                },
+                "cost": {
+                    "gp": 2
+                },
                 "description": "",
                 "equipped": true,
                 "params": {
-                    "weapontype": "dagger",
+                    "weapontype": "simple",
                     "attacktype": "melee",
-                    "range": {
+                    "distance": {
                         "reach": 5,
-                        "thrown": 20,
-                        "range": null,
-                        "maxrange": 60
+                        "range": 0,
+                        "maxrange": 0,
+                        "thrown": {
+                            "range": 20,
+                            "maxrange": 60
+                        }
                     },
-                    "damage": "1d4+3 piercing"
+                    "damage": {
+                        "type": "piercing",
+                        "dice": {
+                            "d4": 1
+                        }
+                    }
                 }
             },
             {
                 "name": "Sling",
                 "type": "weapon",
-                "weight": null,
-                "cost": "1sp",
+                "weight": {
+                    "lb": 0
+                },
+                "cost": {
+                    "sp": 1
+                },
                 "description": "Proficiency with a Sling allows you to add your proficiency bonus to the attack roll for any attack you make with it.",
                 "equipped": true,
                 "params": {
-                    "weapontype": "sling",
+                    "weapontype": "simple",
                     "attacktype": "ranged",
-                    "range": {
-                        "reach": null,
-                        "thrown": null,
+                    "distance": {
+                        "reach": 0,
                         "range": 30,
                         "maxrange": 120
                     },
-                    "damage": "1d4+3 bludgeoning"
+                    "damage": {
+                        "type": "bludgeoning",
+                        "dice": {
+                            "d4": 1
+                        }
+                    }
                 }
             },
             {
                 "name": "Leather armour",
                 "type": "armour",
-                "weight": 10,
-                "cost": null,
+                "weight": {
+                    "lb": 10
+                },
+                "cost": {
+                    "gp": 10
+                },
                 "description": "A cool leather duster which, despite being fully open at the front, gives pretty decent protection.",
                 "equipped": true,
                 "params": {
-                    "armourtype": "leather"
+                    "type": "light",
+                    "ac": 11
                 }
             },
             {
                 "name": "Clothes",
                 "type": "clothing",
-                "weight": null,
-                "cost": null,
+                "weight": {
+                    "lb": 4
+                },
+                "cost": {
+                    "gp": 2
+                },
                 "description": "Tight trousers, chunky boots, no underwear. Classic.",
                 "equipped": true
             },
             {
                 "name": "Forgery kit",
                 "type": "tools",
-                "weight": null,
-                "cost": null,
+                "weight": {
+                    "lb": 5
+                },
+                "cost": {
+                    "gp": 15
+                },
                 "description": "This small box contains a variety of papers and parchments, pens and inks, seals and sealing wax, gold and silver leaf, and other supplies necessary to create convincing forgeries of physical documents. Proficiency with this kit lets you add your proficiency bonus to any Ability Checks you make to create a physical forgery of a document.",
-                "equipped": false
+                "equipped": false,
+                "params": {
+                    "proficiency": "forgery"
+                }
             },
             {
                 "name": "Sisterino's Bones",
                 "type": "misc",
-                "weight": null,
-                "cost": null,
+                "weight": {
+                    "lb": 20
+                },
+                "cost": {
+                    "cp": 0
+                },
                 "description": "Bones of a dead nun (hottie) whose ghost asked me to take her remains to the abbey so she can pass on.",
                 "equipped": false
             },
             {
                 "name": "Disguise Kit",
-                "type": "tools",
-                "weight": null,
-                "cost": null,
+                "type": "tool",
+                "weight": {
+                    "lb": 3
+                },
+                "cost": {
+                    "gp": 25
+                },
                 "description": "This pouch of cosmetics, hair dye, and small props lets you create disguises that change your physical appearance. Proficiency with this kit lets you add your proficiency bonus to any Ability Checks you make to create a visual disguise.",
                 "equipped": false
             },
             {
                 "name": "Bedroll",
                 "type": "misc",
-                "weight": null,
-                "cost": null,
+                "weight": {
+                    "lb": 7
+                },
+                "cost": {
+                    "gp": 1
+                },
                 "description": "Can be slept in",
                 "equipped": false
             },
             {
                 "name": "Waterskin",
-                "type": "misc",
-                "weight": null,
-                "cost": null,
+                "type": "container",
+                "weight": {
+                    "lb": 1
+                },
+                "cost": {
+                    "sp": 2
+                },
                 "description": "A waterskin can hold up to 4 pints of liquid.",
-                "equipped": false
+                "equipped": false,
+                "params": {
+                    "capacity": {
+                        "weight": {
+                            "lb": 4
+                        }
+                    },
+                    "contents": [
+                        {
+                            "name": "Water",
+                            "type": "consumable",
+                            "weight": {
+                                "oz": 1
+                            },
+                            "params": {
+                                "quantity": 32
+                            }
+                        }
+                    ]
+                }
             },
             {
                 "name": "Praises of the Morning Lord",
                 "type": "book",
-                "weight": null,
-                "cost": null,
+                "weight": {
+                    "lb": 5
+                },
+                "cost": {
+                    "gp": 25
+                },
+                "equipped": false,
                 "description": "A book of hymns dedicated to the Morning Lord, stolen from the Castle Ravenloft library."
             }
         ]

@@ -1,0 +1,11 @@
+{
+    "$id": "item:consumable",
+    "title": "Consumable",
+    "description": "A consumable item",
+    "type": "object",
+    "properties": {
+        "quantity": {
+            "type": "integer"
+        }
+    }
+}

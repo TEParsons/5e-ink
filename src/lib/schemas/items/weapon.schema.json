@@ -1,0 +1,100 @@
+{
+    "$id": "item:weapon",
+    "title": "Weapon",
+    "description": "Parameters for a weapon",
+    "type": "object",
+    "properties": {
+        "weapontype": {
+            "type": "string",
+            "enum": [
+                "simple",
+                "martial",
+                "improvised"
+            ]
+        },
+        "attacktype": {
+            "type": "string",
+            "enum": [
+                "str",
+                "con",
+                "dex",
+                "wis",
+                "int",
+                "chr"
+            ]
+        },
+        "distance": {
+            "type": "object",
+            "properties": {
+                "reach": {
+                    "type": "object"
+                },
+                "range": {
+                    "type": "number"
+                },
+                "maxrange": {
+                    "type": "number"
+                },
+                "thrown": {
+                    "type": "object",
+                    "properties": {
+                        "reach": {
+                            "type": "object"
+                        },
+                        "range": {
+                            "type": "number"
+                        },
+                        "maxrange": {
+                            "type": "number"
+                        }
+                    }
+                }
+            }
+        },
+        "damage": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "acid", 
+                        "bludgeoning", 
+                        "cold",
+                        "fire", 
+                        "force", 
+                        "lightning", 
+                        "necrotic", 
+                        "piercing", 
+                        "poison", 
+                        "psychic", 
+                        "radiant", 
+                        "slashing", 
+                        "thunder"
+                    ]
+                },
+                "d4": {
+                    "type": "number"
+                },
+                "d6": {
+                    "type": "number"
+                },
+                "d8": {
+                    "type": "number"
+                },
+                "d10": {
+                    "type": "number"
+                },
+                "d12": {
+                    "type": "number"
+                },
+                "d20": {
+                    "type": "number"
+                },
+                "d100": {
+                    "type": "number"
+                }
+            }
+        }
+
+    }
+}

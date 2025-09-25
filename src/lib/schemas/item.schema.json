@@ -1,0 +1,223 @@
+{
+    "$id": "item",
+    "title": "Item",
+    "description": "General schema applying to all items",
+    "type": "object",
+    "required": ["name", "type", "equipped", "description"],
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "type": {
+            "type": "string",
+            "enum": [
+                "weapon",
+                "armour",
+                "consumable",
+                "container",
+                "clothing",
+                "tool",
+                "book",
+                "misc"
+            ]
+        },
+        "equipped": {
+            "type": "boolean"
+        },
+        "weight": {
+            "type": "object",
+            "properties": {
+                "it": {
+                    "title": "Tons (imperial)",
+                    "type": "number"
+                },
+                "st": {
+                    "title": "Stones",
+                    "type": "number"
+                },
+                "lb": {
+                    "title": "Pounds",
+                    "type": "number"
+                },
+                "oz": {
+                    "title": "Ounces",
+                    "type": "number"
+                },
+                "mt": {
+                    "title": "Tonnes (metric)",
+                    "type": "number"
+                },
+                "kg": {
+                    "title": "Kilograms",
+                    "type": "number"
+                },
+                "g": {
+                    "title": "Grams",
+                    "type": "number"
+                },
+                "mg": {
+                    "title": "Milligrams",
+                    "type": "number"
+                }
+            }
+        },
+        "cost": {
+            "type": "object",
+            "properties": {
+                "cp": {
+                    "type": "number"
+                },
+                "sp": {
+                    "type": "number"
+                },
+                "gp": {
+                    "type": "number"
+                },
+                "ep": {
+                    "type": "number"
+                },
+                "pp": {
+                    "type": "number"
+                }
+            }
+        },
+        "description": {
+            "type": "string"
+        },
+        "params": {
+            "type": "object"
+        }
+    },
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "weapon"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "params": {
+                        "$ref": "item:weapon"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "armour"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "params": {
+                        "$ref": "item:armour"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "tool"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "params": {
+                        "$ref": "item:tool"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "consumable"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "params": {
+                        "$ref": "item:consumable"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "container"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "params": {
+                        "type": "object",
+                        "properties": {
+                            "capacity": {
+                                "type": "object",
+                                "properties": {
+                                    "weight": {
+                                        "type": "object",
+                                        "properties": {
+                                            "it": {
+                                                "title": "Tons (imperial)",
+                                                "type": "number"
+                                            },
+                                            "st": {
+                                                "title": "Stones",
+                                                "type": "number"
+                                            },
+                                            "lb": {
+                                                "title": "Pounds",
+                                                "type": "number"
+                                            },
+                                            "oz": {
+                                                "title": "Ounces",
+                                                "type": "number"
+                                            },
+                                            "mt": {
+                                                "title": "Tonnes (metric)",
+                                                "type": "number"
+                                            },
+                                            "kg": {
+                                                "title": "Kilograms",
+                                                "type": "number"
+                                            },
+                                            "g": {
+                                                "title": "Grams",
+                                                "type": "number"
+                                            },
+                                            "mg": {
+                                                "title": "Milligrams",
+                                                "type": "number"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "contents": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

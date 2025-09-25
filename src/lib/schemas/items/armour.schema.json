@@ -1,0 +1,22 @@
+{
+    "$id": "item:armour",
+    "title": "Armour",
+    "description": "Like clothes, but with AC",
+    "type": "object",
+    "properties": {
+        "type": {
+            "type": "string",
+            "enum": [
+                "light",
+                "medium",
+                "heavy"
+            ]
+        },
+        "ac": {
+            "type": "number"
+        },
+        "bonus": {
+            "type": "number"
+        }
+    }
+}

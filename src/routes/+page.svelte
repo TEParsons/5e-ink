@@ -7,11 +7,11 @@
     import InventoryPage from "./Inventory/Page.svelte";
     import BioPage from "./Bio/Page.svelte";
     import SettingsPage from "./Settings/Page.svelte";
+    import { Notebook, NotebookPage } from "$lib/ui/notebook";
 
     import Cerys from "$lib/cerys.json";
     import Yiig from "$lib/yiig.json";
     import Paran from "$lib/paran.json";
-    import { Notebook, NotebookPage } from "$lib/ui/notebook";
 
     let stats = $state(Yiig);
     setContext("stats", stats)

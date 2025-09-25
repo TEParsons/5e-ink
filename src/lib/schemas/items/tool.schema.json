@@ -1,0 +1,11 @@
+{
+    "$id": "item:tool",
+    "title": "Tool",
+    "description": "A tool, kit or set of tools which requires proficiency to use",
+    "type": "object",
+    "properties": {
+        "proficiency": {
+            "type": "string"
+        }
+    }
+}
