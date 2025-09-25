@@ -95,11 +95,87 @@
                 }
             }
         },
+        "current": {
+            "title": "Current",
+            "description": "Aspects of the character which are changeable",
+            "type": "object",
+            "required": ["health", "slots"],
+            "properties": {
+                "health": {
+                    "type": "number"
+                },
+                "slots": {
+                    "type": "object",
+                    "properties": {
+                        "first": {
+                            "type": "number"
+                        },
+                        "second": {
+                            "type": "number"
+                        },
+                        "third": {
+                            "type": "number"
+                        },
+                        "fourth": {
+                            "type": "number"
+                        },
+                        "fifth": {
+                            "type": "number"
+                        },
+                        "sixth": {
+                            "type": "number"
+                        },
+                        "seventh": {
+                            "type": "number"
+                        },
+                        "eighth": {
+                            "type": "number"
+                        },
+                        "ninth": {
+                            "type": "number"
+                        }
+                    }
+                }
+            }
+        },
+        "scores": {
+            "title": "Base scores",
+            "description": "Base character scores, before any modifiers",
+            "type": "object",
+            "required": ["str", "con", "dex", "int", "wis", "chr"],
+            "properties": {
+                "str": {
+                    "type": "integer",
+                    "default": 10
+                },
+                "con": {
+                    "type": "integer",
+                    "default": 10
+                },
+                "dex": {
+                    "type": "integer",
+                    "default": 10
+                },
+                "int": {
+                    "type": "integer",
+                    "default": 10
+                },
+                "wis": {
+                    "type": "integer",
+                    "default": 10
+                },
+                "chr": {
+                    "type": "integer",
+                    "default": 10
+                }
+            }
+        },
         "species": {
             "title": "Species",
             "description": "What species (formerly race) is your character?",
             "type": "object",
-            "required": ["name", "movement", "size", "proficiencies", "traits", "actions"],
+            "required": ["name", "movement", "size"],
+            "$ref": "advancement",
             "properties": {
                 "name": {
                     "type": "string",
@@ -151,140 +227,6 @@
                         "gargantuan"
                     ],
                     "default": "medium"
-                },
-                "proficiencies": {
-                    "type": "object",
-                    "required": ["weapons", "tools", "languages", "armour"],
-                    "properties": {
-                        "weapons": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            },
-                            "default": []
-                        },
-                        "tools": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            },
-                            "default": []
-                        },
-                        "languages": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            },
-                            "default": []
-                        },
-                        "armour": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            },
-                            "default": []
-                        }
-                    }
-                },
-                "traits": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "required": ["name", "tags", "description"],
-                        "properties": {
-                            "name": {
-                                "type": "string",
-                                "default": ""
-                            },
-                            "tags": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string",
-                                    "enum": [
-                                        "combat",
-                                        "narrative",
-                                        "buff"
-                                    ]
-                                },
-                                "default": []
-                            },
-                            "description": {
-                                "type": "string",
-                                "default": ""
-                            },
-                            "effect": {
-                                "type": "object",
-                                "properties": {
-                                    "maxhp": {
-                                        "type": "object",
-                                        "required": ["flat", "perlevel"],
-                                        "properties": {
-                                            "flat": {
-                                                "type": "integer",
-                                                "default": 0
-                                            },
-                                            "perlevel": {
-                                                "type": "integer",
-                                                "default": 0
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "default": []
-                },
-                "actions": {
-                    "type": "array",
-                    "default": [],
-                    "items": {
-                        "type": "object",
-                        "required": ["name", "time", "description"],
-                        "properties": {
-                            "name": {
-                                "type": "string",
-                                "default": ""
-                            },
-                            "time": {
-                                "type": "object",
-                                "required": ["type", "amount"],
-                                "properties": {
-                                    "type": {
-                                        "type": "string",
-                                        "enum": [
-                                            "action",
-                                            "bonusaction",
-                                            "reaction"
-                                        ],
-                                        "default": "action"
-                                    },
-                                    "amount": {
-                                        "type": "integer",
-                                        "default": 1
-                                    }
-                                }
-                            },
-                            "slots": {
-                                "type": "object",
-                                "required": ["total", "current"],
-                                "properties": {
-                                    "total": {
-                                        "type": "integer",
-                                        "default": 1
-                                    },
-                                    "current": {
-                                        "type": "integer",
-                                        "default": 1
-                                    }
-                                }
-                            },
-                            "description": {
-                                "type": "string",
-                                "default": ""
-                            }
-                        }
-                    }
                 }
             } 
         },
@@ -292,32 +234,17 @@
             "type": "object",
             "additionalProperties": {
                 "type": "object",
-                "required": ["levels", "subtype", "hitdice", "spellcasting", "proficiencies", "traits", "actions"],
+                "required": ["name", "hitdie", "spellcasting", "levels"],
                 "properties": {
-                    "levels": {
-                        "type": "integer",
-                        "default": 1
+                    "name": {
+                        "type": "string"
                     },
-                    "hitdice": {
-                        "type": "object",
-                        "required": ["die", "rolls"],
-                        "properties": {
-                            "die": {
-                                "type": "integer",
-                                "enum": [
-                                    4, 6, 8, 10, 12, 20
-                                ],
-                                "default": 8
-                            },
-                            "rolls": {
-                                "type": "array",
-                                "default": [],
-                                "items": {
-                                    "type": "integer",
-                                    "default": 4
-                                }
-                            }
-                        }
+                    "hitdie": {
+                        "type": "integer",
+                        "enum": [
+                            4, 6, 8, 10, 12, 20
+                        ],
+                        "default": 8
                     },
                     "spellcasting": {
                         "type": "string",
@@ -329,550 +256,31 @@
                             "int",
                             "wis",
                             "chr"
-                        ],
-                        "default": ""
+                        ]
                     },
-                    "proficiencies": {
+                    "levels": {
                         "type": "object",
-                        "required": ["weapons", "tools", "languages", "armour"],
-                        "properties": {
-                            "saves": {
-                                "type": "array",
-                                "default": [],
-                                "items": {
-                                    "type": "string",
-                                    "enum": [
-                                        "str",
-                                        "con",
-                                        "dex",
-                                        "int",
-                                        "wis",
-                                        "chr"
-                                    ]
+                        "additionalProperties": {
+                            "type": "object",
+                            "properties": {
+                                "hitdie": {
+                                    "type": "number"
                                 }
                             },
-                            "weapons": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                },
-                                "default": []
-                            },
-                            "tools": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                },
-                                "default": []
-                            },
-                            "languages": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                },
-                                "default": []
-                            },
-                            "armour": {
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                },
-                                "default": []
-                            }
+                            "$ref": "advancement"
                         }
                     },
-                    "traits": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "required": ["name", "tags", "description"],
-                            "properties": {
-                                "name": {
-                                    "type": "string",
-                                    "default": ""
-                                },
-                                "tags": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "string",
-                                        "enum": [
-                                            "combat",
-                                            "narrative",
-                                            "buff"
-                                        ]
-                                    },
-                                    "default": []
-                                },
-                                "description": {
-                                    "type": "string",
-                                    "default": ""
-                                },
-                                "effect": {
-                                    "type": "object",
-                                    "properties": {
-                                        "maxhp": {
-                                            "type": "object",
-                                            "required": ["flat", "perlevel"],
-                                            "properties": {
-                                                "flat": {
-                                                    "type": "integer",
-                                                    "default": 0
-                                                },
-                                                "perlevel": {
-                                                    "type": "integer",
-                                                    "default": 0
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "default": []
-                    },
-                    "actions": {
-                        "type": "array",
-                        "default": [],
-                        "items": {
-                            "type": "object",
-                            "required": ["name", "time", "description"],
-                            "properties": {
-                                "name": {
-                                    "type": "string",
-                                    "default": ""
-                                },
-                                "time": {
-                                    "type": "object",
-                                    "required": ["type", "amount"],
-                                    "properties": {
-                                        "type": {
-                                            "type": "string",
-                                            "enum": [
-                                                "action",
-                                                "bonusaction",
-                                                "reaction"
-                                            ],
-                                            "default": "action"
-                                        },
-                                        "amount": {
-                                            "type": "integer",
-                                            "default": 1
-                                        }
-                                    }
-                                },
-                                "slots": {
-                                    "type": "object",
-                                    "required": ["total", "current"],
-                                    "properties": {
-                                        "total": {
-                                            "type": "integer",
-                                            "default": 1
-                                        },
-                                        "current": {
-                                            "type": "integer",
-                                            "default": 1
-                                        }
-                                    }
-                                },
-                                "description": {
-                                    "type": "string",
-                                    "default": ""
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "health": {
-            "type": "object",
-            "required": ["current"],
-            "properties": {
-                "current": {
-                    "type": "integer",
-                    "default": 1
-                }
-            }
-        },
-        "scores": {
-            "type": "object",
-            "required": ["str", "con", "dex", "int", "wis", "chr"],
-            "properties": {
-                "str": {
-                    "type": "integer",
-                    "default": 10
-                },
-                "con": {
-                    "type": "integer",
-                    "default": 10
-                },
-                "dex": {
-                    "type": "integer",
-                    "default": 10
-                },
-                "int": {
-                    "type": "integer",
-                    "default": 10
-                },
-                "wis": {
-                    "type": "integer",
-                    "default": 10
-                },
-                "chr": {
-                    "type": "integer",
-                    "default": 10
-                }
-            }
-        },
-        "skills": {
-            "type": "object",
-            "required": ["athletics", "acrobatics", "sleightOfHand", "stealth", "arcana", "history", "investigation", "nature", "religion", "animalHandling", "insight", "medicine", "perception", "survival", "deception", "intimidation", "performance", "persuasion"],
-            "properties": {
-                "athletics": {
-                    "type": "integer",
-                    "default": 0
-                },
-                "acrobatics": {
-                    "type": "integer",
-                    "default": 0
-                },
-                "sleightOfHand": {
-                    "type": "integer",
-                    "default": 0
-                },
-                "stealth": {
-                    "type": "integer",
-                    "default": 0
-                },
-                "arcana": {
-                    "type": "integer",
-                    "default": 0
-                },
-                "history": {
-                    "type": "integer",
-                    "default": 0
-                },
-                "investigation": {
-                    "type": "integer",
-                    "default": 0
-                },
-                "nature": {
-                    "type": "integer",
-                    "default": 0
-                },
-                "religion": {
-                    "type": "integer",
-                    "default": 0
-                },
-                "animalHandling": {
-                    "type": "integer",
-                    "default": 0
-                },
-                "insight": {
-                    "type": "integer",
-                    "default": 0
-                },
-                "medicine": {
-                    "type": "integer",
-                    "default": 0
-                },
-                "perception": {
-                    "type": "integer",
-                    "default": 0
-                },
-                "survival": {
-                    "type": "integer",
-                    "default": 0
-                },
-                "deception": {
-                    "type": "integer",
-                    "default": 0
-                },
-                "intimidation": {
-                    "type": "integer",
-                    "default": 0
-                },
-                "performance": {
-                    "type": "integer",
-                    "default": 0
-                },
-                "persuasion": {
-                    "type": "integer",
-                    "default": 0
-                }
-            }
-        },
-        "casting": {
-            "type": "object",
-            "required": ["slots", "spells"],
-            "properties": {
-                "slots": {
-                    "type": "object",
-                    "default": {},
-                    "properties": {
-                        "first": {
-                            "type": "object",
-                            "required": ["current", "total"],
-                            "properties": {
-                                "current": {
-                                    "type": "integer",
-                                    "default": 0
-                                },
-                                "total": {
-                                    "type": "integer",
-                                    "default": 1
-                                }
-                            }
-                        },
-                        "second": {
-                            "type": "object",
-                            "required": ["current", "total"],
-                            "properties": {
-                                "current": {
-                                    "type": "integer",
-                                    "default": 0
-                                },
-                                "total": {
-                                    "type": "integer",
-                                    "default": 1
-                                }
-                            }
-                        },
-                        "third": {
-                            "type": "object",
-                            "required": ["current", "total"],
-                            "properties": {
-                                "current": {
-                                    "type": "integer",
-                                    "default": 0
-                                },
-                                "total": {
-                                    "type": "integer",
-                                    "default": 1
-                                }
-                            }
-                        },
-                        "fourth": {
-                            "type": "object",
-                            "required": ["current", "total"],
-                            "properties": {
-                                "current": {
-                                    "type": "integer",
-                                    "default": 0
-                                },
-                                "total": {
-                                    "type": "integer",
-                                    "default": 1
-                                }
-                            }
-                        },
-                        "fifth": {
-                            "type": "object",
-                            "required": ["current", "total"],
-                            "properties": {
-                                "current": {
-                                    "type": "integer",
-                                    "default": 0
-                                },
-                                "total": {
-                                    "type": "integer",
-                                    "default": 1
-                                }
-                            }
-                        },
-                        "sixth": {
-                            "type": "object",
-                            "required": ["current", "total"],
-                            "properties": {
-                                "current": {
-                                    "type": "integer",
-                                    "default": 0
-                                },
-                                "total": {
-                                    "type": "integer",
-                                    "default": 1
-                                }
-                            }
-                        },
-                        "seventh": {
-                            "type": "object",
-                            "required": ["current", "total"],
-                            "properties": {
-                                "current": {
-                                    "type": "integer",
-                                    "default": 0
-                                },
-                                "total": {
-                                    "type": "integer",
-                                    "default": 1
-                                }
-                            }
-                        },
-                        "eighth": {
-                            "type": "object",
-                            "required": ["current", "total"],
-                            "properties": {
-                                "current": {
-                                    "type": "integer",
-                                    "default": 0
-                                },
-                                "total": {
-                                    "type": "integer",
-                                    "default": 1
-                                }
-                            }
-                        },
-                        "ninth": {
-                            "type": "object",
-                            "required": ["current", "total"],
-                            "properties": {
-                                "current": {
-                                    "type": "integer",
-                                    "default": 0
-                                },
-                                "total": {
-                                    "type": "integer",
-                                    "default": 1
-                                }
-                            }
-                        }
-                    }
-                },
-                "spells": {
-                    "type": "array",
-                    "default": [],
-                    "items": {
+                    "subtype": {
                         "type": "object",
-                        "required": ["name", "level", "time", "duration", "range", "components", "school", "description"],
                         "properties": {
                             "name": {
-                                "type": "string",
-                                "default": ""
-                            }, 
-                            "level": {
-                                "type": "string",
-                                "default": "cantrip",
-                                "enum": [
-                                    "cantrip",
-                                    "first",
-                                    "second",
-                                    "third",
-                                    "fourth",
-                                    "fifth",
-                                    "sixth",
-                                    "seventh",
-                                    "eighth",
-                                    "ninth"
-                                ]
-                            }, 
-                            "time": {
-                                "type": "object",
-                                "required": ["type", "amount"],
-                                "properties": {
-                                    "type": {
-                                        "type": "string",
-                                        "enum": [
-                                            "action",
-                                            "bonusaction",
-                                            "reaction"
-                                        ],
-                                        "default": "action"
-                                    },
-                                    "amount": {
-                                        "type": "integer",
-                                        "default": 1
-                                    }
+                                "type": "string"
+                            },
+                            "advancements": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "advancement"
                                 }
-                            }, 
-                            "duration": {
-                                "type": "object",
-                                "required": ["type"],
-                                "properties": {
-                                    "type": {
-                                        "type": "string",
-                                        "default": "instantaneous",
-                                        "enum": [
-                                            "instantaneous",
-                                            "concentration",
-                                            "passive"
-                                        ]
-                                    },
-                                    "maximum": {
-                                        "type": "object",
-                                        "required": ["type", "amount"],
-                                        "properties": {
-                                            "type": {
-                                                "type": "string",
-                                                "default": "round",
-                                                "enum": [
-                                                    "round",
-                                                    "minute",
-                                                    "hour"
-                                                ]
-                                            },
-                                            "amount": {
-                                                "type": "integer",
-                                                "default": 1
-                                            }
-                                        }
-                                    }
-                                }
-                            }, 
-                            "range": {
-                                "type": "object",
-                                "required": ["reach", "range"],
-                                "properties": {
-                                    "reach": {
-                                        "type": "integer",
-                                        "default": 5
-                                    },
-                                    "range": {
-                                        "type": "object",
-                                        "required": ["base"],
-                                        "properties": {
-                                            "base": {
-                                                "type": "integer",
-                                                "default": 0
-                                            },
-                                            "max": {
-                                                "type": "integer",
-                                                "default": 0
-                                            }
-                                        }
-                                    }
-                                }
-                            }, 
-                            "components": {
-                                "type": "object",
-                                "properties": {
-                                    "material": {
-                                        "type": "string"
-                                    },
-                                    "verbal": {
-                                        "type": "string"
-                                    },
-                                    "somatic": {
-                                        "type": "string"
-                                    }
-                                }
-                            }, 
-                            "school": {
-                                "type": "string",
-                                "default": "abjuration",
-                                "enum": [
-                                    "abjuration",
-                                    "conjuration",
-                                    "divination",
-                                    "enchantment",
-                                    "evocation",
-                                    "illusion",
-                                    "necromancy",
-                                    "transmutation"
-                                ]
-                            }, 
-                            "description": {
-                                "type": "string",
-                                "default": ""
                             }
                         }
                     }
@@ -913,8 +321,7 @@
                     "type": "array",
                     "default": [],
                     "items": {
-                        "type": "object",
-                        "note": "PLACEHOLDER"
+                        "$ref": "item"
                     }
                 }
             }
