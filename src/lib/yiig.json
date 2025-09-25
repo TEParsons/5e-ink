@@ -209,8 +209,7 @@
                                 "duration": {
                                     "type": "dispell",
                                     "maximum": {
-                                        "unit": "minute",
-                                        "amount": 1
+                                        "minutes": 1
                                     }
                                 },
                                 "school": "transmutation",
@@ -243,8 +242,7 @@
                                 "duration": {
                                     "type": "dispell",
                                     "maximum": {
-                                        "unit": "minute",
-                                        "amount": 1
+                                        "minutes": 1
                                     }
                                 },
                                 "school": "transmutation",
@@ -261,8 +259,7 @@
                                 "duration": {
                                     "type": "dispell",
                                     "maximum": {
-                                        "unit": "minute",
-                                        "amount": 1
+                                        "minutes": 1
                                     }
                                 },
                                 "school": "evocation",
@@ -279,8 +276,7 @@
                                 "duration": {
                                     "type": "concentration",
                                     "maximum": {
-                                        "unit": "minute",
-                                        "amount": 1
+                                        "minutes": 1
                                     }
                                 },
                                 "school": "evocation",
@@ -374,8 +370,7 @@
                                 "duration": {
                                     "type": "dispell",
                                     "maximum": {
-                                        "unit": "minute",
-                                        "amount": 1
+                                        "minutes": 1
                                     }
                                 },
                                 "school": "illusion",
@@ -413,8 +408,7 @@
                                 "duration": {
                                     "type": "concentration",
                                     "maximum": {
-                                        "unit": "minute",
-                                        "amount": 1
+                                        "minutes": 1
                                     }
                                 },
                                 "school": "illusion",
@@ -467,8 +461,7 @@
                                 "duration": {
                                     "type": "concentration",
                                     "maximum": {
-                                        "unit": "minute",
-                                        "amount": 1
+                                        "minutes": 1
                                     }
                                 },
                                 "school": "illusion",
@@ -505,8 +498,7 @@
                                 "duration": {
                                     "type": "concentration",
                                     "maximum": {
-                                        "unit": "minute",
-                                        "amount": 1
+                                        "minutes": 1
                                     }
                                 },
                                 "school": "illusion",
@@ -533,8 +525,7 @@
                                 "duration": {
                                     "type": "dispell",
                                     "maximum": {
-                                        "unit": "hour",
-                                        "amount": 24
+                                        "hours": 24
                                     }
                                 },
                                 "school": "illusion",
@@ -602,8 +593,7 @@
                                     "duration": {
                                         "type": "dispell",
                                         "maximum": {
-                                            "unit": "hour",
-                                            "amount": 1
+                                            "hours": 1
                                         }
                                     },
                                     "school": "enchantment",
@@ -620,8 +610,7 @@
                                     "duration": {
                                         "type": "dispell",
                                         "maximum": {
-                                            "unit": "minute",
-                                            "amount": 1
+                                            "minutes": 1
                                         }
                                     },
                                     "school": "illusion",

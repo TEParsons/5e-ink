@@ -61,18 +61,14 @@
                     "type": "object",
                     "required": ["unit", "amount"],
                     "properties": {
-                        "unit": {
-                            "type": "string",
-                            "default": "round",
-                            "enum": [
-                                "round",
-                                "minute",
-                                "hour"
-                            ]
+                        "rounds": {
+                            "type": "number"
                         },
-                        "amount": {
-                            "type": "integer",
-                            "default": 1
+                        "minutes": {
+                            "type": "number"
+                        },
+                        "hours": {
+                            "type": "number"
                         }
                     }
                 }
