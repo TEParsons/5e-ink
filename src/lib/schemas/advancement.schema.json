@@ -1,4 +1,5 @@
 {
+    "$id": "advancement",
     "title": "Advancement",
     "description": "Template for something which gives boons; this could be a level of a class, a species, a background or something fully custom.",
     "type": "object",

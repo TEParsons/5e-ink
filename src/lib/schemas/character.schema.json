@@ -1,8 +1,9 @@
 {
+    "$id": "character",
     "title": "5e Character Sheet",
     "description": "A 5e character sheet represented as a JSON file",
     "type": "object",
-    "required": ["details", "species", "levels", "health", "scores"],
+    "required": ["details", "current", "scores", "species", "background", "class", "inventory"],
     "properties": {
         "details": {
             "title": "Details",
@@ -229,6 +230,17 @@
                     "default": "medium"
                 }
             } 
+        },
+        "background": {
+            "title": "Background",
+            "description": "Advancements from your backstory",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            },
+            "$ref": "advancement"
         },
         "class": {
             "type": "object",

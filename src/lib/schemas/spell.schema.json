@@ -59,7 +59,6 @@
                 },
                 "maximum": {
                     "type": "object",
-                    "required": ["unit", "amount"],
                     "properties": {
                         "rounds": {
                             "type": "number"

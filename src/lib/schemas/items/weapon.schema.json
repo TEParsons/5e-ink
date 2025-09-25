@@ -15,19 +15,16 @@
         "attacktype": {
             "type": "string",
             "enum": [
-                "str",
-                "con",
-                "dex",
-                "wis",
-                "int",
-                "chr"
+                "melee",
+                "ranged",
+                "finesse"
             ]
         },
         "distance": {
             "type": "object",
             "properties": {
                 "reach": {
-                    "type": "object"
+                    "type": "number"
                 },
                 "range": {
                     "type": "number"

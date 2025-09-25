@@ -1,4 +1,5 @@
 import { Ajv } from "ajv";
+import CharacterSchema from "./character.schema.json";
 import AdvancementSchema from "./advancement.schema.json";
 import SpellSchema from "./spell.schema.json";
 import ActionSchema from "./action.schema.json";
@@ -13,21 +14,23 @@ let ajv = new Ajv({
     useDefaults: true,
     coerceTypes: true,
     schemas: [
+        WeaponItemSchema,
+        ArmourItemSchema,
+        ToolItemSchema,
+        ConsumableItemSchema,
+        ItemSchema,
         SpellSchema,
         ActionSchema,
         TraitSchema,
         AdvancementSchema,
-        ItemSchema,
-        WeaponItemSchema,
-        ArmourItemSchema,
-        ToolItemSchema,
-        ConsumableItemSchema
+        CharacterSchema
     ]
 });
 // extra keyword to let me add notes
 ajv.addKeyword("note");
 
 export var schemas = {
+    character: ajv.compile(CharacterSchema),
     spell: ajv.compile(SpellSchema),
     action: ajv.compile(ActionSchema),
     trait: ajv.compile(TraitSchema),
