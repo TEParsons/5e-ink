@@ -56,7 +56,7 @@
 
     .switch-btn {
         background-color: transparent;
-        color: var(--mantle);
+        color: var(--base);
         
         padding: 1rem;
     }
