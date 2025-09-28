@@ -24,7 +24,7 @@
         bind:value={spell.description}
     />
 
-    {#if spell.level in stats.current.slots}
+    {#if stats.current.slots[spell.level] !== undefined}
         <h4>
             {`${spell.level[0].toUpperCase()}${spell.level.slice(1)} level`} slots
         </h4>
