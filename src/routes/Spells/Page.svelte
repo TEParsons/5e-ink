@@ -18,7 +18,7 @@
     <div class=spell-list>
         {#each Object.keys(stats.class) as cls}
             {#each Object.entries(stats.class[cls].levels) as [lvl, advancements]}
-                {#each Object.entries(advancements.casting.cantrips || []) as [i, cantrip]}
+                {#each Object.entries(advancements.casting?.cantrips || []) as [i, cantrip]}
                     <Spell 
                         bind:spell={stats.class[cls].levels[lvl].casting.cantrips[i]}
                     />
@@ -41,7 +41,7 @@
             {#each Object.keys(stats.class) as cls}
                 <!-- from levelling -->
                 {#each Object.entries(stats.class[cls].levels) as [lvl, advancement]}
-                    {#each Object.entries(advancement.casting.spells || []) as [i, spell]}
+                    {#each Object.entries(advancement.casting?.spells || []) as [i, spell]}
                         {#if spell.level === level}
                             <Spell 
                                 bind:spell={stats.class[cls].levels[lvl].casting.spells[i]}

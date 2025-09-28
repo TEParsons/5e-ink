@@ -125,7 +125,7 @@
             {/each}
 
             <!-- cantrips -->
-            {#each Object.entries(advancements.casting.cantrips || []) as [i, cantrip]}
+            {#each Object.entries(advancements.casting?.cantrips || []) as [i, cantrip]}
                 {#if cantrip.time.type === time}
                     <DetailsCtrl>
                         {#snippet summary()}
@@ -143,7 +143,7 @@
             {/each}
 
             <!-- spells -->
-            {#each Object.entries(advancements.casting.spells || []) as [i, spell]}
+            {#each Object.entries(advancements.casting?.spells || []) as [i, spell]}
                 {#if spell.time.type === time}
                     <DetailsCtrl>
                         {#snippet summary()}
