@@ -14,7 +14,7 @@
     import Paran from "$lib/paran.json";
     import Brainworm from "$lib/brainworm.json";
 
-    let stats = $state(Brainworm);
+    let stats = $state(Yiig);
     setContext("stats", stats)
 
     let prefs = $state({
