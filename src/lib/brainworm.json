@@ -1,0 +1,178 @@
+{
+    "details": {
+        "name": "Brainworm",
+        "pronouns": "he/him",
+        "alignment": "lawful evil",
+        "avatar": "brainworm.png",
+        "backstory": "Once a techbro dickrider, he signed up for an experimental neural implant which turned out to have a pretty critical bug. Now his mind is more worm than brain.",
+        "personality": {
+            "traits": "I Am Become Worm",
+            "ideals": "I will ride eternal, shiny and firefox",
+            "bonds": "All glory to the technoverlords",
+            "flaws": "Cleanse me of my impure flesh, silicon father"
+        },
+        "organisations": {
+            "Techbros": "Whatever this setting's answer to Elon dickriders are, he's one of them."
+        },
+        "allies": {
+            "Sol Saraceno": "Party member"
+        },
+        "enemies": {
+        }
+    },
+    "current": {
+        "health": 7,
+        "slots": {
+            "first": 1
+        }
+    },
+    "scores": {
+        "str": 13,
+        "con": 10,
+        "dex": 15,
+        "int": 12,
+        "wis": 14,
+        "chr": 8
+    },
+    "species": {
+        "name": "human",
+        "subtype": "cyborg",
+        "movement": {
+            "walk": 30
+        },
+        "size": "medium",
+        "proficiencies": {
+            "weapons": [
+                "simple"
+            ]
+        },
+        "traits": [
+            {
+                "name": "Resourceful",
+                "tags": [
+                    "combat",
+                    "narrative"
+                ],
+                "description": "You gain Heroic Inspiration whenever you finish a Long Rest."
+            }
+        ],
+        "actions": []
+    },
+    "background": {
+        "name": "Digital Acolyte",
+        "proficiencies": {
+            "tools": [
+                "programming"
+            ],
+            "skills": {
+                "add": [
+                    "insight",
+                    "religion"
+                ]
+            }
+        },
+        "scores": {
+            "int": 1,
+            "wis": 1,
+            "cha": 1
+        },
+        
+        "casting": {
+            "slots": {
+                "first": 1
+            },
+            "cantrips": [
+                {
+                    "level": "cantrip"
+                },
+                {
+                    "level": "cantrip"
+                }
+            ],
+            "spells": [
+                {
+                    "level": "first"
+                }
+            ]
+        }
+    },
+    "custom": {
+        "proficiencies": {
+            "tools": [
+                "microelectronics"
+            ],
+            "languages": [
+                "binary"
+            ]
+        }
+    },
+    "class": {
+        "monk": {
+            "name": "monk",
+            "hitdie": 8,
+            "spellcasting": "wis",
+            "levels": {
+                "1": {
+                    "hitdie": 8,
+                    "proficiencies": {
+                        "armour": [
+                            "unarmoured"
+                        ],
+                        "weapons": [
+                            "simple",
+                            "martial:light"
+                        ],
+                        "saves": [
+                            "str",
+                            "dex"
+                        ],
+                        "tools": [
+                            "artesan"
+                        ],
+                        "skills": {
+                            "add": [
+                                "religion",
+                                "insight",
+                                "history"
+                            ]
+                        }
+                    },
+                    "traits": [
+                        {
+                            "name": "Bonus Unarmed Strike",
+                            "tags": [
+                                "combat"
+                            ],
+                            "description": "You can make an unarmed strike as a bonus action."
+                        },
+                        {
+                            "name": "Martial Arts",
+                            "tags": [
+                                "combat"
+                            ],
+                            "description": "You can roll 1d6 in place of the normal damage of your Unarmed Strike or Monk weapons. This die changes as you gain Monk levels, as shown in the Martial Arts column of the Monk Features table."
+                        },
+                        {
+                            "name": "Dexterous Strikes",
+                            "tags": [
+                                "combat"
+                            ],
+                            "description": "You can use your Dexterity modifier instead of your Strength modifier for the attack and damage rolls of your Unarmed Strikes and Monk weapons. In addition, when you use the Grapple or Shove option of your Unarmed Strike, you can use your Dexterity modifier instead of your Strength modifier to determine the save DC."
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "inventory": {
+        "currency": {
+            "platinum": 0,
+            "gold": 0,
+            "electrum": 0,
+            "silver": 0,
+            "copper": 0
+        },
+        "items": [
+        ]
+    }
+}
