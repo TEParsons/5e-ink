@@ -18,10 +18,11 @@
     <MarkdownCtrl 
         value={action.description}
     />
-    <h4>
-        Slots
-    </h4>
+    
     {#if action.slots}
+        <h4>
+            Slots
+        </h4>
         <SlotsCtrl 
             bind:value={slots.current}
             bind:total={slots.total}
