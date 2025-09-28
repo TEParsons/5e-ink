@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { MarkdownCtrl, SlotsCtrl } from "$lib/ui/ctrls";
-    import { getTotalSlots } from "$lib/utils"
+    import { getTotalSlots, sentenceCase } from "$lib/utils"
 
     let {
         spell=$bindable()
@@ -19,6 +19,7 @@
     <h1>
         {spell.name}
     </h1>
+    <i>{sentenceCase(spell.school)} {spell.level === "cantrip" ? "cantrip" : `spell (${spell.level} level)`}</i>
     <MarkdownCtrl 
         bind:value={spell.description}
     />
