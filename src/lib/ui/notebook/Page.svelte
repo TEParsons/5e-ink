@@ -1,6 +1,7 @@
 <script>
     import { onMount, onDestroy, getContext } from 'svelte';
     import Tooltip from '../tooltip/Tooltip.svelte';
+    import { useSwipe } from 'svelte-gestures';
 
     let {
         /** @prop @type {String} Label for this page's tab */
@@ -77,6 +78,23 @@
 </button>
 {#if selected}
     <div 
+        {...useSwipe(
+            evt => {
+                // we only care about swipes
+                if (evt.type === "swipe") {
+                    if (evt.detail.direction === "left") {
+                        // on swipe left, go to the next page
+                        siblings.current = Math.min(index + 1, siblings.all.length - 1)
+                    }
+                    if (evt.detail.direction === "right") {
+                        // on swipe right, go to the previous page
+                        siblings.current = Math.max(index - 1, 0)
+                    }
+                }
+            }, 
+            () => ({ timeframe: 300, minSwipeDistance: 50, touchAction: 'none' }), 
+            {}
+        )}
         class="notebook-page"
         class:listbook={siblings.book === "listbook"}
         class:notebook={siblings.book === "notebook"}
