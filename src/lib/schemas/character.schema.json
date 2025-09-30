@@ -100,9 +100,9 @@
             "title": "Current",
             "description": "Aspects of the character which are changeable",
             "type": "object",
-            "required": ["health", "slots"],
+            "required": ["damage", "slots"],
             "properties": {
-                "health": {
+                "damage": {
                     "type": "number"
                 },
                 "slots": {
