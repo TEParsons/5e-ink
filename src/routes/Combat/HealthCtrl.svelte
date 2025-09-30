@@ -58,17 +58,20 @@
         <h3 style:flex-grow=1>Health</h3>
         <NumberCtrl 
             label="Health"
-            bind:value={stats.current.health}
+            bind:value={
+                () => total - stats.current.damage,
+                (value) => stats.current.damage = total - value
+            }
             edit
         /> 
         <span>/ {total}</span>
     </div>
     <div class=health-bar>
         <div class=current-health
-            style:right="{(total - stats.current.health) * 100 / total}%"
+            style:right="{stats.current.damage * 100 / total}%"
         ></div>
     </div>
-    {#if stats.current.health <= 0}
+    {#if stats.current.damage > total}
         <DeathSavesCtrl />
     {/if}
 </div>

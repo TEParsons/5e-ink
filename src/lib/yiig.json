@@ -24,7 +24,7 @@
         }
     },
     "current": {
-        "health": 54,
+        "damage": 5,
         "slots": {
             "first": 4,
             "second": 3,
