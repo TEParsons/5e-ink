@@ -91,7 +91,17 @@
                     "type": "number"
                 }
             }
+        },
+        "ammunition": {
+            "type": "object",
+            "properties": {
+                "total": {
+                    "type": "number"
+                },
+                "current": {
+                    "type": "number"
+                }
+            }
         }
-
     }
 }

@@ -39,12 +39,12 @@
                     {#snippet summary()}
                         <div class=action-summary>
                             <div class=icon>✷</div>
-                            <div class=action-label>{item.name} (item.params.attacktype)</div>
+                            <div class=action-label>{item.name} ({item.type})</div>
                         </div>
                     {/snippet}
-
+                    
                     <ItemView 
-                        bind:weapon={stats.inventory.items[i]}
+                        bind:item={stats.inventory.items[i]}
                     />
                 </DetailsCtrl>
             {/if}

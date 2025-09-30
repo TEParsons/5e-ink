@@ -18,6 +18,20 @@
         "enemies": {
         }
     },
+    "current": {
+        "damage": 0,
+        "slots": {
+            "first": 3
+        }
+    },
+    "scores": {
+        "str": 8,
+        "con": 10,
+        "dex": 15,
+        "int": 12,
+        "wis": 13,
+        "chr": 14
+    },
     "species": {
         "name": "aarakocra",
         "subtype": "",
@@ -32,6 +46,13 @@
             "tools": [
             ],
             "languages": [
+                "common",
+                "ataithan",
+                "uttic",
+                "kaiprite",
+                "low savonic",
+                "atkani",
+                "high dracean"
             ],
             "armour": []
         },
@@ -46,230 +67,268 @@
                 },
                 "description": "***Talons** Melee Attack:* -1 to hit, reach 5ft. *Hit:* 1d4 - 1 slashing damage."
             }
-        ]
-    },
-    "class": {
-        "paladin": {
-            "levels": 3,
-            "subtype": "",
-            "hitdice": {
-                "die": 10,
-                "rolls": [
-                    0,
-                    5,
-                    6
-                ]
-            },
-            "spellcasting": "chr",
-            "proficiencies": {
-                "armour": [
-                    "light",
-                    "medium",
-                    "shields"
-                ],
-                "weapons": [
-                    "club",
-                    "dagger",
-                    "darts",
-                    "javelin",
-                    "mace",
-                    "quarterstaff",
-                    "scimitar",
-                    "sling",
-                    "spear",
-                    "crossbow",
-                    "rapier"
-                ],
-                "saves": [
-                    "wis",
-                    "chr"
-                ],
-                "tools": [
-                ],
-                "languages": [
-                    "common",
-                    "ataithan",
-                    "uttic",
-                    "kaiprite",
-                    "low savonic",
-                    "atkani",
-                    "high dracean"
-                ]
-            },
-            "traits": [
+        ],
+        "casting": {
+            "spells": [
                 {
-                    "name": "Archery",
-                    "tags": [
-                        "combat"
-                    ],
-                    "description": "You gain a +2 bonus to attack rolls with Ranged weapons."
-                }
-            ],
-            "actions": [
-                {
-                    "name": "Lay On Hands",
-                    "time": {
-                        "type": "bonusaction",
-                        "amount": 1
-                    },
-                    "slots": {
-                        "total": 15,
-                        "current": 15
-                    },
-                    "description": "Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you finish a Long Rest. With that pool, you can restore a total number of Hit Points equal to five times your Paladin level.\nAs a Bonus Action, you can touch a creature (which could be yourself) and draw power from the pool of healing to restore a number of Hit Points to that creature, up to the maximum amount remaining in the pool.\nYou can also expend 5 Hit Points from the pool of healing power to remove the Poisoned condition from the creature; those points don't also restore Hit Points to the creature."
-                },
-                {
-                    "name": "Paladin's Smite",
+                    "name": "Gust of Wind",
+                    "level": "second",
                     "time": {
                         "type": "action",
                         "amount": 1
                     },
-                    "slots": {
-                        "total": 1,
-                        "current": 1
+                    "components": [],
+                    "duration": {
+                        "type": "concentration",
+                        "maximum": {
+                            "minute": 1
+                        }
                     },
-                    "description": "You always have Divine Smite prepared and cast it without expending a spell slot once per Long Rest."
-                },
-                {
-                    "name": "Channel Divinity: Divine Sense",
-                    "time": {
-                        "type": "bonusaction",
-                        "amount": 1
-                    },
-                    "slots": {
-                        "total": 2,
-                        "current": 2
-                    },
-                    "description": "You can channel energy directly from the Outer Planes to fuel magical effects. Each time you use this class's Channel Divinity, you can choose which effect to create. You can use this class's Channel Divinity 2 times per Long Rest, but can regain one expended use after finishing a Short Rest.\nIf your Channel Divinity requires a saving throw, the DC equals your Paladin spell save DC."
-                },
-                {
-                    "name": "Sacred Weapon",
-                    "time": {
-                        "type": "reaction",
-                        "amount": 1
-                    },
-                    "description": "When you take the Attack action, you can expend one use of your Channel Divinity to imbue one Melee weapon that you are holding with positive energy. For 10 minutes or until you use this feature again, you add your Charisma modifier to attack rolls you make with that weapon (minimum bonus of +1), and each time you hit with it, you cause it to deal its normal damage type or Radiant damage.\nThe weapon also emits Bright Light in a 20-foot radius and Dim Light 20 feet beyond that.\nYou can end this effect early (no action required). This effect also ends if you aren't carrying the weapon"
+                    "school": "evocation",
+                    "description": "A Line of strong wind 60 feet long and 10 feet wide blasts from you in a direction you choose for the duration. Each creature in the Line must succeed on a Strength saving throw or be pushed 15 feet away from you in a direction following the Line. A creature that ends its turn in the Line must make the same save.\nAny creature in the Line must spend 2 feet of movement for every 1 foot it moves when moving closer to you.\nThe gust disperses gas or vapor, and it extinguishes candles and similar unprotected flames in the area. It causes protected flames, such as those of lanterns, to dance wildly and has a 50 percent chance to extinguish them.\nAs a Bonus Action on your later turns, you can change the direction in which the Line blasts from you."
                 }
             ]
         }
     },
-    "health": {
-        "current": 25
-    },
-    "scores": {
-        "str": 8,
-        "con": 11,
-        "dex": 17,
-        "int": 13,
-        "wis": 14,
-        "chr": 15
-    },
-    "skills": {
-        "athletics": 0,
-        "acrobatics": 0,
-        "sleightOfHand": 0,
-        "stealth": 1,
-        "arcana": 0,
-        "history": 0,
-        "investigation": 0,
-        "nature": 0,
-        "religion": 0,
-        "animalHandling": 0,
-        "insight": 1,
-        "medicine": 1,
-        "perception": 0,
-        "survival": 1,
-        "deception": 0,
-        "intimidation": 0,
-        "performance": 0,
-        "persuasion": 1
-    },
-    "casting": {
-        "slots": {
-            "first": {
-                "current": 3,
-                "total": 3
-            }
+    "background": {
+        "name": "Sage",
+        "proficiencies": {
+            "skills": {
+                "set": {
+                    "arcana": 1,
+                    "history": 1
+                }
+            },
+            "tools": [
+                "calligrapher"
+            ]
         },
-        "spells": [
-            {
-                "name": "Command",
-                "level": "first",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": "60 ft.",
-                "components": [
-                    "V"
-                ],
-                "duration": "Instantaneous",
-                "school": "Enchantment",
-                "description": "You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. Choose the command from these options:\n- **Approach.** The target moves toward you by the shortest and most direct route, ending its turn if it moves within 5 feet of you.\n- **Drop.** The target drops whatever it is holding and then ends its turn.\n- **Flee.** The target spends its turn moving away from you by the fastest available means.\n- **Grovel.** The target has the Prone condition and then ends its turn.\n- **Halt.** On its turn, the target doesn't move and takes no action or Bonus Action.\n*Using a Higher-Level Spell Slot.* You can affect one additional creature for each spell slot level above 1."
+        "scores": {
+            "con": 1,
+            "int": 1,
+            "wis": 1
+        },
+        "casting": {
+            "slots": {
+                "first": 1
             },
-            {
-                "name": "Cure Wounds",
-                "level": "first",
-                "time": {
-                    "type": "action",
-                    "amount": 1
+            "cantrips": [
+                {
+                    "level": "cantrip"
                 },
-                "range": "touch",
-                "components": [
-                    "V",
-                    "S"
-                ],
-                "duration": "Instantaneous",
-                "school": "Abjuration",
-                "description": "A creature you touch regains a number of Hit Points equal to 2d8 plus your spellcasting ability modifier.\nUsing a Higher-Level Spell Slot. The healing increases by 2d8 for each spell slot level above 1."
+                {
+                    "level": "cantrip"
+                }
+            ],
+            "spells": [
+                {
+                    "level": "first"
+                }
+            ]
+        }
+    },
+    "custom": {},
+    "class": {
+        "paladin": {
+            "name": "paladin",
+            "hitdie": 10,
+            "spellcasting": "chr",
+            "levels": {
+                "1": {
+                    "hitdie": 10,
+                    "proficiencies": {
+                        "armour": [
+                            "light",
+                            "medium",
+                            "shields"
+                        ],
+                        "weapons": [
+                            "simple",
+                            "crossbow",
+                            "rapier"
+                        ],
+                        "saves": [
+                            "wis",
+                            "chr"
+                        ],
+                        "skill": {
+                            "add": [
+                                "insight",
+                                "persuasion"
+                            ]
+                        }
+                    },
+                    "actions": [
+                        {
+                            "name": "Lay On Hands",
+                            "time": {
+                                "type": "bonusaction",
+                                "amount": 1
+                            },
+                            "slots": {
+                                "total": 15,
+                                "current": 15
+                            },
+                            "description": "Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you finish a Long Rest. With that pool, you can restore a total number of Hit Points equal to five times your Paladin level.\nAs a Bonus Action, you can touch a creature (which could be yourself) and draw power from the pool of healing to restore a number of Hit Points to that creature, up to the maximum amount remaining in the pool.\nYou can also expend 5 Hit Points from the pool of healing power to remove the Poisoned condition from the creature; those points don't also restore Hit Points to the creature."
+                        }
+                    ],
+                    "casting": {
+                        "slots": {
+                            "first": 2
+                        },
+                        "spells": [
+                            {
+                                "name": "Command",
+                                "level": "first",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": "60 ft.",
+                                "components": [
+                                    "V"
+                                ],
+                                "duration": "Instantaneous",
+                                "school": "Enchantment",
+                                "description": "You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. Choose the command from these options:\n- **Approach.** The target moves toward you by the shortest and most direct route, ending its turn if it moves within 5 feet of you.\n- **Drop.** The target drops whatever it is holding and then ends its turn.\n- **Flee.** The target spends its turn moving away from you by the fastest available means.\n- **Grovel.** The target has the Prone condition and then ends its turn.\n- **Halt.** On its turn, the target doesn't move and takes no action or Bonus Action.\n*Using a Higher-Level Spell Slot.* You can affect one additional creature for each spell slot level above 1."
+                            },
+                            {
+                                "name": "Cure Wounds",
+                                "level": "first",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": "touch",
+                                "components": [
+                                    "V",
+                                    "S"
+                                ],
+                                "duration": "Instantaneous",
+                                "school": "Abjuration",
+                                "description": "A creature you touch regains a number of Hit Points equal to 2d8 plus your spellcasting ability modifier.\nUsing a Higher-Level Spell Slot. The healing increases by 2d8 for each spell slot level above 1."
+                            }
+                        ]
+                    }
+                },
+                "2": {
+                    "hitdie": 5,
+                    "actions": [
+                        {
+                            "name": "Paladin's Smite",
+                            "time": {
+                                "type": "action",
+                                "amount": 1
+                            },
+                            "slots": {
+                                "total": 1,
+                                "current": 1
+                            },
+                            "description": "You always have Divine Smite prepared and cast it without expending a spell slot once per Long Rest."
+                        }
+                    ],
+                    "traits": [
+                        {
+                            "name": "Weapon Mastery: Archery",
+                            "tags": [
+                                "combat"
+                            ],
+                            "description": "You gain a +2 bonus to attack rolls with Ranged weapons."
+                        }
+                    ],
+                    "casting": {
+                        "spells": [
+                            {
+                                "name": "Detect Magic",
+                                "level": "first",
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "range": "Self/30 ft.",
+                                "components": [
+                                    "V",
+                                    "S"
+                                ],
+                                "duration": "Concentration, up to 1 minute",
+                                "school": "Divination",
+                                "description": "For the duration, you sense the presence of magical effects within 30 feet of yourself. If you sense such effects, you can take the Magic action to see a faint aura around any visible creature or object in the area that bears the magic, and if an effect was created by a spell, you learn the spell's school of magic.\nThe spell is blocked by 1 foot of stone, dirt, or wood; 1 inch of metal; or a thin sheet of lead."
+                            }
+                        ]
+                    }
+                },
+                "3": {
+                    "hitdie": 6,
+                    "actions": [
+                        {
+                            "name": "Channel Divinity: Divine Sense",
+                            "time": {
+                                "type": "bonusaction",
+                                "amount": 1
+                            },
+                            "slots": {
+                                "total": 2,
+                                "current": 2
+                            },
+                            "description": "You can channel energy directly from the Outer Planes to fuel magical effects. Each time you use this class's Channel Divinity, you can choose which effect to create. You can use this class's Channel Divinity 2 times per Long Rest, but can regain one expended use after finishing a Short Rest.\nIf your Channel Divinity requires a saving throw, the DC equals your Paladin spell save DC."
+                        }
+                    ],
+                    "casting": {
+                        "first": 1,
+                        "spells": [
+                            
+                        ]
+                    }
+                }
             },
-            {
-                "name": "Detect Magic",
-                "level": "first",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": "Self/30 ft.",
-                "components": [
-                    "V",
-                    "S"
+            "subtype": {
+                "name": "Oath of Devotion",
+                "actions": [
+                    {
+                        "name": "Channel Divinity: Sacred Weapon",
+                        "time": {
+                            "type": "reaction",
+                            "amount": 1
+                        },
+                        "description": "When you take the Attack action, you can expend one use of your Channel Divinity to imbue one Melee weapon that you are holding with positive energy. For 10 minutes or until you use this feature again, you add your Charisma modifier to attack rolls you make with that weapon (minimum bonus of +1), and each time you hit with it, you cause it to deal its normal damage type or Radiant damage.\nThe weapon also emits Bright Light in a 20-foot radius and Dim Light 20 feet beyond that.\nYou can end this effect early (no action required). This effect also ends if you aren't carrying the weapon"
+                    }
                 ],
-                "duration": "Concentration, up to 1 minute",
-                "school": "Divination",
-                "description": "For the duration, you sense the presence of magical effects within 30 feet of yourself. If you sense such effects, you can take the Magic action to see a faint aura around any visible creature or object in the area that bears the magic, and if an effect was created by a spell, you learn the spell's school of magic.\nThe spell is blocked by 1 foot of stone, dirt, or wood; 1 inch of metal; or a thin sheet of lead."
-            },
-            {
-                "name": "Protection from Evil and Good",
-                "level": "first",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": "touch",
-                "components": [
-                    "V", 
-                    "S", 
-                    "M"
-                ],
-                "duration": "Concentration, up to 10 minutes",
-                "school": "Abjuration",
-                "description": "Until the spell ends, one willing creature you touch is protected against creatures that are Aberrations, Celestials, Elementals, Fey, Fiends, or Undead. The protection grants several benefits. Creatures of those types have Disadvantage on attack rolls against the target. The target also can’t be possessed by or gain the Charmed or Frightened conditions from them. If the target is already possessed, Charmed, or Frightened by such a creature, the target has Advantage on any new saving throw against the relevant effect."
-            },
-            {
-                "name": "Shield of Faith",
-                "level": "first",
-                "time": {
-                    "type": "action",
-                    "amount": 1
-                },
-                "range": "60ft",
-                "components": ["V", "S", "M"],
-                "duration": "Concentration, up to 10 minutes",
-                "school": "Abjuration",
-                "description": "A shimmering field surrounds a creature of your choice within range, granting it a +2 bonus to AC for the duration."
+                "casting": {
+                    "spells": [
+                        {
+                            "name": "Protection from Evil and Good",
+                            "level": "first",
+                            "time": {
+                                "type": "action",
+                                "amount": 1
+                            },
+                            "range": "touch",
+                            "components": [
+                                "V", 
+                                "S", 
+                                "M"
+                            ],
+                            "duration": "Concentration, up to 10 minutes",
+                            "school": "Abjuration",
+                            "description": "Until the spell ends, one willing creature you touch is protected against creatures that are Aberrations, Celestials, Elementals, Fey, Fiends, or Undead. The protection grants several benefits. Creatures of those types have Disadvantage on attack rolls against the target. The target also can’t be possessed by or gain the Charmed or Frightened conditions from them. If the target is already possessed, Charmed, or Frightened by such a creature, the target has Advantage on any new saving throw against the relevant effect."
+                        },
+                        {
+                            "name": "Shield of Faith",
+                            "level": "first",
+                            "time": {
+                                "type": "action",
+                                "amount": 1
+                            },
+                            "range": "60ft",
+                            "components": ["V", "S", "M"],
+                            "duration": "Concentration, up to 10 minutes",
+                            "school": "Abjuration",
+                            "description": "A shimmering field surrounds a creature of your choice within range, granting it a +2 bonus to AC for the duration."
+                        }
+                    ]
+                }
             }
-        ]
+        }
     },
     "inventory": {
         "currency": {
@@ -283,108 +342,173 @@
             {
                 "name": "Light Crossbow",
                 "type": "weapon",
-                "weight": null,
-                "cost": "25gp",
+                "weight": {
+                    "lb": 5
+                },
+                "cost": {
+                    "gp": 25
+                },
                 "description": "",
                 "equipped": true,
                 "params": {
                     "weapontype": "crossbow",
                     "attacktype": "ranged",
-                    "range": {
+                    "distance": {
                         "reach": 5,
-                        "thrown": null,
                         "range": 80,
-                        "maxrange": 320
+                        "maxrange": 320,
+                        "thrown": {
+                            "range": 20,
+                            "maxrange": 60
+                        }
                     },
-                    "damage": "1d8+2 piercing"
+                    "damage": {
+                        "type": "piercing",
+                        "dice": {
+                            "d8": 1
+                        }
+                    },
+                    "ammunition": {
+                        "total": 20,
+                        "current": 20
+                    }
                 }
             },
             {
                 "name": "Rapier",
                 "type": "weapon",
-                "weight": null,
-                "cost": "25gp",
+                "weight": {
+                    "lb": 2
+                },
+                "cost": {
+                    "gp": 25
+                },
                 "description": "",
                 "equipped": true,
                 "params": {
                     "weapontype": "rapier",
                     "attacktype": "finesse",
-                    "range": {
+                    "distance": {
                         "reach": 5,
-                        "thrown": null,
-                        "range": null,
-                        "maxrange": null
+                        "range": 0,
+                        "maxrange": 0,
+                        "thrown": {
+                            "range": 20,
+                            "maxrange": 60
+                        }
                     },
-                    "damage": "1d8+2 piercing"
+                    "damage": {
+                        "type": "piercing",
+                        "dice": {
+                            "d8": 1
+                        }
+                    }
                 }
             },
             {
                 "name": "Javelin",
                 "type": "weapon",
-                "weight": null,
-                "cost": "3gp",
+                "weight": {
+                    "lb": 2
+                },
+                "cost": {
+                    "gp": 3
+                },
                 "description": "",
                 "equipped": false,
                 "params": {
                     "weapontype": "javelin",
                     "attacktype": "melee",
-                    "range": {
+                    "distance": {
                         "reach": 5,
-                        "thrown": 30,
-                        "range": null,
-                        "maxrange": 120
+                        "range": 0,
+                        "maxrange": 0,
+                        "thrown": {
+                            "range": 30,
+                            "maxrange": 120
+                        }
                     },
-                    "damage": "1d6-1 piercing"
+                    "damage": {
+                        "type": "piercing",
+                        "dice": {
+                            "d6": 1
+                        }
+                    }
                 }
             },
             {
                 "name": "Leather armour",
                 "type": "armour",
-                "weight": 10,
-                "cost": null,
+                "weight": {
+                    "lb": 10
+                },
+                "cost": {
+                    "gp": 10
+                },
                 "description": "The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.",
                 "equipped": true,
                 "params": {
-                    "armourtype": "leather"
+                    "armourtype": "light",
+                    "ac": 11
                 }
             },
             {
                 "name": "Clothes",
                 "type": "clothing",
-                "weight": null,
-                "cost": null,
+                "weight": {
+                    "lb": 4
+                },
+                "cost": {
+                    "gp": 2
+                },
                 "description": "This set of clothes could consist of a loose shirt and baggy breeches, or a loose shirt and skirt or overdress. Cloth wrappings are used for shoes.",
                 "equipped": true
             },
             {
                 "name": "Holy Symbol",
                 "type": "misc",
-                "weight": null,
-                "cost": null,
+                "weight": {
+                    "lb": 1
+                },
+                "cost": {
+                    "gp": 1
+                },
                 "description": "A Holy Symbol takes one of the forms in the Holy Symbol table and is bejeweled or painted to channel divine magic. A Cleric or Paladin can use a Holy Symbol as a Spellcasting Focus.",
                 "equipped": true
             },
             {
                 "name": "Robe",
                 "type": "clothing",
-                "weight": null,
-                "cost": "1gp",
+                "weight": {
+                    "lb": 4
+                },
+                "cost": {
+                    "gp": 1
+                },
                 "description": "A Robe has vocational or ceremonial significance. Some events and locations admit only people wearing a Robe bearing certain colors or symbols.",
                 "equipped": false
             },
             {
                 "name": "Blanket",
                 "type": "misc",
-                "weight": null,
-                "cost": "0.5gp",
+                "weight": {
+                    "lb": 3
+                },
+                "cost": {
+                    "sp": 5
+                },
                 "description": "While wrapped in a blanket, you have Advantage on saving throws against extreme cold.",
                 "equipped": false
             },
             {
                 "name": "Holy Water",
                 "type": "consumable",
-                "weight": null,
-                "cost": "25gp",
+                "weight": {
+                    "lb": 1
+                },
+                "cost": {
+                    "gp": 25
+                },
                 "description": "When you take the Attack action, you can replace one of your attacks with throwing a flask of Holy Water. Target one creature you can see within 20 feet of yourself. The target must succeed on a Dexterity saving throw (DC 8 plus your Dexterity modifier and Proficiency Bonus) or take 2d8 Radiant damage if it is a Fiend or an Undead.",
                 "params": {
                     "quantity": 1,
@@ -398,16 +522,25 @@
             {
                 "name": "Lamp",
                 "type": "misc",
-                "weight": null,
-                "cost": "0.5gp",
+                "weight": {
+                    "lb": 1
+                },
+                "cost": {
+                    "sp": 5
+                },
                 "description": "A Lamp burns Oil as fuel to cast Bright Light in a 15-foot radius and Dim Light for an additional 30 feet.",
                 "equipped": false
             },
             {
                 "name": "Rations",
                 "type": "consumable",
-                "weight": null,
-                "cost": "3.5gp",
+                "weight": {
+                    "lb": 2
+                },
+                "cost": {
+                    "gp": 3,
+                    "sp": 5
+                },
                 "description": "Rations consist of travel-ready food, including jerky, dried fruit, hardtack, and nuts. See “Malnutrition” for the risks of not eating.",
                 "params": {
                     "quantity": 7,
@@ -421,8 +554,12 @@
             {
                 "name": "Tinderbox",
                 "type": "consumable",
-                "weight": null,
-                "cost": "0.5gp",
+                "weight": {
+                    "lb": 1
+                },
+                "cost": {
+                    "sp": 5
+                },
                 "description": "A Tinderbox is a small container holding flint, fire steel, and tinder (usually dry cloth soaked in light oil) used to kindle a fire. Using it to light a Candle, Lamp, Lantern, or Torch—or anything else with exposed fuel—takes a Bonus Action. Lighting any other fire takes 1 minute.",
                 "params": {
                     "quantity": 1,

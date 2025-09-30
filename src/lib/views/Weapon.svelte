@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { totalLevels, score2modifier, level2proficiency, getProficiencies, getScore, sentenceCase } from "$lib/utils";
-    import { MarkdownCtrl } from "$lib/ui/ctrls";
+    import { MarkdownCtrl, SlotsCtrl } from "$lib/ui/ctrls";
     import ItemView from "./Item.svelte"
 
     let {
@@ -75,4 +75,11 @@
         value={weaponDesc(weapon)}
         edit={false}
     />
+    {#if weapon.params.ammunition}
+        <h4>Ammunition</h4>
+        <SlotsCtrl 
+            bind:value={weapon.params.ammunition.current}
+            bind:total={weapon.params.ammunition.total}
+        />
+    {/if}
 </div>
