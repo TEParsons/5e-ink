@@ -92,6 +92,19 @@
     },
     "background": {
         "name": "Sage",
+        "buffs": {
+            "scores": {
+                "con": {
+                    "add": 1
+                },
+                "int": {
+                    "add": 1
+                },
+                "wis": {
+                    "add": 1
+                }
+            }
+        },
         "proficiencies": {
             "skills": {
                 "set": {
@@ -102,11 +115,6 @@
             "tools": [
                 "calligrapher"
             ]
-        },
-        "scores": {
-            "con": 1,
-            "int": 1,
-            "wis": 1
         },
         "casting": {
             "slots": {
@@ -135,7 +143,11 @@
             "spellcasting": "chr",
             "levels": {
                 "1": {
-                    "hitdie": 10,
+                    "buffs": {
+                        "maxhp": {
+                            "add": 10
+                        }
+                    },
                     "proficiencies": {
                         "armour": [
                             "light",
@@ -212,7 +224,11 @@
                     }
                 },
                 "2": {
-                    "hitdie": 5,
+                    "buffs": {
+                        "maxhp": {
+                            "add": 5
+                        }
+                    },
                     "actions": [
                         {
                             "name": "Paladin's Smite",
@@ -258,7 +274,11 @@
                     }
                 },
                 "3": {
-                    "hitdie": 6,
+                    "buffs": {
+                        "maxhealth": {
+                            "add": 6
+                        }
+                    },
                     "actions": [
                         {
                             "name": "Channel Divinity: Divine Sense",
