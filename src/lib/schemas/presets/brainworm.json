@@ -21,7 +21,7 @@
         }
     },
     "current": {
-        "health": 7,
+        "damage": 0,
         "slots": {
             "first": 1
         }
@@ -60,6 +60,19 @@
     },
     "background": {
         "name": "Digital Acolyte",
+        "buffs": {
+            "scores": {
+                "int": {
+                    "add": 1
+                },
+                "wis": {
+                    "add": 1
+                },
+                "cha": {
+                    "add": 1
+                }
+            }
+        },
         "proficiencies": {
             "tools": [
                 "programming"
@@ -70,11 +83,6 @@
                     "religion"
                 ]
             }
-        },
-        "scores": {
-            "int": 1,
-            "wis": 1,
-            "cha": 1
         },
         "casting": {
             "slots": {
@@ -112,7 +120,11 @@
             "spellcasting": "wis",
             "levels": {
                 "1": {
-                    "hitdie": 8,
+                    "buffs": {
+                        "maxhealth": {
+                            "add": 8
+                        }
+                    },
                     "proficiencies": {
                         "armour": [
                             "unarmoured"
@@ -172,6 +184,37 @@
             "copper": 0
         },
         "items": [
+            {
+                "name": "Chakram",
+                "type": "weapon",
+                "weight": {
+                    "lb": 1
+                },
+                "cost": {
+                    "gp": 2
+                },
+                "description": "Two circular rings with a continuous blade running across the circumference, held in each hand by a wooden bar through the center.",
+                "equipped": true,
+                "params": {
+                    "weapontype": "simple",
+                    "attacktype": "finesse",
+                    "distance": {
+                        "reach": 5,
+                        "range": 0,
+                        "maxrange": 0,
+                        "thrown": {
+                            "range": 20,
+                            "maxrange": 60
+                        }
+                    },
+                    "damage": {
+                        "type": "slashing",
+                        "dice": {
+                            "d6": 1
+                        }
+                    }
+                }
+            }
         ]
     }
 }
