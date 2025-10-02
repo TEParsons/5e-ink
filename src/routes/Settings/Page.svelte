@@ -1,8 +1,9 @@
 <script>
     import { getContext } from "svelte";
-    import { SwitchCtrl } from "$lib/ui/ctrls";
+    import { SwitchCtrl, ChoiceCtrl, Option } from "$lib/ui/ctrls";
     import schema from "$lib/schemas/character.schema.json"
     import { recursiveDefaults } from "$lib/schemas"
+    import { presets } from "$lib/schemas/index.js"
 
     let stats = getContext("stats");
     let prefs = getContext("prefs");
@@ -72,6 +73,22 @@
     >
         <use xlink:href="assets/logo.svg" />
     </svg>
+    <ChoiceCtrl
+        onselect={(evt, index, data) => Object.assign(stats, data)}
+        edit
+    >
+        {#each Object.entries(presets) as [i, profile]}
+            <Option
+                data={profile}
+                index={i}
+            >
+                <div class=profile-option>
+                    <img class=avatar src={profile.details.avatar} alt={profile.details.name} />
+                    {profile.details.name}
+                </div>
+            </Option>
+        {/each}
+    </ChoiceCtrl>
     <!-- <SwitchCtrl 
         bind:value={prefs.edit}
         labels={{
@@ -111,5 +128,18 @@
         padding: .5rem 1rem;
         border: none;
         outline: none;
+    }
+
+    .profile-option {
+        display: grid;
+        grid-template-columns: 2rem 1fr;
+        gap: 1rem;
+        align-items: center;
+        justify-items: start;
+    }
+
+    .avatar {
+        width: 100%;
+        border-radius: 50%;
     }
 </style>

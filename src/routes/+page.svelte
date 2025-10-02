@@ -9,12 +9,9 @@
     import SettingsPage from "./Settings/Page.svelte";
     import { Notebook, NotebookPage } from "$lib/ui/notebook";
 
-    import Cerys from "$lib/cerys.json";
-    import Yiig from "$lib/yiig.json";
-    import Paran from "$lib/paran.json";
-    import Brainworm from "$lib/brainworm.json";
+    import { presets } from "$lib/schemas"
 
-    let stats = $state(Yiig);
+    let stats = $state(presets[0]);
     setContext("stats", stats)
 
     let prefs = $state({
