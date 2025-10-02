@@ -107,10 +107,18 @@
                 "forgery"
             ]
         },
-        "scores": {
-            "dex": 1,
-            "con": 1,
-            "cha": 1
+        "buffs": {
+            "scores": {
+                "dex": {
+                    "add": 1
+                },
+                "con": {
+                    "add": 1
+                },
+                "cha": {
+                    "add": 1
+                }
+            }
         }
     },
     "custom": {
@@ -122,7 +130,11 @@
             "spellcasting": "chr",
             "levels": {
                 "1": {
-                    "hitdie": 8,
+                    "buffs": {
+                        "maxhealth": {
+                            "add": 8
+                        }
+                    },
                     "proficiencies": {
                         "armour": [
                             "light"
@@ -278,7 +290,11 @@
                     }
                 },
                 "2": {
-                    "hitdie": 7,
+                    "buffs": {
+                        "maxhealth": {
+                            "add": 7
+                        }
+                    },
                     "proficiencies": {
                         "skills": {
                             "set": {
@@ -336,7 +352,11 @@
                     }
                 },
                 "3": {
-                    "hitdie": 6,
+                    "buffs": {
+                        "maxhealth": {
+                            "add": 6
+                        }
+                    },
                     "proficiencies": {
                         "skills": {
                             "set": {
@@ -372,7 +392,11 @@
                     }
                 },
                 "4": {
-                    "hitdie": 5,
+                    "buffs": {
+                        "maxhealth": {
+                            "add": 5
+                        }
+                    },
                     "proficiencies": {
                         "skills": {
                             "add": [
@@ -426,7 +450,11 @@
                     }
                 },
                 "5": {
-                    "hitdie": 7,
+                    "buffs": {
+                        "maxhealth": {
+                            "add": 7
+                        }
+                    },
                     "traits": [
                         {
                             "name": "Font of Inspiration",
@@ -463,7 +491,11 @@
                     }
                 },
                 "6": {
-                    "hitdie": 5,
+                    "buffs": {
+                        "maxhealth": {
+                            "add": 5
+                        }
+                    },
                     "actions": [
                         {
                             "name": "Countercharm",
@@ -500,7 +532,11 @@
                     }
                 },
                 "7": {
-                    "hitdie": 1,
+                    "buffs": {
+                        "maxhealth": {
+                            "add": 1
+                        }
+                    },
                     "casting": {
                         "slots": {
                             "fourth": 1
@@ -527,10 +563,16 @@
                     }
                 },
                 "8": {
-                    "hitdie": 4,
                     "proficiencies": {},
-                    "scores": {
-                        "cha": 2
+                    "buffs": {
+                        "maxhealth": {
+                            "add": 4
+                        },
+                        "scores": {
+                            "cha": {
+                                "add": 2
+                            }
+                        }
                     },
                     "traits": [],
                     "actions": [],

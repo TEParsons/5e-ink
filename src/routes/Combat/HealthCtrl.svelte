@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { totalLevels, classLevels, traitsByTag, score2modifier, getScore } from "$lib/utils.js";
+    import { totalLevels, classLevels, traitsByTag, score2modifier, getScore, getAdvancements } from "$lib/utils.js";
     import { NumberCtrl } from "$lib/ui/ctrls";
     import DeathSavesCtrl from "./DeathSavesCtrl.svelte";
 
@@ -23,28 +23,18 @@
     }
 
     let total = $derived.by(() => {
-        // start at 0
-        let hp = 0
-        // add hp rolls
-        for (let cls of Object.keys(stats.class)) {
-            for (let lvl of Object.values(stats.class[cls].levels)) {
-                if (lvl.hitdie !== undefined) {
-                    // if roll is recorded, use it
-                    hp += lvl.hitdie + score2modifier(getScore(stats, "con"))
-                } else {
-                    // if no roll for this level, use the average
-                    hp += Math.floor(stats.class[cls].hitdie / 2) + score2modifier(getScore(stats, "con"))
-                }
-            }
-        }
-        // apply traits which affect maxhealth
-        for (let trait of traitsByTag(stats, "buff")) {
-            if (trait.effect?.maxhp) {
-                // add flat change
-                hp += trait.effect.maxhp.flat || 0
-                // add per level change
-                hp += (trait.effect.maxhp.perlevel * totalLevels(stats.class) - 1) || 0
-            }
+        // get total levels
+        let lvl = totalLevels(stats.class)
+        // start at con * lvl
+        let hp = score2modifier(getScore(stats, "con")) * lvl
+        // add from each advancement
+        for (let source of getAdvancements(stats)) {
+            // do any addition
+            hp += source.buffs?.maxhealth?.add || 0
+            // do any setting
+            hp = Math.max(source.buffs?.maxhealth?.set || hp)
+            // do any perlevel addition
+            hp += (source.buffs?.maxhealth?.perlevel || 0) * lvl
         }
 
         return hp

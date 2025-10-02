@@ -1,7 +1,9 @@
-function getAdvancements(stats) {
+export function getAdvancements(stats) {
     let sources = []
     // from species
     sources.push(stats.species)
+    // from subspecies
+    sources.push(stats.species.subtype || {})
     // from background
     sources.push(stats.background || {})
     // from custom
@@ -171,9 +173,10 @@ export function getScore(stats, key) {
     let base = stats.scores[key];
 
     for (let source of getAdvancements(stats)) {
-        if (source.scores) {
-            base += source.scores[key] || 0
-        }
+        // do any addition
+        base += source.buffs?.scores?.[key]?.add || 0
+        // do any setting
+        base = Math.max(source.buffs?.scores?.[key]?.set || base)
     }
 
     return base

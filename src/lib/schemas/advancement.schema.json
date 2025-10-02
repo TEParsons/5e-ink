@@ -161,26 +161,93 @@
                 }
             }
         },
-        "scores": {
+        "buffs": {
             "type": "object",
             "properties": {
-                "str": {
-                    "type": "number"
+                "scores": {
+                    "type": "object",
+                    "properties": {
+                        "str": {
+                            "type": "object",
+                            "properties": {
+                                "add": {
+                                    "type": "number"
+                                },
+                                "set": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "con": {
+                            "type": "object",
+                            "properties": {
+                                "add": {
+                                    "type": "number"
+                                },
+                                "set": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "dex": {
+                            "type": "object",
+                            "properties": {
+                                "add": {
+                                    "type": "number"
+                                },
+                                "set": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "int": {
+                            "type": "object",
+                            "properties": {
+                                "add": {
+                                    "type": "number"
+                                },
+                                "set": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "wis": {
+                            "type": "object",
+                            "properties": {
+                                "add": {
+                                    "type": "number"
+                                },
+                                "set": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "chr": {
+                            "type": "object",
+                            "properties": {
+                                "add": {
+                                    "type": "number"
+                                },
+                                "set": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
                 },
-                "con": {
-                    "type": "number"
-                },
-                "dex": {
-                    "type": "number"
-                },
-                "int": {
-                    "type": "number"
-                },
-                "wis": {
-                    "type": "number"
-                },
-                "chr": {
-                    "type": "number"
+                "maxhealth": {
+                    "type": "object",
+                    "properties": {
+                        "add": {
+                            "type": "number"
+                        },
+                        "set": {
+                            "type": "number"
+                        },
+                        "perlevel": {
+                            "type": "number"
+                        }
+                    }
                 }
             }
         },
