@@ -13,16 +13,15 @@
     } = $props()
 
     let options = $state({
-        onselect: onselect,
+        onselect: (evt, index, data) => {
+            value = data;
+            onselect(evt, index, data)
+        },
         selected: {
             index: value,
             data: undefined,
             children: undefined
         }
-    })
-
-    $effect(evt => {
-        value = options.selected.data;
     })
 
     setContext("options", options);
