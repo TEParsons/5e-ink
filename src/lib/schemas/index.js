@@ -10,6 +10,15 @@ import ArmourItemSchema from "./items/armour.schema.json";
 import ToolItemSchema from "./items/tool.schema.json";
 import ConsumableItemSchema from "./items/consumable.schema.json";
 
+
+// map item types to their params schemas
+export var itemTypes = {
+    weapon: WeaponItemSchema,
+    armour: ArmourItemSchema,
+    tool: ToolItemSchema,
+    consumable: ConsumableItemSchema
+}
+
 let ajv = new Ajv({
     useDefaults: true,
     coerceTypes: true,

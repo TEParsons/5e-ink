@@ -1,34 +1,78 @@
 <script>
-    import { NumberCtrl, MarkdownCtrl } from "$lib/ui/ctrls"
+    import { TextCtrl, NumberCtrl, MarkdownCtrl, ChoiceCtrl, EditToggle } from "$lib/ui/ctrls";
+    import ItemSchema from "$lib/schemas/item.schema.json";
+    import { itemTypes, recursiveDefaults } from "$lib/schemas";
+    import { getContext } from "svelte";
+    import Option from "$lib/ui/ctrls/Option.svelte";
+    import { params } from "$lib/views/items";
+
+    let prefs = getContext("prefs");
 
     let {
-        item=$bindable()
+        item=$bindable(),
+        edit=$bindable()
     } = $props()
+
+    let ParamsComponent = $derived(
+        params[item.type]
+    )
+    
 </script>
 
 {#snippet tagline(item)}
-<i>
-    {item.type}
-    {#if item.weight}
-        {#each Object.entries(item.weight) as [unit, weight]}
-            | {weight}{unit}.
+    <i>
+        <ChoiceCtrl
+            label="Item type"
+            bind:value={item.type}
+            onselect={(evt, index, data) => item.params = recursiveDefaults(itemTypes[data])}
+            edit={edit}
+        >
+            {#each ItemSchema.properties.type.enum as opt}
+                <Option
+                    index={opt}
+                    data={opt}
+                >
+                    {opt}
+                </Option>
+            {/each}
+        </ChoiceCtrl>
+        |
+        {#if item.weight}
+            <NumberCtrl 
+                label="Weight"
+                bind:value={item.weight.lb}
+                edit={edit}
+            />
+            lb.
+        {/if}
+        |
+        {#each Object.keys(ItemSchema.properties.cost.properties) as unit}
+            <!-- {#if item.cost[unit] || edit}
+                <NumberCtrl 
+                    label="Price ({unit})"
+                    bind:value={item.cost[unit]}
+                    edit={edit}
+                />
+                {unit}
+            {/if} -->
         {/each}
-    {/if}
-    {#if item.cost}
-        {#each Object.entries(item.cost) as [unit, price]}
-            | {price} {unit}
-        {/each}
-    {/if}
-</i>
+    </i>
 {/snippet}
 
 <div class=item-view>
-    <h2>{item.name}</h2>
+    <h2 class=heading>
+        <TextCtrl 
+            bind:value={item.name}
+            edit={edit}
+        />
+        <EditToggle bind:value={edit} />
+    </h2>
     {@render tagline(item)}
     
 
     <MarkdownCtrl
         bind:value={item.description}
+        edit={edit}
     />
 
     {#if item.type === "container"}
@@ -64,6 +108,11 @@
             />
         </div>
     {/if}
+    
+    <ParamsComponent
+        bind:item={item}
+        bind:edit={edit}
+    />
 </div>
 
 <style>
@@ -87,5 +136,11 @@
     }
     .subitem h4 {
         margin-top: .5rem;
+    }
+
+    .heading {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
 </style>

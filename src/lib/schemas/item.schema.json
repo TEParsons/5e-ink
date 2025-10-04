@@ -3,7 +3,7 @@
     "title": "Item",
     "description": "General schema applying to all items",
     "type": "object",
-    "required": ["name", "type", "equipped", "description"],
+    "required": ["name", "type", "weight", "cost", "equipped", "description"],
     "properties": {
         "name": {
             "type": "string",
@@ -69,20 +69,24 @@
             "type": "object",
             "properties": {
                 "cp": {
-                    "type": "number"
+                    "type": "number",
+                    "default": 0
                 },
                 "sp": {
                     "type": "number",
                     "default": 1
                 },
                 "gp": {
-                    "type": "number"
+                    "type": "number",
+                    "default": 0
                 },
                 "ep": {
-                    "type": "number"
+                    "type": "number",
+                    "default": 0
                 },
                 "pp": {
-                    "type": "number"
+                    "type": "number",
+                    "default": 0
                 }
             }
         },

@@ -1,46 +1,62 @@
 <script>
     import Dialog from "$lib/ui/Dialog.svelte";
-    import NewWeapon from "./items/NewWeapon.svelte";
+    import { SwitchCtrl } from "$lib/ui/ctrls";
+    import { ItemView } from "$lib/views";
+    import ItemSchema from "$lib/schemas/item.schema.json";
+    import { recursiveDefaults } from "$lib/schemas";
     import { sentenceCase } from "$lib/utils.js";
+    import { getContext } from "svelte";
 
     let {
         equipped
     } = $props()
 
+    let stats = getContext("stats");
+
     let showDlg = $state.raw(false);
-    let show = $state({
-        weapon: false
-    });
+    let profile = $state({});
 </script>
 
 
 <button
     class=add-item-btn
-    onclick={evt => showDlg = true}
+    onclick={evt => {
+        // reset profile to defaults
+        Object.assign(
+            profile, recursiveDefaults(ItemSchema)
+        )
+        profile.type = "misc"
+        profile.params = {}
+        profile.equipped = equipped
+        // show dialog
+        showDlg = true;
+    }}
 >+ Add</button>
 
+
 <Dialog
+    buttons={{
+        OK: evt => stats.inventory.items.push($state.snapshot(profile)),
+        CANCEL: evt => {}
+    }}
     bind:shown={showDlg}
 >
-    {#each Object.keys(show) as key}
-        <button
-            class="option"
-            onclick={evt => {
-                // show relevant dialog
-                show[key] = true;
-                // close this dialog
-                showDlg = false;
-            }}
-        >
-            {sentenceCase(key)}
-        </button>
-    {/each}
-</Dialog>
+    {#if showDlg}
+        <ItemView 
+            bind:item={profile}
+            edit
+        />
+    {/if}
 
-<NewWeapon 
-    equipped={equipped}
-    bind:shown={show.weapon}
-/>
+    <SwitchCtrl
+        bind:value={profile.equipped}
+        labels={{
+            NO: "Backpack",
+            YES: "Equipped"
+        }}
+        edit
+    />
+</Dialog>
 
 <style>
     .add-item-btn {
@@ -48,18 +64,5 @@
         background-color: var(--base);
         color: var(--crust);
         text-align: right;
-    }
-
-    .option {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: .5rem;
-        background-color: var(--base);
-        color: var(--text-on-base);
-        border: 1px solid var(--crust);
-        border-radius: .5rem;
-        padding: .5rem 1rem;
-        text-align: left;
     }
 </style>

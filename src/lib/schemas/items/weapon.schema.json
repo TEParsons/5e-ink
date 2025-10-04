@@ -78,34 +78,40 @@
                     ],
                     "default": "bludgeoning"
                 },
-                "d4": {
-                    "type": "number",
-                    "default": 1
-                },
-                "d6": {
-                    "type": "number",
-                    "default": 0
-                },
-                "d8": {
-                    "type": "number",
-                    "default": 0
-                },
-                "d10": {
-                    "type": "number",
-                    "default": 0
-                },
-                "d12": {
-                    "type": "number",
-                    "default": 0
-                },
-                "d20": {
-                    "type": "number",
-                    "default": 0
-                },
-                "d100": {
-                    "type": "number",
-                    "default": 0
+                "dice": {
+                    "type": "object",
+                    "properties": {
+                        "d4": {
+                            "type": "number",
+                            "default": 1
+                        },
+                        "d6": {
+                            "type": "number",
+                            "default": 0
+                        },
+                        "d8": {
+                            "type": "number",
+                            "default": 0
+                        },
+                        "d10": {
+                            "type": "number",
+                            "default": 0
+                        },
+                        "d12": {
+                            "type": "number",
+                            "default": 0
+                        },
+                        "d20": {
+                            "type": "number",
+                            "default": 0
+                        },
+                        "d100": {
+                            "type": "number",
+                            "default": 0
+                        }
+                    }
                 }
+                
             }
         },
         "ammunition": {

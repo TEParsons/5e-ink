@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { DetailsCtrl } from "$lib/ui/ctrls"
-    import { WeaponView, SpellView, ClassActionView, ItemView } from "$lib/views";
+    import { SpellView, ClassActionView, ItemView } from "$lib/views";
 
     let {
         time
@@ -27,8 +27,8 @@
                         </div>
                     {/snippet}
 
-                    <WeaponView 
-                        bind:weapon={stats.inventory.items[i]}
+                    <ItemView 
+                        bind:item={stats.inventory.items[i]}
                     />
                 </DetailsCtrl>
             {/if}
