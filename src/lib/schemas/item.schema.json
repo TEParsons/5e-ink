@@ -6,7 +6,8 @@
     "required": ["name", "type", "equipped", "description"],
     "properties": {
         "name": {
-            "type": "string"
+            "type": "string",
+            "default": ""
         },
         "type": {
             "type": "string",
@@ -19,10 +20,12 @@
                 "tool",
                 "book",
                 "misc"
-            ]
+            ],
+            "default": "misc"
         },
         "equipped": {
-            "type": "boolean"
+            "type": "boolean",
+            "default": false
         },
         "weight": {
             "type": "object",
@@ -37,7 +40,8 @@
                 },
                 "lb": {
                     "title": "Pounds",
-                    "type": "number"
+                    "type": "number",
+                    "default": 1
                 },
                 "oz": {
                     "title": "Ounces",
@@ -68,7 +72,8 @@
                     "type": "number"
                 },
                 "sp": {
-                    "type": "number"
+                    "type": "number",
+                    "default": 1
                 },
                 "gp": {
                     "type": "number"
@@ -82,7 +87,8 @@
             }
         },
         "description": {
-            "type": "string"
+            "type": "string",
+            "default": ""
         },
         "params": {
             "type": "object"

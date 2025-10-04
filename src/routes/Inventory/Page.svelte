@@ -2,6 +2,7 @@
     import { getContext, setContext } from "svelte";
     import CurrencyCtrl from "./CurrencyCtrl.svelte";
     import ItemCtrl from "./ItemCtrl.svelte";
+    import NewItemCtrl from "./NewItemCtrl.svelte";
 
     let stats = getContext("stats");
 </script>
@@ -18,6 +19,7 @@
                 <ItemCtrl bind:item={stats.inventory.items[i]} />
             {/if}
         {/each}
+        <NewItemCtrl equipped />
     </div>
     <h2>Backpack</h2>
     <div 
@@ -29,6 +31,7 @@
                 <ItemCtrl bind:item={stats.inventory.items[i]} />
             {/if}
         {/each}
+        <NewItemCtrl />
     </div>
 </div>
 

@@ -21,6 +21,10 @@
         }
     })
 
+    $effect(evt => {
+        value = options.selected.data;
+    })
+
     setContext("options", options);
 
     let dialog = $state({

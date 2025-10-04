@@ -10,7 +10,8 @@
                 "simple",
                 "martial",
                 "improvised"
-            ]
+            ],
+            "default": "simple"
         },
         "attacktype": {
             "type": "string",
@@ -18,31 +19,38 @@
                 "melee",
                 "ranged",
                 "finesse"
-            ]
+            ],
+            "default": "melee"
         },
         "distance": {
             "type": "object",
             "properties": {
                 "reach": {
-                    "type": "number"
+                    "type": "number",
+                    "default": 5
                 },
                 "range": {
-                    "type": "number"
+                    "type": "number",
+                    "default": 0
                 },
                 "maxrange": {
-                    "type": "number"
+                    "type": "number",
+                    "default": 0
                 },
                 "thrown": {
                     "type": "object",
                     "properties": {
                         "reach": {
-                            "type": "object"
+                            "type": "object",
+                            "default": 0
                         },
                         "range": {
-                            "type": "number"
+                            "type": "number",
+                            "default": 0
                         },
                         "maxrange": {
-                            "type": "number"
+                            "type": "number",
+                            "default": 0
                         }
                     }
                 }
@@ -67,28 +75,36 @@
                         "radiant", 
                         "slashing", 
                         "thunder"
-                    ]
+                    ],
+                    "default": "bludgeoning"
                 },
                 "d4": {
-                    "type": "number"
+                    "type": "number",
+                    "default": 1
                 },
                 "d6": {
-                    "type": "number"
+                    "type": "number",
+                    "default": 0
                 },
                 "d8": {
-                    "type": "number"
+                    "type": "number",
+                    "default": 0
                 },
                 "d10": {
-                    "type": "number"
+                    "type": "number",
+                    "default": 0
                 },
                 "d12": {
-                    "type": "number"
+                    "type": "number",
+                    "default": 0
                 },
                 "d20": {
-                    "type": "number"
+                    "type": "number",
+                    "default": 0
                 },
                 "d100": {
-                    "type": "number"
+                    "type": "number",
+                    "default": 0
                 }
             }
         },
@@ -96,10 +112,12 @@
             "type": "object",
             "properties": {
                 "total": {
-                    "type": "number"
+                    "type": "number",
+                    "default": 10
                 },
                 "current": {
-                    "type": "number"
+                    "type": "number",
+                    "default": 0
                 }
             }
         }
