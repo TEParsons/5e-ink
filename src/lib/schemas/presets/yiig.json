@@ -769,6 +769,10 @@
                         "dice": {
                             "d4": 1
                         }
+                    },
+                    "ammunition": {
+                        "total": 20,
+                        "current": 20
                     }
                 }
             },
