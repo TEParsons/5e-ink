@@ -47,15 +47,6 @@
             edit
         />
     {/if}
-
-    <SwitchCtrl
-        bind:value={profile.equipped}
-        labels={{
-            NO: "Backpack",
-            YES: "Equipped"
-        }}
-        edit
-    />
 </Dialog>
 
 <style>

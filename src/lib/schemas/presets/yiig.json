@@ -878,6 +878,9 @@
                             "type": "consumable",
                             "description": "Wet and drinkable",
                             "equipped": false,
+                            "cost": {
+                                "cp": 1
+                            },
                             "weight": {
                                 "lb": 1
                             },

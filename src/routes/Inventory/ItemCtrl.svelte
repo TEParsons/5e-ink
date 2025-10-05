@@ -27,17 +27,7 @@
 
     <ItemView 
         bind:item={item}
-    />
-
-    <SwitchCtrl
-        bind:value={temp.equipped}
-        labels={{
-            NO: "Backpack",
-            YES: "Equipped"
-        }}
-        edit
-    />
-    
+    /> 
 </DetailsCtrl>
 
 <style>

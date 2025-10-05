@@ -10,3 +10,4 @@ export { default as DictionaryCtrl } from "./Dictionary.svelte";
 export { default as MarkdownCtrl } from "./Markdown.svelte";
 export { default as ListCtrl } from "./List.svelte";
 export { default as EditToggle } from "./EditToggle.svelte";
+export { default as Break } from "./LineBreak.svelte";

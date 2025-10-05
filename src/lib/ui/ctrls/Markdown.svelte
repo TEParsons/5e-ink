@@ -14,6 +14,7 @@
 {#if edit}
     <TextCtrl
         bind:value={value}
+        multiline
         edit
     />
 {:else}

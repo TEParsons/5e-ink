@@ -27,16 +27,28 @@
 </script>
 
 {#if edit}
-    <textarea 
-        class="input text"
-        onfocus={resize}
-        bind:this={ctrl}
-        bind:value={value}
-    ></textarea>
+    {#if multiline}
+        <textarea 
+            class="input text"
+            onfocus={resize}
+            bind:this={ctrl}
+            bind:value={value}
+        ></textarea>
+    {:else}
+        <input
+            class="input text"
+            type=text
+            bind:value={value}
+        />
+    {/if}
 {:else}
-    {#each String(value).split("\n") as line}
-        <p>{line}</p>
-    {/each}
+    {#if multiline}
+        {#each String(value).split("\n") as line}
+            <p>{line}</p>
+        {/each}
+    {:else}
+        <span>{value}</span>
+    {/if}
 {/if}
 
 <style>

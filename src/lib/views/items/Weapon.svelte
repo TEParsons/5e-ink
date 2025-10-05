@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { totalLevels, score2modifier, level2proficiency, getProficiencies, getScore, sentenceCase } from "$lib/utils";
-    import { MarkdownCtrl, SlotsCtrl, ChoiceCtrl, Option, NumberCtrl } from "$lib/ui/ctrls";
+    import { MarkdownCtrl, SlotsCtrl, ChoiceCtrl, Option, NumberCtrl, Break } from "$lib/ui/ctrls";
     import WeaponSchema from "$lib/schemas/items/weapon.schema.json";
     import { recursiveDefaults } from "$lib/schemas";
 
@@ -96,6 +96,7 @@
 <h3>Attack</h3>
 <p>
     <i><b>{item.name}.</b> 
+    <Break shown={edit} />
     <ChoiceCtrl
         label="Attack type"
         bind:value={item.params.attacktype}
@@ -123,6 +124,7 @@
         </ChoiceCtrl>
     {/if}
     weapon attack:</i>
+    <Break shown={edit} />
     {#if modifier + proficiency >= 0}
         +{modifier + proficiency}
     {:else}
@@ -176,7 +178,10 @@
             ft. thrown)
         {/if}
     {/if}
-    . <i>Hit:</i> 
+    . 
+    <Break shown={edit} />
+    <i>Hit:</i> 
+    <Break shown={edit} />
     {#each Object.keys(WeaponSchema.properties.damage.properties.dice.properties) as die}
         {#if item.params.damage.dice[die] || edit}
             <NumberCtrl 
@@ -186,6 +191,7 @@
             />{die}
         {/if}
     {/each}
+    <Break shown={edit} />
     {#if modifier > 0}
         +{modifier}
     {:else if modifier < 0}
@@ -206,13 +212,15 @@
     damage.
 </p>
 {#if edit}
-    <input 
-        type=checkbox
-        bind:checked={
-            () => item.params.ammunition,
-            (value) => item.params.ammunition = value ? item.params.ammunition || recursiveDefaults(WeaponSchema.properties.ammunition) : undefined
-        }
-    /> Ammunition?
+    <p>
+        <input 
+            type=checkbox
+            bind:checked={
+                () => item.params.ammunition,
+                (value) => item.params.ammunition = value ? item.params.ammunition || recursiveDefaults(WeaponSchema.properties.ammunition) : undefined
+            }
+        /> Ammunition?
+    </p>
 {/if}
 {#if item.params.ammunition}
     <h4>Ammunition</h4>
@@ -222,3 +230,14 @@
         edit={edit}
     />
 {/if}
+
+<style>
+    h3, h4 {
+        margin-top: .5em;
+        margin-bottom: 0;
+    }
+    p {
+        margin-top: 0;
+        margin-bottom: .5em;
+    }
+</style>
