@@ -1,6 +1,7 @@
 <script>
     import { getContext } from "svelte";
-    import { MarkdownCtrl, SlotsCtrl } from "$lib/ui/ctrls";
+    import SpellSchema from "$lib/schemas/spell.schema.json";
+    import { TextCtrl, MarkdownCtrl, SlotsCtrl, ChoiceCtrl, Option, EditToggle } from "$lib/ui/ctrls";
     import { getTotalSlots, sentenceCase } from "$lib/utils"
 
     let {
@@ -8,6 +9,7 @@
     } = $props()
 
     let stats = getContext("stats");
+    let edit = $state.raw(false);
 
     let totalSlots = $derived(
         getTotalSlots(stats, spell.level)
@@ -17,11 +19,53 @@
 
 <div class=spell-view>
     <h1>
-        {spell.name}
+        <TextCtrl 
+            bind:value={spell.name}
+            edit={edit}
+        />
+        <EditToggle 
+            bind:value={edit}
+        />
     </h1>
-    <i>{sentenceCase(spell.school)} {spell.level === "cantrip" ? "cantrip" : `spell (${spell.level} level)`}</i>
+    <i>
+        <ChoiceCtrl
+            label="Spell school"
+            bind:value={spell.school}
+            edit={edit}
+        >
+            {#each SpellSchema.properties.school.enum as opt}
+                <Option
+                    index={opt}
+                    data={opt}
+                >
+                    {sentenceCase(opt)}
+                </Option>
+            {/each}
+        </ChoiceCtrl>
+        {#if spell.level === "cantrip"}
+            cantrip
+        {:else}
+            spell (
+            <ChoiceCtrl
+                label="Spell level"
+                bind:value={spell.level}
+                edit={edit}
+            >
+                {#each SpellSchema.properties.level.enum as opt}
+                    <Option
+                        index={opt}
+                        data={opt}
+                    >
+                        {sentenceCase(opt)}
+                    </Option>
+                {/each}
+            </ChoiceCtrl>
+            level)
+        {/if}
+    </i>
     <MarkdownCtrl 
         bind:value={spell.description}
+        edit={edit}
     />
 
     {#if stats.current.slots[spell.level] !== undefined}
@@ -34,3 +78,13 @@
         />
     {/if}
 </div>
+
+<style>
+    h1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: .5rem;
+        margin: 0;
+    }
+</style>

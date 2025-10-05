@@ -11,9 +11,8 @@
         }, 
         "level": {
             "type": "string",
-            "default": "cantrip",
+            "default": "first",
             "enum": [
-                "cantrip",
                 "first",
                 "second",
                 "third",
