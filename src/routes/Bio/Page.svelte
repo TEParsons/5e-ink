@@ -1,12 +1,13 @@
 <script>
     import { getContext } from "svelte";
-    import { NumberCtrl, TextCtrl, DictionaryCtrl } from "$lib/ui/ctrls";
+    import { NumberCtrl, TextCtrl, MarkdownCtrl, DictionaryCtrl, EditToggle } from "$lib/ui/ctrls";
     import SpeciesCtrl from "./Species.svelte";
     import AlignmentCtrl from "./Alignment.svelte";
     import PronounsCtrl from "./Pronouns.svelte";
     import LevelsCtrl from "../Levels/LevelsCtrl.svelte";
 
     let stats = getContext("stats")
+    let edit = $state.raw(false)
 </script>
 
 <div class=page>
@@ -15,46 +16,75 @@
         <h1>
             <TextCtrl
                 bind:value={stats.details.name}
+                edit={edit}
+            />
+            <EditToggle 
+                bind:value={edit}
             />
         </h1>
         <LevelsCtrl />
+        
     </div>
     <div>
         <h3>Demographics</h3>
         <div class=demographics>
             <span class=label>Species</span>
-            <SpeciesCtrl />
+            <SpeciesCtrl 
+                edit={edit}
+            />
             <span class=label>Alignment</span>
-            <AlignmentCtrl />
+            <AlignmentCtrl 
+                edit={edit}
+            />
             <span class=label>Pronouns</span>
-            <PronounsCtrl />
+            <PronounsCtrl 
+                edit={edit}
+            />
         </div>
 
         <h3>Backstory</h3>
-        <TextCtrl bind:value={stats.details.backstory} />
+        <MarkdownCtrl 
+            bind:value={stats.details.backstory} 
+            edit={edit}
+        />
         
         <h3>Personality</h3>
         <h4>Traits</h4>
-        <TextCtrl bind:value={stats.details.personality.traits} />
+        <MarkdownCtrl 
+            bind:value={stats.details.personality.traits} 
+            edit={edit}
+        />
         <h4>Ideals</h4>
-        <TextCtrl bind:value={stats.details.personality.ideals} />
+        <MarkdownCtrl 
+            bind:value={stats.details.personality.ideals} 
+            edit={edit}
+        />
         <h4>Bonds</h4>
-        <TextCtrl bind:value={stats.details.personality.bonds} />
+        <MarkdownCtrl 
+            bind:value={stats.details.personality.bonds} 
+            edit={edit}
+        />
         <h4>Flaws</h4>
-        <TextCtrl bind:value={stats.details.personality.flaws} />
+        <MarkdownCtrl 
+            bind:value={stats.details.personality.flaws} 
+            edit={edit}
+        />
 
         <h3>Organisations</h3>
         <DictionaryCtrl 
             bind:value={stats.details.organisations}
+            edit={edit}
         />
         <h3>Allies</h3>
         <DictionaryCtrl 
             bind:value={stats.details.allies}
+            edit={edit}
         />
         
         <h3>Enemies</h3>
         <DictionaryCtrl 
             bind:value={stats.details.enemies}
+            edit={edit}
         />
     </div>
 </div>
@@ -75,6 +105,10 @@
     }
 
     .header h1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: .5rem;
         margin: 0;
     }
     .demographics {
