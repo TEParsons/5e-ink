@@ -92,7 +92,7 @@
                     }
                 }
             }, 
-            () => ({ timeframe: 300, minSwipeDistance: 50, touchAction: 'none' }), 
+            () => ({ timeframe: 300, minSwipeDistance: 50, touchAction: 'pan-y' }), 
             {}
         )}
         class="notebook-page"
