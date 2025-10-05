@@ -9,6 +9,8 @@
 
     let stats = getContext("stats");
 
+    let restore = $state.raw({});
+
 </script>
 
 
@@ -19,7 +21,13 @@
 
             <!-- weapons -->
             {#if item.type === "weapon" && time === "action"}
-                <DetailsCtrl>
+                <DetailsCtrl
+                    onopen={evt => restore = $state.snapshot(item)}
+                    buttons={{
+                        OK: evt => {},
+                        CANCEL: evt => Object.assign(item, restore)
+                    }}
+                >
                     {#snippet summary()}
                         <div class=action-summary>
                             <div class=icon>⚔︎</div>
@@ -35,7 +43,13 @@
 
             <!-- consumables -->
             {#if item.type === "consumable" && item.params?.time?.type === time }
-                <DetailsCtrl>
+                <DetailsCtrl
+                    onopen={evt => restore = $state.snapshot(item)}
+                    buttons={{
+                        OK: evt => {},
+                        CANCEL: evt => Object.assign(item, restore)
+                    }}
+                >
                     {#snippet summary()}
                         <div class=action-summary>
                             <div class=icon>✷</div>
@@ -54,7 +68,13 @@
     <!-- from species -->
     {#each Object.entries(stats.species.actions || []) as [i, action]}
         {#if action.time.type === time}
-            <DetailsCtrl>
+            <DetailsCtrl
+                onopen={evt => restore = $state.snapshot(action)}
+                buttons={{
+                    OK: evt => {},
+                    CANCEL: evt => Object.assign(action, restore)
+                }}
+            >
                 {#snippet summary()}
                     <div class=action-summary>
                         <div class=icon>🧬</div>
@@ -71,7 +91,13 @@
     <!-- from background -->
      {#each Object.entries(stats.background.actions || []) as [i, action]}
         {#if action.time.type === time}
-            <DetailsCtrl>
+            <DetailsCtrl
+                onopen={evt => restore = $state.snapshot(action)}
+                buttons={{
+                    OK: evt => {},
+                    CANCEL: evt => Object.assign(action, restore)
+                }}
+            >
                 {#snippet summary()}
                     <div class=action-summary>
                         <div class=icon>🧬</div>
@@ -88,7 +114,13 @@
     <!-- from custom -->
      {#each Object.entries(stats.custom.actions || []) as [i, action]}
         {#if action.time.type === time}
-            <DetailsCtrl>
+            <DetailsCtrl
+                onopen={evt => restore = $state.snapshot(action)}
+                buttons={{
+                    OK: evt => {},
+                    CANCEL: evt => Object.assign(action, restore)
+                }}
+            >
                 {#snippet summary()}
                     <div class=action-summary>
                         <div class=icon>🧬</div>
@@ -108,7 +140,13 @@
             <!-- class actions -->
             {#each Object.entries(advancements.actions || []) as [i, action]}
                 {#if action.time.type === time}
-                    <DetailsCtrl>
+                    <DetailsCtrl
+                        onopen={evt => restore = $state.snapshot(action)}
+                        buttons={{
+                            OK: evt => {},
+                            CANCEL: evt => Object.assign(action, restore)
+                        }}
+                    >
                         {#snippet summary()}
                             <div class=action-summary>
                                 <div class=icon>💼</div>
@@ -127,7 +165,13 @@
             <!-- cantrips -->
             {#each Object.entries(advancements.casting?.cantrips || []) as [i, cantrip]}
                 {#if cantrip.time.type === time}
-                    <DetailsCtrl>
+                    <DetailsCtrl
+                        onopen={evt => restore = $state.snapshot(cantrip)}
+                        buttons={{
+                            OK: evt => {},
+                            CANCEL: evt => Object.assign(cantrip, restore)
+                        }}
+                    >
                         {#snippet summary()}
                             <div class=action-summary>
                                 <div class=icon>✨</div>
@@ -145,7 +189,13 @@
             <!-- spells -->
             {#each Object.entries(advancements.casting?.spells || []) as [i, spell]}
                 {#if spell.time.type === time}
-                    <DetailsCtrl>
+                    <DetailsCtrl
+                        onopen={evt => restore = $state.snapshot(spell)}
+                        buttons={{
+                            OK: evt => {},
+                            CANCEL: evt => Object.assign(spell, restore)
+                        }}
+                    >
                         {#snippet summary()}
                             <div class=action-summary>
                                 <div class=icon>✨{{
@@ -176,7 +226,13 @@
             <!-- class actions -->
             {#each Object.entries(advancement.actions || []) as [i, action]}
                 {#if action.time.type === time}
-                    <DetailsCtrl>
+                    <DetailsCtrl
+                        onopen={evt => restore = $state.snapshot(action)}
+                        buttons={{
+                            OK: evt => {},
+                            CANCEL: evt => Object.assign(action, restore)
+                        }}
+                    >
                         {#snippet summary()}
                             <div class=action-summary>
                                 <div class=icon>💼</div>
@@ -195,7 +251,13 @@
             <!-- cantrips -->
             {#each Object.entries(advancement.casting?.cantrips || []) as [i, cantrip]}
                 {#if cantrip.time.type === time}
-                    <DetailsCtrl>
+                    <DetailsCtrl
+                        onopen={evt => restore = $state.snapshot(cantrip)}
+                        buttons={{
+                            OK: evt => {},
+                            CANCEL: evt => Object.assign(cantrip, restore)
+                        }}
+                    >
                         {#snippet summary()}
                             <div class=action-summary>
                                 <div class=icon>✨</div>
@@ -213,7 +275,13 @@
             <!-- spells -->
             {#each Object.entries(advancement.casting?.spells || []) as [i, spell]}
                 {#if spell.time.type === time}
-                    <DetailsCtrl>
+                    <DetailsCtrl
+                        onopen={evt => restore = $state.snapshot(spell)}
+                        buttons={{
+                            OK: evt => {},
+                            CANCEL: evt => Object.assign(spell, restore)
+                        }}
+                    >
                         {#snippet summary()}
                             <div class=action-summary>
                                 <div class=icon>✨{{
