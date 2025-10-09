@@ -73,6 +73,15 @@
                 {
                     "name": "Gust of Wind",
                     "level": "second",
+                    "range": {
+                        "distance": "self",
+                        "aoe": {
+                            "line": {
+                                "wide": 10,
+                                "long": 60
+                            }
+                        }
+                    },
                     "time": {
                         "type": "action",
                         "amount": 1
@@ -124,6 +133,12 @@
                 {
                     "name": "Ray of Frost",
                     "level": "cantrip",
+                    "range": {
+                        "distance": 60,
+                        "aoe": {
+                            "targets": 1
+                        }
+                    },
                     "time": {
                         "type": "action",
                         "amount": 1
@@ -141,6 +156,12 @@
                 {
                     "name": "Message",
                     "level": "cantrip",
+                    "range": {
+                        "distance": 120,
+                        "aoe": {
+                            "targets": 1
+                        }
+                    },
                     "time": {
                         "type": "action",
                         "amount": 1
@@ -160,6 +181,12 @@
                 {
                     "name": "Fog Cloud",
                     "level": "first",
+                    "range": {
+                        "distance": 120,
+                        "aoe": {
+                            "radius": 20
+                        }
+                    },
                     "time": {
                         "type": "action",
                         "amount": 1
@@ -240,7 +267,12 @@
                                     "type": "action",
                                     "amount": 1
                                 },
-                                "range": "60 ft.",
+                                "range": {
+                                    "distance": 60,
+                                    "aoe": {
+                                        "targets": 1
+                                    }
+                                },
                                 "components": [
                                     "V"
                                 ],
@@ -255,7 +287,12 @@
                                     "type": "action",
                                     "amount": 1
                                 },
-                                "range": "touch",
+                                "range": {
+                                    "distance": "touch",
+                                    "aoe": {
+                                        "targets": 1
+                                    }
+                                },
                                 "components": [
                                     "V",
                                     "S"
@@ -271,7 +308,12 @@
                                     "type": "bonusactions",
                                     "amount": 1
                                 },
-                                "range": {},
+                                "range": {
+                                    "distance": "self",
+                                    "aoe": {
+                                        "targets": 1
+                                    }
+                                },
                                 "components": [
                                     "V"
                                 ],
@@ -320,7 +362,12 @@
                                     "type": "action",
                                     "amount": 1
                                 },
-                                "range": "Self/30 ft.",
+                                "range": {
+                                    "distance": "self",
+                                    "aoe": {
+                                        "radius": 30
+                                    }
+                                },
                                 "components": [
                                     "V",
                                     "S"
@@ -377,11 +424,16 @@
                         {
                             "name": "Protection from Evil and Good",
                             "level": "first",
+                            "range": {
+                                "distance": "touch",
+                                "aoe": {
+                                    "targets": 1
+                                }
+                            },
                             "time": {
                                 "type": "action",
                                 "amount": 1
                             },
-                            "range": "touch",
                             "components": [
                                 "V", 
                                 "S", 
@@ -389,7 +441,7 @@
                             ],
                             "duration": "Concentration, up to 10 minutes",
                             "school": "Abjuration",
-                            "description": "Until the spell ends, one willing creature you touch is protected against creatures that are Aberrations, Celestials, Elementals, Fey, Fiends, or Undead. The protection grants several benefits. Creatures of those types have Disadvantage on attack rolls against the target. The target also can’t be possessed by or gain the Charmed or Frightened conditions from them. If the target is already possessed, Charmed, or Frightened by such a creature, the target has Advantage on any new saving throw against the relevant effect."
+                            "description": "Until the spell ends, one willing creature you touch is protected against creatures that are Aberrations, Celestials, Elementals, Fey, Fiends, or Undead. The protection grants several benefits. Creatures of those types have Disadvantage on attack rolls against the target. The target also can't be possessed by or gain the Charmed or Frightened conditions from them. If the target is already possessed, Charmed, or Frightened by such a creature, the target has Advantage on any new saving throw against the relevant effect."
                         },
                         {
                             "name": "Shield of Faith",
@@ -398,7 +450,12 @@
                                 "type": "action",
                                 "amount": 1
                             },
-                            "range": "60ft",
+                            "range": {
+                                "distance": 60,
+                                "aoe": {
+                                    "targets": 1
+                                }
+                            },
                             "components": ["V", "S", "M"],
                             "duration": "Concentration, up to 10 minutes",
                             "school": "Abjuration",

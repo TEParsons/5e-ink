@@ -23,7 +23,73 @@
                 "eighth",
                 "ninth"
             ]
-        }, 
+        },
+        "range": {
+            "type": "object",
+            "properties": {
+                "distance": {
+                    "oneOf": [
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "string",
+                            "enum": [
+                                "self",
+                                "touch"
+                            ]
+                        }
+                    ]
+                },
+                "aoe": {
+                    "type": "object",
+                    "properties": {
+                        "targets": {
+                            "type": "integer"
+                        },
+                        "radius": {
+                            "type": "number"
+                        },
+                        "cube": {
+                            "type": "number"
+                        },
+                        "cone": {
+                            "type": "object",
+                            "properties": {
+                                "wide": {
+                                    "type": "number"
+                                },
+                                "long": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "line": {
+                            "type": "object",
+                            "properties": {
+                                "wide": {
+                                    "type": "number"
+                                },
+                                "long": {
+                                    "type": "number"
+                                }
+                            }
+                        },
+                        "rectangle": {
+                            "type": "object",
+                            "properties": {
+                                "wide": {
+                                    "type": "number"
+                                },
+                                "long": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "time": {
             "type": "object",
             "required": ["type", "amount"],
