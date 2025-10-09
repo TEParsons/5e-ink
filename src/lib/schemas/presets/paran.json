@@ -276,7 +276,9 @@
                                 "components": [
                                     "V"
                                 ],
-                                "duration": "Instantaneous",
+                                "duration": {
+                                    "type": "instantaneous"
+                                },
                                 "school": "Enchantment",
                                 "description": "You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. Choose the command from these options:\n- **Approach.** The target moves toward you by the shortest and most direct route, ending its turn if it moves within 5 feet of you.\n- **Drop.** The target drops whatever it is holding and then ends its turn.\n- **Flee.** The target spends its turn moving away from you by the fastest available means.\n- **Grovel.** The target has the Prone condition and then ends its turn.\n- **Halt.** On its turn, the target doesn't move and takes no action or Bonus Action.\n*Using a Higher-Level Spell Slot.* You can affect one additional creature for each spell slot level above 1."
                             },
@@ -297,7 +299,9 @@
                                     "V",
                                     "S"
                                 ],
-                                "duration": "Instantaneous",
+                                "duration": {
+                                    "type": "instantaneous"
+                                },
                                 "school": "Abjuration",
                                 "description": "A creature you touch regains a number of Hit Points equal to 2d8 plus your spellcasting ability modifier.\nUsing a Higher-Level Spell Slot. The healing increases by 2d8 for each spell slot level above 1."
                             },
@@ -317,7 +321,9 @@
                                 "components": [
                                     "V"
                                 ],
-                                "duration": "Instantaneous",
+                                "duration": {
+                                    "type": "instantaneous"
+                                },
                                 "school": "Abjuration",
                                 "description": "Must be used immediately after hitting a target with a Melee weapon or an Unarmed Strike. The target takes an extra 2d8 Radiant damage from the attack. The damage increases by 1d8 if the target is a Fiend or an Undead.\nUsing a Higher-Level Spell Slot. The damage increases by 1d8 for each spell slot level above 1."
                             }
@@ -372,7 +378,12 @@
                                     "V",
                                     "S"
                                 ],
-                                "duration": "Concentration, up to 1 minute",
+                                "duration": {
+                                    "type": "concentration",
+                                    "maximum": {
+                                        "minutes": 1
+                                    }
+                                },
                                 "school": "Divination",
                                 "description": "For the duration, you sense the presence of magical effects within 30 feet of yourself. If you sense such effects, you can take the Magic action to see a faint aura around any visible creature or object in the area that bears the magic, and if an effect was created by a spell, you learn the spell's school of magic.\nThe spell is blocked by 1 foot of stone, dirt, or wood; 1 inch of metal; or a thin sheet of lead."
                             }
@@ -439,7 +450,12 @@
                                 "S", 
                                 "M"
                             ],
-                            "duration": "Concentration, up to 10 minutes",
+                            "duration": {
+                                "type": "concentration",
+                                "maximum": {
+                                    "minutes": 10
+                                }
+                            },
                             "school": "Abjuration",
                             "description": "Until the spell ends, one willing creature you touch is protected against creatures that are Aberrations, Celestials, Elementals, Fey, Fiends, or Undead. The protection grants several benefits. Creatures of those types have Disadvantage on attack rolls against the target. The target also can't be possessed by or gain the Charmed or Frightened conditions from them. If the target is already possessed, Charmed, or Frightened by such a creature, the target has Advantage on any new saving throw against the relevant effect."
                         },
@@ -457,7 +473,12 @@
                                 }
                             },
                             "components": ["V", "S", "M"],
-                            "duration": "Concentration, up to 10 minutes",
+                            "duration": {
+                                "type": "concentration",
+                                "maximum": {
+                                    "minutes": 10
+                                }
+                            },
                             "school": "Abjuration",
                             "description": "A shimmering field surrounds a creature of your choice within range, granting it a +2 bonus to AC for the duration."
                         }
