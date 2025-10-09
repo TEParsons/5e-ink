@@ -26,26 +26,28 @@
     </div>
 
     {#each Object.keys(stats.current.slots) as level}
-        <div class=level-header>
-            <h2>
-                {`${sentenceCase(level)} level`}
-            </h2>
-            <SlotsCtrl 
-                bind:value={stats.current.slots[level]}
-                total={getTotalSlots(stats, level)}
-            />
-        </div>
-        <div class=spell-list>
-            {#each getAdvancements(stats) as advancement}
-                {#each Object.entries(advancement.casting?.spells || []) as [i, spell]}
-                    {#if spell.level === level}
-                        <Spell 
-                            bind:spell={advancement.casting.spells[i]}
-                        />
-                    {/if}
+        {#if stats.current.slots[level] !== undefined}
+            <div class=level-header>
+                <h2>
+                    {`${sentenceCase(level)} level`}
+                </h2>
+                <SlotsCtrl 
+                    bind:value={stats.current.slots[level]}
+                    total={getTotalSlots(stats, level)}
+                />
+            </div>
+            <div class=spell-list>
+                {#each getAdvancements(stats) as advancement}
+                    {#each Object.entries(advancement.casting?.spells || []) as [i, spell]}
+                        {#if spell.level === level}
+                            <Spell 
+                                bind:spell={advancement.casting.spells[i]}
+                            />
+                        {/if}
+                    {/each}
                 {/each}
-            {/each}
-        </div>
+            </div>
+        {/if}
     {/each}
 </div>
 

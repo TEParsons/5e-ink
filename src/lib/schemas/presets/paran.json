@@ -305,7 +305,7 @@
                                 "name": "Divine Smite",
                                 "level": "first",
                                 "time": {
-                                    "type": "bonusactions",
+                                    "type": "bonusaction",
                                     "amount": 1
                                 },
                                 "range": {
