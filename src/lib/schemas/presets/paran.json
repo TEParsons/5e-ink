@@ -122,15 +122,59 @@
             },
             "cantrips": [
                 {
-                    "level": "cantrip"
+                    "name": "Ray of Frost",
+                    "level": "cantrip",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
+                    "components": [
+                        "V",
+                        "S"
+                    ],
+                    "duration": {
+                        "type": "instantaneous"
+                    },
+                    "school": "Evocation",
+                    "description": "A frigid beam of blue-white light streaks toward a creature within 60ft. Make a ranged spell attack against the target. On a hit, it takes 1d8 Cold damage, and its Speed is reduced by 10 feet until the start of your next turn."
                 },
                 {
-                    "level": "cantrip"
+                    "name": "Message",
+                    "level": "cantrip",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
+                    "components": [
+                        "S",
+                        "M"
+                    ],
+                    "duration": {
+                        "type": "instantaneous"
+                    },
+                    "school": "Transmutation",
+                    "description": "You point toward a creature within 120ft. and whisper a message. The target (and only the target) hears the message and can reply in a whisper that only you can hear.\nYou can cast this spell through solid objects if you are familiar with the target and know it is beyond the barrier. Magical silence; 1 foot of stone, metal, or wood; or a thin sheet of lead blocks the spell."
                 }
             ],
             "spells": [
                 {
-                    "level": "first"
+                    "name": "Fog Cloud",
+                    "level": "first",
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
+                    "components": [
+                        "V",
+                        "S"
+                    ],
+                    "duration": {
+                        "type": "concentration",
+                        "maximum": {
+                            "hour": 1
+                        }
+                    },
+                    "description": "You create a 20-foot-radius Sphere of fog centered on a point within 120ft. The Sphere is Heavily Obscured. It lasts for the duration or until a strong wind (such as one created by Gust of Wind) disperses it.\nUsing a Higher-Level Spell Slot. The fog's radius increases by 20 feet for each spell slot level above 1."
                 }
             ]
         }
