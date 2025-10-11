@@ -29,9 +29,7 @@
                 output[key] = Math.max(source.buffs?.movement?.[key]?.set || output[key])
             }
         }
-
-        console.log(output)
-
+        
         return output
     })
 </script>
