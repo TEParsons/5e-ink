@@ -239,10 +239,7 @@
                                 "range": {
                                     "distance": "self",
                                     "aoe": {
-                                        "cone": {
-                                            "wide": 15,
-                                            "long": 15
-                                        }
+                                        "cone": 15
                                     }
                                 },
                                 "time": {
@@ -584,10 +581,7 @@
                                 "range": {
                                     "distance": "self",
                                     "aoe": {
-                                        "cone": {
-                                            "wide": 30,
-                                            "long": 30
-                                        }
+                                        "cone": 30
                                     }
                                 },
                                 "time": {

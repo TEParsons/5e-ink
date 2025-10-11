@@ -97,12 +97,12 @@
                     />
                     target{spell.range.aoe.targets > 1 ? "s" : ""}
                 {/if}
-                {#if ["radius", "cube"].includes(shape)}
+                {#if ["radius", "cube", "cone"].includes(shape)}
                     <NumberCtrl 
                         bind:value={spell.range.aoe[shape]} 
                     />ft. {shape}
                 {/if}
-                {#if ["cone", "line", "rectangle"].includes(shape)}
+                {#if ["line", "rectangle"].includes(shape)}
                     <NumberCtrl 
                         bind:value={spell.range.aoe[shape].wide}
                     />

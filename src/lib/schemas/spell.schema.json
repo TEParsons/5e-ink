@@ -66,15 +66,7 @@
                             "type": "number"
                         },
                         "cone": {
-                            "type": "object",
-                            "properties": {
-                                "wide": {
-                                    "type": "number"
-                                },
-                                "long": {
-                                    "type": "number"
-                                }
-                            }
+                            "type": "number"
                         },
                         "line": {
                             "type": "object",
