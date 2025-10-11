@@ -235,6 +235,97 @@
                         }
                     }
                 },
+                "movement": {
+                    "type": "object",
+                    "required": ["walk"],
+                    "properties": {
+                        "walk": {
+                            "type": "object",
+                            "properties": {
+                                "add": {
+                                    "type": "integer"
+                                },
+                                "set": {
+                                    "type": "integer",
+                                    "default": 30
+                                },
+                                "sub": {
+                                    "type": "integer"
+                                }
+                            }
+                        },
+                        "burrow": {
+                            "type": "object",
+                            "properties": {
+                                "add": {
+                                    "type": "integer"
+                                },
+                                "set": {
+                                    "type": "integer"
+                                },
+                                "sub": {
+                                    "type": "integer"
+                                }
+                            }
+                        },
+                        "climb": {
+                            "type": "object",
+                            "properties": {
+                                "add": {
+                                    "type": "integer"
+                                },
+                                "set": {
+                                    "type": "integer"
+                                },
+                                "sub": {
+                                    "type": "integer"
+                                }
+                            }
+                        },
+                        "fly": {
+                            "type": "object",
+                            "properties": {
+                                "add": {
+                                    "type": "integer"
+                                },
+                                "set": {
+                                    "type": "integer"
+                                },
+                                "sub": {
+                                    "type": "integer"
+                                }
+                            }
+                        },
+                        "hover": {
+                            "type": "object",
+                            "properties": {
+                                "add": {
+                                    "type": "integer"
+                                },
+                                "set": {
+                                    "type": "integer"
+                                },
+                                "sub": {
+                                    "type": "integer"
+                                }
+                            }
+                        },
+                        "swim": {
+                            "type": "object",
+                            "properties": {
+                                "add": {
+                                    "type": "integer"
+                                },
+                                "set": {
+                                    "type": "integer"
+                                },
+                                "sub": {
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    }
+                },
                 "maxhealth": {
                     "type": "object",
                     "properties": {

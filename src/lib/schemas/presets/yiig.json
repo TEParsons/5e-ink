@@ -43,9 +43,6 @@
     "species": {
         "name": "orc",
         "subtype": "",
-        "movement": {
-            "walk": 30
-        },
         "size": "medium",
         "proficiencies": {
             "weapons": [
@@ -61,6 +58,13 @@
                 "orcish"
             ],
             "armour": []
+        },
+        "buffs": {
+            "movement": {
+                "walk": {
+                    "add": 30
+                }
+            }
         },
         "traits": [
             {

@@ -1,44 +1,36 @@
 <script>
+    import { getAdvancements } from "$lib/utils";
     import { getContext } from "svelte";
     
     let stats = getContext("stats");
 
-    let swim = $derived.by(() => {
-        // assume no swim for now
-        let output = undefined;
+    let icons = {
+        walk: undefined,
+        swim: "🐟",
+        fly: "🦅",
+        burrow: "🦡",
+        climg: "🐒",
+        hover: "🚁"
+    }
 
-        return output
-    })
-    let fly = $derived.by(() => {
-        // assume no fly
-        let output = undefined;
-        // get armour
-        let armour;
-        for (let item of stats.inventory.items) {
-            if (item.type === "armour" && item.equipped) {
-                armour = item
+    let movement = $derived.by(() => {
+        let output = {};
+        // iterate through advancements
+        for (let source of getAdvancements(stats)) {
+            // look for buffs to movement
+            for (let key of Object.keys(source.buffs?.movement || {})) {
+                // make sure key exists
+                output[key] = output[key] || 0
+                // do any addition
+                output[key] += source.buffs?.movement?.[key]?.add || 0
+                // do any subtraction
+                output[key] -= source.buffs?.movement?.[key]?.sub || 0
+                // do any setting
+                output[key] = Math.max(source.buffs?.movement?.[key]?.set || output[key])
             }
         }
-        // aarakocra get 50ft flying (unless in >= medium armour)
-        if (stats.species.name === "aarakocra") {
-            if (["hide", "chainshirt", "scalemail", "spiked", "breastplate", "halfplate", "ringmail", "chainmail", "splint", "plate"].includes(armour?.params?.armourtype)) {
-                output = 25
-            } else {
-                output= 50
-            }
-        }
 
-        return output
-    })
-    let climb = $derived.by(() => {
-        // assume no fly for now
-        let output = undefined;
-
-        return output
-    })
-    let dig = $derived.by(() => {
-        // assume no fly for now
-        let output = undefined;
+        console.log(output)
 
         return output
     })
@@ -47,34 +39,22 @@
 <div 
     class=movement-ctrl
 >
-    <span 
-        id=movement
-    >
-        {stats.species.movement.walk}ft.
-    </span>
-    {#if swim !== undefined}
-        <span 
-            id=movement-swim
-        >
-            <span class=icon>🐟</span> {swim}ft.
-        </span>
-    {/if}
-    {#if fly !== undefined}
-        <span 
-            id=movement-fly
-        >
-            <span class=icon>🪽</span> {fly}ft.
-        </span>
-    {/if}
+    {#each Object.keys(movement) as key}
+        {#if movement[key] && movement[key] > 0}
+            <span
+                style:font-size={key === "walk" ? "1.5rem" : "inherit"}
+            >
+                <span class=icon>{icons[key]}</span>
+                {movement[key]}ft.
+            </span>
+        {/if}
+    {/each}
 </div>
 <style>
     .movement-ctrl {
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
-    #movement {
-        font-size: 1.5rem;
     }
     .icon {
         font-family: var(--emoji);

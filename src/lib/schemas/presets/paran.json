@@ -35,10 +35,6 @@
     "species": {
         "name": "aarakocra",
         "subtype": "",
-        "movement": {
-            "walk": 25,
-            "fly": 50
-        },
         "size": "medium",
         "proficiencies": {
             "weapons": [
@@ -55,6 +51,16 @@
                 "high dracean"
             ],
             "armour": []
+        },
+        "buffs": {
+            "movement": {
+                "walk": {
+                    "add": 25
+                },
+                "fly": {
+                    "add": 50
+                }
+            }
         },
         "traits": [
         ],
