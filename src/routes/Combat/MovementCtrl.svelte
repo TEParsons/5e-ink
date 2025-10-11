@@ -63,7 +63,7 @@
         <span 
             id=movement-fly
         >
-            <span class=icon>🕊️</span> {fly}ft.
+            <span class=icon>🪽</span> {fly}ft.
         </span>
     {/if}
 </div>
