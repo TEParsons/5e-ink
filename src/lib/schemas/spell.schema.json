@@ -68,6 +68,17 @@
                         "cone": {
                             "type": "number"
                         },
+                        "cylinder": {
+                            "type": "object",
+                            "properties": {
+                                "wide": {
+                                    "type": "number"
+                                },
+                                "long": {
+                                    "type": "number"
+                                }
+                            }
+                        },
                         "line": {
                             "type": "object",
                             "properties": {

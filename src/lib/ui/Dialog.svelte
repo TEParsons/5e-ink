@@ -63,8 +63,8 @@
         border: 2px solid var(--mantle);
         background-color: var(--base);
         border-radius: 0;
-        min-width: 50vw;
-        max-width: calc(100vw - 2rem);
+        width: calc(100% - 2rem);
+        max-width: 20cm;
         padding: 1rem;
         box-sizing: border-box;
     }

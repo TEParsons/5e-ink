@@ -102,7 +102,7 @@
                         bind:value={spell.range.aoe[shape]} 
                     />ft. {shape}
                 {/if}
-                {#if ["line", "rectangle"].includes(shape)}
+                {#if ["line", "rectangle", "cylinder"].includes(shape)}
                     <NumberCtrl 
                         bind:value={spell.range.aoe[shape].wide}
                     />
