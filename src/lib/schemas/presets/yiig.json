@@ -3,7 +3,7 @@
         "name": "Yi'ig son of Yi'igroth",
         "pronouns": "he/him",
         "alignment": "chaotic good",
-        "avatar": "https://s3.amazonaws.com/files.d20.io/images/443165997/UebRQ7RljMY2vdmwUcRJAg/max.png",
+        "avatar": "presets/yiig.png",
         "backstory": "Just here to party.",
         "personality": {
             "traits": "That's just, like, your opinion, man...",
@@ -185,6 +185,12 @@
                             {
                                 "name": "Starry Wisp",
                                 "level": "cantrip",
+                                "range": {
+                                    "distance": 60,
+                                    "aoe": {
+                                        "targets": 1
+                                    }
+                                },
                                 "time": {
                                     "type": "action",
                                     "amount": 1
@@ -202,6 +208,12 @@
                             {
                                 "name": "Prestidigitation",
                                 "level": "cantrip",
+                                "range": {
+                                    "distance": 10,
+                                    "aoe": {
+                                        "targets": 1
+                                    }
+                                },
                                 "time": {
                                     "type": "action",
                                     "amount": 1
@@ -224,6 +236,15 @@
                             {
                                 "name": "Color Spray",
                                 "level": "first",
+                                "range": {
+                                    "distance": "self",
+                                    "aoe": {
+                                        "cone": {
+                                            "wide": 15,
+                                            "long": 15
+                                        }
+                                    }
+                                },
                                 "time": {
                                     "type": "action",
                                     "amount": 1
@@ -238,6 +259,12 @@
                             {
                                 "name": "Feather Fall",
                                 "level": "first",
+                                "range": {
+                                    "distance": 60,
+                                    "aoe": {
+                                        "targets": 5
+                                    }
+                                },
                                 "time": {
                                     "type": "reaction",
                                     "amount": 1
@@ -255,6 +282,12 @@
                             {
                                 "name": "Thunderwave",
                                 "level": "first",
+                                "range": {
+                                    "distance": "self",
+                                    "aoe": {
+                                        "cube": 15
+                                    }
+                                },
                                 "time": {
                                     "type": "action",
                                     "amount": 1
@@ -267,11 +300,17 @@
                                     }
                                 },
                                 "school": "evocation",
-                                "description": "A wave of thunderous force sweeps out from you. Each creature in a 15-foot cube originating from you must make a Constitution saving throw. On a failed save, a creature takes 2d8 thunder damage and is pushed 10 feet away from you. On a successful save, the creature takes half as much damage and isn't pushed.\nIn addition, unsecured objects that are completely within the area of effect are automatically pushed 10 feet away from you by the spell's effect, and the spell emits a thunderous boom audible out to 300 feet.\nNone"
+                                "description": "A wave of thunderous force sweeps out from you. Each creature in a 15-foot cube originating from you must make a Constitution saving throw. On a failed save, a creature takes 2d8 thunder damage and is pushed 10 feet away from you. On a successful save, the creature takes half as much damage and isn't pushed.\nIn addition, unsecured objects that are completely within the area of effect are automatically pushed 10 feet away from you by the spell's effect, and the spell emits a thunderous boom audible out to 300 feet.\n"
                             },
                             {
                                 "name": "Faerie Fire",
                                 "level": "first",
+                                "range": {
+                                    "distance": 60,
+                                    "aoe": {
+                                        "cube": 20
+                                    }
+                                },
                                 "time": {
                                     "type": "action",
                                     "amount": 1
@@ -337,6 +376,10 @@
                             {
                                 "name": "Dissonant Whispers",
                                 "level": "first",
+                                "range": {
+                                    "distance": 60,
+                                    "target": 1
+                                },
                                 "time": {
                                     "type": "action",
                                     "amount": 1
@@ -374,6 +417,12 @@
                             {
                                 "name": "Magic Mouth",
                                 "level": "second",
+                                "range": {
+                                    "distance": 30,
+                                    "aoe": {
+                                        "targets": 1
+                                    }
+                                },
                                 "time": {
                                     "type": "action",
                                     "amount": 1
@@ -416,6 +465,12 @@
                             {
                                 "name": "Dancing Lights",
                                 "level": "cantrip",
+                                "range": {
+                                    "distance": 120,
+                                    "aoe": {
+                                        "radius": 20
+                                    }
+                                },
                                 "time": {
                                     "type": "action",
                                     "amount": 1
@@ -435,6 +490,12 @@
                             {
                                 "name": "Calm Emotions",
                                 "level": "second",
+                                "range": {
+                                    "distance": 60,
+                                    "aoe": {
+                                        "radius": 20
+                                    }
+                                },
                                 "time": {
                                     "type": "action",
                                     "amount": 1
@@ -473,6 +534,12 @@
                             {
                                 "name": "Major Image",
                                 "level": "third",
+                                "range": {
+                                    "distance": "self",
+                                    "aoe": {
+                                        "targets": 1
+                                    }
+                                },
                                 "time": {
                                     "type": "action",
                                     "amount": 1
@@ -514,6 +581,15 @@
                             {
                                 "name": "Fear",
                                 "level": "third",
+                                "range": {
+                                    "distance": "self",
+                                    "aoe": {
+                                        "cone": {
+                                            "wide": 30,
+                                            "long": 30
+                                        }
+                                    }
+                                },
                                 "time": {
                                     "type": "action",
                                     "amount": 1
@@ -545,6 +621,12 @@
                             {
                                 "name": "Hallucinatory Terrain",
                                 "level": "fourth",
+                                "range": {
+                                    "distance": 300,
+                                    "aoe": {
+                                        "cube": 150
+                                    }
+                                },
                                 "time": {
                                     "type": "action",
                                     "amount": 1
@@ -584,6 +666,12 @@
                             {
                                 "name": "Enthrall",
                                 "level": "second",
+                                "range": {
+                                    "distance": 60,
+                                    "aoe": {
+                                        "targets": "visible"
+                                    }
+                                },
                                 "time": {
                                     "type": "action",
                                     "amount": 1
@@ -687,6 +775,12 @@
                                 {
                                     "name": "Command",
                                     "level": "first",
+                                    "range": {
+                                        "distance": 60,
+                                        "aoe": {
+                                            "target": 1
+                                        }
+                                    },
                                     "time": {
                                         "type": "action",
                                         "amount": 1

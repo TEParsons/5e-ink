@@ -90,7 +90,7 @@
         </span>
         <b>Area</b>
         <span>
-            {#each Object.keys(spell.range?.aoe) as shape}
+            {#each Object.keys(spell.range?.aoe || {}) as shape}
                 {#if shape === "targets"}
                     <NumberCtrl 
                         bind:value={spell.range.aoe.targets} 

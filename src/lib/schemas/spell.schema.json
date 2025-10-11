@@ -45,7 +45,19 @@
                     "type": "object",
                     "properties": {
                         "targets": {
-                            "type": "integer"
+                            "oneOf": [
+                                {
+                                    "type": "integer"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        "visible",
+                                        "audible",
+                                        "range"
+                                    ]
+                                }
+                            ]
                         },
                         "radius": {
                             "type": "number"

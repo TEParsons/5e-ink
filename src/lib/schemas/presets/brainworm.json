@@ -3,7 +3,7 @@
         "name": "Brainworm",
         "pronouns": "he/him",
         "alignment": "lawful evil",
-        "avatar": "brainworm.png",
+        "avatar": "presets/brainworm.png",
         "backstory": "Once a techbro dickrider, he signed up for an experimental neural implant which turned out to have a pretty critical bug. Now his mind is more worm than brain.",
         "personality": {
             "traits": "I Am Become Worm",
