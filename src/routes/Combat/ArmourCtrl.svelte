@@ -33,10 +33,10 @@
             output += 10
             // add modifier according to class
             if ("barbarian" in stats.class) {
-                output += getScore(stats, "con")
+                output += score2modifier(getScore(stats, "con"))
             }
             if ("monk" in stats.class) {
-                output += getScore(stats, "wis")
+                output += score2modifier(getScore(stats, "wis"))
             }
         }
         // do we have a shield?
