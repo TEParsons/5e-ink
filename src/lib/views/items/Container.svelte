@@ -1,7 +1,9 @@
 <script>
     import { getContext } from "svelte";
+    import Dialog from "$lib/ui/Dialog.svelte";
     import { NumberCtrl, TextCtrl } from "$lib/ui/ctrls";
     import { recursiveDefaults } from "$lib/schemas";
+    import { ItemView } from "$lib/views";
     import ItemSchema from "$lib/schemas/item.schema.json";
     import ConsumableSchema from "$lib/schemas/items/consumable.schema.json";
 
@@ -11,6 +13,8 @@
     } = $props();
 
     let snippets = getContext("snippets")
+
+    let showDlgs = $state({})
 </script>
 
 <div class=container-ctrl>
@@ -32,6 +36,23 @@
                     />
                 </h4>
                 ({@render snippets.tagline(item.params.contents[i])})
+                <button 
+                    class=icon
+                    onclick={showDlgs[i] = true}
+                >
+                    📋
+                </button>
+                <Dialog
+                    bind:shown={showDlgs[i]}
+                    buttons={{
+                        CANCEL: evt => {}
+                    }}
+                >
+                    <ItemView 
+                        bind:item={item.params.contents[i]}
+                        edit={edit}
+                    />
+                </Dialog>
             </div>
         {/each}
         {#if edit}
@@ -71,5 +92,15 @@
     }
     .subitem h4 {
         margin-top: .5rem;
+    }
+
+    button {
+        background-color: transparent;
+        font-size: inherit;
+        padding: 0;
+        margin: 0;
+    }
+    .icon {
+        font-family: var(--emoji);
     }
 </style>
