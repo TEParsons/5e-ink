@@ -393,7 +393,7 @@
     "inventory": {
         "currency": {
             "platinum": 0,
-            "gold": 0,
+            "gold": 11,
             "electrum": 0,
             "silver": 0,
             "copper": 0
@@ -428,6 +428,180 @@
                             "d6": 1
                         }
                     }
+                }
+            },
+            {
+                "name": "Clothes",
+                "type": "clothing",
+                "weight": {
+                    "lb": 4
+                },
+                "cost": {
+                    "sp": 1
+                },
+                "description": "Weathered overalls, chunky boots, crusty undies.",
+                "equipped": true
+            },
+            {
+                "name": "Microelectronics Kit",
+                "type": "misc",
+                "description": "Little screwdrivers, plastic scrapers, etc.",
+                "equipped": false,
+                "cost": {
+                    "gp": 3
+                },
+                "weight": {
+                    "lb": 1
+                },
+                "params": {
+                    "quantity": 1
+                }
+            },
+            {
+                "name": "Explorer's Pack",
+                "type": "container",
+                "weight": {
+                    "lb": 1
+                },
+                "cost": {
+                    "gp": 10
+                },
+                "description": "Useful items for any explorer.",
+                "equipped": false,
+                "params": {
+                    "capacity": {
+                        "weight": {
+                            "lb": 55
+                        }
+                    },
+                    "contents": [
+                        {
+                            "name": "Torch",
+                            "type": "consumable",
+                            "description": "A Torch burns for 1 hour, casting Bright Light in a 20-foot radius and Dim Light for an additional 20 feet. When you take the Attack action, you can attack with the Torch, using it as a Simple Melee weapon. On a hit, the target takes 1 Fire damage.",
+                            "equipped": false,
+                            "cost": {
+                                "cp": 1
+                            },
+                            "weight": {
+                                "lb": 1
+                            },
+                            "params": {
+                                "quantity": 10
+                            }
+                        },
+                        {
+                            "name": "Rope",
+                            "type": "consumable",
+                            "description": "As a Utilize action, you can tie a knot with Rope if you succeed on a DC 10 Dexterity (Sleight of Hand) check. The Rope can be burst with a successful DC 20 Strength (Athletics) check.\nYou can bind an unwilling creature with the Rope only if the creature has the Grappled, Incapacitated, or Restrained condition. If the creature's legs are bound, the creature has the Restrained condition until it escapes. Escaping the Rope requires the creature to make a successful DC 15 Dexterity (Acrobatics) check as an action.",
+                            "equipped": false,
+                            "cost": {
+                                "gp": 1
+                            },
+                            "weight": {
+                                "lb": 5
+                            },
+                            "params": {
+                                "quantity": 1
+                            }
+                        },
+                        {
+                            "name": "Rations",
+                            "type": "consumable",
+                            "description": "Rations consist of travel-ready food, including jerky, dried fruit, hardtack, and nuts. See “Malnutrition” for the risks of not eating.",
+                            "equipped": false,
+                            "cost": {
+                                "sp": 5
+                            },
+                            "weight": {
+                                "lb": 2
+                            },
+                            "params": {
+                                "quantity": 10
+                            }
+                        },
+                        {
+                            "name": "Oil",
+                            "type": "consumable",
+                            "description": "You can douse a creature, object, or space with Oil or use it as fuel, as detailed below.\nDousing a Creature or an Object. When you take the Attack action, you can replace one of your attacks with throwing an Oil flask. Target one creature or object within 20 feet of yourself. The target must succeed on a Dexterity saving throw (DC 8 plus your Dexterity modifier and Proficiency Bonus) or be covered in oil. If the target takes Fire damage before the oil dries (after 1 minute), the target takes an extra 5 Fire damage from burning oil.\nDousing a Space. You can take the Utilize action to pour an Oil flask on level ground to cover a 5-foot-square area within 5 feet of yourself. If lit, the oil burns until the end of the turn 2 rounds from when the oil was lit (or 12 seconds) and deals 5 Fire damage to any creature that enters the area or ends its turn there. A creature can take this damage only once per turn.\nFuel. Oil serves as fuel for Lamps and Lanterns. Once lit, a flask of Oil burns for 6 hours in a Lamp or Lantern. That duration doesn't need to be consecutive; you can extinguish the burning Oil (as a Utilize action) and rekindle it again until it has burned for a total of 6 hours.",
+                            "equipped": false,
+                            "cost": {
+                                "sp": 1
+                            },
+                            "weight": {
+                                "lb": 1
+                            },
+                            "params": {
+                                "quantity": 2
+                            }
+                        },
+                        {
+                            "name": "Bedroll",
+                            "type": "misc",
+                            "weight": {
+                                "lb": 7
+                            },
+                            "cost": {
+                                "gp": 1
+                            },
+                            "description": "A Bedroll sleeps one Small or Medium creature. While in a Bedroll, you automatically succeed on saving throws against extreme cold.",
+                            "equipped": false,
+                            "params": {
+                                "quantity": 10
+                            }
+                        },
+                        {
+                            "name": "Tinderbox",
+                            "type": "misc",
+                            "description": "A Tinderbox is a small container holding flint, fire steel, and tinder (usually dry cloth soaked in light oil) used to kindle a fire. Using it to light a Candle, Lamp, Bullseye Lantern, Hooded Lantern, or Torch—or anything else with exposed fuel—takes a Bonus Action. Lighting any other fire takes 1 minute.",
+                            "equipped": false,
+                            "cost": {
+                                "sp": 5
+                            },
+                            "weight": {
+                                "lb": 1
+                            },
+                            "params": {
+                                "quantity": 1
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "Waterskin",
+                "type": "container",
+                "weight": {
+                    "lb": 1
+                },
+                "cost": {
+                    "sp": 2
+                },
+                "description": "A waterskin can hold up to 4 pints of liquid.",
+                "equipped": false,
+                "params": {
+                    "capacity": {
+                        "weight": {
+                            "lb": 4
+                        }
+                    },
+                    "contents": [
+                        {
+                            "name": "Water",
+                            "type": "consumable",
+                            "description": "Wet and drinkable",
+                            "equipped": false,
+                            "cost": {
+                                "cp": 1
+                            },
+                            "weight": {
+                                "lb": 1
+                            },
+                            "params": {
+                                "quantity": 3
+                            }
+                        }
+                    ]
                 }
             }
         ]
