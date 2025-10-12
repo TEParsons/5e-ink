@@ -131,6 +131,14 @@
                         {sentenceCase(opt)}
                     </Option>
                 {/each}
+                {#if !SpellSchema.properties.time.properties.type.enum.includes(spell.time.type)}
+                    <Option
+                        index={spell.time.type}
+                        value={spell.time.type}
+                    >
+                        {sentenceCase(spell.time.type)}
+                    </Option>
+                {/if}
             </ChoiceCtrl>
         </span>
         <b>Duration</b>
