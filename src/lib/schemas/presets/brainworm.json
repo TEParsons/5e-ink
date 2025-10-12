@@ -27,19 +27,96 @@
         }
     },
     "scores": {
-        "str": 13,
+        "str": 12,
         "con": 10,
-        "dex": 15,
-        "int": 12,
-        "wis": 14,
+        "dex": 14,
+        "int": 13,
+        "wis": 15,
         "chr": 8
     },
     "species": {
         "name": "human",
-        "subtype": "cyborg",
-        "movement": {
-            "walk": 30
+        "subtype": {
+            "name": "Digital Initiate",
+            "casting": {
+                "cantrips": [
+                    {
+                        "name": "Mind Sliver",
+                        "school": "enchantment",
+                        "components": ["V"],
+                        "range": {
+                            "distance": 60,
+                            "aoe": {
+                                "targets": 1
+                            }
+                        },
+                        "time": {
+                            "type": "action",
+                            "amount": 1
+                        },
+                        "duration": {
+                            "type": "instantaneous"
+                        },
+                        "description": "You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must succeed on an Intelligence saving throw or take 1d6 psychic damage and subtract 1d4 from the next saving throw it makes before the end of your next turn.\n**At Higher Levels.** This spell's damage increases by 1d6 when you reach certain levels: 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
+                    },
+                    {
+                        "name": "Encode Thoughts",
+                        "school": "enchantment",
+                        "components": ["S"],
+                        "range": {
+                            "distance": 5,
+                            "aoe": {
+                                "targets": 1
+                            }
+                        },
+                        "time": {
+                            "type": "action",
+                            "amount": 1
+                        },
+                        "duration": {
+                            "type": "dispell",
+                            "maximum": {
+                                "hours": 8
+                            }
+                        },
+                        "description": "You pull a memory, an idea, or a message from your mind and transform it into a tangible string of glowing energy called a thought strand, which persists for the duration or until you cast this spell again. The thought strand appears in an unoccupied space within 5 feet of you as a Tiny, weightless, semisolid object that can be held and carried like a ribbon. It is otherwise stationary.\nIf you cast this spell while concentrating on a spell or an ability that allows you to read or manipulate the thoughts of others (such as detect thoughts or modify memory), you can transform the thoughts or memories you read, rather than your own, into a thought strand.\nCasting this spell while holding a thought strand allows you to instantly receive whatever memory, idea, or message the thought strand contains. (Casting detect thoughts on the strand has the same effect.)"
+                    }
+                ],
+                "spells": [
+                    {
+                        "name": "Tesla's Floating Disk",
+                        "level": "first",
+                        "school": "conjuration",
+                        "components": ["V", "S", "M"],
+                        "range": {
+                            "distance": 30,
+                            "aoe": {
+                                "radius": 3
+                            }
+                        },
+                        "time": {
+                            "type": "action",
+                            "amount": 1
+                        },
+                        "duration": {
+                            "type": "dispell",
+                            "maximum": {
+                                "hours": 1
+                            }
+                        },
+                        "description": "This spell creates a circular, horizontal plane of force, 3 feet in diameter and 1 inch thick, that floats 3 feet above the ground in an unoccupied space of your choice that you can see within range. The disk remains for the duration and can hold up to 500 pounds. If more weight is placed on it, the spell ends, and everything on the disk falls to the ground.\nThe disk is immobile while you are within 20 feet of it. If you move more than 20 feet away from it, the disk follows you so that it remains within 20 feet of you. It can move across uneven terrain, up or down stairs, slopes and the like, but it can't cross an elevation change of 10 feet or more. For example, the disk can’t move across a 10-foot-deep pit, nor could it leave such a pit if it was created at the bottom.\nIf you move more than 100 feet from the disk (typically because it can't move around an obstacle to follow you), the spell ends."
+                    }
+                ]
+            }
         },
+        "buffs": {
+            "movement": {
+                "walk": {
+                    "add": 30
+                }
+            }
+        },
+        
         "size": "medium",
         "proficiencies": {
             "weapons": [
@@ -90,15 +167,67 @@
             },
             "cantrips": [
                 {
-                    "level": "cantrip"
+                    "name": "Mending",
+                    "school": "transmutation",
+                    "components": ["V", "S", "M"],
+                    "range": {
+                        "distance": "touch",
+                        "aoe": {
+                            "targets": 1
+                        }
+                    },
+                    "time": {
+                        "type": "minute",
+                        "amount": 1
+                    },
+                    "duration": {
+                        "type": "instantaneous"
+                    },
+                    "description": "This spell repairs a single break or tear in an object you touch, such as a broken chain link, two halves of a broken key, a torn cloak, or a leaking wineskin. As long as the break or tear is no larger than 1 foot in any dimension, you mend it, leaving no trace of the former damage.\nThis spell can physically repair a magic item, but it can't restore magic to such an object."
                 },
                 {
-                    "level": "cantrip"
+                    "name": "Mage Hand",
+                    "school": "conjuration",
+                    "components": ["V", "S"],
+                    "range": {
+                        "distance": 30,
+                        "aoe": {
+                            "targets": 1
+                        }
+                    },
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
+                    "duration": {
+                        "type": "dispell",
+                        "maximum": {
+                            "minutes": 1
+                        }
+                    },
+                    "description": "A spectral, floating hand appears at a point you choose within range. The hand lasts for the duration. The hand vanishes if it is ever more than 30 feet away from you or if you cast this spell again.\nWhen you cast the spell, you can use the hand to manipulate an object, open an unlocked door or container, stow or retrieve an item from an open container, or pour the contents out of a vial.\nAs a Magic action on your later turns, you can control the hand thus again. As part of that action, you can move the hand up to 30 feet.\nThe hand can’t attack, activate magic items, or carry more than 10 pounds."
                 }
             ],
             "spells": [
                 {
-                    "level": "first"
+                    "name": "Thunderwave",
+                    "level": "first",
+                    "school": "evocation",
+                    "components": ["V", "S"],
+                    "range": {
+                        "distance": "self",
+                        "aoe": {
+                            "cube": 15
+                        }
+                    },
+                    "time": {
+                        "type": "action",
+                        "amount": 1
+                    },
+                    "duration": {
+                        "type": "instantaneous"
+                    },
+                    "description": "You unleash a wave of thunderous energy. Each creature in a 15-foot Cube originating from you makes a Constitution saving throw. On a failed save, a creature takes 2d8 Thunder damage and is pushed 10 feet away from you. On a successful save, a creature takes half as much damage only.\nIn addition, unsecured objects that are entirely within the Cube are pushed 10 feet away from you, and a thunderous boom is audible within 300 feet.\n**Using a Higher-Level Spell Slot.** The damage increases by 1d8 for each spell slot level above 1."
                 }
             ]
         }
@@ -131,7 +260,7 @@
                         ],
                         "weapons": [
                             "simple",
-                            "martial:light"
+                            "finesse"
                         ],
                         "saves": [
                             "str",
@@ -161,7 +290,7 @@
                             "tags": [
                                 "combat"
                             ],
-                            "description": "You can roll 1d6 in place of the normal damage of your Unarmed Strike or Monk weapons. This die changes as you gain Monk levels, as shown in the Martial Arts column of the Monk Features table."
+                            "description": "You can roll 1d4 in place of the normal damage of your Unarmed Strike or Monk weapons. This becomes 1d6 at level 5, 1d8 at level 11 and 1d10 at level 17."
                         },
                         {
                             "name": "Dexterous Strikes",
@@ -171,7 +300,93 @@
                             "description": "You can use your Dexterity modifier instead of your Strength modifier for the attack and damage rolls of your Unarmed Strikes and Monk weapons. In addition, when you use the Grapple or Shove option of your Unarmed Strike, you can use your Dexterity modifier instead of your Strength modifier to determine the save DC."
                         }
                     ]
+                },
+                "2": {
+                    "buffs": {
+                        "maxhealth": {
+                            "add": 4
+                        },
+                        "movement": {
+                            "walk": {
+                                "add": 10
+                            }
+                        }
+                    },
+                    "traits": [
+                        {
+                            "name": "Ki",
+                            "tags": [
+                                "combat"
+                            ],
+                            "slots": {
+                                "total": 3,
+                                "current": 3
+                            },
+                            "description": "Your training allows you to harness the mystic energy of ki. Your access to this energy is represented by a number of ki points.\nYou can spend these points to fuel various ki features. When you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You must spend at least 30 minutes of the rest meditating to regain your ki points.\nSome of your ki features require your target to make a saving throw to resist the feature's effects. The saving throw DC is calculated as follows:\nKi save DC = 8 + your proficiency bonus + your Wisdom modifier"
+                        }
+                    ],
+                    "actions": [
+                        {
+                            "name": "Flurry of Blows",
+                            "time": {
+                                "type": "bonusaction",
+                                "amount": 1
+                            },
+                            "description": "Immediately after you take the Attack action on your turn, you can spend 1 ki point to make two unarmed strikes as a bonus action."
+                        },
+                        {
+                            "name": "Patient Defense",
+                            "time": {
+                                "type": "bonusaction",
+                                "amount": 1
+                            },
+                            "description": "You can spend 1 ki point to take the Dodge action as a bonus action on your turn."
+                        },
+                        {
+                            "name": "Step of the Wind",
+                            "time": {
+                                "type": "bonusaction",
+                                "amount": 1
+                            },
+                            "description": "You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn."
+                        }
+                    ]
+                },
+                "3": {
+                    "buffs": {
+                        "maxhealth": {
+                            "add": 2
+                        }
+                    },
+                    "actions": [
+                        {
+                            "name": "Deflect Missiles",
+                            "time": {
+                                "type": "reaction",
+                                "amount": 1
+                            },
+                            "description": "Use your reaction to deflect or catch the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d 10 + your Dexterity modifier + your monk level.\nIf you reduce the damage to 0, you can catch the missile if it is small enough for you to hold in one hand and you have at least one hand free. If you catch a missile in this way, you can spend 1 ki point to make a ranged attack (range 20 feet/60 feet) with the weapon or piece of ammunition you just caught, as part of the same reaction. You make this attack with proficiency, regardless of your weapon proficiencies, and the missile counts as a monk weapon for the attack."
+                        }
+                    ]
                 }
+            },
+            "subtype": {
+                "name": "Way of the Digital Self",
+                "advancements": [
+                    {
+                        "name": "Arms of the Digital Self",
+                        "actions": [
+                            {
+                                "name": "Arms of the Digital Self",
+                                "time": {
+                                    "type": "bonusaction",
+                                    "amount": 1
+                                },
+                                "description": "Spend 1 ki point to summon the arms of your digital self. When you do so, each creature of your choice that you can see within 10 feet of you must succeed on a Dexterity saving throw or take force damage equal to two rolls of your Martial Arts die.\nFor 10 minutes, these electral arms hover near your shoulders or surround your arms (your choice). You determine the arms' appearance, and they vanish early if you are incapacitated or die.\nWhile the electral arms are present, you gain the following benefits:\n- You can use your Wisdom modifier in place of your Strength modifier when making Strength checks and Strength saving throws.\n- You can use the electral arms to make unarmed strikes.\n- When you make an unarmed strike with the arms on your turn, your reach for it is 5 feet greater than normal.\n- The unarmed strikes you make with the arms can use your Wisdom modifier in place of your Strength or Dexterity modifier for the attack and damage rolls, and their damage type is force."
+                            }
+                        ]
+                    }
+                ]
             }
         }
     },
