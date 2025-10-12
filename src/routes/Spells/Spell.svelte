@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { DetailsCtrl, SlotsCtrl } from "$lib/ui/ctrls";
     import { SpellView } from "$lib/views";
+    import { sentenceCase } from "$lib/utils";
 
     let {
         spell=$bindable()
@@ -15,7 +16,7 @@
         action: "Action",
         bonusaction: "Bonus Action",
         reaction: "Reaction"
-    }[spell.time.type]}`)
+    }[spell.time.type] || sentenceCase(spell.time.type)}`)
 
     let restore = {
         slots: undefined
