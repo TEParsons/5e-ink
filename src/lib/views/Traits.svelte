@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { DetailsCtrl } from "$lib/ui/ctrls"
+    import { DetailsCtrl, SlotsCtrl } from "$lib/ui/ctrls"
 
     let {
         tag
@@ -25,6 +25,13 @@
 
                 <h2>{trait.name}</h2>
                 <p>{trait.description}</p>
+
+                {#if trait.slots}
+                    <SlotsCtrl 
+                        bind:value={trait.slots.current}
+                        bind:total={trait.slots.total}
+                    />
+                {/if}
             </DetailsCtrl>
         {/if}
     {/each}
@@ -44,6 +51,13 @@
 
                         <h2>{trait.name}</h2>
                         <p>{trait.description}</p>
+
+                        {#if trait.slots}
+                            <SlotsCtrl 
+                                bind:value={trait.slots.current}
+                                bind:total={trait.slots.total}
+                            />
+                        {/if}
                     </DetailsCtrl>
                 {/if}
             {/each}
