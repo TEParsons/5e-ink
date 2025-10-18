@@ -191,10 +191,7 @@
     .attributes {
         display: grid;
         grid-template-columns: min-content max-content;
-        gap: 0 .5rem;
+        gap: .5rem 1rem;
         margin: .5rem 0;
-    }
-    .attributes b {
-        justify-self: end;
     }
 </style>
