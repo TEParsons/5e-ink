@@ -69,6 +69,8 @@
     <!-- from advancements -->
     {#each Object.entries(getAdvancements(stats, false)) as [source, advancements]}
         {#each advancements as advancement}
+            
+            <!-- actions -->
             {#each Object.entries(advancement.actions || []) as [i, action]}
                 {#if action.time.type === time}
                     <DetailsCtrl
@@ -89,73 +91,7 @@
                     </DetailsCtrl>
                 {/if}
             {/each}
-        {/each}
-    {/each}
 
-    <!-- spells -->
-    {#each Object.keys(stats.class) as cls}
-        {#each Object.entries(stats.class[cls].levels) as [lvl, advancements]}
-            <!-- cantrips -->
-            {#each Object.entries(advancements.casting?.cantrips || []) as [i, cantrip]}
-                {#if cantrip.time.type === time}
-                    <DetailsCtrl
-                        onopen={evt => restore = $state.snapshot(cantrip)}
-                        buttons={{
-                            OK: evt => {},
-                            CANCEL: evt => Object.assign(cantrip, restore)
-                        }}
-                    >
-                        {#snippet summary()}
-                            <div class=action-summary>
-                                <div class=icon>✨</div>
-                                <div class=action-label>{cantrip.name} ({cls})</div>
-                            </div>
-                        {/snippet}
-
-                        <SpellView 
-                            bind:spell={stats.class[cls].levels[lvl].casting.cantrips[i]}
-                        />
-                    </DetailsCtrl>
-                {/if}
-            {/each}
-
-            <!-- spells -->
-            {#each Object.entries(advancements.casting?.spells || []) as [i, spell]}
-                {#if spell.time.type === time}
-                    <DetailsCtrl
-                        onopen={evt => restore = $state.snapshot(spell)}
-                        buttons={{
-                            OK: evt => {},
-                            CANCEL: evt => Object.assign(spell, restore)
-                        }}
-                    >
-                        {#snippet summary()}
-                            <div class=action-summary>
-                                <div class=icon>✨{{
-                                    "first": "❶", 
-                                    "second": "❷", 
-                                    "third": "❸", 
-                                    "fourth": "❹", 
-                                    "fifth": "❺", 
-                                    "sixth": "❻", 
-                                    "seventh": "❼",
-                                    "eighth": "❽",
-                                    "ninth": "❾"
-                                }[spell.level]}</div>
-                                <div class=action-label>{spell.name} ({cls})</div>
-                            </div>
-                        {/snippet}
-
-                        <SpellView 
-                            bind:spell={stats.class[cls].levels[lvl].casting.spells[i]}
-                        />
-                    </DetailsCtrl>
-                {/if}
-            {/each}
-        {/each}
-
-        <!-- from class subtype -->
-        {#each Object.entries(stats.class[cls].subtype?.advancements || []) as [adv, advancement]}
             <!-- cantrips -->
             {#each Object.entries(advancement.casting?.cantrips || []) as [i, cantrip]}
                 {#if cantrip.time.type === time}
@@ -167,14 +103,12 @@
                         }}
                     >
                         {#snippet summary()}
-                            <div class=action-summary>
-                                <div class=icon>✨</div>
-                                <div class=action-label>{cantrip.name} ({stats.class[cls].subtype.name})</div>
-                            </div>
+                            <div class=icon>{sourceIcons.spell}</div>
+                            <div class=action-label>{cantrip.name}</div>
                         {/snippet}
 
                         <SpellView 
-                            bind:spell={stats.class[cls].subtype.advancements[adv].casting.cantrips[i]}
+                            bind:spell={advancement.casting.cantrips[i]}
                         />
                     </DetailsCtrl>
                 {/if}
@@ -191,8 +125,8 @@
                         }}
                     >
                         {#snippet summary()}
-                            <div class=action-summary>
-                                <div class=icon>✨{{
+                            <div class=icon>{sourceIcons.spell}{
+                                {
                                     "first": "❶", 
                                     "second": "❷", 
                                     "third": "❸", 
@@ -202,17 +136,18 @@
                                     "seventh": "❼",
                                     "eighth": "❽",
                                     "ninth": "❾"
-                                }[spell.level]}</div>
-                                <div class=action-label>{spell.name} ({stats.class[cls].subtype.name})</div>
-                            </div>
+                                }[spell.level]
+                            }</div>
+                            <div class=action-label>{spell.name}</div>
                         {/snippet}
 
                         <SpellView 
-                            bind:spell={stats.class[cls].subtype.advancements[adv].casting.spells[i]}
+                            bind:spell={advancement.casting.spells[i]}
                         />
                     </DetailsCtrl>
                 {/if}
             {/each}
+
         {/each}
     {/each}
 </div>

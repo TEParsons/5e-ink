@@ -44,14 +44,11 @@
 
 
 <style>
-    .name {
-        font-weight: bold;
-    }
-
     .spell-summary {
         display: flex;
         flex-direction: row;
         gap: .5rem;
         justify-content: space-between;
+        width: 100%;
     }
 </style>
