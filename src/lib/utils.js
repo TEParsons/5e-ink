@@ -5,7 +5,7 @@ export var sourceIcons = {
     custom: "📖",
     class: "🎓",
     consumable: "🍄",
-    weapon: "⚔️",
+    weapon: "⚔︎",
     spell: "🎓"
 }
 

@@ -1,7 +1,8 @@
 <script>
     import { getContext } from "svelte";
+    import { getAdvancements, sourceIcons } from "$lib/utils.js";
     import { DetailsCtrl } from "$lib/ui/ctrls"
-    import { SpellView, ClassActionView, ItemView } from "$lib/views";
+    import { SpellView, ActionView, ItemView } from "$lib/views";
 
     let {
         time
@@ -30,7 +31,7 @@
                 >
                     {#snippet summary()}
                         <div class=action-summary>
-                            <div class=icon>⚔︎</div>
+                            <div class=icon>{sourceIcons.weapon}</div>
                             <div class=action-label>{item.name} ({item.params.attacktype})</div>
                         </div>
                     {/snippet}
@@ -52,7 +53,7 @@
                 >
                     {#snippet summary()}
                         <div class=action-summary>
-                            <div class=icon>✷</div>
+                            <div class=icon>{sourceIcons.consumable}</div>
                             <div class=action-label>{item.name} ({item.type})</div>
                         </div>
                     {/snippet}
@@ -65,80 +66,10 @@
         {/if}
     {/each}
 
-    <!-- from species -->
-    {#each Object.entries(stats.species.actions || []) as [i, action]}
-        {#if action.time.type === time}
-            <DetailsCtrl
-                onopen={evt => restore = $state.snapshot(action)}
-                buttons={{
-                    OK: evt => {},
-                    CANCEL: evt => Object.assign(action, restore)
-                }}
-            >
-                {#snippet summary()}
-                    <div class=action-summary>
-                        <div class=icon>🧬</div>
-                        <div class=action-label>{action.name} ({stats.species.name})</div>
-                    </div>
-                {/snippet}
-
-                <h2>{action.name}</h2>
-                <p>{action.description}</p>
-            </DetailsCtrl>
-        {/if}
-    {/each}
-
-    <!-- from background -->
-     {#each Object.entries(stats.background.actions || []) as [i, action]}
-        {#if action.time.type === time}
-            <DetailsCtrl
-                onopen={evt => restore = $state.snapshot(action)}
-                buttons={{
-                    OK: evt => {},
-                    CANCEL: evt => Object.assign(action, restore)
-                }}
-            >
-                {#snippet summary()}
-                    <div class=action-summary>
-                        <div class=icon>🧬</div>
-                        <div class=action-label>{action.name} ({stats.species.name})</div>
-                    </div>
-                {/snippet}
-
-                <h2>{action.name}</h2>
-                <p>{action.description}</p>
-            </DetailsCtrl>
-        {/if}
-    {/each}
-
-    <!-- from custom -->
-     {#each Object.entries(stats.custom.actions || []) as [i, action]}
-        {#if action.time.type === time}
-            <DetailsCtrl
-                onopen={evt => restore = $state.snapshot(action)}
-                buttons={{
-                    OK: evt => {},
-                    CANCEL: evt => Object.assign(action, restore)
-                }}
-            >
-                {#snippet summary()}
-                    <div class=action-summary>
-                        <div class=icon>🧬</div>
-                        <div class=action-label>{action.name} ({stats.species.name})</div>
-                    </div>
-                {/snippet}
-
-                <h2>{action.name}</h2>
-                <p>{action.description}</p>
-            </DetailsCtrl>
-        {/if}
-    {/each}
-
-    <!-- from class -->
-    {#each Object.keys(stats.class) as cls}
-        {#each Object.entries(stats.class[cls].levels) as [lvl, advancements]}
-            <!-- class actions -->
-            {#each Object.entries(advancements.actions || []) as [i, action]}
+    <!-- from advancements -->
+    {#each Object.entries(getAdvancements(stats, false)) as [source, advancements]}
+        {#each advancements as advancement}
+            {#each Object.entries(advancement.actions || []) as [i, action]}
                 {#if action.time.type === time}
                     <DetailsCtrl
                         onopen={evt => restore = $state.snapshot(action)}
@@ -148,20 +79,22 @@
                         }}
                     >
                         {#snippet summary()}
-                            <div class=action-summary>
-                                <div class=icon>💼</div>
-                                <div class=action-label>{action.name} ({cls})</div>
-                            </div>
+                            <span class=icon>{sourceIcons[source]}</span>
+                            <span class=trait-label>{action.name}</span>
                         {/snippet}
 
-                        <ClassActionView 
-                            bind:action={stats.class[cls].levels[lvl].actions[i]}
-                            bind:slots={stats.class[cls].levels[lvl].actions[i].slots}
+                        <ActionView 
+                            bind:action={advancement.actions[i]}
                         />
                     </DetailsCtrl>
                 {/if}
             {/each}
+        {/each}
+    {/each}
 
+    <!-- spells -->
+    {#each Object.keys(stats.class) as cls}
+        {#each Object.entries(stats.class[cls].levels) as [lvl, advancements]}
             <!-- cantrips -->
             {#each Object.entries(advancements.casting?.cantrips || []) as [i, cantrip]}
                 {#if cantrip.time.type === time}
@@ -223,31 +156,6 @@
 
         <!-- from class subtype -->
         {#each Object.entries(stats.class[cls].subtype?.advancements || []) as [adv, advancement]}
-            <!-- class actions -->
-            {#each Object.entries(advancement.actions || []) as [i, action]}
-                {#if action.time.type === time}
-                    <DetailsCtrl
-                        onopen={evt => restore = $state.snapshot(action)}
-                        buttons={{
-                            OK: evt => {},
-                            CANCEL: evt => Object.assign(action, restore)
-                        }}
-                    >
-                        {#snippet summary()}
-                            <div class=action-summary>
-                                <div class=icon>💼</div>
-                                <div class=action-label>{action.name} ({stats.class[cls].subtype.name})</div>
-                            </div>
-                        {/snippet}
-
-                        <ClassActionView 
-                            bind:action={stats.class[cls].subtype.advancements[adv].actions[i]}
-                            bind:slots={stats.class[cls].subtype.advancements[adv].actions[i].slots}
-                        />
-                    </DetailsCtrl>
-                {/if}
-            {/each}
-
             <!-- cantrips -->
             {#each Object.entries(advancement.casting?.cantrips || []) as [i, cantrip]}
                 {#if cantrip.time.type === time}
@@ -307,9 +215,6 @@
             {/each}
         {/each}
     {/each}
-
-    
-
 </div>
 
 <style>

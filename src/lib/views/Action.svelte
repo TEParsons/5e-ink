@@ -24,8 +24,8 @@
             Slots
         </h4>
         <SlotsCtrl 
-            bind:value={slots.current}
-            bind:total={slots.total}
+            bind:value={action.slots.current}
+            bind:total={action.slots.total}
         />
     {/if}
 </div>
