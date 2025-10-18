@@ -1,18 +1,39 @@
-export function getAdvancements(stats) {
-    let sources = []
+// icons describing the sources for advancements, actions, etc.
+export var sourceIcons = {
+    species: "🧬",
+    background: "🎭",
+    custom: "📖",
+    class: "🎓",
+    consumable: "🍄",
+    weapon: "⚔️",
+    spell: "🎓"
+}
+
+
+export function getAdvancements(stats, flatten=true) {
+    let sources = {
+        species: [],
+        background: [],
+        custom: [],
+        class: []
+    }
     // from species
-    sources.push(stats.species)
+    sources.species.push(stats.species)
     // from subspecies
-    sources.push(stats.species.subtype || {})
+    sources.species.push(stats.species.subtype || {})
     // from background
-    sources.push(stats.background || {})
+    sources.background.push(stats.background || {})
     // from custom
-    sources.push(stats.custom || {})
+    sources.custom.push(stats.custom || {})
     // from classes
     for (let cls in stats.class) {
-        sources.push(...Object.values(stats.class[cls].levels))
+        sources.class.push(...Object.values(stats.class[cls].levels))
         // from class subtype
-        sources.push(...stats.class[cls].subtype?.advancements || [])
+        sources.class.push(...stats.class[cls].subtype?.advancements || [])
+    }
+    // flatten if requested
+    if (flatten) {
+        sources = Object.values(sources).flat()
     }
 
     return sources

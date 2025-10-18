@@ -3,9 +3,10 @@
     
     import AbilityScore from "./AbilityScore.svelte";
     import SkillScore from "./SkillScore.svelte";
-    import { TraitsView } from "$lib/views";
+    import { TraitView } from "$lib/views";
     import ProficiencyGroup from "./ProficiencyGroup.svelte";
-    import { getAllSkills } from "$lib/utils";
+    import { DetailsCtrl } from "$lib/ui/ctrls";
+    import { getAllSkills, getAdvancements, sourceIcons } from "$lib/utils";
 
     let stats = getContext("stats")
 
@@ -31,9 +32,27 @@
         {/each}
     </div>
 
-    <TraitsView
-        tag="narrative"
-    />
+    <h3>Traits</h3>
+    <div class=traits-ctrl>
+        {#each Object.entries(getAdvancements(stats, false)) as [source, advancements]}
+            {#each advancements as advancement}
+                {#each Object.entries(advancement.traits || []) as [i, trait]}
+                    {#if trait?.tags?.includes("narrative")}
+                        <DetailsCtrl>
+                            {#snippet summary()}
+                                    <span class=icon>{sourceIcons[source]}</span>
+                                    <span class=trait-label>{trait.name}</span>
+                            {/snippet}
+
+                            <TraitView 
+                                bind:trait={advancement.traits[i]}
+                            />
+                        </DetailsCtrl>
+                    {/if}
+                {/each}
+            {/each}
+        {/each}
+    </div>
 
     <div class=proficiencies>
         <h3>Proficiencies</h3>
@@ -81,5 +100,11 @@
         display: flex;
         flex-direction: column;
         gap: .5rem;
+    }
+
+    .traits-ctrl {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
     }
 </style>

@@ -117,6 +117,9 @@ dialog {
     border-radius: .5rem;
     padding: 1rem;
 }
+.icon {
+    font-family: var(--emoji);
+}
 svg.icon {
     height: 1em;
     width: 1em;

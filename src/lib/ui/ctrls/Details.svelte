@@ -32,6 +32,9 @@
 
 <style>
     .details {
+        display: flex;
+        flex-direction: row;
+        gap: .5rem;
         background-color: transparent;
         border: none;
         border: none;
