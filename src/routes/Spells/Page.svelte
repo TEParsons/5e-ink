@@ -63,12 +63,6 @@
         align-items: center;
         justify-content: space-between;
     }
-    .subclass-header {
-        font-style: italic;
-        padding: .5rem;
-        margin-top: 1rem;
-        border-bottom: 1px solid var(--mantle);
-    }
     .spell-list {
         display: flex;
         flex-direction: column;
