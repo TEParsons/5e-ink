@@ -4,19 +4,23 @@ export var sourceIcons = {
     background: "🎭",
     custom: "📖",
     class: "🎓",
+    item: "👜",
     consumable: "🍄",
     weapon: "⚔︎",
+    armour: "🛡",
     spell: "✨"
 }
 
 
 export function getAdvancements(stats, flatten=true) {
     let sources = {
+        item: [],
         species: [],
         background: [],
+        class: [],
         custom: [],
-        class: []
     }
+    
     // from species
     sources.species.push(stats.species)
     // from subspecies
@@ -31,6 +35,11 @@ export function getAdvancements(stats, flatten=true) {
         // from class subtype
         sources.class.push(...stats.class[cls].subtype?.advancements || [])
     }
+    // from items
+    for (let [i, item] in Object.entries(stats.inventory.items)) {
+        sources.item.push(stats.inventory.items[i]?.grants || {})
+    }
+    
     // flatten if requested
     if (flatten) {
         sources = Object.values(sources).flat()

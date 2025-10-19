@@ -1,5 +1,6 @@
 <script>
     import { TextCtrl, NumberCtrl, MarkdownCtrl, ChoiceCtrl, SwitchCtrl, EditToggle, Break } from "$lib/ui/ctrls";
+    import { AttackView, ActionView } from "$lib/views";
     import ItemSchema from "$lib/schemas/item.schema.json";
     import { itemTypes, recursiveDefaults } from "$lib/schemas";
     import { getContext, setContext } from "svelte";
@@ -83,6 +84,18 @@
             edit={edit}
         />
     {/if}
+    {#each Object.entries(item.grants?.attacks || []) as [i, attack]}
+        <AttackView 
+            bind:attack={item.grants.attacks[i]}
+            edit={edit}
+        />
+    {/each}
+    {#each Object.entries(item.grants?.actions || []) as [i, action]}
+        <ActionView 
+            bind:action={item.grants.actions[i]}
+            edit={edit}
+        />
+    {/each}
     <ParamsComponent
         bind:item={item}
         bind:edit={edit}

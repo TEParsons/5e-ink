@@ -1,0 +1,123 @@
+{
+    "$id": "attack",
+    "$ref": "action",
+    "title": "Attack",
+    "description": "A specific type of action describing an attack",
+    "type": "object",
+    "properties": {
+        "weapontype": {
+            "type": "string",
+            "enum": [
+                "unarmed",
+                "improvised",
+                "simple",
+                "martial",
+                "spell"
+            ],
+            "default": "simple"
+        },
+        "attackstat": {
+            "type": "string",
+            "enum": [
+                "str",
+                "con",
+                "dex",
+                "int",
+                "wis",
+                "chr"
+            ]
+        },
+        "distance": {
+            "type": "object",
+            "properties": {
+                "reach": {
+                    "type": "number",
+                    "default": 5
+                },
+                "range": {
+                    "type": "number",
+                    "default": 0
+                },
+                "maxrange": {
+                    "type": "number",
+                    "default": 0
+                },
+                "thrown": {
+                    "type": "object",
+                    "properties": {
+                        "reach": {
+                            "type": "object",
+                            "default": 0
+                        },
+                        "range": {
+                            "type": "number",
+                            "default": 0
+                        },
+                        "maxrange": {
+                            "type": "number",
+                            "default": 0
+                        }
+                    }
+                }
+            }
+        },
+        "damage": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "acid", 
+                        "bludgeoning", 
+                        "cold",
+                        "fire", 
+                        "force", 
+                        "lightning", 
+                        "necrotic", 
+                        "piercing", 
+                        "poison", 
+                        "psychic", 
+                        "radiant", 
+                        "slashing", 
+                        "thunder"
+                    ],
+                    "default": "bludgeoning"
+                },
+                "dice": {
+                    "type": "object",
+                    "properties": {
+                        "d4": {
+                            "type": "number",
+                            "default": 1
+                        },
+                        "d6": {
+                            "type": "number",
+                            "default": 0
+                        },
+                        "d8": {
+                            "type": "number",
+                            "default": 0
+                        },
+                        "d10": {
+                            "type": "number",
+                            "default": 0
+                        },
+                        "d12": {
+                            "type": "number",
+                            "default": 0
+                        },
+                        "d20": {
+                            "type": "number",
+                            "default": 0
+                        },
+                        "d100": {
+                            "type": "number",
+                            "default": 0
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}

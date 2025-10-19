@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { getAdvancements, sourceIcons } from "$lib/utils.js";
     import { DetailsCtrl } from "$lib/ui/ctrls"
-    import { SpellView, ActionView, ItemView } from "$lib/views";
+    import { SpellView, ActionView, AttackView, ItemView } from "$lib/views";
 
     let {
         time
@@ -19,29 +19,6 @@
     <!-- from items -->
     {#each Object.entries(stats.inventory.items) as [i, item]}
         {#if item.equipped}
-
-            <!-- weapons -->
-            {#if item.type === "weapon" && time === "action"}
-                <DetailsCtrl
-                    onopen={evt => restore = $state.snapshot(item)}
-                    buttons={{
-                        OK: evt => {},
-                        CANCEL: evt => Object.assign(item, restore)
-                    }}
-                >
-                    {#snippet summary()}
-                        <div class=action-summary>
-                            <div class=icon>{sourceIcons.weapon}</div>
-                            <div class=action-label>{item.name} ({item.params.attacktype})</div>
-                        </div>
-                    {/snippet}
-
-                    <ItemView 
-                        bind:item={stats.inventory.items[i]}
-                    />
-                </DetailsCtrl>
-            {/if}
-
             <!-- consumables -->
             {#if item.type === "consumable" && item.params?.time?.type === time }
                 <DetailsCtrl
@@ -69,6 +46,28 @@
     <!-- from advancements -->
     {#each Object.entries(getAdvancements(stats, false)) as [source, advancements]}
         {#each advancements as advancement}
+
+            <!-- attacks -->
+            {#each Object.entries(advancement.attacks || []) as [i, attack]}
+                {#if attack.time.type === time}
+                    <DetailsCtrl
+                        onopen={evt => restore = $state.snapshot(attack)}
+                        buttons={{
+                            OK: evt => {},
+                            CANCEL: evt => Object.assign(attack, restore)
+                        }}
+                    >
+                        {#snippet summary()}
+                            <span class=icon>{sourceIcons.weapon}</span>
+                            <span class=trait-label>{attack.name}</span>
+                        {/snippet}
+
+                        <AttackView 
+                            bind:attack={advancement.attacks[i]}
+                        />
+                    </DetailsCtrl>
+                {/if}
+            {/each}
             
             <!-- actions -->
             {#each Object.entries(advancement.actions || []) as [i, action]}

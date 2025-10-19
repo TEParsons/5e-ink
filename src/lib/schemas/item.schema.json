@@ -96,6 +96,9 @@
         },
         "params": {
             "type": "object"
+        },
+        "grants": {
+            "$ref": "advancement"
         }
     },
     "allOf": [

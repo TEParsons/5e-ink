@@ -817,24 +817,34 @@
                 },
                 "description": "",
                 "equipped": true,
-                "params": {
-                    "weapontype": "simple",
-                    "attacktype": "melee",
-                    "distance": {
-                        "reach": 5,
-                        "range": 0,
-                        "maxrange": 0,
-                        "thrown": {
-                            "range": 20,
-                            "maxrange": 60
+                "grants": {
+                    "attacks": [
+                        {
+                            "name": "Dagger",
+                            "time": {
+                                "type": "action",
+                                "amount": 1
+                            },
+                            "description": "A small, simple blade.",
+                            "weapontype": "simple",
+                            "attackstat": "str",
+                            "distance": {
+                                "reach": 5,
+                                "range": 0,
+                                "maxrange": 0,
+                                "thrown": {
+                                    "range": 20,
+                                    "maxrange": 60
+                                }
+                            },
+                            "damage": {
+                                "type": "piercing",
+                                "dice": {
+                                    "d4": 1
+                                }
+                            }
                         }
-                    },
-                    "damage": {
-                        "type": "piercing",
-                        "dice": {
-                            "d4": 1
-                        }
-                    }
+                    ]
                 }
             },
             {
@@ -846,7 +856,7 @@
                 "cost": {
                     "sp": 1
                 },
-                "description": "Proficiency with a Sling allows you to add your proficiency bonus to the attack roll for any attack you make with it.",
+                "description": "",
                 "equipped": true,
                 "params": {
                     "weapontype": "simple",
@@ -861,11 +871,32 @@
                         "dice": {
                             "d4": 1
                         }
-                    },
-                    "ammunition": {
-                        "total": 20,
-                        "current": 20
                     }
+                },
+                "grants": {
+                    "attacks": [
+                        {
+                            "name": "Sling",
+                            "time": {
+                                "type": "action",
+                                "amount": 1
+                            },
+                            "description": "A bolt of tough leather, perfect for hurling small projectiles.",
+                            "weapontype": "simple",
+                            "attackstat": "dex",
+                            "distance": {
+                                "reach": 0,
+                                "range": 30,
+                                "maxrange": 120
+                            },
+                            "damage": {
+                                "type": "bludgeoning",
+                                "dice": {
+                                    "d4": 1
+                                }
+                            }
+                        }
+                    ]
                 }
             },
             {
