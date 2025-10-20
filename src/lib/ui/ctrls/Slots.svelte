@@ -10,7 +10,7 @@
     } = $props()   
 </script>
 
-<div class=slots>
+<div class=spellslots>
     {#each Array(total).keys() as n}
         <button
             onclick={(evt) => {
@@ -44,7 +44,7 @@
 </div>
 
 <style>
-    .slots {
+    .spellslots {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;

@@ -30,7 +30,7 @@ export let advancements = {
                 "type": "action",
                 "amount": 1
             },
-            "slots": {
+            "spellslots": {
                 "total": 2,
                 "current": 2
             },

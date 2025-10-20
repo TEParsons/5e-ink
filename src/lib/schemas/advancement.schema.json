@@ -359,7 +359,7 @@
         "casting": {
             "type": "object",
             "properties": {
-                "slots": {
+                "spellslots": {
                     "type": "object",
                     "properties": {
                         "first": {

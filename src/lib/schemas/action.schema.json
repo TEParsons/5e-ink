@@ -28,7 +28,7 @@
                 }
             }
         },
-        "slots": {
+        "spellslots": {
             "type": "object",
             "required": ["total", "current"],
             "properties": {

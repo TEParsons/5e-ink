@@ -100,12 +100,12 @@
             "title": "Current",
             "description": "Aspects of the character which are changeable",
             "type": "object",
-            "required": ["damage", "slots"],
+            "required": ["damage", "spellslots"],
             "properties": {
                 "damage": {
                     "type": "number"
                 },
-                "slots": {
+                "spellslots": {
                     "type": "object",
                     "properties": {
                         "first": {

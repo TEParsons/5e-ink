@@ -25,14 +25,14 @@
         {/each}
     </div>
 
-    {#each Object.keys(stats.current.slots) as level}
-        {#if stats.current.slots[level] !== undefined}
+    {#each Object.keys(stats.current.spellslots) as level}
+        {#if stats.current.spellslots[level] !== undefined}
             <div class=level-header>
                 <h2>
                     {`${sentenceCase(level)} level`}
                 </h2>
                 <SlotsCtrl 
-                    bind:value={stats.current.slots[level]}
+                    bind:value={stats.current.spellslots[level]}
                     total={getTotalSlots(stats, level)}
                 />
             </div>

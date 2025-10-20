@@ -19,16 +19,16 @@
     }[spell.time.type] || sentenceCase(spell.time.type)}`)
 
     let restore = {
-        slots: undefined
+        spellslots: undefined
     }
 </script>
 
 <DetailsCtrl
     buttons={{
         OK: evt => {},
-        CANCEL: evt => stats.current.slots[spell.level] = restore.slots
+        CANCEL: evt => stats.current.spellslots[spell.level] = restore.spellslots
     }}
-    onopen={evt => restore.slots = $state.snapshot(stats.current.slots[spell.level])}
+    onopen={evt => restore.spellslots = $state.snapshot(stats.current.spellslots[spell.level])}
 >
     {#snippet summary()}
         <div class=spell-summary>

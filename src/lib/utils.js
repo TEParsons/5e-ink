@@ -131,15 +131,15 @@ export function getProficiencies(stats, tag) {
 }
 
 export function getTotalSlots(stats, level) {
-    let slots = 0;
+    let spellslots = 0;
     
     for (let source of getAdvancements(stats)) {
-        if (source.casting?.slots) {
-            slots += source.casting?.slots[level] || 0
+        if (source.casting?.spellslots) {
+            spellslots += source.casting?.spellslots[level] || 0
         }
     }
 
-    return slots
+    return spellslots
 }
 
 

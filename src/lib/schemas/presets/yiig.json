@@ -25,7 +25,7 @@
     },
     "current": {
         "damage": 5,
-        "slots": {
+        "spellslots": {
             "first": 4,
             "second": 3,
             "third": 3,
@@ -90,7 +90,7 @@
                     "type": "bonusaction",
                     "amount": 1
                 },
-                "slots": {
+                "spellslots": {
                     "total": 3,
                     "current": 3
                 },
@@ -174,7 +174,7 @@
                                 "type": "bonusaction",
                                 "amount": 1
                             },
-                            "slots": {
+                            "spellslots": {
                                 "total": 3,
                                 "current": 3
                             },
@@ -182,7 +182,7 @@
                         }
                     ],
                     "casting": {
-                        "slots": {
+                        "spellslots": {
                             "first": 2
                         },
                         "cantrips": [
@@ -370,7 +370,7 @@
                         }
                     ],
                     "casting": {
-                        "slots": {
+                        "spellslots": {
                             "first": 1
                         },
                         "spells": [
@@ -410,7 +410,7 @@
                         }
                     },
                     "casting": {
-                        "slots": {
+                        "spellslots": {
                             "first": 1,
                             "second": 2
                         },
@@ -459,7 +459,7 @@
                         ]
                     },
                     "casting": {
-                        "slots": {
+                        "spellslots": {
                             "second": 1
                         },
                         "cantrips": [
@@ -528,7 +528,7 @@
                         }
                     ],
                     "casting": {
-                        "slots": {
+                        "spellslots": {
                             "third": 2
                         },
                         "spells": [
@@ -575,7 +575,7 @@
                         }
                     ],
                     "casting": {
-                        "slots": {
+                        "spellslots": {
                             "third": 1
                         },
                         "spells": [
@@ -612,7 +612,7 @@
                         }
                     },
                     "casting": {
-                        "slots": {
+                        "spellslots": {
                             "fourth": 1
                         },
                         "spells": [
@@ -657,7 +657,7 @@
                     "traits": [],
                     "actions": [],
                     "casting": {
-                        "slots": {
+                        "spellslots": {
                             "fourth": 1
                         },
                         "spells": [
@@ -761,7 +761,7 @@
                                     "type": "bonusaction",
                                     "amount": 1
                                 },
-                                "slots": {
+                                "spellslots": {
                                     "total": 1,
                                     "current": 1
                                 },

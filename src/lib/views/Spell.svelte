@@ -64,12 +64,12 @@
         {/if}
     </i>
 
-    {#if stats.current.slots[spell.level] !== undefined}
+    {#if stats.current.spellslots[spell.level] !== undefined}
         <h4>
-            {`${spell.level[0].toUpperCase()}${spell.level.slice(1)} level`} slots
+            {`${spell.level[0].toUpperCase()}${spell.level.slice(1)} level`} spellslots
         </h4>
         <SlotsCtrl 
-            bind:value={stats.current.slots[spell.level]}
+            bind:value={stats.current.spellslots[spell.level]}
             bind:total={totalSlots}
         />
     {/if}

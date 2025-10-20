@@ -22,8 +22,8 @@
     },
     "current": {
         "damage": 0,
-        "slots": {
-            "first": 1
+        "pools": {
+            "spellslot-first": 1
         }
     },
     "scores": {
@@ -162,7 +162,7 @@
             }
         },
         "casting": {
-            "slots": {
+            "spellslots": {
                 "first": 1
             },
             "cantrips": [
@@ -318,7 +318,7 @@
                             "tags": [
                                 "combat"
                             ],
-                            "slots": {
+                            "spellslots": {
                                 "total": 3,
                                 "current": 3
                             },

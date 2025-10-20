@@ -4,7 +4,7 @@
 
     let {
         action=$bindable(),
-        slots=$bindable()
+        spellslots=$bindable()
     } = $props()
 
     let stats = getContext("stats");
@@ -19,13 +19,13 @@
         value={action.description}
     />
     
-    {#if action.slots}
+    {#if action.spellslots}
         <h4>
             Slots
         </h4>
         <SlotsCtrl 
-            bind:value={action.slots.current}
-            bind:total={action.slots.total}
+            bind:value={action.spellslots.current}
+            bind:total={action.spellslots.total}
         />
     {/if}
 </div>

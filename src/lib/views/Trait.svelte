@@ -10,9 +10,9 @@
 <h2>{trait.name}</h2>
 <p>{trait.description}</p>
 
-{#if trait.slots}
+{#if trait.spellslots}
     <SlotsCtrl 
-        bind:value={trait.slots.current}
-        bind:total={trait.slots.total}
+        bind:value={trait.spellslots.current}
+        bind:total={trait.spellslots.total}
     />
 {/if}
