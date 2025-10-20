@@ -408,26 +408,36 @@
                 "cost": {
                     "gp": 2
                 },
-                "description": "Two circular rings with a continuous blade running across the circumference, held in each hand by a wooden bar through the center.",
+                "description": "",
                 "equipped": true,
-                "params": {
-                    "weapontype": "simple",
-                    "attacktype": "finesse",
-                    "distance": {
-                        "reach": 5,
-                        "range": 0,
-                        "maxrange": 0,
-                        "thrown": {
-                            "range": 20,
-                            "maxrange": 60
+                "grants": {
+                    "attacks": [
+                        {
+                            "name": "Chakram",
+                            "time": {
+                                "type": "action",
+                                "amount": 1
+                            },
+                            "description": "Two circular rings with a continuous blade running across the circumference, held in each hand by a wooden bar through the center of each.",
+                            "weapontype": "simple",
+                            "attackstat": "dex",
+                            "distance": {
+                                "reach": 5,
+                                "range": 0,
+                                "maxrange": 0,
+                                "thrown": {
+                                    "range": 20,
+                                    "maxrange": 60
+                                }
+                            },
+                            "damage": {
+                                "type": "slashing",
+                                "dice": {
+                                    "d6": 1
+                                }
+                            }
                         }
-                    },
-                    "damage": {
-                        "type": "slashing",
-                        "dice": {
-                            "d6": 1
-                        }
-                    }
+                    ]
                 }
             },
             {
