@@ -1,6 +1,5 @@
 <script>
     import { DetailsCtrl } from "$lib/ui/ctrls";
-    import { getPool } from "$lib/utils";
     import { getContext } from "svelte";
 
     let {

@@ -5,8 +5,8 @@
     import SkillScore from "./SkillScore.svelte";
     import { TraitView } from "$lib/views";
     import ProficiencyGroup from "./ProficiencyGroup.svelte";
-    import { DetailsCtrl } from "$lib/ui/ctrls";
-    import { getAllSkills, getAdvancements, sourceIcons } from "$lib/utils";
+    import { DetailsCtrl, SlotsCtrl } from "$lib/ui/ctrls";
+    import { getAllSkills, getAdvancements, sourceIcons, getPools } from "$lib/utils";
 
     let stats = getContext("stats")
 
@@ -24,6 +24,7 @@
         {/each}
     </div>
 
+    <h3>Skills</h3>
     <div id=skill-scores>
         {#each Object.keys(getAllSkills(stats)) as key}
             <SkillScore
@@ -51,6 +52,19 @@
                     {/if}
                 {/each}
             {/each}
+        {/each}
+    </div>
+
+    <h3>Pools</h3>
+    <div class=pools-ctrl>
+        {#each Object.entries(getPools(stats)) as [index, pool]}
+            <div class=pool-ctrl>
+                <SlotsCtrl 
+                    bind:value={stats.current.pools[index]}
+                    total={pool.total}
+                />
+                <b>{pool.name}</b>
+            </div>
         {/each}
     </div>
 
@@ -106,5 +120,16 @@
         display: flex;
         flex-direction: column;
         align-items: stretch;
+    }
+
+    .pools-ctrl {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+    }
+    .pool-ctrl {
+        display: flex;
+        flex-direction: row;
+        gap: .5rem;
     }
 </style>

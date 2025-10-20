@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { getPool } from "$lib/utils";
+    import { getPools } from "$lib/utils";
     import { DetailsCtrl, SlotsCtrl, MarkdownCtrl } from "$lib/ui/ctrls";
 
     let {
@@ -21,7 +21,7 @@
     />
 
     {#if action.pool}
-        {@const pool = getPool(stats, action.pool)}
+        {@const pool = getPools(stats)[action.pool]}
         <h4>
             {pool.name}
         </h4>
