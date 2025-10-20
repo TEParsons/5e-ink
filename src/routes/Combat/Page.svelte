@@ -5,12 +5,108 @@
     import ArmourCtrl from "./ArmourCtrl.svelte";
     import MovementCtrl from "./MovementCtrl.svelte";
     import InitiativeCtrl from "./InitiativeCtrl.svelte";
-    import ActionsCtrl from "./ActionsCtrl.svelte";
-    import { TraitView } from "$lib/views";
+    import ActionCtrl from "./ActionCtrl.svelte";
+    import { TraitView, SpellView, ActionView, AttackView, ItemView } from "$lib/views";
     import { DetailsCtrl } from "$lib/ui/ctrls";
 
     let stats = getContext("stats")
 </script>
+
+{#snippet actions(time)}
+    <div class=actions-ctrl>
+        <!-- from items -->
+        {#each Object.entries(stats.inventory.items) as [i, item]}
+            {#if item.equipped}
+                <!-- consumables -->
+                {#if item.type === "consumable" && item.params?.time?.type === time }
+                    <ActionCtrl
+                        bind:action={stats.inventory.items[i]}
+                        icon={sourceIcons.consumable}
+                    >
+                        <ItemView 
+                            bind:item={stats.inventory.items[i]}
+                        />
+                    </ActionCtrl>
+                {/if}
+            {/if}
+        {/each}
+
+        <!-- from advancements -->
+        {#each Object.entries(getAdvancements(stats, false)) as [source, advancements]}
+            {#each advancements as advancement}
+
+                <!-- attacks -->
+                {#each Object.entries(advancement.attacks || []) as [i, attack]}
+                    {#if attack.time.type === time}
+                        <ActionCtrl
+                            bind:action={advancement.attacks[i]}
+                            icon={sourceIcons.weapon}
+                        >
+                            <AttackView 
+                                bind:attack={advancement.attacks[i]}
+                            />
+                        </ActionCtrl>
+                    {/if}
+                {/each}
+                
+                <!-- actions -->
+                {#each Object.entries(advancement.actions || []) as [i, action]}
+                    {#if action.time.type === time}
+                        <ActionCtrl
+                            bind:action={advancement.actions[i]}
+                            icon={sourceIcons[source]}
+                        >
+                            <ActionView 
+                                bind:action={advancement.actions[i]}
+                            />
+                        </ActionCtrl>
+                    {/if}
+                {/each}
+
+                <!-- cantrips -->
+                {#each Object.entries(advancement.casting?.cantrips || []) as [i, cantrip]}
+                    {#if cantrip.time.type === time}
+                        <ActionCtrl
+                            bind:action={advancement.casting.cantrips[i]}
+                            icon={sourceIcons.spell}
+                        >
+                            <SpellView 
+                                bind:spell={advancement.casting.cantrips[i]}
+                            />
+                        </ActionCtrl>
+                    {/if}
+                {/each}
+
+                <!-- spells -->
+                {#each Object.entries(advancement.casting?.spells || []) as [i, spell]}
+                    {#if spell.time.type === time}
+                        <ActionCtrl
+                            bind:action={advancement.casting.spells[i]}
+                            icon="{sourceIcons.spell}{
+                                {
+                                    "first": "❶", 
+                                    "second": "❷", 
+                                    "third": "❸", 
+                                    "fourth": "❹", 
+                                    "fifth": "❺", 
+                                    "sixth": "❻", 
+                                    "seventh": "❼",
+                                    "eighth": "❽",
+                                    "ninth": "❾"
+                                }[spell.level]
+                            }"
+                        >
+                            <SpellView 
+                                bind:spell={advancement.casting.spells[i]}
+                            />
+                        </ActionCtrl>
+                    {/if}
+                {/each}
+
+            {/each}
+        {/each}
+    </div>
+{/snippet}
 
 <div class=page>
     <div class=stats>
@@ -59,19 +155,13 @@
     </div>
 
     <h3>Actions</h3>
-    <ActionsCtrl
-        time="action"
-    />
+    {@render actions("action")}
 
     <h3>Bonus Actions</h3>
-    <ActionsCtrl
-        time="bonusaction"
-    />
+    {@render actions("bonusaction")}
 
     <h3>Reactions</h3>
-    <ActionsCtrl
-        time="reaction"
-    />
+    {@render actions("reaction")}
 </div>
 
 <style>
@@ -101,6 +191,12 @@
     }
 
     .list-ctrl {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .actions-ctrl {
         display: flex;
         flex-direction: column;
         align-items: stretch;

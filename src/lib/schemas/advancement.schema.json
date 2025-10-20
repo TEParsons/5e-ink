@@ -356,6 +356,12 @@
                 "$ref": "attack"
             }
         },
+        "pools": {
+            "type": "object",
+            "additionalProperties": {
+                "$ref": "pool"
+            }
+        },
         "casting": {
             "type": "object",
             "properties": {

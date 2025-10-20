@@ -1,0 +1,20 @@
+{
+    "$id": "pool",
+    "title": "Pool",
+    "description": "Define or modify a pool of points (e.g. Ki for monks)",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "add": {
+            "type": "integer"
+        },
+        "set": {
+            "type": "integer"
+        }
+    }
+}

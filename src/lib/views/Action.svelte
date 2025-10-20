@@ -1,5 +1,6 @@
 <script>
     import { getContext } from "svelte";
+    import { getPool } from "$lib/utils";
     import { DetailsCtrl, SlotsCtrl, MarkdownCtrl } from "$lib/ui/ctrls";
 
     let {
@@ -18,14 +19,15 @@
     <MarkdownCtrl 
         value={action.description}
     />
-    
-    {#if action.spellslots}
+
+    {#if action.pool}
+        {@const pool = getPool(stats, action.pool)}
         <h4>
-            Slots
+            {pool.name}
         </h4>
-        <SlotsCtrl 
-            bind:value={action.spellslots.current}
-            bind:total={action.spellslots.total}
+        <SlotsCtrl
+            bind:value={stats.current.pools[action.pool]}
+            total={pool.total}
         />
     {/if}
 </div>

@@ -23,7 +23,10 @@
     "current": {
         "damage": 0,
         "pools": {
-            "spellslot-first": 1
+            "ki": 3
+        },
+        "spellslots": {
+            "first": 1
         }
     },
     "scores": {
@@ -312,19 +315,13 @@
                             }
                         }
                     },
-                    "traits": [
-                        {
+                    "pools": {
+                        "ki": {
                             "name": "Ki",
-                            "tags": [
-                                "combat"
-                            ],
-                            "spellslots": {
-                                "total": 3,
-                                "current": 3
-                            },
-                            "description": "Your training allows you to harness the mystic energy of ki. Your access to this energy is represented by a number of ki points.\nYou can spend these points to fuel various ki features. When you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You must spend at least 30 minutes of the rest meditating to regain your ki points.\nSome of your ki features require your target to make a saving throw to resist the feature's effects. The saving throw DC is calculated as follows:\nKi save DC = 8 + your proficiency bonus + your Wisdom modifier"
+                            "description": "Your training allows you to harness the mystic energy of ki. Your access to this energy is represented by a number of ki points.\nYou can spend these points to fuel various ki features. When you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You must spend at least 30 minutes of the rest meditating to regain your ki points.\nSome of your ki features require your target to make a saving throw to resist the feature's effects. The saving throw DC is calculated as follows:\nKi save DC = 8 + your proficiency bonus + your Wisdom modifier",
+                            "add": 2
                         }
-                    ],
+                    },
                     "actions": [
                         {
                             "name": "Flurry of Blows",
@@ -332,7 +329,8 @@
                                 "type": "bonusaction",
                                 "amount": 1
                             },
-                            "description": "Immediately after you take the Attack action on your turn, you can spend 1 ki point to make two unarmed strikes as a bonus action."
+                            "description": "Immediately after you take the Attack action on your turn, you can spend 1 ki point to make two unarmed strikes as a bonus action.",
+                            "pool": "ki"
                         },
                         {
                             "name": "Patient Defense",
@@ -340,7 +338,8 @@
                                 "type": "bonusaction",
                                 "amount": 1
                             },
-                            "description": "You can spend 1 ki point to take the Dodge action as a bonus action on your turn."
+                            "description": "You can spend 1 ki point to take the Dodge action as a bonus action on your turn.",
+                            "pool": "ki"
                         },
                         {
                             "name": "Step of the Wind",
@@ -348,7 +347,8 @@
                                 "type": "bonusaction",
                                 "amount": 1
                             },
-                            "description": "You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn."
+                            "description": "You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn.",
+                            "pool": "ki"
                         }
                     ]
                 },
@@ -365,9 +365,15 @@
                                 "type": "reaction",
                                 "amount": 1
                             },
-                            "description": "Use your reaction to deflect or catch the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d 10 + your Dexterity modifier + your monk level.\nIf you reduce the damage to 0, you can catch the missile if it is small enough for you to hold in one hand and you have at least one hand free. If you catch a missile in this way, you can spend 1 ki point to make a ranged attack (range 20 feet/60 feet) with the weapon or piece of ammunition you just caught, as part of the same reaction. You make this attack with proficiency, regardless of your weapon proficiencies, and the missile counts as a monk weapon for the attack."
+                            "description": "Use your reaction to deflect or catch the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d 10 + your Dexterity modifier + your monk level.\nIf you reduce the damage to 0, you can catch the missile if it is small enough for you to hold in one hand and you have at least one hand free. If you catch a missile in this way, you can spend 1 ki point to make a ranged attack (range 20 feet/60 feet) with the weapon or piece of ammunition you just caught, as part of the same reaction. You make this attack with proficiency, regardless of your weapon proficiencies, and the missile counts as a monk weapon for the attack.",
+                            "pool": "ki"
                         }
-                    ]
+                    ],
+                    "pools": {
+                        "ki": {
+                            "add": 1
+                        }
+                    }
                 }
             },
             "subtype": {
@@ -382,7 +388,8 @@
                                     "type": "bonusaction",
                                     "amount": 1
                                 },
-                                "description": "Spend 1 ki point to summon the arms of your digital self. When you do so, each creature of your choice that you can see within 10 feet of you must succeed on a Dexterity saving throw or take force damage equal to two rolls of your Martial Arts die.\nFor 10 minutes, these electral arms hover near your shoulders or surround your arms (your choice). You determine the arms' appearance, and they vanish early if you are incapacitated or die.\nWhile the electral arms are present, you gain the following benefits:\n- You can use your Wisdom modifier in place of your Strength modifier when making Strength checks and Strength saving throws.\n- You can use the electral arms to make unarmed strikes.\n- When you make an unarmed strike with the arms on your turn, your reach for it is 5 feet greater than normal.\n- The unarmed strikes you make with the arms can use your Wisdom modifier in place of your Strength or Dexterity modifier for the attack and damage rolls, and their damage type is force."
+                                "description": "Spend 1 ki point to summon the arms of your digital self. When you do so, each creature of your choice that you can see within 10 feet of you must succeed on a Dexterity saving throw or take force damage equal to two rolls of your Martial Arts die.\nFor 10 minutes, these electral arms hover near your shoulders or surround your arms (your choice). You determine the arms' appearance, and they vanish early if you are incapacitated or die.\nWhile the electral arms are present, you gain the following benefits:\n- You can use your Wisdom modifier in place of your Strength modifier when making Strength checks and Strength saving throws.\n- You can use the electral arms to make unarmed strikes.\n- When you make an unarmed strike with the arms on your turn, your reach for it is 5 feet greater than normal.\n- The unarmed strikes you make with the arms can use your Wisdom modifier in place of your Strength or Dexterity modifier for the attack and damage rolls, and their damage type is force.",
+                                "pool": "ki"
                             }
                         ]
                     }

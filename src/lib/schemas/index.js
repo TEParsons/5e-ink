@@ -5,6 +5,7 @@ import SpellSchema from "./spell.schema.json";
 import ActionSchema from "./action.schema.json";
 import AttackSchema from "./attack.schema.json";
 import TraitSchema from "./trait.schema.json";
+import PoolSchema from "./pool.schema.json";
 import ItemSchema from "./item.schema.json";
 import WeaponItemSchema from "./items/weapon.schema.json";
 import ArmourItemSchema from "./items/armour.schema.json";
@@ -33,6 +34,7 @@ let ajv = new Ajv({
         ActionSchema,
         AttackSchema,
         TraitSchema,
+        PoolSchema,
         AdvancementSchema,
         CharacterSchema
     ]
@@ -46,6 +48,7 @@ export var schemas = {
     action: ajv.compile(ActionSchema),
     attack: ajv.compile(AttackSchema),
     trait: ajv.compile(TraitSchema),
+    pool: ajv.compile(PoolSchema),
     advancement: ajv.compile(AdvancementSchema),
     item: ajv.compile(ItemSchema),
 }

@@ -49,6 +49,28 @@ export function getAdvancements(stats, flatten=true) {
 }
 
 
+export function getPool(stats, index) {
+    // start off with defaults
+    let pool = {
+        index: index,
+        name: index,
+        description: "",
+        total: 0
+    }
+    // find modifications from advancements
+    for (let advancement of getAdvancements(stats)) {
+        // update name and description
+        pool.name = advancement.pools?.[index]?.name || pool.name
+        pool.description = advancement.pools?.[index]?.description || pool.name
+        // update total
+        pool.total += advancement.pools?.[index]?.add || 0
+        pool.total = Math.max(advancement.pools?.[index]?.set || pool.total)
+    }
+
+    return pool
+}
+
+
 export function sentenceCase(value) {
     // convert camelCase
     value = String(value).replaceAll(
