@@ -1,4 +1,6 @@
 <script>
+    import { SlotsCtrl } from "$lib/ui/ctrls"
+
     let {
         trait=$bindable()
     } = $props()
