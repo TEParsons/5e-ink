@@ -100,10 +100,17 @@
             "title": "Current",
             "description": "Aspects of the character which are changeable",
             "type": "object",
-            "required": ["damage", "spellslots"],
+            "required": ["damage", "spellslots", "pools"],
             "properties": {
                 "damage": {
                     "type": "number"
+                },
+                "pools": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "integer"
+                    },
+                    "default": []
                 },
                 "spellslots": {
                     "type": "object",

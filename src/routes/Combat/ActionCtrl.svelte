@@ -23,7 +23,7 @@
         // store action's state on open
         restore.action = $state.snapshot(action);
         if (action.pool) {
-            restore.pool = $state.snapshot(stats.current.pools[action.pool])
+            restore.pool = $state.snapshot(stats.current.pools?.[action.pool])
         }
     }}
     buttons={{
