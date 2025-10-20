@@ -30,6 +30,10 @@
             "second": 3,
             "third": 3,
             "fourth": 2
+        },
+        "pools": {
+            "bardic": 3,
+            "relentless-endurance": 1
         }
     },
     "scores": {
@@ -83,6 +87,12 @@
                 "description": "When you are reduced to 0 Hit Points but not killed outright, you can drop to 1 Hit Point instead. Once you use this trait, you can't do so again until you finish a Long Rest"
             }
         ],
+        "pools": {
+            "relentless-endurance": {
+                "name": "Relentless Endurance",
+                "add": 1
+            }
+        },
         "actions": [
             {
                 "name": "Adrenaline Rush",
@@ -174,13 +184,16 @@
                                 "type": "bonusaction",
                                 "amount": 1
                             },
-                            "spellslots": {
-                                "total": 3,
-                                "current": 3
-                            },
+                            "pool": "bardic",
                             "description": "As a Bonus Action, you can inspire another creature within 60 feet of yourself who can see or hear you. That creature gains one of your Bardic Inspiration dice. A creature can have only one Bardic Inspiration die at a time.\n\nOnce within the next hour when the creature fails a D20 Test, the creature can roll the Bardic Inspiration die and add the number rolled to the d20, potentially turning the failure into a success. A Bardic Inspiration die is expended when it's rolled."
                         }
                     ],
+                    "pools": {
+                        "bardic": {
+                            "name": "Bardic Inspiration",
+                            "add": 3
+                        } 
+                    },
                     "casting": {
                         "spellslots": {
                             "first": 2
@@ -524,7 +537,7 @@
                                 "combat",
                                 "narrative"
                             ],
-                            "description": "You regain all of your expended uses of Bardic Inspiration when you finish a short or long rest."
+                            "description": "You regain all of your expended uses of Bardic Inspiration when you finish a short or long rest. In addition, you can expend a spell slot (no action required) to regain one expended use of Bardic Inspiration."
                         }
                     ],
                     "casting": {
@@ -748,6 +761,7 @@
                                     "type": "bonusaction",
                                     "amount": 1
                                 },
+                                "pool": "bardic",
                                 "description": "As a Bonus Action, you can expend a use of Bardic Inspiration, rolling a Bardic Inspiration die. When you do so, choose a number of other creatures within 60 feet of yourself, up to a number equal to your Charisma modifier (minimum of one creature). Each of those creatures gains a number of Temporary Hit Points equal to two times the number rolled on the Bardic Inspiration die, and then each can use its Reaction to move up to its Speed without provoking Opportunity Attacks."
                             }
                         ]
