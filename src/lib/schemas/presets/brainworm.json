@@ -15,9 +15,11 @@
             "Techbros": "Whatever this setting's answer to Elon dickriders are, he's one of them."
         },
         "allies": {
-            "Sol Saraceno": "Party member"
+            "Sol Saraceno": "Party member",
+            "Hexbyte": "Party member"
         },
         "enemies": {
+            "His own body": "The Flesh is impure"
         }
     },
     "current": {
