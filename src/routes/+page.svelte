@@ -15,6 +15,7 @@
     setContext("stats", stats)
 
     let prefs = $state({
+        printing: false,
         edit: false
     })
     setContext("prefs", prefs)
@@ -23,9 +24,17 @@
     let caster = $derived(
         Object.values(stats.class).every(val => val.spellcasting)
     )
-
-    
 </script>
+
+<svelte:window 
+    onbeforeprint={evt => prefs.printing = true}
+    onafterprint={evt => prefs.printing = false}
+/>
+<svelte:head>
+    <title>
+        {prefs.printing ? stats.details.name : `5e Ink: ${stats.details.name}`}
+    </title>
+</svelte:head>
 
 <div class=content>
     <Notebook>
