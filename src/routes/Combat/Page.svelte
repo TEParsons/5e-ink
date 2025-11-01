@@ -79,7 +79,7 @@
 
                 <!-- spells -->
                 {#each Object.entries(advancement.casting?.spells || []) as [i, spell]}
-                    {#if spell.time.type === time}
+                    {#if spell.time.type === time && stats.current.spellslots[spell.level]}
                         <ActionCtrl
                             bind:action={advancement.casting.spells[i]}
                             icon="{sourceIcons.spell}{
