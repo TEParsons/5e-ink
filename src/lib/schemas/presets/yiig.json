@@ -25,6 +25,7 @@
     },
     "current": {
         "damage": 5,
+        "hptemp": 10,
         "spellslots": {
             "first": 4,
             "second": 3,

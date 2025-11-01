@@ -1,6 +1,6 @@
 <script>
     import Dialog from "$lib/ui/Dialog.svelte";
-    import { SwitchCtrl } from "$lib/ui/ctrls";
+    import { Button, SwitchCtrl } from "$lib/ui/ctrls";
     import { ItemView } from "$lib/views";
     import ItemSchema from "$lib/schemas/item.schema.json";
     import { recursiveDefaults } from "$lib/schemas";
@@ -17,21 +17,24 @@
     let profile = $state({});
 </script>
 
-
-<button
+<div
     class=add-item-btn
-    onclick={evt => {
-        // reset profile to defaults
-        Object.assign(
-            profile, recursiveDefaults(ItemSchema)
-        )
-        profile.type = "misc"
-        profile.params = {}
-        profile.equipped = equipped
-        // show dialog
-        showDlg = true;
-    }}
->+ Add</button>
+>
+    <Button 
+        label="+ Add"
+        onclick={evt => {
+            // reset profile to defaults
+            Object.assign(
+                profile, recursiveDefaults(ItemSchema)
+            )
+            profile.type = "misc"
+            profile.params = {}
+            profile.equipped = equipped
+            // show dialog
+            showDlg = true;
+        }}
+    />
+</div>
 
 
 <Dialog
@@ -51,9 +54,6 @@
 
 <style>
     .add-item-btn {
-        padding: .5rem;
-        background-color: var(--base);
-        color: var(--crust);
         text-align: right;
     }
 </style>

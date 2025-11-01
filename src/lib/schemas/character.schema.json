@@ -105,12 +105,22 @@
                 "damage": {
                     "type": "number"
                 },
+                "hptemp": {
+                    "type": "number"
+                },
                 "pools": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "integer"
                     },
-                    "default": []
+                    "default": {}
+                },
+                "hitdice": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "integer"
+                    },
+                    "default": {}
                 },
                 "spellslots": {
                     "type": "object",

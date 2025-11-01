@@ -1,16 +1,19 @@
 <script>
     import { getContext, untrack } from "svelte";
+    import { Button } from "$lib/ui/ctrls";
     import Dialog from "../Dialog.svelte";
 
     let prefs = getContext("prefs");
 
     let {
         value=$bindable(),
+        temp=$bindable(null),
         label=undefined,
         min=-Infinity,
         max=Infinity,
         interval=1,
-        edit=prefs.edit
+        edit=prefs.edit,
+        allowTemp=false
     } = $props()    
 
     let dialog = $state({
@@ -40,16 +43,20 @@
         }
     })
 
+    let display = $derived(
+        `${value} ${temp ? `+ ${temp}` : ""}`
+    )
 </script>
+
 {#if edit}
     <button
         class="input number"
         onclick={evt => dialog.shown=true}
     >
-        {value}
+        {display}
     </button>
 {:else}
-    <span>{value}</span>
+    <span>{display}</span>
 {/if}
 
 <Dialog
@@ -82,8 +89,35 @@
         >
             {value}
         </div>
-        
     </div>
+    {#if temp !== null}
+        <div class="temp-ctrl dialog-content">
+            {#if temp}
+                <button
+                    class="ctrl"
+                    onclick={evt => temp += interval}
+                >
+                    +
+                </button>
+                <button
+                    class="ctrl"
+                    onclick={evt => temp -= interval}
+                >
+                    -
+                </button>
+                <div
+                    class="output number"
+                >
+                    + {temp}
+                </div>
+            {:else}
+                <Button
+                    label="+ Add temp"
+                    onclick={evt => temp = 1}
+                />
+            {/if}
+        </div>
+    {/if}
 </Dialog>
 
 <style>

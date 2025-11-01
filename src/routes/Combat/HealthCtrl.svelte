@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { totalLevels, classLevels, traitsByTag, score2modifier, getScore, getAdvancements } from "$lib/utils.js";
-    import { NumberCtrl } from "$lib/ui/ctrls";
+    import { NumberCtrl, Button } from "$lib/ui/ctrls";
     import DeathSavesCtrl from "./DeathSavesCtrl.svelte";
 
     let stats = getContext("stats")
@@ -52,13 +52,14 @@
                 () => total - stats.current.damage,
                 (value) => stats.current.damage = total - value
             }
+            bind:temp={stats.current.hptemp}
             edit
         /> 
         <span>/ {total}</span>
     </div>
     <div class=health-bar>
         <div class=current-health
-            style:right="{stats.current.damage * 100 / total}%"
+            style:right="{(stats.current.damage - (stats.current.hptemp || 0)) * 100 / total}%"
         ></div>
     </div>
     {#if stats.current.damage > total}
