@@ -6,6 +6,8 @@
     let {
         /** @prop @type {String} Label for this page's tab */
         label,
+        /** @prop @type {String} Tooltip for this page's tab (heading while printing) */
+        tooltip="",
         /** @prop @type {boolean} Use an emoji for the page label? */
         emoji=false,
         /** @prop @type {function} Function to call when close button clicked (leave undefined for no close button) */
@@ -50,58 +52,76 @@
     let closeHovered = $state.raw(false)
 </script>
 
-<!-- tab button for this page -->
-<button
-    class="notebook-tab"
-    class:current={selected}
-    onclick={() => siblings.current = index}
-    ondragover={() => siblings.current = index}
-    bind:this={handle}
->
-    {#if icon}
-        <svg>
-            <use xlink:href={icon}></use>
-        </svg>
-    {/if}
-    <span 
-        class=label 
-        style:font-family={emoji ? "var(--emoji)" : "var(--body"}>
-        {label}
-    </span>
-    {#if close}
-        <a
-            class=close-btn
-            href
-            onclick={close}
-        >⨉</a>
-    {/if}
-</button>
-{#if selected}
-    <div 
-        {...useSwipe(
-            evt => {
-                // we only care about swipes
-                if (evt.type === "swipe") {
-                    if (evt.detail.direction === "left") {
-                        // on swipe left, go to the next page
-                        siblings.current = Math.min(index + 1, siblings.all.length - 1)
-                    }
-                    if (evt.detail.direction === "right") {
-                        // on swipe right, go to the previous page
-                        siblings.current = Math.max(index - 1, 0)
-                    }
-                }
-            }, 
-            () => ({ timeframe: 300, minSwipeDistance: 50, touchAction: 'pan-y' }), 
-            {}
-        )}
-        class="notebook-page"
-        class:listbook={siblings.book === "listbook"}
-        class:notebook={siblings.book === "notebook"}
+{#if siblings.printing}
+    <h1 
+        class=print-header
+        
     >
+        <span
+            style:font-family={emoji ? "var(--emoji)" : "var(--body"}
+        >
+            {label}
+        </span>
+        {tooltip}
+    </h1>
+    <div class=notebook-page>
         {@render children?.()}
     </div>
+{:else}
+    <!-- tab button for this page -->
+    <button
+        class="notebook-tab"
+        class:current={selected}
+        onclick={() => siblings.current = index}
+        ondragover={() => siblings.current = index}
+        bind:this={handle}
+    >
+        {#if icon}
+            <svg>
+                <use xlink:href={icon}></use>
+            </svg>
+        {/if}
+        <span 
+            class=label 
+            style:font-family={emoji ? "var(--emoji)" : "var(--body"}>
+            {label}
+        </span>
+        {#if close}
+            <a
+                class=close-btn
+                href
+                onclick={close}
+            >⨉</a>
+        {/if}
+    </button>
+    {#if selected}
+        <div 
+            {...useSwipe(
+                evt => {
+                    // we only care about swipes
+                    if (evt.type === "swipe") {
+                        if (evt.detail.direction === "left") {
+                            // on swipe left, go to the next page
+                            siblings.current = Math.min(index + 1, siblings.all.length - 1)
+                        }
+                        if (evt.detail.direction === "right") {
+                            // on swipe right, go to the previous page
+                            siblings.current = Math.max(index - 1, 0)
+                        }
+                    }
+                }, 
+                () => ({ timeframe: 300, minSwipeDistance: 50, touchAction: 'pan-y' }), 
+                {}
+            )}
+            class="notebook-page"
+            class:listbook={siblings.book === "listbook"}
+            class:notebook={siblings.book === "notebook"}
+        >
+            {@render children?.()}
+        </div>
+    {/if}
 {/if}
+
 
 <style>
     .close-btn {
@@ -148,5 +168,13 @@
         grid-column-end: end;
     }
     
-
+    .print-header {
+        color: var(--base);
+        background-color: var(--crust);
+        padding: 1rem;
+        text-align: center;
+    }
+    .print-header:not(:first-of-type) {
+        break-before: page;
+    }
 </style>

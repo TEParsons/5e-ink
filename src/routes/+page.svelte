@@ -31,12 +31,14 @@
     <Notebook>
         <NotebookPage
             label="📋"
+            tooltip="Abilities"
             emoji
         >
             <AbilitiesPage />
         </NotebookPage>
         <NotebookPage
             label="⚔︎"
+            tooltip="Combat"
             emoji
         >
             <CombatPage />
@@ -44,6 +46,7 @@
         {#if caster}
             <NotebookPage
                 label="✨"
+                tooltip="Spells"
                 emoji
             >
                 <SpellsPage />
@@ -51,18 +54,21 @@
         {/if}
         <NotebookPage
             label="🪎"
+            tooltip="Inventory"
             emoji
         >
             <InventoryPage />
         </NotebookPage>
         <NotebookPage
             label="👤"
+            tooltip="Biography"
             emoji
         >
             <BioPage />
         </NotebookPage>
         <NotebookPage
             label="≡"
+            tooltip="Settings"
             emoji
             initial
         >

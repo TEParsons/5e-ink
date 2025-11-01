@@ -14,7 +14,8 @@
         current: undefined,
         buttons: 0,
         all: [],
-        data: []
+        data: [],
+        printing: false
     })
 
     setContext("siblings", pages)
@@ -26,8 +27,14 @@
 
 </script>
 
+<svelte:window 
+    onbeforeprint={evt => pages.printing = true}
+    onafterprint={evt => pages.printing = false}
+/>
+
 <div 
     class=notebook
+    class:printing={pages.printing}
     style:grid-template-columns="[start] repeat({pages.all.length + pages.buttons}, 1fr) [end]"
 >
     {@render children?.()}
@@ -43,5 +50,9 @@
         margin: auto;
         height: 100%;
         width: 100%;
+    }
+    .notebook.printing {
+        display: flex;
+        flex-direction: column;
     }
 </style>
