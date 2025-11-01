@@ -1,5 +1,5 @@
 <script>
-    import { ChoiceCtrl, Option } from "$lib/ui/ctrls";
+    import { ChoiceCtrl, Option, TextCtrl } from "$lib/ui/ctrls";
     import Choice from "$lib/ui/ctrls/Choice.svelte";
     import { getContext } from "svelte";
 
@@ -139,26 +139,12 @@
     {/if}
 </Choice>
 
-
-{#if subtypes[stats.species.name]}
-    <span>(</span>
-    <Choice
-        label="Species Subtype"
-        bind:value={stats.species.subtype}
-        onselect={(evt, index, data) => {
-            stats.species.subtype = data
-        }}
-    >
-        {#each subtypes[stats.species.name] as subtype}
-            <Option
-                index={subtype}
-                data={subtype}
-            >
-                {subtype[0].toUpperCase() + subtype.slice(1)}
-            </Option>
-        {/each}
-    </Choice>
-    <span>)</span>
+{#if stats.species.subtype}
+    (
+    <TextCtrl
+        bind:value={stats.species.subtype.name}
+    />
+    )
 {/if}
 
 </div>
