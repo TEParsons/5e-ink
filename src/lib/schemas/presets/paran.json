@@ -20,6 +20,11 @@
     },
     "current": {
         "damage": 0,
+        "hptemp": 0,
+        "pools": {},
+        "hitdice": {
+            "paladin": 3
+        },
         "spellslots": {
             "first": 3
         }

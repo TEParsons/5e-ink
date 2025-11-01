@@ -22,8 +22,12 @@
     },
     "current": {
         "damage": 0,
+        "hptemp": 0,
         "pools": {
             "ki": 3
+        },
+        "hitdice": {
+            "monk": 3
         },
         "spellslots": {
             "first": 1

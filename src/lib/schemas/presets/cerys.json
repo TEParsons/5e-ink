@@ -29,10 +29,14 @@
     },
     "current": {
         "damage": 28,
+        "hptemp": 0,
         "pools": {
             "wildshape": 2,
             "guiding-bolt": 3,
             "floral-omen": 3
+        },
+        "hitdice": {
+            "druid": 7
         },
         "spellslots": {
             "first": 3,
