@@ -452,6 +452,33 @@
                 }
             },
             {
+                "name": "Frag Grenade",
+                "type": "consumable",
+                "weight": {
+                    "lb": 1
+                },
+                "cost": {
+                    "gp": 2
+                },
+                "description": "",
+                "equipped": true,
+                "grants": {
+                    "actions": [
+                        {
+                            "name": "Frag Grenade",
+                            "time": {
+                                "type": "action",
+                                "amount": 1
+                            },
+                            "description": "Each creature within 20 feet of an exploding fragmentation grenade must make a DC 15 Dexterity saving throw, taking 5d6 piercing damage on a failed save, or half as much damage on a successful one. With a grenade launcher, the character can propel the grenade up to 120 feet away."
+                        }
+                    ]
+                },
+                "params": {
+                    "quantity": 1
+                }
+            },
+            {
                 "name": "Clothes",
                 "type": "clothing",
                 "weight": {
