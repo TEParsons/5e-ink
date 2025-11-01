@@ -57,6 +57,17 @@
 
     <h3>Pools</h3>
     <div class=pools-ctrl>
+        <!-- hit dice -->
+        {#each Object.keys(stats.class) as cls}
+            <div class=pool-ctrl>
+                <SlotsCtrl 
+                    bind:value={stats.current.hitdice[cls]}
+                    total={Object.keys(stats.class[cls].levels).length}
+                />
+                <b>Hit dice ({cls})</b>
+            </div>
+        {/each}
+        <!-- pools -->
         {#each Object.entries(getPools(stats)) as [index, pool]}
             <div class=pool-ctrl>
                 <SlotsCtrl 
