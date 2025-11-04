@@ -12,6 +12,55 @@ export var sourceIcons = {
 }
 
 
+/**
+ * Convert live values (e.g. $wis) to their calculated value.
+ * 
+ * @param {object} stats Overall stats object to use
+ * @param {*} value Value to actualize
+ */
+export function actualize(stats, value) {
+    // if an object, actualize all values
+    if (typeof value === "object") {
+        if (value instanceof Array) {
+            // actualize each object in an array
+            return value.map(
+                item => actualize(stats, item)
+            )
+        } else {
+            // actualize each value in an object
+            return Object.fromEntries(
+                Object.entries(value).map(
+                    ([key, val]) => [key, actualize(stats, val)]
+                )
+            )
+        }
+    }
+    // if not a string (or iterable which could contain strings), it's not a live value
+    if (typeof value !== "string") {
+        return value
+    }
+    // is it a core stat?
+    if (["$str", "$con", "$dex", "$int", "$wis", "$chr"].includes(value.toLowerCase())) {
+        return score2modifier(
+            getScore(stats, value.slice(1))
+        )
+    }
+    // is it total levels?
+    if (value === "$lvl") {
+        return Object.values(stats.class).reduce(
+            (partial, cls) => partial + Object.keys(cls.levels).length,
+            0
+        )
+    }
+    // is it levels in a given class?
+    if (value.startsWith("$lvl:")) {
+        return stats.class[
+            value.match(/\$lvl:(?<cls>\w+)/).groups.cls
+        ].levels.length
+    }
+}
+
+
 export function getAdvancements(stats, flatten=true) {
     let sources = {
         item: [],
@@ -67,8 +116,8 @@ export function getPools(stats) {
             pools[index].name = pool.name || pools[index].name
             pools[index].description = pool.description || pools[index].name
             // update total
-            pools[index].total += pool.add || 0
-            pools[index].total = Math.max(pool.set || pools[index].total)
+            pools[index].total += actualize(stats, pool.add) || 0
+            pools[index].total = Math.max(actualize(stats, pool.set) || pools[index].total)
         }
     }
 

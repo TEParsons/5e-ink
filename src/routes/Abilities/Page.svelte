@@ -6,7 +6,7 @@
     import { TraitView } from "$lib/views";
     import ProficiencyGroup from "./ProficiencyGroup.svelte";
     import { DetailsCtrl, SlotsCtrl } from "$lib/ui/ctrls";
-    import { getAllSkills, getAdvancements, sourceIcons, getPools } from "$lib/utils";
+    import { actualize, getAllSkills, getAdvancements, sourceIcons, getPools } from "$lib/utils";
 
     let stats = getContext("stats")
 

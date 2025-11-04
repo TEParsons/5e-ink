@@ -195,7 +195,7 @@
                     "pools": {
                         "bardic": {
                             "name": "Bardic Inspiration",
-                            "add": 3
+                            "add": "$chr"
                         } 
                     },
                     "casting": {
