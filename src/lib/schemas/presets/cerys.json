@@ -802,24 +802,33 @@
                 },
                 "description": "Proficiency with a Sling allows you to add your proficiency bonus to the attack roll for any attack you make with it.",
                 "equipped": true,
-                "params": {
-                    "weapontype": "simple",
-                    "attacktype": "ranged",
-                    "distance": {
-                        "reach": 0,
-                        "range": 30,
-                        "maxrange": 120
-                    },
-                    "damage": {
-                        "type": "bludgeoning",
-                        "dice": {
-                            "d4": 1
+                "grants": {
+                    "attacks": [
+                        {
+                            "name": "Sling",
+                            "time": {
+                                "type": "action",
+                                "amount": 1
+                            },
+                            "weapontype": "simple",
+                            "attacktype": "ranged",
+                            "distance": {
+                                "reach": 0,
+                                "range": 30,
+                                "maxrange": 120
+                            },
+                            "damage": {
+                                "type": "bludgeoning",
+                                "dice": {
+                                    "d4": 1
+                                }
+                            },
+                            "ammunition": {
+                                "total": 20,
+                                "current": 20
+                            }
                         }
-                    },
-                    "ammunition": {
-                        "total": 20,
-                        "current": 20
-                    }
+                    ]
                 }
             },
             {
@@ -829,20 +838,29 @@
                 "cost": null,
                 "description": "The crystal at the end of this staff glows when ergonite is close. Its brightness is proportional to the potency and proximity of the ergonite. As an action, repair up to 1sqft of ergonite, joining fragments into a single naturalistic lump and removing any engravings.",
                 "equipped": true,
-                "params": {
-                    "weapontype": "quarterstaff",
-                    "attacktype": "melee",
-                    "distance": {
-                        "reach": 5,
-                        "range": 0,
-                        "maxrange": 0
-                    },
-                    "damage": {
-                        "type": "bludgeoning",
-                        "dice": {
-                            "d6": 1
+                "grants": {
+                    "attacks": [
+                        {
+                            "name": "Ergonite staff",
+                            "time": {
+                                "type": "action",
+                                "amount": 1
+                            },
+                            "weapontype": "simple",
+                            "attacktype": "melee",
+                            "distance": {
+                                "reach": 5,
+                                "range": 0,
+                                "maxrange": 0
+                            },
+                            "damage": {
+                                "type": "bludgeoning",
+                                "dice": {
+                                    "d6": 1
+                                }
+                            }
                         }
-                    }
+                    ]
                 }
             },
             {
@@ -852,12 +870,20 @@
                 "cost": "180g",
                 "description": "Single use, augments Magic Stone to deal 2d6 fire damage in 10ft radius (in addition to normal damage)",
                 "equipped": true,
+                "grants": {
+                    "actions": [
+                        {
+                            "name": "Volatile pebbles",
+                            "time": {
+                                "type": "bonusaction",
+                                "amount": 1
+                            },
+                            "description": "Augment Magic Stone to deal 2d6 fire damage in 10ft radius (in addition to normal damage)"
+                        }
+                    ]
+                },
                 "params": {
-                    "quantity": 9,
-                    "time": {
-                        "type": "bonusaction",
-                        "amount": 1
-                    }
+                    "quantity": 9
                 }
             },
             {
