@@ -35,7 +35,7 @@
             bind:value={edit}
         />
     </h1>
-    <i>
+    <i class=subtitle>
         <ChoiceCtrl
             label="Spell school"
             bind:value={spell.school}
@@ -72,47 +72,7 @@
         {/if}
     </i>
 
-    {#if stats.current.spellslots[spell.level] !== undefined}
-        <h4>
-            {`${sentenceCase(spell.level)} level`} spell slots
-        </h4>
-        <SlotsCtrl 
-            bind:value={stats.current.spellslots[spell.level]}
-            total={getTotalSlots(stats, spell.level)}
-        />
-    {/if}
-
-    <MarkdownCtrl 
-        bind:value={spell.description}
-        edit={edit}
-    />
-
-    {#if spell.upcast || edit}
-        <h3>Upcast</h3>
-        <MarkdownCtrl 
-            bind:value={spell.upcast}
-            edit={edit}
-        />
-        <div class=pools-ctrl>
-            {#each allLevels.slice(
-                allLevels.indexOf(spell.level) + 1
-            ) as upcastLevel}
-                {#if getTotalSlots(stats, upcastLevel)}
-                    <div class=pool-ctrl>
-                        <SlotsCtrl 
-                            bind:value={stats.current.spellslots[upcastLevel]}
-                            total={getTotalSlots(stats, upcastLevel)}
-                        />
-                        <b>
-                            {`${sentenceCase(upcastLevel)} level`} spellslots
-                        </b>
-                    </div>
-                {/if}
-            {/each}
-        </div>
-    {/if}
-
-    <div class=attributes>
+    <div class=attribute>
         <b>Range</b>
         <span>
             {#if ["self", "touch"].includes(spell.range?.distance)}
@@ -121,6 +81,8 @@
                 {spell.range.distance}ft.
             {/if}
         </span>
+    </div>
+    <div class=attribute>
         <b>Area</b>
         <span>
             {#each Object.keys(spell.range?.aoe || {}) as shape}
@@ -147,6 +109,8 @@
                 {/if}
             {/each}
         </span>
+    </div>
+    <div class=attribute>
         <b>Time</b> 
         <span>
             <NumberCtrl 
@@ -174,6 +138,8 @@
                 {/if}
             </ChoiceCtrl>
         </span>
+    </div>
+    <div class=attribute>
         <b>Duration</b>
         <span>
             <ChoiceCtrl
@@ -208,8 +174,52 @@
                 {/each}
             {/if}
         </span>
+    </div>
+    <div class=attribute>
         <b>Components</b> {spell.components.join(", ")}
     </div>
+
+    <MarkdownCtrl 
+        bind:value={spell.description}
+        edit={edit}
+    />
+
+    {#if stats.current.spellslots[spell.level] !== undefined}
+        <h4>
+            {`${sentenceCase(spell.level)} level`} spell slots
+        </h4>
+        <SlotsCtrl 
+            bind:value={stats.current.spellslots[spell.level]}
+            total={getTotalSlots(stats, spell.level)}
+        />
+    {/if}
+
+    
+
+    {#if spell.upcast || edit}
+        <h3>Upcast</h3>
+        <MarkdownCtrl 
+            bind:value={spell.upcast}
+            edit={edit}
+        />
+        <div class=pools-ctrl>
+            {#each allLevels.slice(
+                allLevels.indexOf(spell.level) + 1
+            ) as upcastLevel}
+                {#if getTotalSlots(stats, upcastLevel)}
+                    <div class=pool-ctrl>
+                        <SlotsCtrl 
+                            bind:value={stats.current.spellslots[upcastLevel]}
+                            total={getTotalSlots(stats, upcastLevel)}
+                        />
+                        <b>
+                            {`${sentenceCase(upcastLevel)} level`} spellslots
+                        </b>
+                    </div>
+                {/if}
+            {/each}
+        </div>
+    {/if}
 </div>
 
 <style>
@@ -220,12 +230,15 @@
         gap: .5rem;
         margin: 0;
     }
-
-    .attributes {
-        display: grid;
-        grid-template-columns: min-content max-content;
-        gap: .5rem 1rem;
-        margin: .5rem 0;
+    .subtitle {
+        display: block;
+        margin-top: 0;
+        margin-block-end: 1rem;
+    }
+    .attribute {
+        display: flex;
+        flex-direction: row;
+        gap: .5rem
     }
     .pools-ctrl {
         display: flex;
