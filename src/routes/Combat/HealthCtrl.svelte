@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { totalLevels, classLevels, traitsByTag, score2modifier, getScore, getAdvancements } from "$lib/utils.js";
-    import { NumberCtrl, Button } from "$lib/ui/ctrls";
+    import { NumberCtrl, Button, SlotsCtrl } from "$lib/ui/ctrls";
     import DeathSavesCtrl from "./DeathSavesCtrl.svelte";
 
     let stats = getContext("stats")
@@ -62,6 +62,13 @@
             style:right="{(stats.current.damage - (stats.current.hptemp || 0)) * 100 / total}%"
         ></div>
     </div>
+    {#each Object.keys(stats.class) as cls}
+        <b class=hitdice-lbl>Hit dice ({cls}, d{stats.class[cls].hitdie})</b>
+        <SlotsCtrl 
+            bind:value={stats.current.hitdice[cls]}
+            total={Object.keys(stats.class[cls].levels).length}
+        />
+    {/each}
     {#if stats.current.damage > total}
         <DeathSavesCtrl />
     {/if}
@@ -94,5 +101,8 @@
         left: 0;
         bottom: 0;
         background-color: var(--crust);
+    }
+    .hitdice-lbl {
+        margin-top: .5rem;
     }
 </style>
