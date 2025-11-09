@@ -6,14 +6,22 @@
 
     let {
         spell=$bindable()
-    } = $props()
+    } = $props();
+
+    let allLevels = [
+        "first",
+        "second",
+        "third",
+        "fourth",
+        "fifth",
+        "sixth",
+        "seventh",
+        "eighth",
+        "ninth"
+    ]
 
     let stats = getContext("stats");
     let edit = $state.raw(false);
-
-    let totalSlots = $derived(
-        getTotalSlots(stats, spell.level)
-    )
 
 </script>
 
@@ -66,11 +74,11 @@
 
     {#if stats.current.spellslots[spell.level] !== undefined}
         <h4>
-            {`${spell.level[0].toUpperCase()}${spell.level.slice(1)} level`} spellslots
+            {`${sentenceCase(spell.level)} level`} spell slots
         </h4>
         <SlotsCtrl 
             bind:value={stats.current.spellslots[spell.level]}
-            bind:total={totalSlots}
+            total={getTotalSlots(stats, spell.level)}
         />
     {/if}
 
@@ -78,6 +86,31 @@
         bind:value={spell.description}
         edit={edit}
     />
+
+    {#if spell.upcast || edit}
+        <h3>Upcast</h3>
+        <MarkdownCtrl 
+            bind:value={spell.upcast}
+            edit={edit}
+        />
+        <div class=pools-ctrl>
+            {#each allLevels.slice(
+                allLevels.indexOf(spell.level) + 1
+            ) as upcastLevel}
+                {#if getTotalSlots(stats, upcastLevel)}
+                    <div class=pool-ctrl>
+                        <SlotsCtrl 
+                            bind:value={stats.current.spellslots[upcastLevel]}
+                            total={getTotalSlots(stats, upcastLevel)}
+                        />
+                        <b>
+                            {`${sentenceCase(upcastLevel)} level`} spellslots
+                        </b>
+                    </div>
+                {/if}
+            {/each}
+        </div>
+    {/if}
 
     <div class=attributes>
         <b>Range</b>
@@ -193,5 +226,16 @@
         grid-template-columns: min-content max-content;
         gap: .5rem 1rem;
         margin: .5rem 0;
+    }
+    .pools-ctrl {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        margin-bottom: 1rem;
+    }
+    .pool-ctrl {
+        display: flex;
+        flex-direction: row;
+        gap: .5rem;
     }
 </style>
