@@ -3,7 +3,7 @@
     import { SwitchCtrl, ChoiceCtrl, Option } from "$lib/ui/ctrls";
     import schema from "$lib/schemas/character.schema.json"
     import { recursiveDefaults } from "$lib/schemas"
-    import { presets } from "$lib/schemas/index.js"
+    import { characters } from "$lib/characters/index.svelte.js"
 
     let stats = getContext("stats");
     let prefs = getContext("prefs");
@@ -77,7 +77,7 @@
         onselect={(evt, index, data) => Object.assign(stats, data)}
         edit
     >
-        {#each Object.entries(presets) as [i, profile]}
+        {#each Object.entries(characters) as [i, profile]}
             <Option
                 data={profile}
                 index={i}

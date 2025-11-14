@@ -9,9 +9,10 @@
     import SettingsPage from "./Settings/Page.svelte";
     import { Notebook, NotebookPage } from "$lib/ui/notebook";
 
-    import { presets } from "$lib/schemas"
+    import { characters } from "$lib/characters/index.svelte";
+    import Yiig from "$lib/characters/yiig.json"
 
-    let stats = $state(presets[0]);
+    let stats = $state(characters[0] || Yiig);
     setContext("stats", stats)
 
     let prefs = $state({

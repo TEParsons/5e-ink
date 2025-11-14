@@ -82,16 +82,3 @@ export function recursiveDefaults(schema) {
 
     return output
 }
-
-// export presets
-import Cerys from "./presets/cerys.json";
-import Yiig from "./presets/yiig.json";
-import Paran from "./presets/paran.json";
-import Brainworm from "./presets/brainworm.json";
-
-export var presets = [
-    Yiig,
-    Paran,
-    Brainworm,
-    Cerys
-];
