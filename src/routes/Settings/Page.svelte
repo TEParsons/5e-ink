@@ -86,8 +86,8 @@
     /> -->
     <div class=file-ctrls>
         <!-- <button onclick={newCharacter}>New Character</button> -->
-        <button onclick={loadCharacter}>Load Character</button>
-        <button onclick={saveCharacter}>Save Character</button>
+        <button onclick={loadCharacter}>Import Character</button>
+        <button onclick={saveCharacter}>Export Character</button>
     </div>
 </div>
 

@@ -13,7 +13,7 @@
 </script>
 
 <ChoiceCtrl
-    onselect={(evt, index, data) => Object.assign(stats, data)}
+    onselect={(evt, index, data) => Object.assign(stats, data.profile)}
     edit
 >
     {#await Filesystem.readdir({
@@ -24,10 +24,13 @@
         {#each Object.entries(characters).filter(
             ([i, file]) => file.endsWith(".json")
         ).map(
-            ([i, file]) => [i, import(file)]
-        ) as [i, profile]}
+            ([i, file]) => [i, file, import(file)] /* @vite-ignore */
+        ) as [i, file, profile]}
             <Option
-                data={profile}
+                data={{
+                    file: file,
+                    profile: profile
+                }}
                 index={i}
             >
                 <div class=profile-option>
@@ -40,7 +43,10 @@
         <!-- this will always be shown if not on mobile -->
         {#each Object.entries([Yiig, Paran, Brainworm, Cerys]) as [i, profile]}
             <Option
-                data={profile}
+                data={{
+                    file: undefined,
+                    profile: profile
+                }}
                 index={i}
             >
                 <div class=profile-option>
