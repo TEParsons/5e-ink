@@ -24,3 +24,8 @@ vite.config.ts.timestamp-*
 
 .vscode
 scrape.py
+
+# production
+dist
+android
+ios
