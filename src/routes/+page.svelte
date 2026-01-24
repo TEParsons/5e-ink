@@ -1,5 +1,5 @@
 <script>
-    import { setContext } from "svelte";
+    import { onMount, setContext } from "svelte";
 
     import AbilitiesPage from "./Abilities/Page.svelte";
     import SpellsPage from "./Spells/Page.svelte";
@@ -23,6 +23,18 @@
     let caster = $derived(
         Object.values(stats.class).every(val => val.spellcasting)
     )
+
+    onMount(() => {
+        // load stats from local data on reload, if possible
+        if (localStorage["5eink:last-load"]) {
+            Object.assign(stats, JSON.parse(localStorage["5eink:last-load"]))
+        }
+
+        $effect(() => {
+            // update local data with stats whenever they change
+            localStorage.setItem("5eink:last-load", JSON.stringify(stats))
+        })
+    })
 </script>
 
 <svelte:window 
