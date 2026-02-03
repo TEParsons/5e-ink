@@ -7,12 +7,9 @@
     import ProficiencyGroup from "./ProficiencyGroup.svelte";
     import { DetailsCtrl, SlotsCtrl } from "$lib/ui/ctrls";
     import { actualize, getAllSkills, getAdvancements, sourceIcons, getPools } from "$lib/utils";
+    import { totalLevels, level2proficiency } from "$lib/utils";
 
     let stats = getContext("stats")
-
-    let proficiency = $derived(
-        level2proficiency(totalLevels(stats.class))
-    )
 </script>
 
 <div class=page>
@@ -32,6 +29,7 @@
             />
         {/each}
     </div>
+    <i>(Proficiency: +{level2proficiency(totalLevels(stats.class))})</i>
 
     <h3>Traits</h3>
     <div class=traits-ctrl>
