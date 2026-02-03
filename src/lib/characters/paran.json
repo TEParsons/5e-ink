@@ -242,8 +242,7 @@
                         ],
                         "weapons": [
                             "simple",
-                            "crossbow",
-                            "rapier"
+                            "martial"
                         ],
                         "saves": [
                             "wis",
@@ -541,30 +540,40 @@
                 "cost": {
                     "gp": 25
                 },
-                "description": "",
+                "description": "A lighter, more maneuverable crossbow.",
                 "equipped": true,
-                "params": {
-                    "weapontype": "crossbow",
-                    "attacktype": "ranged",
-                    "distance": {
-                        "reach": 5,
-                        "range": 80,
-                        "maxrange": 320,
-                        "thrown": {
-                            "range": 20,
-                            "maxrange": 60
+                "grants": {
+                    "attacks": [
+                        {
+                            "name": "Light Crossbow",
+                            "time": {
+                                "type": "action",
+                                "amount": 1
+                            },
+                            "description": "",
+                            "weapontype": "simple",
+                            "attackstat": "dex",
+                            "distance": {
+                                "reach": 5,
+                                "range": 80,
+                                "maxrange": 320,
+                                "thrown": {
+                                    "range": 20,
+                                    "maxrange": 60
+                                }
+                            },
+                            "damage": {
+                                "type": "piercing",
+                                "dice": {
+                                    "d8": 1
+                                }
+                            },
+                            "ammunition": {
+                                "total": 20,
+                                "current": 20
+                            }
                         }
-                    },
-                    "damage": {
-                        "type": "piercing",
-                        "dice": {
-                            "d8": 1
-                        }
-                    },
-                    "ammunition": {
-                        "total": 20,
-                        "current": 20
-                    }
+                    ]
                 }
             },
             {
@@ -576,26 +585,36 @@
                 "cost": {
                     "gp": 25
                 },
-                "description": "",
+                "description": "A thin, pointed blade for refined combatants.",
                 "equipped": true,
-                "params": {
-                    "weapontype": "rapier",
-                    "attacktype": "finesse",
-                    "distance": {
-                        "reach": 5,
-                        "range": 0,
-                        "maxrange": 0,
-                        "thrown": {
-                            "range": 20,
-                            "maxrange": 60
+                "grants": {
+                    "attacks": [
+                        {
+                            "name": "Rapier",
+                            "time": {
+                                "type": "action",
+                                "amount": 1
+                            },
+                            "description": "",
+                            "weapontype": "martial",
+                            "attackstat": "dex",
+                            "distance": {
+                                "reach": 5,
+                                "range": 0,
+                                "maxrange": 0,
+                                "thrown": {
+                                    "range": 20,
+                                    "maxrange": 60
+                                }
+                            },
+                            "damage": {
+                                "type": "piercing",
+                                "dice": {
+                                    "d8": 1
+                                }
+                            }
                         }
-                    },
-                    "damage": {
-                        "type": "piercing",
-                        "dice": {
-                            "d8": 1
-                        }
-                    }
+                    ]
                 }
             },
             {
@@ -607,26 +626,36 @@
                 "cost": {
                     "gp": 3
                 },
-                "description": "",
+                "description": "A wooden shaft for throwing or piercing.",
                 "equipped": false,
-                "params": {
-                    "weapontype": "javelin",
-                    "attacktype": "melee",
-                    "distance": {
-                        "reach": 5,
-                        "range": 0,
-                        "maxrange": 0,
-                        "thrown": {
-                            "range": 30,
-                            "maxrange": 120
+                "grants": {
+                    "attacks": [
+                        {
+                            "name": "Javelin",
+                            "time": {
+                                "type": "action",
+                                "amount": 1
+                            },
+                            "description": "",
+                            "weapontype": "simple",
+                            "attackstat": "str",
+                            "distance": {
+                                "reach": 5,
+                                "range": 0,
+                                "maxrange": 0,
+                                "thrown": {
+                                    "range": 30,
+                                    "maxrange": 120
+                                }
+                            },
+                            "damage": {
+                                "type": "piercing",
+                                "dice": {
+                                    "d6": 1
+                                }
+                            }
                         }
-                    },
-                    "damage": {
-                        "type": "piercing",
-                        "dice": {
-                            "d6": 1
-                        }
-                    }
+                    ]
                 }
             },
             {
