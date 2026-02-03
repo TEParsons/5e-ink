@@ -10,7 +10,7 @@
     import { Notebook, NotebookPage } from "$lib/ui/notebook";
     import Yiig from "$lib/characters/yiig.json"
 
-    let stats = $state(Yiig);
+    let stats = $state({});
     setContext("stats", stats)
 
     let prefs = $state({
@@ -21,7 +21,7 @@
 
     // if no class has a spellcasting ability, we don't need a spells page
     let caster = $derived(
-        Object.values(stats.class).every(val => val.spellcasting)
+        Object.values(stats.class || {}).every(val => val.spellcasting)
     )
 
     onMount(() => {
@@ -43,7 +43,7 @@
 />
 <svelte:head>
     <title>
-        {prefs.printing ? stats.details.name : `5e Ink: ${stats.details.name}`}
+        {prefs.printing ? stats.details?.name : `5e Ink: ${stats.details?.name || "No character"}`}
     </title>
 </svelte:head>
 
@@ -53,6 +53,7 @@
             label="📋"
             tooltip="Abilities"
             emoji
+            disabled={!Object.keys(stats).length}
         >
             <AbilitiesPage />
         </NotebookPage>
@@ -60,6 +61,7 @@
             label="⚔︎"
             tooltip="Combat"
             emoji
+            disabled={!Object.keys(stats).length}
         >
             <CombatPage />
         </NotebookPage>
@@ -68,6 +70,7 @@
                 label="✨"
                 tooltip="Spells"
                 emoji
+                disabled={!Object.keys(stats).length}
             >
                 <SpellsPage />
             </NotebookPage>
@@ -76,6 +79,7 @@
             label="🪎"
             tooltip="Inventory"
             emoji
+            disabled={!Object.keys(stats).length}
         >
             <InventoryPage />
         </NotebookPage>
@@ -83,6 +87,7 @@
             label="👤"
             tooltip="Biography"
             emoji
+            disabled={!Object.keys(stats).length}
         >
             <BioPage />
         </NotebookPage>
