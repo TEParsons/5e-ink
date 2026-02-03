@@ -16,6 +16,8 @@
         icon=undefined,
         /** @prop @type {boolean} Should this page start off with focus? */
         initial=false,
+        /** @prop @type {boolean} Prevent this page from being showable */
+        disabled=false,
         /** @interface @type {Array<HTMLElement>} Contents of this page */
         children=undefined
     } = $props()
@@ -74,6 +76,7 @@
         class:current={selected}
         onclick={() => siblings.current = index}
         ondragover={() => siblings.current = index}
+        disabled={disabled}
         bind:this={handle}
     >
         {#if icon}
@@ -135,6 +138,9 @@
         border: none;
         padding: 1rem;
         margin: 0;
+    }
+    .notebook-tab:disabled {
+        background-color: var(--mantle);
     }
     .notebook-tab .label {
         grid-column-start: label;
