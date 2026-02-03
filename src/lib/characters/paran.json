@@ -365,7 +365,7 @@
                         {
                             "name": "Paladin's Smite",
                             "time": {
-                                "type": "action",
+                                "type": "bonusaction",
                                 "amount": 1
                             },
                             "pool": "paladin-smite",
