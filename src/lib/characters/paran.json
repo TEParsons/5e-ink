@@ -21,7 +21,11 @@
     "current": {
         "damage": 0,
         "hptemp": 0,
-        "pools": {},
+        "pools": {
+            "lay-on-hands": 15,
+            "paladin-smite": 1,
+            "channel-divinity": 2
+        },
         "hitdice": {
             "paladin": 3
         },
@@ -226,7 +230,7 @@
             "levels": {
                 "1": {
                     "buffs": {
-                        "maxhp": {
+                        "maxhealth": {
                             "add": 10
                         }
                     },
@@ -252,6 +256,13 @@
                             ]
                         }
                     },
+                    "pools": {
+                        "lay-on-hands": {
+                            "name": "Lay On Hands",
+                            "description": "Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you finish a Long Rest. With that pool, you can restore a total number of Hit Points equal to five times your Paladin level.",
+                            "add": 15
+                        }
+                    },
                     "actions": [
                         {
                             "name": "Lay On Hands",
@@ -259,10 +270,7 @@
                                 "type": "bonusaction",
                                 "amount": 1
                             },
-                            "spellslots": {
-                                "total": 15,
-                                "current": 15
-                            },
+                            "pool": "lay-on-hands",
                             "description": "Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you finish a Long Rest. With that pool, you can restore a total number of Hit Points equal to five times your Paladin level.\nAs a Bonus Action, you can touch a creature (which could be yourself) and draw power from the pool of healing to restore a number of Hit Points to that creature, up to the maximum amount remaining in the pool.\nYou can also expend 5 Hit Points from the pool of healing power to remove the Poisoned condition from the creature; those points don't also restore Hit Points to the creature."
                         }
                     ],
@@ -343,8 +351,15 @@
                 },
                 "2": {
                     "buffs": {
-                        "maxhp": {
+                        "maxhealth": {
                             "add": 5
+                        }
+                    },
+                    "pools": {
+                        "paladin-smite": {
+                            "name": "Paladin's Smite",
+                            "description": "You always have Divine Smite prepared and cast it without expending a spell slot once per Long Rest.",
+                            "add": 1
                         }
                     },
                     "actions": [
@@ -354,11 +369,8 @@
                                 "type": "action",
                                 "amount": 1
                             },
-                            "spellslots": {
-                                "total": 1,
-                                "current": 1
-                            },
-                            "description": "You always have Divine Smite prepared and cast it without expending a spell slot once per Long Rest."
+                            "pool": "paladin-smite",
+                            "description": "Cast Divine Smite without expending a spellslot. Refreshes on long rest."
                         }
                     ],
                     "traits": [
@@ -407,18 +419,22 @@
                             "add": 6
                         }
                     },
+                    "pools": {
+                        "channel-divinity": {
+                            "name": "Channel Divinity",
+                            "description": "You can channel divine energy directly from the Outer Planes, using it to fuel magical effects. Each time you use this class's Channel Divinity, you choose which effect from this class to create.\nYou can use this class's Channel Divinity twice. You regain one of its expended uses when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest. You gain an additional use when you reach Paladin level 11.",
+                            "add": 2
+                        }
+                    },
                     "actions": [
                         {
-                            "name": "Channel Divinity: Divine Sense",
+                            "name": "Divine Sense",
                             "time": {
                                 "type": "bonusaction",
                                 "amount": 1
                             },
-                            "spellslots": {
-                                "total": 2,
-                                "current": 2
-                            },
-                            "description": "You can channel energy directly from the Outer Planes to fuel magical effects. Each time you use this class's Channel Divinity, you can choose which effect to create. You can use this class's Channel Divinity 2 times per Long Rest, but can regain one expended use after finishing a Short Rest.\nIf your Channel Divinity requires a saving throw, the DC equals your Paladin spell save DC."
+                            "pool": "channel-divinity",
+                            "description": "As a Bonus Action, you can open your awareness to detect Celestials, Fiends, and Undead. For the next 10 minutes or until you have the Incapacitated condition, you know the location of any creature of those types within 60 feet of yourself, and you know its creature type. Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the Hallow spell.\n> If a Channel Divinity effect requires a saving throw, the DC equals the spell save DC from this class's Spellcasting feature."
                         }
                     ],
                     "casting": {
@@ -431,70 +447,79 @@
             },
             "subtype": {
                 "name": "Oath of Devotion",
-                "actions": [
+                "advancements": [
                     {
-                        "name": "Channel Divinity: Sacred Weapon",
-                        "time": {
-                            "type": "reaction",
-                            "amount": 1
-                        },
-                        "description": "When you take the Attack action, you can expend one use of your Channel Divinity to imbue one Melee weapon that you are holding with positive energy. For 10 minutes or until you use this feature again, you add your Charisma modifier to attack rolls you make with that weapon (minimum bonus of +1), and each time you hit with it, you cause it to deal its normal damage type or Radiant damage.\nThe weapon also emits Bright Light in a 20-foot radius and Dim Light 20 feet beyond that.\nYou can end this effect early (no action required). This effect also ends if you aren't carrying the weapon"
-                    }
-                ],
-                "casting": {
-                    "spells": [
-                        {
-                            "name": "Protection from Evil and Good",
-                            "level": "first",
-                            "range": {
-                                "distance": "touch",
-                                "aoe": {
-                                    "targets": 1
+                        "name": "Oath of Devotion Spells",
+                        "casting": {
+                            "spells": [
+                                {
+                                    "name": "Protection from Evil and Good",
+                                    "level": "first",
+                                    "range": {
+                                        "distance": "touch",
+                                        "aoe": {
+                                            "targets": 1
+                                        }
+                                    },
+                                    "time": {
+                                        "type": "action",
+                                        "amount": 1
+                                    },
+                                    "components": [
+                                        "V", 
+                                        "S", 
+                                        "M"
+                                    ],
+                                    "duration": {
+                                        "type": "concentration",
+                                        "maximum": {
+                                            "minutes": 10
+                                        }
+                                    },
+                                    "school": "Abjuration",
+                                    "description": "Until the spell ends, one willing creature you touch is protected against creatures that are Aberrations, Celestials, Elementals, Fey, Fiends, or Undead. The protection grants several benefits. Creatures of those types have Disadvantage on attack rolls against the target. The target also can't be possessed by or gain the Charmed or Frightened conditions from them. If the target is already possessed, Charmed, or Frightened by such a creature, the target has Advantage on any new saving throw against the relevant effect."
+                                },
+                                {
+                                    "name": "Shield of Faith",
+                                    "level": "first",
+                                    "time": {
+                                        "type": "action",
+                                        "amount": 1
+                                    },
+                                    "range": {
+                                        "distance": 60,
+                                        "aoe": {
+                                            "targets": 1
+                                        }
+                                    },
+                                    "components": ["V", "S", "M"],
+                                    "duration": {
+                                        "type": "concentration",
+                                        "maximum": {
+                                            "minutes": 10
+                                        }
+                                    },
+                                    "school": "Abjuration",
+                                    "description": "A shimmering field surrounds a creature of your choice within range, granting it a +2 bonus to AC for the duration."
                                 }
-                            },
-                            "time": {
-                                "type": "action",
-                                "amount": 1
-                            },
-                            "components": [
-                                "V", 
-                                "S", 
-                                "M"
-                            ],
-                            "duration": {
-                                "type": "concentration",
-                                "maximum": {
-                                    "minutes": 10
-                                }
-                            },
-                            "school": "Abjuration",
-                            "description": "Until the spell ends, one willing creature you touch is protected against creatures that are Aberrations, Celestials, Elementals, Fey, Fiends, or Undead. The protection grants several benefits. Creatures of those types have Disadvantage on attack rolls against the target. The target also can't be possessed by or gain the Charmed or Frightened conditions from them. If the target is already possessed, Charmed, or Frightened by such a creature, the target has Advantage on any new saving throw against the relevant effect."
-                        },
-                        {
-                            "name": "Shield of Faith",
-                            "level": "first",
-                            "time": {
-                                "type": "action",
-                                "amount": 1
-                            },
-                            "range": {
-                                "distance": 60,
-                                "aoe": {
-                                    "targets": 1
-                                }
-                            },
-                            "components": ["V", "S", "M"],
-                            "duration": {
-                                "type": "concentration",
-                                "maximum": {
-                                    "minutes": 10
-                                }
-                            },
-                            "school": "Abjuration",
-                            "description": "A shimmering field surrounds a creature of your choice within range, granting it a +2 bonus to AC for the duration."
+                            ]
                         }
-                    ]
-                }
+                    },
+                    {
+                        "name": "Sacred Weapon",
+                        "actions": [
+                            {
+                                "name": "Sacred Weapon",
+                                "pool": "channel-divinity",
+                                "time": {
+                                    "type": "reaction",
+                                    "amount": 1
+                                },
+                                "description": "When you take the Attack action, you can expend one use of your Channel Divinity to imbue one Melee weapon that you are holding with positive energy. For 10 minutes or until you use this feature again, you add your Charisma modifier to attack rolls you make with that weapon (minimum bonus of +1), and each time you hit with it, you cause it to deal its normal damage type or Radiant damage.\nThe weapon also emits Bright Light in a 20-foot radius and Dim Light 20 feet beyond that.\nYou can end this effect early (no action required). This effect also ends if you aren't carrying the weapon\n> If a Channel Divinity effect requires a saving throw, the DC equals the spell save DC from this class's Spellcasting feature."
+                            }
+                        ]
+                    }
+                ]
             }
         }
     },
