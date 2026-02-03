@@ -85,7 +85,7 @@ export function getAdvancements(stats, flatten=true) {
         sources.class.push(...stats.class[cls].subtype?.advancements || [])
     }
     // from items
-    for (let [i, item] in Object.entries(stats.inventory.items)) {
+    for (let [i, item] of Object.entries(stats.inventory.items)) {
         sources.item.push(stats.inventory.items[i]?.grants || {})
     }
     
