@@ -15,7 +15,7 @@
 <p>{trait.description}</p>
 
 {#if trait.pool}
-    {@const pool = getPools(stats)[action.pool]}
+    {@const pool = getPools(stats)[trait.pool]}
     <h4>
         {pool.name}
     </h4>

@@ -37,7 +37,11 @@
         },
         "pools": {
             "bardic": 3,
-            "relentless-endurance": 1
+            "relentless-endurance": 1,
+            "adrenaline-rush": 3,
+            "beguiling-magic": 1,
+            "mantle-of-majesty": 1,
+            "insanity": 0
         }
     },
     "scores": {
@@ -88,6 +92,7 @@
                 "tags": [
                     "combat"
                 ],
+                "pool": "relentless-endurance",
                 "description": "When you are reduced to 0 Hit Points but not killed outright, you can drop to 1 Hit Point instead. Once you use this trait, you can't do so again until you finish a Long Rest"
             }
         ],
@@ -95,6 +100,10 @@
             "relentless-endurance": {
                 "name": "Relentless Endurance",
                 "add": 1
+            },
+            "adrenaline-rush": {
+                "name": "Adrenaline Rush",
+                "add": 3
             }
         },
         "actions": [
@@ -104,10 +113,7 @@
                     "type": "bonusaction",
                     "amount": 1
                 },
-                "spellslots": {
-                    "total": 3,
-                    "current": 3
-                },
+                "pool": "adrenaline-rush",
                 "description": "You can take the Dash action as a Bonus Action. When you do so, you gain a number of Temporary Hit Points equal to your Proficiency Bonus."
             }
         ]
@@ -140,6 +146,12 @@
         }
     },
     "custom": {
+        "pools": {
+            "insanity": {
+                "name": "Insanity",
+                "add": 3
+            }
+        }
     },
     "class": {
         "bard": {
@@ -189,7 +201,7 @@
                                 "amount": 1
                             },
                             "pool": "bardic",
-                            "description": "As a Bonus Action, you can inspire another creature within 60 feet of yourself who can see or hear you. That creature gains one of your Bardic Inspiration dice. A creature can have only one Bardic Inspiration die at a time.\n\nOnce within the next hour when the creature fails a D20 Test, the creature can roll the Bardic Inspiration die and add the number rolled to the d20, potentially turning the failure into a success. A Bardic Inspiration die is expended when it's rolled."
+                            "description": "As a Bonus Action, you can inspire another creature within 60 feet of yourself who can see or hear you. That creature gains one of your Bardic Inspiration dice. A creature can have only one Bardic Inspiration die at a time.\n\nOnce within the next hour when the creature fails a D20 Test, the creature can roll the Bardic Inspiration die and add the number rolled to the d20, potentially turning the failure into a success. A Bardic Inspiration die is expended when it's rolled.\n| Level | Die |\n| --- | --- |\n| 1 | d6 |\n| 5 | d8 |\n| 10 | d10 |\n| 15 | d12 |"
                         }
                     ],
                     "pools": {
@@ -717,9 +729,16 @@
                                     "type": "reaction",
                                     "amount": 1
                                 },
+                                "pool": "beguiling-magic",
                                 "description": "Immediately after you cast an Enchantment or illusion spell using a spell slot, you can cause a creature you can see within 60 feet of yourself to make a Wisdom saving throw against your spell save DC. On a failed save, the target has the Charmed or Frightened condition (your choice) for 1 minute. The target repeats the save at the end of each of its turns, ending the effect on itself on a success.\nOnce you use this benefit, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending one use of your Bardic Inspiration (no action required)."
                             }
                         ],
+                        "pools": {
+                            "beguiling-magic": {
+                                "name": "Beguiling Magic",
+                                "add": 1
+                            }
+                        },
                         "casting": {
                             "spells": [
                                 {
@@ -782,13 +801,16 @@
                                     "type": "bonusaction",
                                     "amount": 1
                                 },
-                                "spellslots": {
-                                    "total": 1,
-                                    "current": 1
-                                },
+                                "pool": "mantle-of-majesty",
                                 "description": "As a Bonus Action, you cast Command without expending a spell slot, and you take on an unearthly appearance for 1 minute or until your Concentration ends. During this time, you can cast Command as a Bonus Action without expending a spell slot.\n\nAny creature Charmed by you automatically fails its saving throw against the Command you cast with this feature.\n\nOnce you use this feature, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending a level 3+ spell slot (no action required)."
                             }
                         ],
+                        "pools": {
+                            "mantle-of-majesty": {
+                                "name": "Mantle of Majesty",
+                                "add": 1
+                            }
+                        },
                         "casting": {
                             "spells": [
                                 {
