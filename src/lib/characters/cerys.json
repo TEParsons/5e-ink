@@ -194,7 +194,7 @@
                         },
                         "cantrips": [
                             {
-                                "name": "Elementalism",
+                                "name": "Druidcraft",
                                 "level": "cantrip",
                                 "range": {
                                     "distance": 30,
@@ -214,7 +214,7 @@
                                     "S"
                                 ],
                                 "school": "transmutation",
-                                "description": "You exert control over the elements, creating one of the following effects within range.\n- **Beckon Air.** You create a breeze strong enough to ripple cloth, stir dust, rustle leaves, and close open doors and shutters, all in a 5-foot Cube. Doors and shutters being held open by someone or something aren't affected.\n- **Beckon Earth.** You create a thin shroud of dust or sand that covers surfaces in a 5-foot-square area, or you cause a single word to appear in your handwriting in a patch of dirt or sand.\n- **Beckon Fire.** You create a thin cloud of harmless embers and colored, scented smoke in a 5-foot Cube. You choose the color and scent, and the embers can light candles, torches, or lamps in that area. The smoke's scent lingers for 1 minute.\n- **Beckon Water.** You create a spray of cool mist that lightly dampens creatures and objects in a 5-foot Cube. Alternatively, you create 1 cup of clean water either in an open container or on a surface, and the water evaporates in 1 minute.\n- **Sculpt Element.** You cause dirt, sand, fire, smoke, mist, or water that can fit in a 1-foot Cube to assume a crude shape (such as that of a creature) for 1 hour."
+                                "description": "Whispering to the spirits of nature, you create one of the following effects within range:\nYou create a tiny, harmless sensory effect that predicts what the weather will be at your location for the next 24 hours. The effect might manifest as a golden orb for clear skies, a cloud for rain, falling snowflakes for snow, and so on. This effect persists for 1 round.\nYou instantly make a flower blossom, a seed pod open, or a leaf bud bloom.\nYou create an instantaneous, harmless sensory effect, such as falling leaves, a puff of wind, the sound of a small animal, or the faint odor of skunk. The effect must fit in a 5-foot cube.\nYou instantly light or snuff out a candle, a torch, or a small campfire."
                             },
                             {
                                 "name": "Magic Stone",
@@ -265,8 +265,8 @@
                                 "duration": {
                                     "type": "instantaneous"
                                 },
-                                "upcast": "The damage increases by 1d6 for each slot level above 1st.",
-                                "description": "You cause a tremor in the ground within range. Each creature other than you in that area must make a Dexterity saving throw. On a failed save, a creature takes 1d6 bludgeoning damage and is knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared, with each 5-foot-diameter portion requiring at least 1 minute to clear by hand."
+                                "description": "You cause a tremor in the ground within range. Each creature other than you in that area must make a Dexterity saving throw. On a failed save, a creature takes 1d6 bludgeoning damage and is knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared, with each 5-foot-diameter portion requiring at least 1 minute to clear by hand.",
+                                "upcast": "The damage increases by 1d6 for each slot level above 1st."
                             },
                             {
                                 "name": "Fog Cloud",
@@ -292,18 +292,18 @@
                                         "hours": 1
                                     }
                                 },
-                                "upcast": "The fog's radius increases by 20 feet for each spell slot level above 1.",
-                                "description": "You create a 20-foot-radius Sphere of fog centered on a point within range. The Sphere is Heavily Obscured. It lasts for the duration or until a strong wind (such as one created by Gust of Wind) disperses it."
+                                "upcast": "The fog's radius increases by 20 feet for each spell slot level above 1st.",
+                                "description": "You create a 20-foot-radius sphere of fog centered on a point within range. The sphere spreads around corners, and its area is heavily obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it."
                             },
                             {
                                 "name": "Goodberry",
                                 "level": "first",
-                                "school": "conjuration",
+                                "school": "transmutation",
                                 "components": ["V", "S", "M"],
                                 "range": {
-                                    "distance": "self",
+                                    "distance": "touch",
                                     "aoe": {
-                                        "targets": 1
+                                        "targets": 10
                                     }
                                 },
                                 "time": {
@@ -316,12 +316,12 @@
                                         "hours": 24
                                     }
                                 },
-                                "description": "Ten berries appear in your hand and are infused with magic for the duration. A creature can take a Bonus Action to eat one berry. Eating a berry restores 1 Hit Point, and the berry provides enough nourishment to sustain a creature for one day.\nUneaten berries disappear when the spell ends."
+                                "description": "Up to ten berries appear in your hand and are infused with magic for the duration. A creature can use its action to eat one berry. Eating a berry restores 1 hit point, and the berry provides enough nourishment to sustain a creature for one day.\nThe berries lose their potency if they have not been consumed within 24 hours of the casting of this spell."
                             },
                             {
                                 "name": "Healing Word",
                                 "level": "first",
-                                "school": "abjuration",
+                                "school": "evocation",
                                 "components": ["V"],
                                 "range": {
                                     "distance": 60,
@@ -336,8 +336,8 @@
                                 "duration": {
                                     "type": "instantaneous"
                                 },
-                                "upcast": "The healing increases by 2d4 for each spell slot level above 1.",
-                                "description": "A creature of your choice that you can see within range regains Hit Points equal to 2d4 plus your spellcasting ability modifier."
+                                "description": "A creature of your choice that you can see within range regains hit points equal to 1d4 + your spellcasting ability modifier. This spell has no effect on undead or constructs.",
+                                "upcast": "The healing increases by 1d4 for each slot level above 1st."
                             }
                         ]
                     }
@@ -373,7 +373,7 @@
                         "spells": [
                             {
                                 "name": "Spike Growth",
-                                "level": "first",
+                                "level": "second",
                                 "school": "transmutation",
                                 "components": ["V", "S", "M"],
                                 "range": {
@@ -392,7 +392,7 @@
                                         "minutes": 10
                                     }
                                 },
-                                "description": "The ground in a 20-foot-radius Sphere centered on a point within range sprouts hard spikes and thorns. The area becomes Difficult Terrain for the duration. When a creature moves into or within the area, it takes 2d4 Piercing damage for every 5 feet it travels.\nThe transformation of the ground is camouflaged to look natural. Any creature that can't see the area when the spell is cast must take a Search action and succeed on a Wisdom (Perception or Survival) check against your spell save DC to recognize the terrain as hazardous before entering it."
+                                "description": "The ground in a 20-foot radius centered on a point within range twists and sprouts hard spikes and thorns. The area becomes difficult terrain for the duration. When a creature moves into or within the area, it takes 2d4 piercing damage for every 5 feet it travels.\nThe transformation of the ground is camouflaged to look natural. Any creature that can't see the area at the time the spell is cast must make a Wisdom (Perception) check against your spell save DC to recognize the terrain as hazardous before entering it."
                             }
                         ]
                     }
@@ -412,7 +412,7 @@
                             {
                                 "name": "Summon Beast",
                                 "level": "second",
-                                "school": "",
+                                "school": "conjuration",
                                 "components": ["V", "S", "M"],
                                 "range": {
                                     "distance": 90,
@@ -476,7 +476,7 @@
                                         "minutes": 1
                                     }
                                 },
-                                "description": "A Club or Quarterstaff you are holding is imbued with nature's power. For the duration, you can use your spellcasting ability instead of Strength for the attack and damage rolls of melee attacks using that weapon, and the weapon's damage die becomes a d8. If the attack deals damage, it can be Force damage or the weapon's normal damage type (your choice).\nThe spell ends early if you cast it again or if you let go of the weapon.\n**Cantrip Upgrade.** The damage die changes when you reach levels 5 (d10), 11 (d12), and 17 (2d6)."
+                                "description": "The wood of a club or quarterstaff you are holding is imbued with nature's power. For the duration, you can use your spellcasting ability instead of Strength for the attack and damage rolls of melee attacks using that weapon, and the weapon's damage die becomes a d8. The weapon also becomes magical, if it isn't already. The spell ends if you cast it again or if you let go of the weapon."
                             }
                         ],
                         "spells": [
@@ -504,7 +504,7 @@
                                         "minutes": 1
                                     }
                                 },
-                                "description": "A Line of strong wind 60 feet long and 10 feet wide blasts from you in a direction you choose for the duration. Each creature in the Line must succeed on a Strength saving throw or be pushed 15 feet away from you in a direction following the Line. A creature that ends its turn in the Line must make the same save.\nAny creature in the Line must spend 2 feet of movement for every 1 foot it moves when moving closer to you.\nThe gust disperses gas or vapor, and it extinguishes candles and similar unprotected flames in the area. It causes protected flames, such as those of lanterns, to dance wildly and has a 50 percent chance to extinguish them.\nAs a Bonus Action on your later turns, you can change the direction in which the Line blasts from you."
+                                "description": "A line of strong wind 60 feet long and 10 feet wide blasts from you in a direction you choose for the spell's duration. Each creature that starts its turn in the line must succeed on a Strength saving throw or be pushed 15 feet away from you in a direction following the line.\nAny creature in the line must spend 2 feet of movement for every 1 foot it moves when moving closer to you.\nThe gust disperses gas or vapor, and it extinguishes candles, torches, and similar unprotected flames in the area. It causes protected flames, such as those of lanterns, to dance wildly and has a 50 percent chance to extinguish them.\nAs a bonus action on each of your turns before the spell ends, you can change the direction in which the line blasts from you."
                             }
                         ]
                     }
@@ -566,7 +566,7 @@
                                     "distance": 150,
                                     "aoe": {
                                         "cylinder": {
-                                            "long": 40,
+                                            "long": 20,
                                             "wide": 40
                                         }
                                     }
@@ -581,7 +581,7 @@
                                         "minutes": 1
                                     }
                                 },
-                                "description": "Until the spell ends, sleet falls in a 40-foot-tall, 20-foot-radius Cylinder centered on a point you choose within range. The area is Heavily Obscured, and exposed flames in the area are doused.\nGround in the Cylinder is Difficult Terrain. When a creature enters the Cylinder for the first time on a turn or starts its turn there, it must succeed on a Dexterity saving throw or have the Prone condition and lose Concentration."
+                                "description": "Until the spell ends, freezing rain and sleet fall in a 20-foot-tall cylinder with a 40-foot radius centered on a point you choose within range. The area is heavily obscured, and exposed flames in the area are doused.\nThe ground in the area is covered with slick ice, making it difficult terrain. When a creature enters the spell's area for the first time on a turn or starts its turn there, it must make a Dexterity saving throw. On a failed save, it falls prone.\nIf a creature starts its turn in the spell's area and is concentrating on a spell, the creature must make a successful Constitution saving throw against your spell save DC or lose concentration."
                             }
                         ]
                     }
@@ -598,14 +598,14 @@
                         },
                         "spells": [
                             {
-                                "name": "Conjure Woodland Beings",
+                                "name": "Conjure Minor Elementals",
                                 "level": "fourth",
                                 "school": "conjuration",
                                 "components": ["V", "S"],
                                 "range": {
-                                    "distance": "self",
+                                    "distance": 90,
                                     "aoe": {
-                                        "radius": 10
+                                        "targets": 8
                                     }
                                 },
                                 "time": {
@@ -615,11 +615,11 @@
                                 "duration": {
                                     "type": "concentration",
                                     "maximum": {
-                                        "minutes": 10
+                                        "hours": 1
                                     }
                                 },
-                                "upcast": "The damage increases by 1d8 for each spell slot level above 4.",
-                                "description": "You conjure nature spirits that flit around you in a 10-foot Emanation for the duration. Whenever the Emanation enters the space of a creature you can see and whenever a creature you can see enters the Emanation or ends its turn there, you can force that creature to make a Wisdom saving throw. The creature takes 5d8 Force damage on a failed save or half as much damage on a successful one. A creature makes this save only once per turn.\nIn addition, you can take the Disengage action as a Bonus Action for the spell's duration."
+                                "description": "You summon elementals that appear in unoccupied spaces that you can see within range. You choose one the following options for what appears:\n\n- One elemental of challenge rating 2 or lower\n- Two elementals of challenge rating 1 or lower\n- Four elementals of challenge rating 1/2 or lower\n- Eight elementals of challenge rating 1/4 or lower.\n\nAn elemental summoned by this spell disappears when it drops to 0 hit points or when the spell ends.\nThe summoned creatures are friendly to you and your companions. Roll initiative for the summoned creatures as a group, which has its own turns. They obey any verbal commands that you issue to them (no action required by you). If you don't issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions.",
+                                "upcast": "More creatures appear: twice as many with a 6th-level slot and three times as many with an 8th-level slot."
                             }
                         ]
                     }
@@ -661,7 +661,8 @@
                                 "duration": {
                                     "type": "instantaneous"
                                 },
-                                "description": "You invoke both death and life upon a 10-foot-radius sphere centered on a point within range. Each creature of your choice in that area must make a Constitution saving throw, taking 2d6 necrotic damage on a failed save, or half as much damage on a successful one. Nonmagical vegetation in that area withers.\nIn addition, one creature of your choice in that area can spend and roll one of its unspent Hit Dice and regain a number of hit points equal to the roll plus your spellcasting ability modifier.\nAt Higher Levels. When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d6 for each slot above 2nd, and the number of Hit Dice that can be spent and added to the healing roll increases by one for each slot above 2nd."
+                                "description": "You invoke both death and life upon a 10-foot-radius sphere centered on a point within range. Each creature of your choice in that area must make a Constitution saving throw, taking 2d6 necrotic damage on a failed save, or half as much damage on a successful one. Nonmagical vegetation in that area withers.\nIn addition, one creature of your choice in that area can spend and roll one of its unspent Hit Dice and regain a number of hit points equal to the roll plus your spellcasting ability modifier. ",
+                                "upcast": "the damage increases by 1d6 for each slot above 2nd, and the number of Hit Dice that can be spent and added to the healing roll increases by one for each slot above 2nd."
                             }
                         ]
                     }
@@ -933,6 +934,14 @@
                 "params": {
                     "quantity": 9
                 }
+            },
+            {
+                "name": "Red Petal",
+                "type": "misc",
+                "weight": null,
+                "cost": null,
+                "description": "A reminder of home",
+                "equipped": false
             },
             {
                 "name": "Incriminating Letters",
