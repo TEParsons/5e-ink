@@ -4,26 +4,27 @@
     let prefs = getContext("prefs");
 
     let {
-        value=$bindable(),
+        used=$bindable(),
         total=$bindable(),
         edit=prefs.edit
-    } = $props()   
+    } = $props()  
+    $inspect(used) 
 </script>
 
 <div class=spellslots>
     {#each Array(total).keys() as n}
         <button
             onclick={(evt) => {
-                if (n < value) {
-                    value -= 1
+                if (n < (total - used)) {
+                    used += 1
                 } else {
-                    value += 1
+                    used -= 1
                 }
             }}
             aria-label="slot"
         >
             <svg class=icon>
-                <use xlink:href="assets/proficiency/{n < value ? "full" : "none"}.svg" />
+                <use xlink:href="assets/proficiency/{n < (total - used) ? "full" : "none"}.svg" />
             </svg>
         </button>
     {/each}

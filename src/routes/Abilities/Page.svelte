@@ -59,7 +59,7 @@
         {#each Object.keys(stats.class) as cls}
             <div class=pool-ctrl>
                 <SlotsCtrl 
-                    bind:value={stats.current.hitdice[cls]}
+                    bind:used={stats.current.hitdice[cls]}
                     total={Object.keys(stats.class[cls].levels).length}
                 />
                 <b>Hit dice ({cls})</b>
@@ -69,7 +69,7 @@
         {#each Object.entries(getPools(stats)) as [index, pool]}
             <div class=pool-ctrl>
                 <SlotsCtrl 
-                    bind:value={stats.current.pools[index]}
+                    bind:used={stats.current.pools[index]}
                     total={pool.total}
                 />
                 <b>{pool.name}</b>

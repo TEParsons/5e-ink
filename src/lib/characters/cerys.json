@@ -31,18 +31,18 @@
         "damage": 28,
         "hptemp": 0,
         "pools": {
-            "wildshape": 2,
-            "guiding-bolt": 3,
-            "floral-omen": 3
+            "wildshape": 0,
+            "guiding-bolt": 0,
+            "floral-omen": 0
         },
         "hitdice": {
-            "druid": 7
+            "druid": 0
         },
         "spellslots": {
-            "first": 3,
-            "second": 2,
+            "first": 0,
+            "second": 0,
             "third": 0,
-            "fourth": 1
+            "fourth": 0
         }
     },
     "scores": {

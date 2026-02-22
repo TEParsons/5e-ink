@@ -26,7 +26,7 @@
             {pool.name}
         </h4>
         <SlotsCtrl
-            bind:value={stats.current.pools[action.pool]}
+            bind:used={stats.current.pools[action.pool]}
             total={pool.total}
         />
     {/if}

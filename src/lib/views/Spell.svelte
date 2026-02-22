@@ -189,7 +189,7 @@
             {`${sentenceCase(spell.level)} level`} spell slots
         </h4>
         <SlotsCtrl 
-            bind:value={stats.current.spellslots[spell.level]}
+            bind:used={stats.current.spellslots[spell.level]}
             total={getTotalSlots(stats, spell.level)}
         />
     {/if}
@@ -209,7 +209,7 @@
                 {#if getTotalSlots(stats, upcastLevel)}
                     <div class=pool-ctrl>
                         <SlotsCtrl 
-                            bind:value={stats.current.spellslots[upcastLevel]}
+                            bind:used={stats.current.spellslots[upcastLevel]}
                             total={getTotalSlots(stats, upcastLevel)}
                         />
                         <b>

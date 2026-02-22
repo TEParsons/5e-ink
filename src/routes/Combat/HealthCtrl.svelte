@@ -65,7 +65,7 @@
     {#each Object.keys(stats.class) as cls}
         <b class=hitdice-lbl>Hit dice ({cls}, d{stats.class[cls].hitdie})</b>
         <SlotsCtrl 
-            bind:value={stats.current.hitdice[cls]}
+            bind:used={stats.current.hitdice[cls]}
             total={Object.keys(stats.class[cls].levels).length}
         />
     {/each}

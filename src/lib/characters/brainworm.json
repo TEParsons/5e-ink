@@ -26,13 +26,13 @@
         "damage": 0,
         "hptemp": 0,
         "pools": {
-            "ki": 3
+            "ki": 0
         },
         "hitdice": {
-            "monk": 3
+            "monk": 0
         },
         "spellslots": {
-            "first": 1
+            "first": 0
         }
     },
     "scores": {

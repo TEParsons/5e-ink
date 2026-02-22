@@ -32,7 +32,7 @@
                     {`${sentenceCase(level)} level`}
                 </h2>
                 <SlotsCtrl 
-                    bind:value={stats.current.spellslots[level]}
+                    bind:used={stats.current.spellslots[level]}
                     total={getTotalSlots(stats, level)}
                 />
             </div>

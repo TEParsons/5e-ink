@@ -24,23 +24,23 @@
         }
     },
     "current": {
-        "damage": 5,
-        "hptemp": 10,
+        "damage": 0,
+        "hptemp": 0,
         "spellslots": {
-            "first": 4,
-            "second": 3,
-            "third": 3,
-            "fourth": 2
+            "first": 0,
+            "second": 0,
+            "third": 0,
+            "fourth": 0
         },
         "hitdice": {
-            "bard": 8
+            "bard": 0
         },
         "pools": {
-            "bardic": 3,
-            "relentless-endurance": 1,
-            "adrenaline-rush": 3,
-            "beguiling-magic": 1,
-            "mantle-of-majesty": 1,
+            "bardic": 0,
+            "relentless-endurance": 0,
+            "adrenaline-rush": 0,
+            "beguiling-magic": 0,
+            "mantle-of-majesty": 0,
             "insanity": 0
         }
     },

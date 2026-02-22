@@ -23,7 +23,7 @@
         style:opacity={(6-deathSaves)/3}
     >Dead</span>
     <SlotsCtrl
-        bind:value={deathSaves}
+        bind:used={deathSaves}
         total={6}
         edit={false}
     />
