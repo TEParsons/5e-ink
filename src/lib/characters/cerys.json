@@ -28,7 +28,7 @@
         }
     },
     "current": {
-        "damage": 28,
+        "damage": 0,
         "hptemp": 0,
         "pools": {
             "wildshape": 0,

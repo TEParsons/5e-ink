@@ -8,7 +8,6 @@
         total=$bindable(),
         edit=prefs.edit
     } = $props()  
-    $inspect(used) 
 </script>
 
 <div class=spellslots>

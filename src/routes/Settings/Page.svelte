@@ -73,9 +73,7 @@
     >
         <use xlink:href="assets/logo.svg" />
     </svg>
-    <CharacterCtrl 
-        bind:stats={stats}
-    />
+    <CharacterCtrl />
     <!-- <SwitchCtrl 
         bind:value={prefs.edit}
         labels={{

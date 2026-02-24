@@ -1,19 +1,12 @@
 <script>
     import { Filesystem, Directory } from "@capacitor/filesystem";
     import { ChoiceCtrl, Option } from "$lib/ui/ctrls";
-    // import preset chars
-    import Cerys from "$lib/characters/cerys.json";
-    import Yiig from "$lib/characters/yiig.json";
-    import Paran from "$lib/characters/paran.json";
-    import Brainworm from "$lib/characters/brainworm.json";
-
-    let {
-        stats=$bindable()
-    } = $props()
+    import { characters, current } from "$lib/characters";
 </script>
 
 <ChoiceCtrl
-    onselect={(evt, index, data) => Object.assign(stats, data.profile)}
+    bind:value={current.index}
+    onselect={(evt, index, data) => Object.assign(current.stats, characters[current.index])}
     edit
 >
     {#await Filesystem.readdir({
@@ -41,12 +34,9 @@
         {/each}
     {:catch err}
         <!-- this will always be shown if not on mobile -->
-        {#each Object.entries([Yiig, Paran, Brainworm, Cerys]) as [i, profile]}
+        {#each Object.entries(characters) as [i, profile]}
             <Option
-                data={{
-                    file: undefined,
-                    profile: profile
-                }}
+                data={i}
                 index={i}
             >
                 <div class=profile-option>

@@ -8,10 +8,9 @@
     import BioPage from "./Bio/Page.svelte";
     import SettingsPage from "./Settings/Page.svelte";
     import { Notebook, NotebookPage } from "$lib/ui/notebook";
-    import Yiig from "$lib/characters/yiig.json"
+    import { characters, current } from "$lib/characters";
 
-    let stats = $state({});
-    setContext("stats", stats)
+    setContext("stats", current.stats)
 
     let prefs = $state({
         printing: false,
@@ -21,18 +20,30 @@
 
     // if no class has a spellcasting ability, we don't need a spells page
     let caster = $derived(
-        Object.values(stats.class || {}).every(val => val.spellcasting)
+        Object.values(current.stats.class || {}).every(val => val.spellcasting)
     )
 
     onMount(() => {
         // load stats from local data on reload, if possible
-        if (localStorage["5eink:last-load"]) {
-            Object.assign(stats, JSON.parse(localStorage["5eink:last-load"]))
+        if (localStorage["5eink:characters"]) {
+            // get saved data
+            let saved = JSON.parse(localStorage["5eink:characters"])
+            console.log("Found saved data", saved)
+            // apply current and inventory
+            for (let key in saved) {
+                Object.assign(characters[key].current, saved[key].current)
+                Object.assign(characters[key].inventory, saved[key].inventory)
+            }
+            
         }
 
         $effect(() => {
+            // update character details in characters array when they change
+            if (current.index) {
+                Object.assign(characters[current.index], current.stats)
+            }
             // update local data with stats whenever they change
-            localStorage.setItem("5eink:last-load", JSON.stringify(stats))
+            localStorage.setItem("5eink:characters", JSON.stringify(characters))
         })
     })
 </script>
@@ -43,7 +54,7 @@
 />
 <svelte:head>
     <title>
-        {prefs.printing ? stats.details?.name : `5e Ink: ${stats.details?.name || "No character"}`}
+        {prefs.printing ? current.stats.details?.name : `5e Ink: ${current.stats.details?.name || "No character"}`}
     </title>
 </svelte:head>
 
@@ -53,7 +64,7 @@
             label="📋"
             tooltip="Abilities"
             emoji
-            disabled={!Object.keys(stats).length}
+            disabled={!Object.keys(current.stats).length}
         >
             <AbilitiesPage />
         </NotebookPage>
@@ -61,7 +72,7 @@
             label="⚔︎"
             tooltip="Combat"
             emoji
-            disabled={!Object.keys(stats).length}
+            disabled={!Object.keys(current.stats).length}
         >
             <CombatPage />
         </NotebookPage>
@@ -70,7 +81,7 @@
                 label="✨"
                 tooltip="Spells"
                 emoji
-                disabled={!Object.keys(stats).length}
+                disabled={!Object.keys(current.stats).length}
             >
                 <SpellsPage />
             </NotebookPage>
@@ -79,7 +90,7 @@
             label="🪎"
             tooltip="Inventory"
             emoji
-            disabled={!Object.keys(stats).length}
+            disabled={!Object.keys(current.stats).length}
         >
             <InventoryPage />
         </NotebookPage>
@@ -87,7 +98,7 @@
             label="👤"
             tooltip="Biography"
             emoji
-            disabled={!Object.keys(stats).length}
+            disabled={!Object.keys(current.stats).length}
         >
             <BioPage />
         </NotebookPage>
