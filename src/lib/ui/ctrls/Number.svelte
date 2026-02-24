@@ -21,6 +21,11 @@
         shown: false
     })
 
+    let initial = $state({
+        value: value,
+        temp: temp
+    });
+
     $effect(evt => {
         if (dialog.shown) {
             dialog.restore = untrack(() => $state.snapshot(value));
@@ -61,6 +66,10 @@
 
 <Dialog
     bind:shown={dialog.shown}
+    onopen={evt => Object.assign(initial, {
+        value: $state.snapshot(value), 
+        temp: $state.snapshot(temp)
+    })}
     buttons={{
         OK: evt => {},
         CANCEL: evt => value = dialog.restore
@@ -87,6 +96,13 @@
         <div
             class="output number"
         >
+            <span
+                class="initial"
+            >
+                {#if initial.value != value}
+                    {initial.value} 🡒
+                {/if}
+            </span>
             {value}
         </div>
     </div>
@@ -108,6 +124,13 @@
                 <div
                     class="output number"
                 >
+                    <span
+                        class="initial"
+                    >
+                        {#if initial.temp != temp}
+                            +{initial.temp} 🡒
+                        {/if}
+                    </span>
                     + {temp}
                 </div>
             {:else}
@@ -161,6 +184,11 @@
         grid-row-end: span 2;
         padding: 1rem;
         font-size: 1.5rem;
+    }
+
+    .initial {
+        font-size: 1rem;
+        color: var(--mantle)
     }
 
     button {
