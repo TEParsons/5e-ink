@@ -885,9 +885,19 @@
                 "type": "weapon",
                 "weight": 4,
                 "cost": null,
-                "description": "The crystal at the end of this staff glows when ergonite is close. Its brightness is proportional to the potency and proximity of the ergonite. As an action, repair up to 1sqft of ergonite, joining fragments into a single naturalistic lump and removing any engravings.",
+                "description": "The crystal at the end of this staff glows when ergonite is close. Its brightness is proportional to the potency and proximity of the ergonite.",
                 "equipped": true,
                 "grants": {
+                    "actions": [
+                        {
+                            "name": "Repair Ergonite",
+                            "time": {
+                                "type": "action",
+                                "amount": 1
+                            },
+                            "description": "Repair up to 1sqft of ergonite, joining fragments into a single naturalistic lump and removing any engravings."
+                        }
+                    ],
                     "attacks": [
                         {
                             "name": "Ergonite staff",
