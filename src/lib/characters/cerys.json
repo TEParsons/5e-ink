@@ -296,14 +296,14 @@
                                 "description": "You create a 20-foot-radius sphere of fog centered on a point within range. The sphere spreads around corners, and its area is heavily obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it."
                             },
                             {
-                                "name": "Goodberry",
+                                "name": "Cure Wounds",
                                 "level": "first",
-                                "school": "transmutation",
-                                "components": ["V", "S", "M"],
+                                "school": "evocation",
+                                "components": ["V", "S"],
                                 "range": {
                                     "distance": "touch",
                                     "aoe": {
-                                        "targets": 10
+                                        "targets": 1
                                     }
                                 },
                                 "time": {
@@ -311,12 +311,10 @@
                                     "amount": 1
                                 },
                                 "duration": {
-                                    "type": "dispell",
-                                    "maximum": {
-                                        "hours": 24
-                                    }
+                                    "type": "instantaneous"
                                 },
-                                "description": "Up to ten berries appear in your hand and are infused with magic for the duration. A creature can use its action to eat one berry. Eating a berry restores 1 hit point, and the berry provides enough nourishment to sustain a creature for one day.\nThe berries lose their potency if they have not been consumed within 24 hours of the casting of this spell."
+                                "description": "A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier. This spell has no effect on undead or constructs.",
+                                "upcast": "When you cast this spell using a spell slot of 2nd level or higher, the Healing increases by 1d8 for each slot level above 1st."
                             },
                             {
                                 "name": "Healing Word",
@@ -558,16 +556,16 @@
                         },
                         "spells": [
                             {
-                                "name": "Sleet Storm",
+                                "name": "Call Lightning",
                                 "level": "third",
                                 "school": "conjuration",
-                                "components": ["V", "S", "M"],
+                                "components": ["V", "S"],
                                 "range": {
-                                    "distance": 150,
+                                    "distance": 120,
                                     "aoe": {
                                         "cylinder": {
-                                            "long": 20,
-                                            "wide": 40
+                                            "long": 10,
+                                            "wide": 60
                                         }
                                     }
                                 },
@@ -578,10 +576,11 @@
                                 "duration": {
                                     "type": "concentration",
                                     "maximum": {
-                                        "minutes": 1
+                                        "minutes": 10
                                     }
                                 },
-                                "description": "Until the spell ends, freezing rain and sleet fall in a 20-foot-tall cylinder with a 40-foot radius centered on a point you choose within range. The area is heavily obscured, and exposed flames in the area are doused.\nThe ground in the area is covered with slick ice, making it difficult terrain. When a creature enters the spell's area for the first time on a turn or starts its turn there, it must make a Dexterity saving throw. On a failed save, it falls prone.\nIf a creature starts its turn in the spell's area and is concentrating on a spell, the creature must make a successful Constitution saving throw against your spell save DC or lose concentration."
+                                "description": "A storm cloud appears in the shape of a cylinder that is 10 feet tall with a 60-foot radius, centered on a point you can see 100 feet directly above you. The spell fails if you can't see a point in the air where the storm cloud could appear (for example, if you are in a room that can't accommodate the cloud).\nWhen you cast the spell, choose a point you can see within range. A bolt of lightning flashes down from the cloud to that point. Each creature within 5 feet of that point must make a Dexterity saving throw. A creature takes 3d10 lightning damage  on a failed save, or half as much damage on a successful one. On each of your turns until the spell ends, you can use your action to call down lightning in this way again, targeting the same point or a different one.\nIf you are outdoors in stormy conditions when you cast this spell, the spell gives you control over the existing storm instead of creating a new one. Under such conditions, the spell's damage increases by 1d10.",
+                                "upcast": "When you cast this spell using a spell slot of 4th level or higher level, the damage increases by 1d10 for each slot level above 3rd."
                             }
                         ]
                     }
