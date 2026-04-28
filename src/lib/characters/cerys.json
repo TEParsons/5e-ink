@@ -860,7 +860,7 @@
                                 "amount": 1
                             },
                             "weapontype": "simple",
-                            "attacktype": "ranged",
+                            "attackstat": "str",
                             "distance": {
                                 "reach": 0,
                                 "range": 30,
@@ -896,7 +896,7 @@
                                 "amount": 1
                             },
                             "weapontype": "simple",
-                            "attacktype": "melee",
+                            "attackstat": "str",
                             "distance": {
                                 "reach": 5,
                                 "range": 0,
