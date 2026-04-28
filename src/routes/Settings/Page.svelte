@@ -4,6 +4,10 @@
     import CharacterCtrl from "./Character.svelte";
     import schema from "$lib/schemas/character.schema.json"
     import { recursiveDefaults } from "$lib/schemas"
+    import Cerys from "$lib/characters/cerys.json";
+    import Paran from "$lib/characters/paran.json";
+    import Yiig from "$lib/characters/yiig.json";
+    import { current, characters } from "$lib/characters";
 
     let stats = getContext("stats");
     let prefs = getContext("prefs");
@@ -63,6 +67,23 @@
         file.write(content);
         file.close();
     }
+
+    async function resetCharacters(evt) {
+        // reset characters from loaded JSON
+        Object.assign(
+            characters,
+            {
+                cerys: Cerys,
+                paran: Paran,
+                yiig: Yiig
+            }
+        )
+        // reset current char stats
+        Object.assign(
+            stats,
+            characters[current.index]
+        )
+    }
 </script>
 
 
@@ -86,6 +107,7 @@
         <!-- <button onclick={newCharacter}>New Character</button> -->
         <button onclick={loadCharacter}>Import Character</button>
         <button onclick={saveCharacter}>Export Character</button>
+        <button onclick={resetCharacters}>Reset characters</button>
     </div>
 </div>
 
