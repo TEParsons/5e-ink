@@ -715,6 +715,64 @@
                             }
                         ]
                     }
+                },
+                "9": {
+                    "proficiencies": {
+                        "skills": {
+                            "set": {
+                                "persuasion": 2,
+                                "arcana": 2
+                            }
+                        }
+                    },
+                    "casting": {
+                        "spellslots": {
+                            "fourth": 1,
+                            "fifth": 1
+                        },
+                        "spells": [
+                            {
+                                "name": "TBA",
+                                "level": "fourth",
+                                "range": {
+                                    "distance": 60,
+                                    "aoe": {
+                                        "targets": "visible"
+                                    }
+                                },
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "components": ["V", "S"],
+                                "duration": {
+                                    "type": "concentration"
+                                },
+                                "school": "enchantment",
+                                "description": "NTS: Choose a 4th level spell (Confusion? Greater Invisibility?)"
+                            },
+                            {
+                                "name": "TBA",
+                                "level": "fifth",
+                                "range": {
+                                    "distance": 60,
+                                    "aoe": {
+                                        "targets": "visible"
+                                    }
+                                },
+                                "time": {
+                                    "type": "action",
+                                    "amount": 1
+                                },
+                                "components": ["V", "S"],
+                                "duration": {
+                                    "type": "concentration"
+                                },
+                                "school": "enchantment",
+                                "description": "NTS: Choose a 5th level spell (Gaes? Animate Objects?)"
+                            }
+                        ]
+                    }
                 }
             },
             "subtype": {
@@ -1068,6 +1126,29 @@
                 },
                 "equipped": false,
                 "description": "A book of hymns dedicated to the Morning Lord, stolen from the Castle Ravenloft library."
+            },
+            {
+                "name": "Song of Sister Maria",
+                "type": "consumable",
+                "weight": null,
+                "cost": null,
+                "equipped": true,
+                "description": "A song Yi'ig wrote to commemorate Sister Maria (aka Ghost Babe), and perfected with the help of Amorast of Argynvostholt",
+                "grants": {
+                    "actions": [
+                        {
+                            "name": "Song of Sister Maria",
+                            "time": {
+                                "type": "bonusaction",
+                                "amount": 1
+                            },
+                            "description": "Restore an ally from death saves to 1hp."
+                        }
+                    ]
+                },
+                "params": {
+                    "quantity": 1
+                }
             }
         ]
     }
