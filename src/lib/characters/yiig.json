@@ -30,7 +30,8 @@
             "first": 0,
             "second": 0,
             "third": 0,
-            "fourth": 0
+            "fourth": 0,
+            "fifth": 0
         },
         "hitdice": {
             "bard": 0
@@ -732,24 +733,28 @@
                         },
                         "spells": [
                             {
-                                "name": "TBA",
+                                "name": "Confusion",
                                 "level": "fourth",
                                 "range": {
-                                    "distance": 60,
+                                    "distance": 90,
                                     "aoe": {
-                                        "targets": "visible"
+                                        "radius": 10
                                     }
                                 },
                                 "time": {
                                     "type": "action",
                                     "amount": 1
                                 },
-                                "components": ["V", "S"],
+                                "components": ["V", "S", "M"],
                                 "duration": {
-                                    "type": "concentration"
+                                    "type": "concentration",
+                                    "maximum": {
+                                        "minutes": 1
+                                    }
                                 },
                                 "school": "enchantment",
-                                "description": "NTS: Choose a 4th level spell (Confusion? Greater Invisibility?)"
+                                "description": "Each creature in a 10-foot-radius Sphere centered on a point you choose within range must succeed on a Wisdom saving throw, or that target can't take Bonus Actions or Reactions and must roll 1d10 at the start of each of its turns to determine its behavior for that turn, consulting the table below.\n- **1**: The target doesn't take an action, and it uses all its movement to move. Roll 1d4 for the direction:\n    - 1 = north\n    - 2 = east\n    - 3 = south\n    - 4 = west.\n- **2-6**: The target doesn't move or take actions.\n- **7-8**: The target doesn't move, and it takes the Attack action to make one melee attack against a random creature within reach. If none are within reach, the target takes no action.\n- **9-10**: The target chooses its behavior.\n",
+                                "upcast": "The Sphere's radius increases by 5 feet for each spell slot level above 4."
                             },
                             {
                                 "name": "TBA",
