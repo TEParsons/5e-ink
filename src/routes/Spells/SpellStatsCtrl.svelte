@@ -69,7 +69,7 @@
         </span>
         {#each Object.entries(saves) as [cls, save]}
             <div class=value>
-                {save >= 0 ? `+${save}` : `${save}`}
+                {save}
                 {#if Object.keys(saves).length > 1}
                     <span class=label>({cls})</span>
                 {/if}
