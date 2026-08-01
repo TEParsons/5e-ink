@@ -12,3 +12,4 @@ export { default as ListCtrl } from "./List.svelte";
 export { default as EditToggle } from "./EditToggle.svelte";
 export { default as Break } from "./LineBreak.svelte";
 export { default as Button } from "./Button.svelte";
+export { default as BoolCtrl } from "./Bool.svelte";

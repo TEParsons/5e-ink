@@ -7,9 +7,13 @@
     import InitiativeCtrl from "./InitiativeCtrl.svelte";
     import ActionCtrl from "./ActionCtrl.svelte";
     import { TraitView, SpellView, ActionView, AttackView, ItemView } from "$lib/views";
-    import { DetailsCtrl } from "$lib/ui/ctrls";
+    import { DetailsCtrl, BoolCtrl } from "$lib/ui/ctrls";
 
-    let stats = getContext("stats")
+    let stats = getContext("stats");
+
+    let options = $state({
+        showSpells: false
+    })
 </script>
 
 {#snippet actions(time)}
@@ -62,47 +66,49 @@
                         </ActionCtrl>
                     {/if}
                 {/each}
+                
+                {#if options.showSpells}
+                    <!-- cantrips -->
+                    {#each Object.entries(advancement.casting?.cantrips || []) as [i, cantrip]}
+                        {#if cantrip.time.type === time}
+                            <ActionCtrl
+                                bind:action={advancement.casting.cantrips[i]}
+                                icon={sourceIcons.spell}
+                            >
+                                <SpellView 
+                                    bind:spell={advancement.casting.cantrips[i]}
+                                />
+                            </ActionCtrl>
+                        {/if}
+                    {/each}
 
-                <!-- cantrips -->
-                {#each Object.entries(advancement.casting?.cantrips || []) as [i, cantrip]}
-                    {#if cantrip.time.type === time}
-                        <ActionCtrl
-                            bind:action={advancement.casting.cantrips[i]}
-                            icon={sourceIcons.spell}
-                        >
-                            <SpellView 
-                                bind:spell={advancement.casting.cantrips[i]}
-                            />
-                        </ActionCtrl>
-                    {/if}
-                {/each}
-
-                <!-- spells -->
-                {#each Object.entries(advancement.casting?.spells || []) as [i, spell]}
-                    {#if spell.time.type === time && stats.current.spellslots[spell.level]}
-                        <ActionCtrl
-                            bind:action={advancement.casting.spells[i]}
-                            icon="{sourceIcons.spell}{
-                                {
-                                    "first": "❶", 
-                                    "second": "❷", 
-                                    "third": "❸", 
-                                    "fourth": "❹", 
-                                    "fifth": "❺", 
-                                    "sixth": "❻", 
-                                    "seventh": "❼",
-                                    "eighth": "❽",
-                                    "ninth": "❾"
-                                }[spell.level]
-                            }"
-                        >
-                            <SpellView 
-                                bind:spell={advancement.casting.spells[i]}
-                            />
-                        </ActionCtrl>
-                    {/if}
-                {/each}
-
+                    <!-- spells -->
+                    {#each Object.entries(advancement.casting?.spells || []) as [i, spell]}
+                        {console.log(spell, spell.time.type)}
+                        {#if spell.time.type === time}
+                            <ActionCtrl
+                                bind:action={advancement.casting.spells[i]}
+                                icon="{sourceIcons.spell}{
+                                    {
+                                        "first": "❶", 
+                                        "second": "❷", 
+                                        "third": "❸", 
+                                        "fourth": "❹", 
+                                        "fifth": "❺", 
+                                        "sixth": "❻", 
+                                        "seventh": "❼",
+                                        "eighth": "❽",
+                                        "ninth": "❾"
+                                    }[spell.level]
+                                }"
+                            >
+                                <SpellView 
+                                    bind:spell={advancement.casting.spells[i]}
+                                />
+                            </ActionCtrl>
+                        {/if}
+                    {/each}
+                {/if}
             {/each}
         {/each}
     </div>
@@ -153,15 +159,24 @@
             {/each}
         {/each}
     </div>
+    
+    {#key options.showSpells}
+        <h3>Actions</h3>
+        {@render actions("action")}
 
-    <h3>Actions</h3>
-    {@render actions("action")}
+        <h3>Bonus Actions</h3>
+        {@render actions("bonusaction")}
 
-    <h3>Bonus Actions</h3>
-    {@render actions("bonusaction")}
+        <h3>Reactions</h3>
+        {@render actions("reaction")}
+    {/key}
 
-    <h3>Reactions</h3>
-    {@render actions("reaction")}
+    <div id=show-spells>
+        <BoolCtrl 
+            bind:value={options.showSpells}
+        /> 
+        Show spells?
+    </div>
 </div>
 
 <style>
@@ -200,5 +215,13 @@
         display: flex;
         flex-direction: column;
         align-items: stretch;
+    }
+
+    #show-spells {
+        display: flex;
+        gap: .5rem;
+        align-content: center;
+        justify-content: end;
+        margin: 2rem 0;
     }
 </style>
