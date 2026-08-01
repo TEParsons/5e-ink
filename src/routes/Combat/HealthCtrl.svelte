@@ -69,7 +69,7 @@
             total={Object.keys(stats.class[cls].levels).length}
         />
     {/each}
-    {#if stats.current.damage > total}
+    {#if stats.current.damage >= total}
         <DeathSavesCtrl />
     {/if}
 </div>
