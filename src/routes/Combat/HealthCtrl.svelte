@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { totalLevels, classLevels, traitsByTag, score2modifier, getScore, getAdvancements } from "$lib/utils.js";
+    import { totalLevels, classLevels, traitsByTag, score2modifier, getScore, getAdvancements, longRest } from "$lib/utils.js";
     import { NumberCtrl, Button, SlotsCtrl } from "$lib/ui/ctrls";
     import DeathSavesCtrl from "./DeathSavesCtrl.svelte";
 
@@ -62,13 +62,29 @@
             style:right="{(stats.current.damage - (stats.current.hptemp || 0)) * 100 / total}%"
         ></div>
     </div>
-    {#each Object.keys(stats.class) as cls}
-        <b class=hitdice-lbl>Hit dice ({cls}, d{stats.class[cls].hitdie})</b>
-        <SlotsCtrl 
-            bind:used={stats.current.hitdice[cls]}
-            total={Object.keys(stats.class[cls].levels).length}
-        />
-    {/each}
+    <div class=ctrls>
+        <div class=hitdice>
+            {#each Object.keys(stats.class) as cls}
+                <b class=hitdice-lbl>Hit dice ({cls}, d{stats.class[cls].hitdie})</b>
+                <SlotsCtrl 
+                    bind:used={stats.current.hitdice[cls]}
+                    total={Object.keys(stats.class[cls].levels).length}
+                />
+            {/each}
+        </div>
+        <div class=rest>
+            <!-- <Button 
+                label="Short rest"
+                icon=⛺
+                onclick={evt => longRest(stats)}
+            /> -->
+            <Button 
+                label="Long rest"
+                icon=🌙
+                onclick={evt => longRest(stats)}
+            />
+        </div>
+    </div>
     {#if stats.current.damage >= total}
         <DeathSavesCtrl />
     {/if}
@@ -102,7 +118,26 @@
         bottom: 0;
         background-color: var(--crust);
     }
+
+    .hitdice {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: .25rem;
+    }
     .hitdice-lbl {
         margin-top: .5rem;
+    }
+
+    .ctrls {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .rest {
+        display: flex;
+        flex-direction: row;
+        align-items: start;
     }
 </style>

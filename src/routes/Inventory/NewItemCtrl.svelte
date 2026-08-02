@@ -54,6 +54,8 @@
 
 <style>
     .add-item-btn {
+        display: flex;
+        justify-content: end;
         text-align: right;
     }
 </style>

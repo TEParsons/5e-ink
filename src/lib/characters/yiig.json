@@ -100,11 +100,18 @@
         "pools": {
             "relentless-endurance": {
                 "name": "Relentless Endurance",
-                "add": 1
+                "add": 1,
+                "refresh": {
+                    "longrest": "*"
+                }
             },
             "adrenaline-rush": {
                 "name": "Adrenaline Rush",
-                "add": 3
+                "add": 3,
+                "refresh": {
+                    "longrest": "*",
+                    "shortrest": "*"
+                }
             }
         },
         "actions": [
@@ -208,7 +215,10 @@
                     "pools": {
                         "bardic": {
                             "name": "Bardic Inspiration",
-                            "add": "$chr"
+                            "add": "$chr",
+                            "refresh": {
+                                "longrest": "*"
+                            }
                         } 
                     },
                     "casting": {
@@ -559,6 +569,13 @@
                             "description": "You regain all of your expended uses of Bardic Inspiration when you finish a short or long rest. In addition, you can expend a spell slot (no action required) to regain one expended use of Bardic Inspiration."
                         }
                     ],
+                    "pools": {
+                        "bardic": {
+                            "refresh": {
+                                "shortrest": "*"
+                            }
+                        }
+                    },
                     "casting": {
                         "spellslots": {
                             "third": 2
@@ -800,7 +817,10 @@
                         "pools": {
                             "beguiling-magic": {
                                 "name": "Beguiling Magic",
-                                "add": 1
+                                "add": 1,
+                                "refresh": {
+                                    "longrest": "*"
+                                }
                             }
                         },
                         "casting": {
@@ -872,7 +892,10 @@
                         "pools": {
                             "mantle-of-majesty": {
                                 "name": "Mantle of Majesty",
-                                "add": 1
+                                "add": 1,
+                                "refresh": {
+                                    "longrest": "*"
+                                }
                             }
                         },
                         "casting": {

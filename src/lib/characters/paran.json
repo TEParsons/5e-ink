@@ -259,7 +259,10 @@
                         "lay-on-hands": {
                             "name": "Lay On Hands",
                             "description": "Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you finish a Long Rest. With that pool, you can restore a total number of Hit Points equal to five times your Paladin level.",
-                            "add": 15
+                            "add": 15,
+                            "refresh": {
+                                "longrest": "*"
+                            }
                         }
                     },
                     "actions": [
@@ -358,7 +361,10 @@
                         "paladin-smite": {
                             "name": "Paladin's Smite",
                             "description": "You always have Divine Smite prepared and cast it without expending a spell slot once per Long Rest.",
-                            "add": 1
+                            "add": 1,
+                            "refresh": {
+                                "longrest": "*"
+                            }
                         }
                     },
                     "actions": [
@@ -422,7 +428,11 @@
                         "channel-divinity": {
                             "name": "Channel Divinity",
                             "description": "You can channel divine energy directly from the Outer Planes, using it to fuel magical effects. Each time you use this class's Channel Divinity, you choose which effect from this class to create.\nYou can use this class's Channel Divinity twice. You regain one of its expended uses when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest. You gain an additional use when you reach Paladin level 11.",
-                            "add": 2
+                            "add": 2,
+                            "refresh": {
+                                "longrest": "*",
+                                "shortrest": 1
+                            }
                         }
                     },
                     "actions": [

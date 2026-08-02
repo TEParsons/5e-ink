@@ -350,7 +350,10 @@
                         "wildshape": {
                             "name": "Wild Shape",
                             "description": "Starting at second level, you can use your action to magically assume the shape of a beast that you have seen before. You can use this feature twice.",
-                            "add": 2
+                            "add": 2,
+                            "refresh": {
+                                "longrest": "*"
+                            }
                         }
                     },
                     "actions": [
@@ -686,7 +689,10 @@
                         "pools": {
                             "guiding-bolt": {
                                 "name": "Guiding Bolt",
-                                "add": 3
+                                "add": 3,
+                                "refresh": {
+                                    "longrest": "*"
+                                }
                             }
                         },
                         "casting": {
@@ -770,7 +776,10 @@
                         "pools": {
                             "floral-omen": {
                                 "name": "Floral Omen",
-                                "add": 3
+                                "add": 3,
+                                "refresh": {
+                                    "longrest": "*"
+                                }
                             }
                         }
                     }

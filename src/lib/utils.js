@@ -118,10 +118,53 @@ export function getPools(stats) {
             // update total
             pools[index].total += actualize(stats, pool.add) || 0
             pools[index].total = Math.max(actualize(stats, pool.set) || pools[index].total)
+            // update refresh condition
+            pools[index].refresh = pools[index].refresh || {}
+            if (pool.refresh) {
+                Object.assign(
+                    pools[index].refresh, pool.refresh
+                )
+            }            
         }
     }
 
     return pools
+}
+
+/**
+ * Apply changes from a long rest
+ */
+export function longRest(stats) {
+    // restore all HP
+    stats.current.damage = 0
+    // restore all hitdice
+    for (let cls of Object.keys(stats.current.hitdice)) {
+        stats.current.hitdice[cls] = 0
+    }
+    // restore all spell slots
+    for (let lvl of Object.keys(stats.current.spellslots)) {
+        stats.current.spellslots[lvl] = 0
+    }
+    // restore any pools which refresh on a long rest
+    for (let [index, pool] of Object.entries(getPools(stats))) {
+        if (pool.refresh) {
+            for (let [evt, amount] of Object.entries(pool.refresh)) {
+                if (evt === "longrest" || evt === "shortrest") {
+                    // * means restore all
+                    if (amount === "*") {
+                        stats.current.pools[index] = 0
+                    } 
+                    // otherwise, restore as many as indicated
+                    if (typeof amount === "number") {
+                        stats.current.pools[index] = Math.max(
+                            stats.current.pools[index] - amount,
+                            0
+                        )
+                    }
+                }
+            }
+        }
+    }
 }
 
 

@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { NumberCtrl } from "$lib/ui/ctrls";
+    import { NumberCtrl, Button } from "$lib/ui/ctrls";
 
     let stats = getContext("stats");
     let prefs = getContext("prefs");
@@ -32,15 +32,10 @@
 </script>
 
 <div class=currency-ctrl>
-    <button 
-        class=sort-btn
+    <Button 
+        icon=assets/ui/sortcoins.svg
         onclick={sort}
-        aria-label="->"
-    >
-        <svg class=icon>
-            <use xlink:href="assets/ui/sortcoins.svg" />
-        </svg>
-    </button>
+    />
     {#each order as unit}
         <div class=unit>
             <NumberCtrl
@@ -82,22 +77,5 @@
         display: inline;
         height: 1rem;
         width: 1rem;
-    }
-
-    .sort-btn svg {
-        width: 1.5rem;
-        height: 1.5rem;
-    }
-
-    .sort-btn {
-        background-color: transparent;
-        color: var(--crust);
-        border: none;
-        outline: none;
-        border-radius: .5rem;
-        padding: 0;
-        line-height: 1rem;
-        font-family: var(--emoji);
-        margin-right: 1rem;
     }
 </style>

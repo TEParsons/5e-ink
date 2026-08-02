@@ -15,6 +15,33 @@
         },
         "set": {
             "type": "integer"
+        },
+        "restore": {
+            "type": "object",
+            "properties": {
+                "longrest": {
+                    "anyOf": [
+                        {
+                            "type": "integer"
+                        },
+                        {
+                            "type": "string",
+                            "const": "*"
+                        }
+                    ]
+                },
+                "shortrest": {
+                    "anyOf": [
+                        {
+                            "type": "integer"
+                        },
+                        {
+                            "type": "string",
+                            "const": "*"
+                        }
+                    ]
+                }
+            }
         }
     }
 }
