@@ -84,7 +84,6 @@
 
                     <!-- spells -->
                     {#each Object.entries(advancement.casting?.spells || []) as [i, spell]}
-                        {console.log(spell, spell.time.type)}
                         {#if spell.time.type === time}
                             <ActionCtrl
                                 bind:action={advancement.casting.spells[i]}
