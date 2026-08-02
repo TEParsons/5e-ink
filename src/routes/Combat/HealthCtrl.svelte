@@ -77,11 +77,13 @@
                 label="Short rest"
                 icon=⛺
                 onclick={evt => longRest(stats)}
+                confirmation
             /> -->
             <Button 
                 label="Long rest"
                 icon=🌙
                 onclick={evt => longRest(stats)}
+                confirmation
             />
         </div>
     </div>

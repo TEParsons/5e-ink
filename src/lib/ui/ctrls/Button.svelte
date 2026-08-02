@@ -2,12 +2,28 @@
     let {
         label=undefined,
         icon=undefined,
-        onclick=evt => {}
+        onclick=evt => {},
+        confirmation=false,
+        handle=$bindable()
     } = $props()
+
+    let confirming = $state.raw(false);
 </script>
 
 <button
-    onclick={onclick}
+    bind:this={handle}
+    onclick={evt => {
+        if (confirmation) {
+            if (confirming) {
+                onclick(evt)
+                confirming = false
+            } else {
+                confirming = true
+            }
+        } else {
+            onclick(evt)
+        }        
+    }}
 >
     {#if icon?.endsWith?.(".svg")}
         <svg class=icon>
@@ -19,9 +35,20 @@
         </span>
     {/if}
     {#if label}
-        {label}
+        {#if confirming}
+            Confirm?
+        {:else}
+            {label}
+        {/if}
     {/if}
 </button>
+
+<svelte:window onclick={evt => {
+    // cancel confirmation if clicked off button
+    if (confirming && evt.target !== handle) {
+        confirming = false
+    }
+}} />
 
 <style>
     button {
