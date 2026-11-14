@@ -1,6 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { SwitchCtrl, ChoiceCtrl, Option } from "$lib/ui/ctrls";
+    import Icon from "$lib/ui/Icon.svelte";
     import CharacterCtrl from "./Character.svelte";
     import schema from "$lib/schemas/character.schema.json"
     import { recursiveDefaults } from "$lib/schemas"
@@ -88,12 +89,12 @@
 
 
 <div class=page>
-    <svg 
-        class=logo
-        style:color="var(--text-on-base)"
-    >
-        <use xlink:href="assets/logo.svg" />
-    </svg>
+    <Icon 
+        file="assets/logo.svg"
+        font-size=15rem
+        color="var(--text-on-base)"
+    />
+    
     <CharacterCtrl />
     <!-- <SwitchCtrl 
         bind:value={prefs.edit}

@@ -1,6 +1,7 @@
 <script>
     import { onMount, onDestroy, getContext } from 'svelte';
     import Tooltip from '../tooltip/Tooltip.svelte';
+    import Icon from "$lib/ui/Icon.svelte";
     import { useSwipe } from 'svelte-gestures';
 
     let {
@@ -80,9 +81,9 @@
         bind:this={handle}
     >
         {#if icon}
-            <svg>
-                <use xlink:href={icon}></use>
-            </svg>
+            <Icon 
+                file={icon}
+            />
         {/if}
         <span 
             class=label 

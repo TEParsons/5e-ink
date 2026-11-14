@@ -1,4 +1,6 @@
 <script>
+    import Icon from "$lib/ui/Icon.svelte";
+
     let {
         value=$bindable(),
     } = $props()
@@ -9,9 +11,9 @@
     onclick={evt => value = !value}
     aria-label="checkbox"
 >
-    <svg class=icon>
-        <use xlink:href="assets/proficiency/{value ? "full" : "none"}.svg" />
-    </svg>
+    <Icon 
+        file="assets/proficiency/{value ? "full" : "none"}.svg"
+    />
 </button>
 
 <style>

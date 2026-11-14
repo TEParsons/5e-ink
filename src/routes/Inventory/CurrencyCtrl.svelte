@@ -1,6 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { NumberCtrl, Button } from "$lib/ui/ctrls";
+    import Icon from "$lib/ui/Icon.svelte";
 
     let stats = getContext("stats");
     let prefs = getContext("prefs");
@@ -45,11 +46,9 @@
                 interval=1
                 edit
             />
-            <svg
-                class=coin
-            >
-                <use xlink:href="assets/coins/{unit}.svg" />
-            </svg> 
+            <Icon 
+                file="assets/coins/{unit}.svg"
+            />
         </div>
     {/each}
 

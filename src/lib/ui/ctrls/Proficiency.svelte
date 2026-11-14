@@ -1,6 +1,7 @@
 <script>
     import Dialog from "../Dialog.svelte";
     import { getContext, untrack } from "svelte";
+    import Icon from "$lib/ui/Icon.svelte";
 
     let prefs = getContext("prefs");
     
@@ -38,9 +39,9 @@
     onclick={evt => dialog.shown = edit && true}
     aria-label={options[value || 0].icon}
 >
-    <svg class=icon>
-        <use xlink:href="assets/proficiency/{options[value || 0].icon}.svg" />
-    </svg>
+    <Icon
+        file="assets/proficiency/{options[value || 0].icon}.svg"
+    />
 </button>
 
 <Dialog
@@ -59,9 +60,9 @@
             class:selected={value === option}
             onclick={evt => value = option}
         >
-            <svg class=icon>
-                <use xlink:href="assets/proficiency/{options[option].icon}.svg" />
-            </svg>
+            <Icon 
+                file="assets/proficiency/{options[option].icon}.svg"
+            />
             {options[option].label}
         </button>
     {/each}

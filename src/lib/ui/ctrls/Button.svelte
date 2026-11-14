@@ -1,4 +1,6 @@
 <script>
+    import Icon from "$lib/ui/Icon.svelte";
+    
     let {
         label=undefined,
         icon=undefined,
@@ -26,9 +28,9 @@
     }}
 >
     {#if icon?.endsWith?.(".svg")}
-        <svg class=icon>
-            <use xlink:href={icon} />
-        </svg>
+        <Icon 
+            file={icon}
+        />
     {:else if icon}
         <span class=icon>
             {icon}
