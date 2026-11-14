@@ -226,7 +226,7 @@
                                     }
                                 },
                                 "time": {
-                                    "type": "action",
+                                    "type": "bonusaction",
                                     "amount": 1
                                 },
                                 "duration": {
