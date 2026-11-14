@@ -90,7 +90,7 @@
 
 <div class=page>
     <Icon 
-        file="assets/logo.svg"
+        file="/assets/logo.svg"
         font-size=15rem
         color="var(--text-on-base)"
     />

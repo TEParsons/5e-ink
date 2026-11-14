@@ -12,7 +12,7 @@
     aria-label="checkbox"
 >
     <Icon 
-        file="assets/proficiency/{value ? "full" : "none"}.svg"
+        file="/assets/proficiency/{value ? "full" : "none"}.svg"
     />
 </button>
 

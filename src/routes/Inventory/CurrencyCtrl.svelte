@@ -47,7 +47,7 @@
                 edit
             />
             <Icon 
-                file="assets/coins/{unit}.svg"
+                file="/assets/coins/{unit}.svg"
             />
         </div>
     {/each}

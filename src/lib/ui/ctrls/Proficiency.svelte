@@ -40,7 +40,7 @@
     aria-label={options[value || 0].icon}
 >
     <Icon
-        file="assets/proficiency/{options[value || 0].icon}.svg"
+        file="/assets/proficiency/{options[value || 0].icon}.svg"
     />
 </button>
 
@@ -61,7 +61,7 @@
             onclick={evt => value = option}
         >
             <Icon 
-                file="assets/proficiency/{options[option].icon}.svg"
+                file="/assets/proficiency/{options[option].icon}.svg"
             />
             {options[option].label}
         </button>

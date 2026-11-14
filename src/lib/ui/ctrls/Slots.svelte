@@ -24,7 +24,7 @@
             aria-label="slot"
         >
             <Icon 
-                file="assets/proficiency/{n < (total - used) ? "full" : "none"}.svg"
+                file="/assets/proficiency/{n < (total - used) ? "full" : "none"}.svg"
             />
         </button>
     {/each}
