@@ -34,7 +34,7 @@
 
 <div class=currency-ctrl>
     <Button 
-        icon=assets/ui/sortcoins.svg
+        icon=/assets/ui/sortcoins.svg
         onclick={sort}
     />
     {#each order as unit}
