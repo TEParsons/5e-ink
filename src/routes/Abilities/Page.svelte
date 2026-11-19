@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    
+    import { Icon } from "@svelte/einkui/icon";
     import AbilityScore from "./AbilityScore.svelte";
     import SkillScore from "./SkillScore.svelte";
     import { TraitView } from "$lib/views";
@@ -39,7 +39,9 @@
                     {#if trait?.tags?.includes("narrative")}
                         <DetailsCtrl>
                             {#snippet summary()}
-                                    <span class=icon>{sourceIcons[source]}</span>
+                                    <Icon 
+                                        src={sourceIcons[source]}
+                                    />
                                     <span class=trait-label>{trait.name}</span>
                             {/snippet}
 

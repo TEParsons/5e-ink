@@ -8,6 +8,7 @@
     import ActionCtrl from "./ActionCtrl.svelte";
     import { TraitView, SpellView, ActionView, AttackView, ItemView } from "$lib/views";
     import { DetailsCtrl, BoolCtrl } from "$lib/ui/ctrls";
+    import { Icon } from "@svelte/einkui/icon";
 
     let stats = getContext("stats");
 
@@ -145,8 +146,10 @@
                     {#if trait?.tags?.includes("combat")}
                         <DetailsCtrl>
                             {#snippet summary()}
-                                    <span class=icon>{sourceIcons[source]}</span>
-                                    <span class=trait-label>{trait.name}</span>
+                                <Icon 
+                                    src={sourceIcons[source]}
+                                />
+                                <span class=trait-label>{trait.name}</span>
                             {/snippet}
 
                             <TraitView 

@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { NumberCtrl, Button } from "$lib/ui/ctrls";
-    import Icon from "$lib/ui/Icon.svelte";
+    import { Icon } from "@svelte/einkui/icon";
 
     let stats = getContext("stats");
     let prefs = getContext("prefs");
@@ -34,7 +34,7 @@
 
 <div class=currency-ctrl>
     <Button 
-        icon=/assets/ui/sortcoins.svg
+        icon=/assets/ui/sortcoins.svg#root
         onclick={sort}
     />
     {#each order as unit}
@@ -47,7 +47,8 @@
                 edit
             />
             <Icon 
-                file="/assets/coins/{unit}.svg"
+                src="/assets/coins/{unit}.svg#root"
+                alt={unit}
             />
         </div>
     {/each}

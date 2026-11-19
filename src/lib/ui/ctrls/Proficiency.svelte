@@ -1,7 +1,7 @@
 <script>
     import Dialog from "../Dialog.svelte";
     import { getContext, untrack } from "svelte";
-    import Icon from "$lib/ui/Icon.svelte";
+    import { Icon } from "@svelte/einkui/icon";
 
     let prefs = getContext("prefs");
     
@@ -40,7 +40,7 @@
     aria-label={options[value || 0].icon}
 >
     <Icon
-        file="/assets/proficiency/{options[value || 0].icon}.svg"
+        src="/assets/proficiency/{options[value || 0].icon}.svg#root"
     />
 </button>
 
@@ -61,7 +61,7 @@
             onclick={evt => value = option}
         >
             <Icon 
-                file="/assets/proficiency/{options[option].icon}.svg"
+                src="/assets/proficiency/{options[option].icon}.svg"
             />
             {options[option].label}
         </button>

@@ -1,5 +1,6 @@
 <script>
     import { DetailsCtrl } from "$lib/ui/ctrls";
+    import { Icon } from "@svelte/einkui/icon";
     import { getContext } from "svelte";
 
     let {
@@ -38,7 +39,9 @@
 >
     {#snippet summary()}
         <div class=action-summary>
-            <div class=icon>{icon}</div>
+            <Icon 
+                src={icon}
+            />
             <div class=action-label>{action.name}</div>
         </div>
     {/snippet}

@@ -1,5 +1,5 @@
 <script>
-    import Icon from "$lib/ui/Icon.svelte";
+    import { Icon } from "@svelte/einkui/icon";
 
     let {
         value=$bindable(),
@@ -12,7 +12,7 @@
     aria-label="checkbox"
 >
     <Icon 
-        file="/assets/proficiency/{value ? "full" : "none"}.svg"
+        src="/assets/proficiency/{value ? "full" : "none"}.svg#root"
     />
 </button>
 

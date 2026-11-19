@@ -1,5 +1,5 @@
 <script>
-    import Icon from "$lib/ui/Icon.svelte";
+    import { Icon } from "@svelte/einkui/icon";
     
     let {
         label=undefined,
@@ -27,15 +27,11 @@
         }        
     }}
 >
-    {#if icon?.endsWith?.(".svg")}
-        <Icon 
-            file={icon}
-        />
-    {:else if icon}
-        <span class=icon>
-            {icon}
-        </span>
-    {/if}
+    <Icon 
+        src={icon}
+        size=1.5em
+    />
+
     {#if label}
         {#if confirming}
             Confirm?

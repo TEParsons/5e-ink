@@ -1,7 +1,7 @@
 <script>
     import { onMount, onDestroy, getContext } from 'svelte';
     import Tooltip from '../tooltip/Tooltip.svelte';
-    import Icon from "$lib/ui/Icon.svelte";
+    import { Icon } from "@svelte/einkui/icon";
     import { useSwipe } from 'svelte-gestures';
 
     let {
@@ -82,7 +82,7 @@
     >
         {#if icon}
             <Icon 
-                file={icon}
+                src={icon}
             />
         {/if}
         <span 

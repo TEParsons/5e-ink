@@ -1,6 +1,6 @@
 <script>
     import { onMount, setContext } from "svelte";
-
+    import { init } from "@svelte/einkui";
     import AbilitiesPage from "./Abilities/Page.svelte";
     import SpellsPage from "./Spells/Page.svelte";
     import CombatPage from "./Combat/Page.svelte";
@@ -24,6 +24,9 @@
     )
 
     onMount(() => {
+        // init ui
+        init()
+
         // load stats from local data on reload, if possible
         if (localStorage["5eink:characters"]) {
             // get saved data

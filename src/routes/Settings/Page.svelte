@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { SwitchCtrl, ChoiceCtrl, Option } from "$lib/ui/ctrls";
-    import Icon from "$lib/ui/Icon.svelte";
+    import { Icon } from "@svelte/einkui/icon";
     import CharacterCtrl from "./Character.svelte";
     import schema from "$lib/schemas/character.schema.json"
     import { recursiveDefaults } from "$lib/schemas"
@@ -90,8 +90,8 @@
 
 <div class=page>
     <Icon 
-        file="/assets/logo.svg"
-        font-size=15rem
+        src="/assets/logo.svg#root"
+        size=15rem
         color="var(--text-on-base)"
     />
     

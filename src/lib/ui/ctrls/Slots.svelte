@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import Icon from "$lib/ui/Icon.svelte";
+    import { Icon } from "@svelte/einkui/icon";
 
     let prefs = getContext("prefs");
 
@@ -24,7 +24,7 @@
             aria-label="slot"
         >
             <Icon 
-                file="/assets/proficiency/{n < (total - used) ? "full" : "none"}.svg"
+                src="/assets/proficiency/{n < (total - used) ? "full" : "none"}.svg#root"
             />
         </button>
     {/each}
